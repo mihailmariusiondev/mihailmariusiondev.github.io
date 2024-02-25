@@ -12,13 +12,18 @@
       "postalCode": "28017",
       "city": "Madrid",
       "countryCode": "ES",
-      "region": "Madrid"
+      "region": "Spain"
     },
     "profiles": [
       {
         "network": "LinkedIn",
         "username": "mariusdev",
         "url": "https://www.linkedin.com/in/mariusdev/"
+      },
+      {
+        "network": "GitHub",
+        "username": "mihailmariusiondev",
+        "url": "https://github.com/mihailmariusiondev"
       }
     ]
   },
@@ -189,124 +194,147 @@
     {
       "name": "HTML",
       "level": "Master",
-      "keywords": ["Desarrollo Web", "Frontend"]
+      "keywords": ["Semantic Web", "Accessibility", "SEO Friendly Markup"]
     },
     {
       "name": "CSS",
       "level": "Master",
-      "keywords": ["Desarrollo Web", "Frontend", "Diseño Responsive"]
+      "keywords": ["Responsive Design", "Flexbox", "Grid"]
     },
     {
       "name": "JavaScript",
       "level": "Master",
-      "keywords": ["Desarrollo Web", "Frontend", "Backend", "Fullstack"]
-    },
-    {
-      "name": "Tailwind",
-      "level": "Avanzado",
-      "keywords": ["Desarrollo Web", "Frontend", "CSS Framework", "Diseño Responsive"]
+      "keywords": ["ES6+", "Asynchronous Programming", "DOM Manipulation"]
     },
     {
       "name": "TypeScript",
-      "level": "Avanzado",
-      "keywords": ["Desarrollo Web", "Frontend", "Backend", "JavaScript Superset"]
+      "level": "Advanced",
+      "keywords": ["Static Typing", "ES6+", "OOP in JavaScript"]
     },
     {
-      "name": "Node",
-      "level": "Avanzado",
-      "keywords": ["Desarrollo Web", "Backend", "JavaScript", "Servidor"]
+      "name": "Angular",
+      "level": "Advanced",
+      "keywords": ["SPA Development", "Angular CLI", "NgRx", "RxJS"]
     },
     {
-      "name": "MySQL",
-      "level": "Avanzado",
-      "keywords": ["Bases de Datos", "SQL", "Almacenamiento de Datos", "Backend"]
-    },
-    {
-      "name": "Git",
-      "level": "Avanzado",
-      "keywords": ["Control de Versiones", "Colaboración", "Código Fuente"]
-    },
-    {
-      "name": "GitHub",
-      "level": "Avanzado",
-      "keywords": ["Control de Versiones", "Colaboración", "Código Fuente", "Git"]
-    },
-    {
-      "name": "Next.js",
-      "level": "Avanzado",
-      "keywords": ["Desarrollo Web", "Frontend", "React Framework", "SSR", "Static Generation"]
+      "name": "RxJS",
+      "level": "Advanced",
+      "keywords": ["Reactive Programming", "Asynchronous Data Streams", "Observable Patterns"]
     },
     {
       "name": "React",
-      "level": "Avanzado",
-      "keywords": ["Desarrollo Web", "Frontend", "JavaScript Library", "UI"]
+      "level": "Advanced",
+      "keywords": ["Hooks", "Redux Toolkit", "Functional Components"]
+    },
+    {
+      "name": "Astro",
+      "level": "Intermediate",
+      "keywords": ["Static Site Generation", "Performance", "SEO"]
+    },
+    {
+      "name": "Unit Testing",
+      "level": "Advanced",
+      "keywords": ["Karma", "Jasmine", "Test Automation"]
+    },
+    {
+      "name": "Figma",
+      "level": "Advanced",
+      "keywords": ["Design Prototyping", "UI Design", "Collaboration"]
+    },
+    {
+      "name": "Storybook",
+      "level": "Intermediate",
+      "keywords": ["UI Component Development", "Documentation", "Isolation"]
+    },
+    {
+      "name": "CI/CD",
+      "level": "Advanced",
+      "keywords": ["Jenkins", "GitHub Actions", "Automation"]
+    },
+    {
+      "name": "Git",
+      "level": "Master",
+      "keywords": ["Git", "Gitflow", "Code Versioning"]
+    },
+    {
+      "name": "GitHub",
+      "level": "Advanced",
+      "keywords": ["GitHub Actions", "Code Review", "Collaboration"]
+    },
+    {
+      "name": "MySQL",
+      "level": "Advanced",
+      "keywords": ["Database Management", "SQL", "Data Modeling"]
+    },
+    {
+      "name": "Python",
+      "level": "Intermediate",
+      "keywords": []
+    },
+    {
+      "name": "Agile Methodologies",
+      "level": "Advanced",
+      "keywords": ["Scrum", "Kanban", "JIRA"]
+    },
+    {
+      "name": "Visual Studio Code",
+      "level": "Advanced",
+      "keywords": ["Integrated Development Environment", "Extensions", "Debugging"]
+    },
+    {
+      "name": "Angular Material",
+      "level": "Advanced",
+      "keywords": ["Material Design", "UI Components", "Theming"]
     }
   ],
   "languages": [
     {
-      "language": "Spanish",
-      "fluency": "Native speaker"
+      "fluency": "Native Speaker",
+      "language": "Español"
     },
     {
-      "language": "English",
-      "fluency": "Advanced"
-    }
-  ],
-  "interests": [
+      "fluency": "Full Professional",
+      "language": "Inglés"
+    },
     {
-      "name": "Wildlife",
-      "keywords": ["Ferrets", "Unicorns"]
+      "fluency": "Native Speaker",
+      "language": "Rumano"
     }
   ],
-  "references": [
-    {
-      "name": "Jane Doe",
-      "reference": "Reference…"
-    }
-  ],
+  "interests": [],
+  "references": [],
   "projects": [
     {
-      "name": "mars.codes",
+      "name": "concise-comrade-bot",
       "isActive": true,
-      "description": "Historia interactiva con retos de programación para viajar a Marte",
-      "highlights": ["Elige tu propia aventura", "En desarrollo"],
-      "url": "https://mars.codes"
+      "description": "The concise-comrade-bot is a Telegram bot designed to provide concise and accurate summaries for various types of content. It leverages advanced algorithms to summarize YouTube videos and chat conversations efficiently, with a scalable architecture ready for future expansion into other summarization domains.",
+      "highlights": [
+        "Chat Conversation Summarization",
+        "YouTube Video Summarization",
+        "Language Detection",
+        "Content Translation",
+        "Customizable Summaries",
+        "Extensible Architecture",
+        "Robust Error Handling"
+      ],
+      "url": "https://github.com/mihailmariusiondev/concise-comrate-bot",
+      "github": "https://github.com/mihailmariusiondev/concise-comrate-bot"
     },
     {
-      "name": "AdventJS",
+      "name": "angular-stock-tracker",
       "isActive": true,
-      "description": "Retos de programación en JavaScript para cada día de diciembre hasta Navidad",
-      "highlights": ["+1 millón de visitas", "Multidioma", "JavaScript & TypeScript"],
-      "url": "https://adventjs.dev"
-    },
-    {
-      "name": "Codember",
-      "isActive": true,
-      "description": "Juego interactivo de programación con retos y secretos",
-      "highlights": ["+2000 usuarios activos", "Retos para cualquier lenguaje"],
-      "url": "https://codember.dev"
-    },
-    {
-      "name": "codi.link",
-      "isActive": true,
-      "description": "Playground de código HTML, CSS y JavaScript para compartir",
-      "highlights": ["100k visitas al mes", "Desarrollado por la comunidad"],
-      "url": "https://codi.link",
-      "github": "https://github.com/midudev/codi.link"
-    },
-    {
-      "name": "Pruebas Técnicas",
-      "isActive": true,
-      "description": "Lista de pruebas técnicas de empresas para practicar programación",
-      "highlights": ["100% gratuito", "+500 soluciones de la comunidad"],
-      "url": "https://pruebastecnicas.com",
-      "github": "https://github.com/midudev/pruebas-tecnicas"
-    },
-    {
-      "name": "miduConf",
-      "description": "Conferencia de programación en streaming para la comunidad hispanohablante con charlas top",
-      "highlights": ["+15k tickets repartidos", "+50k espectadores en directo"],
-      "url": "https://miduconf.com"
+      "description": "An interactive stock tracking web application that allows users to monitor real-time stock performance for companies listed on the stock market. Built with Angular, it provides a user-friendly interface to search for stock symbols and view essential stock details.",
+      "highlights": [
+        "Real-Time Stock Information",
+        "Search Functionality",
+        "Multiple Stock Tracking",
+        "Dynamic Stock Cards",
+        "Error Handling",
+        "Interactive UI Components",
+        "Sentiment Analysis"
+      ],
+      "url": "https://mihailmariusiondev.github.io/angular-stock-tracker/",
+      "github": "https://github.com/mihailmariusiondev/angular-stock-tracker"
     }
   ]
 }
