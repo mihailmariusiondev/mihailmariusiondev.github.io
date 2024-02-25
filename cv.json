@@ -335,6 +335,14 @@
       ],
       "url": "https://mihailmariusiondev.github.io/angular-stock-tracker/",
       "github": "https://github.com/mihailmariusiondev/angular-stock-tracker"
+    },
+    {
+      "name": "mihailmariusiondev.github.io",
+      "isActive": true,
+      "description": "Este proyecto es un CV minimalista diseñado para web y pdf. Utiliza el esquema de CV de jsonresume.org y está basado en el diseño de Bartosz Jarocki. Es un fork de la plantilla 'minimalist-portfolio-json' de midudev. El proyecto está construido con el framework Astro, Typescript y la biblioteca Ninja Keys para atajos de teclado.",
+      "highlights": ["Astro", "Typescript", "Ninja Keys"],
+      "url": "https://github.com/yourusername/yourprojectname",
+      "github": "https://github.com/yourusername/yourprojectname"
     }
   ]
 }
