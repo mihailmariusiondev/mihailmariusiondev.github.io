@@ -1,16 +1,16 @@
 {
   "basics": {
     "name": "Marius Mihail Ion",
-    "label": "Front-end engineer",
+    "label": "Senior Front-End Engineer",
     "image": "/me.webp",
     "email": "mihailmariusion@gmail.com",
     "phone": "662439252",
     "url": "https://mihailmariusiondev.github.io/tecdata-superheros/",
-    "summary": "Senior front-end developer with 5 years of experience in the sector specializing in Angular and a passion for structure, order, and quality. With demonstrated skills to take on responsibilities, make sound decisions, and ensure customer satisfaction. Versatile and capable of working effectively both in teams and independently.",
+    "summary": "Senior Front-End Engineer with 5+ years of experience specializing in Angular and modern web technologies. Proven track record of technical leadership, delivering high-quality solutions, and optimizing development workflows. Experienced in monorepo architecture (NX) for scalable enterprise applications, with exposure to micro frontend concepts. Proficient in translating designs from tools like Figma into functional, maintainable code. Passionate about clean code, performance optimization, unit testing (Jest, Karma), and creating maintainable applications. Skilled in mentoring junior developers and collaborating with cross-functional teams to deliver exceptional user experiences. Proficient in leveraging AI tools to enhance productivity and code quality.",
     "location": {
       "address": "",
-      "postalCode": "28017",
-      "city": "Madrid",
+      "postalCode": "50005",
+      "city": "Zaragoza",
       "countryCode": "ES",
       "region": "Spain"
     },
@@ -29,71 +29,81 @@
   },
   "work": [
     {
-      "name": "Vermont Solutions",
-      "position": "Senior front-end developer (Angular)",
-      "startDate": "2022-12-31",
+      "name": "Avanade",
+      "position": "Senior Front-End Analyst (Angular)",
+      "startDate": "2024-03-01",
       "endDate": null,
       "highlights": [],
-      "summary": "My experience at Vermont Solutions stands out for execution and leadership in key projects, Angular skills, and a focus on code quality and security. I have developed competencies in teamwork, effective communication, and creative problem-solving, ensuring high-quality and timely deliveries.\n\nProjects:\n\n- Project 1:\n  - Description: Front-end development of a charting tool with ChartsJS.\n  - Role: Lead Developer.\n  - Achievements: Successful implementation, meeting requirements and deadlines.\n\n- Project 2:\n  - Description: Leadership of a team of 5 developers in creating a mobile banking application for employee transaction and card management.\n  - Role: Technical Lead.\n  - Achievements: Timely deliveries, scalable and maintainable code.\n\n- Project 3:\n  - Description: Provided technical leadership to a team of 4 in the development of an internal real estate portal for Santander bank.\n  - Role: Technical Lead.\n  - Achievements: Successful delivery, improvement in team management and communication.\n\nTechnical Skills:\n- Angular: Expert, including Angular 16 features.\n- Testing: Unit testing with Karma + Jasmine.\n- Code quality: Use of Sonar, ESLint, Fortify.\n- Design: Implementation with Figma.\n- CI/CD: Jenkins for deployments.\n- Project management: Jira and Confluence.\n- Interface components: Storybook.\n- APIs: Implementation based on Swagger.\n- Libraries: Nexus Repository (management of dependencies and NPM packages of Santander's internal libraries).\n- Data visualization: ChartsJS.\n- Mobile development: HammerJS for gestures.\n- Design and accessibility: Flame (Santander's design system aimed at creating consistent and globally accessible digital products).\n- Security and optimization: NgDarwin (Angular's internal library facilitating security, error logging, and configuration in Angular projects, optimizing web application development).",
+      "summary": "Design and implement scalable front-end solutions using Angular and modern web technologies.\nCollaborate with cross-functional teams to deliver applications that meet client requirements.\nLead technical initiatives, establish coding standards, and mentor junior developers.\nFocus on code quality, performance optimization, and security best practices.\nApplied monorepo architecture principles using NX for improved code sharing and maintainability.\nExposure to micro frontend architecture in enterprise applications.\n\nKey Project: UNIR ‘Mateo' - Technical Lead for Backoffice Front-End\n- Led the front-end development of the Backoffice application, serving as the primary technical reference point.\n- Defined the front-end architecture, establishing code structure and organization using scalable design patterns.\n- Implemented essential components including user authentication flows and critical UI elements.\n- Introduced unit testing practices, significantly increasing code coverage and application reliability.\n- Optimized development workflow by implementing a new Git branching strategy and enforcing code standards.\n- Volunteered as the primary code reviewer, ensuring quality and consistency across the codebase.\n- Created dedicated communication channels to improve team collaboration and cross-team coordination.\n- Collaborated with client's technical teams, back-end developers, and QA to ensure seamless integration.\n- Resolved critical bugs in both Backoffice and Forms applications during the maintenance phase.\n- Received positive feedback from the client's lead front-end architect for code quality and problem-solving.",
+      "url": "https://www.avanade.com/",
+      "location": "Madrid, Spain"
+    },
+    {
+      "name": "Vermont Solutions",
+      "position": "Senior front-end developer (Angular)",
+      "startDate": "2023-01-01",
+      "endDate": "2024-03-01",
+      "highlights": [],
+      "summary": "Led multiple Angular projects, providing technical leadership and mentoring to development teams.\nImplemented complex UI components and data visualization solutions using ChartsJS.\nEnsured code quality through comprehensive unit testing and static code analysis.\nCollaborated with UX/UI designers to implement designs from Figma into functional components.\nIntegrated with REST APIs and implemented security best practices.\n\nKey Projects:\n- Banking Transaction Tool: Led development of a charting tool with ChartsJS.\n- Mobile Banking Application: Technical lead for a team of 5 developers creating an employee transaction and card management application.\n- Real Estate Portal: Provided technical leadership for an internal Santander bank portal, improving team management and communication.\n\nTechnologies: Angular 16, TypeScript, RxJS, Karma/Jasmine, SonarQube, ESLint, Fortify, Figma, Jenkins, Jira, Confluence, Storybook, Swagger, ChartsJS, HammerJS, NgDarwin.",
       "url": "https://www.linkedin.com/company/vermont-solutions/",
       "location": "Madrid"
     },
     {
       "name": "CloudAPPi",
-      "position": "Middle front end developer (Angular, React)",
-      "startDate": "2022-10-31",
+      "position": "Mid-Level Front-End Developer (Angular, React)",
+      "startDate": "2022-11-01",
       "endDate": "2022-12-31",
       "highlights": [],
-      "summary": "\nAt CloudAppi, I was able to quickly gain experience in various projects and tackle developments of different complexities with React and AngularJS. I quickly acquired lost knowledge of React in record time due to reasons beyond my control, as they had to delay my entry into an Angular project. I ensured productive code creation in all developments and was a skilled communicator in the team from the beginning.\n\nTechnologies used:\n- ReactJS (17)\n- Redux Toolkit\n- React Hooks\n- Material UI\n- Bootstrap\n- Angular (8)\n- Angular Material\n- RxJS\n- Angular Flex Layout (CSS Flexbox)",
+      "summary": "Rapidly adapted to multiple projects with varying complexities using React and AngularJS.\nQuickly regained proficiency in React to meet project requirements.\nEnsured productive code creation and effective team communication.\n\nTechnologies: React 17, Redux Toolkit, React Hooks, Material UI, Bootstrap, Angular 8, Angular Material, RxJS, Angular Flex Layout.",
       "url": "https://www.linkedin.com/company/cloudappi/",
-      "location": "Getafe, Comunidad de Madrid, España"
+      "location": "Madrid, Spain"
     },
     {
       "name": "ENZO",
-      "position": "Middle front end developer (Angular)",
-      "startDate": "2021-06-30",
+      "position": "Mid-Level Front-End Developer (Angular)",
+      "startDate": "2021-07-01",
       "endDate": "2022-10-31",
       "highlights": [],
-      "summary": "\nAction takes center stage at Enzo for a new project and a client with international activities (agricultural sector), this time facing countless challenges of varying complexities.\n\nKey Responsibilities:\n- Creation and design of components (ngClass, ngStyle, etc.).\n- Creation of reusable modules and components (dumb / smart components).\n- Definition of interfaces / models using Typescript.\n- Implementation of pipes and custom directives.\n- Implementation of services.\n- Consumption of REST APIs.\n- Creation of navigation paths.\n- Creation of forms (reactive).\n- Implementation of lifecycles (ngOnInit, ngOnChange, etc.).\n- Implementation of Angular Material styling layer and its component CDK.\n- Creation of responsive designs adapted to other devices using Angular Flex Layout (CSS Flexbox).\n- Bug fixes and enhancements in the web application.\n- Meetings with the client (in English).\n- Contribution to project documentation.\n- Training of new team members.\n- Contribution to better project organization.\n\nTechnical Skills:\n\n- RxJS\n- TypeScript + HTML5 + CSS3 + SCSS\n- ngX-Rocket (enterprise-level project initializer for Angular 13+)\n- Angular (13+)\n- Angular Material\n- Angular Flex Layout\n- lodash",
+      "summary": "Developed components, reusable modules, and services for an international agricultural sector client.\nImplemented responsive designs using Angular Flex Layout and Angular Material.\nCreated and maintained REST API integrations and reactive forms.\nParticipated in client meetings (in English) and contributed to project documentation.\nTrained new team members and improved project organization.\n\nTechnologies: Angular 13+, TypeScript, RxJS, Angular Material, Angular Flex Layout, ngx-Rocket, HTML5, CSS3, SCSS, Lodash.",
       "url": "https://www.linkedin.com/company/enzosoftware/",
-      "location": "Madrid, Community of Madrid, Spain"
+      "location": "Madrid, Spain"
     },
     {
-      "position": "Freelance web developer (Wordpress)",
-      "startDate": "2020-06-30",
+      "position": "Freelance Web Developer (Wordpress)",
+      "startDate": "2020-07-01",
       "endDate": "2021-06-30",
       "highlights": [],
-      "summary": "\nCoinciding with the fact that it was something I had been wanting to do, in addition to the global circumstances of the pandemic, I was presented with the opportunity to strike out on my own, developing and designing on WordPress. During this time, I acquired (and/or improved) skills such as self-management, project management, planning/decision-making, leadership, SEO, digital marketing, security, resource optimization, and some graphic design using professional tools such as Adobe Photoshop or Canva.",
+      "summary": "Designed and developed WordPress websites for various clients.\nImproved skills in self-management, project planning, and decision-making.\nGained experience in SEO, digital marketing, security, and resource optimization.\nUtilized graphic design tools including Adobe Photoshop and Canva.",
       "url": "",
-      "location": "Slobozia, Ialomita, Rumania"
+      "location": "Remote"
     },
     {
       "name": "Altran",
-      "position": "Middle Full Stack Developer (.NET)",
-      "startDate": "2019-12-31",
+      "position": "Mid-Level Full Stack Developer (.NET)",
+      "startDate": "2020-01-01",
       "endDate": "2020-04-30",
       "highlights": [],
-      "summary": "\nAt Altran they allowed me to give much more free rein to my creativity, and, in constant contact with the client, I was able to participate in a project that was in continuous development, all this through the use of agile methodologies (Scrum), Gitflow workflow, and using a more modern technology stack, such as .NET Core (C#) for back-end. Also, and with no previous knowledge, I learned to handle in less than two months quite fluently developments of varying complexities with ReactJS (textile sector).",
+      "summary": "",
       "url": "https://www.linkedin.com/company/altran/",
       "location": "Madrid, Comunidad de Madrid, España"
     },
     {
       "name": "IO Digital",
-      "position": "Middle Full Stack Developer (.NET)",
-      "startDate": "2018-11-30",
+      "position": "Mid-Level Full Stack Developer (.NET)",
+      "startDate": "2018-12-01",
       "endDate": "2019-10-31",
       "highlights": [],
-      "summary": "\nAmong my responsibilities at IODigital I could highlight the creation and maintenance of web and desktop applications, mainly using the .NET technology stack (ASP, MVC, C#) from Microsoft (without leaving aside web technologies such as HTML, JavaScript, CSS, jQuery, Bootstrap, AJAX Toolkit from DevExpress, etc). In addition, I was involved in the creation and enhancement of multiple scheduled tasks (console jobs), stored procedures, REST APIs, and reporting (multiple sectors).",
+      "summary": "",
       "url": "https://www.linkedin.com/company/iodigital-es/",
       "location": "Madrid, Comunidad de Madrid, España"
     },
     {
       "name": "STRATESYS",
       "position": "Junior Full Stack Developer (.NET)",
-      "startDate": "2018-06-30",
+      "startDate": "2018-07-01",
       "endDate": "2018-11-30",
       "highlights": [],
-      "summary": "Here I worked on a Single Page Application (SPA) web application in a maintenance line. My day-to-day work consisted of making corrective and evolutionary changes, providing user support, and managing and monitoring incidents/requests. For the back-end, we utilized a technology stack based on the .NET framework (ASP. MVC, C#), while the front-end technologies included HTML, JavaScript, CSS, jQuery, Kendo UI (Telerik), AJAX, and Bootstrap, among others. Regarding databases, we used Microsoft's SQL Server (in the petrochemical sector).",
+      "summary": "",
       "url": "https://www.linkedin.com/company/stratesys/",
       "location": "Madrid, Comunidad de Madrid, España"
     }
@@ -115,7 +125,7 @@
       "url": "https://joyfe.iepgroup.es/",
       "area": "Student of Higher Technician in Multi-platform Applications Development",
       "studyType": "Higher Technician in Multi-platform Applications Development",
-      "startDate": "2016-12-31",
+      "startDate": "2017-01-01",
       "endDate": "2018-12-31",
       "score": "",
       "courses": []
@@ -125,7 +135,7 @@
       "url": "https://www.sangabriel.es/",
       "area": "Student of Technician in Microcomputer Systems and Networks",
       "studyType": "Technician in Microcomputer Systems and Networks",
-      "startDate": "2014-12-31",
+      "startDate": "2015-01-01",
       "endDate": "2016-12-31",
       "score": "",
       "courses": []
@@ -134,13 +144,6 @@
   "awards": [],
   "certificates": [
     {
-      "name": "Angular (Basic) Certificate",
-      "issuer": "HackerRank",
-      "endDate": "2034-01-31",
-      "startDate": "2024-01-31",
-      "url": "https://www.hackerrank.com/certificates/6d5ed4bee302"
-    },
-    {
       "name": "Angular (Intermediate) Certificate",
       "issuer": "HackerRank",
       "endDate": "2034-01-31",
@@ -148,11 +151,11 @@
       "url": "https://www.hackerrank.com/certificates/958d428d95f0"
     },
     {
-      "name": "JavaScript (Basic) Certificate",
+      "name": "Angular (Basic) Certificate",
       "issuer": "HackerRank",
       "endDate": "2034-01-31",
       "startDate": "2024-01-31",
-      "url": "https://www.hackerrank.com/certificates/1c3f07549dbf"
+      "url": "https://www.hackerrank.com/certificates/6d5ed4bee302"
     },
     {
       "name": "JavaScript (Intermediate) Certificate",
@@ -160,6 +163,13 @@
       "endDate": "2034-01-31",
       "startDate": "2024-01-31",
       "url": "https://www.hackerrank.com/certificates/677c70b204a9"
+    },
+    {
+      "name": "JavaScript (Basic) Certificate",
+      "issuer": "HackerRank",
+      "endDate": "2034-01-31",
+      "startDate": "2024-01-31",
+      "url": "https://www.hackerrank.com/certificates/1c3f07549dbf"
     },
     {
       "name": "Super Ninja",
@@ -192,14 +202,14 @@
   ],
   "skills": [
     {
-      "name": "HTML",
+      "name": "Angular",
       "level": "Master",
-      "keywords": ["Semantic Web", "Accessibility", "SEO Friendly Markup"]
+      "keywords": ["SPA Development", "Angular CLI", "NgRx", "RxJS", "NX", "Module Federation", "Micro frontends"]
     },
     {
-      "name": "CSS",
+      "name": "TypeScript",
       "level": "Master",
-      "keywords": ["Responsive Design", "Flexbox", "Grid"]
+      "keywords": ["Static Typing", "ES6+", "OOP in JavaScript"]
     },
     {
       "name": "JavaScript",
@@ -207,19 +217,14 @@
       "keywords": ["ES6+", "Asynchronous Programming", "DOM Manipulation"]
     },
     {
-      "name": "TypeScript",
-      "level": "Advanced",
-      "keywords": ["Static Typing", "ES6+", "OOP in JavaScript"]
+      "name": "HTML",
+      "level": "Master",
+      "keywords": ["Semantic Web", "Accessibility", "SEO Friendly Markup"]
     },
     {
-      "name": "Angular",
-      "level": "Advanced",
-      "keywords": ["SPA Development", "Angular CLI", "NgRx", "RxJS"]
-    },
-    {
-      "name": "RxJS",
-      "level": "Advanced",
-      "keywords": ["Reactive Programming", "Asynchronous Data Streams", "Observable Patterns"]
+      "name": "CSS",
+      "level": "Master",
+      "keywords": ["Responsive Design", "Flexbox", "Grid", "SCSS/SASS"]
     },
     {
       "name": "React",
@@ -227,24 +232,14 @@
       "keywords": ["Hooks", "Redux Toolkit", "Functional Components"]
     },
     {
-      "name": "Astro",
-      "level": "Intermediate",
-      "keywords": ["Static Site Generation", "Performance", "SEO"]
+      "name": "RxJS",
+      "level": "Advanced",
+      "keywords": ["Reactive Programming", "Asynchronous Data Streams", "Observable Patterns"]
     },
     {
       "name": "Unit Testing",
       "level": "Advanced",
-      "keywords": ["Karma", "Jasmine", "Test Automation"]
-    },
-    {
-      "name": "Figma",
-      "level": "Advanced",
-      "keywords": ["Design Prototyping", "UI Design", "Collaboration"]
-    },
-    {
-      "name": "Storybook",
-      "level": "Intermediate",
-      "keywords": ["UI Component Development", "Documentation", "Isolation"]
+      "keywords": ["Karma", "Jasmine", "Jest", "Test Automation"]
     },
     {
       "name": "CI/CD",
@@ -257,24 +252,19 @@
       "keywords": ["Git", "Gitflow", "Code Versioning"]
     },
     {
-      "name": "GitHub",
-      "level": "Advanced",
-      "keywords": ["GitHub Actions", "Code Review", "Collaboration"]
-    },
-    {
-      "name": "MySQL",
-      "level": "Advanced",
-      "keywords": ["Database Management", "SQL", "Data Modeling"]
-    },
-    {
-      "name": "Python",
-      "level": "Intermediate",
-      "keywords": []
-    },
-    {
       "name": "Agile Methodologies",
       "level": "Advanced",
-      "keywords": ["Scrum", "Kanban", "JIRA"]
+      "keywords": ["Scrum", "Kanban", "JIRA", "Confluence"]
+    },
+    {
+      "name": "Figma",
+      "level": "Advanced",
+      "keywords": ["Design Prototyping", "UI Design", "Collaboration"]
+    },
+    {
+      "name": "Storybook",
+      "level": "Intermediate",
+      "keywords": ["UI Component Development", "Documentation", "Isolation"]
     },
     {
       "name": "Visual Studio Code",
@@ -285,6 +275,51 @@
       "name": "Angular Material",
       "level": "Advanced",
       "keywords": ["Material Design", "UI Components", "Theming"]
+    },
+    {
+      "name": "Material UI",
+      "level": "Intermediate",
+      "keywords": []
+    },
+    {
+      "name": "Bootstrap",
+      "level": "Intermediate",
+      "keywords": []
+    },
+    {
+      "name": "REST API integration",
+      "level": "Advanced",
+      "keywords": ["Swagger"]
+    },
+    {
+      "name": "Nexus Repository",
+      "level": "Intermediate",
+      "keywords": ["npm", "yarn"]
+    },
+    {
+      "name": "SonarQube",
+      "level": "Advanced",
+      "keywords": ["ESLint", "Prettier", "Fortify", "Code quality metrics"]
+    },
+    {
+      "name": "AI Tools",
+      "level": "Intermediate",
+      "keywords": ["ChatGPT", "Cursor IDE", "GitHub Copilot", "Microsoft 365 Copilot", "AI Studio", "Claude"]
+    },
+    {
+      "name": "Flame Design System",
+      "level": "Intermediate",
+      "keywords": []
+    },
+    {
+      "name": "MySQL",
+      "level": "Advanced",
+      "keywords": ["Database Management", "SQL", "Data Modeling"]
+    },
+    {
+      "name": "Python",
+      "level": "Intermediate",
+      "keywords": []
     }
   ],
   "languages": [
@@ -302,7 +337,23 @@
     }
   ],
   "interests": [],
-  "references": [],
+  "references": [
+    {
+      "reference": "\"Marius was a great professional to work with. We worked together at Enzo, and his work ethic is impeccable and he is very easy to work with. He goes above and beyond when you ask for help and guidance.\" - Gonzalo Rodríguez Muñoz"
+    },
+    {
+      "reference": "\"Marius has demonstrated consistently a deep technical knowledge in frontend development with the Angular framework, developing efficient code, updated to the latest practices of the community and always avoiding technical debt. It is clear that he thinks long-term when making decisions, as he quickly discards ‘patch' solutions that may work today but be problematic tomorrow.” - José Luis Murcia Gámez, UNIR Project"
+    },
+    {
+      "reference": "“Marius worked efficiently, building the product for the client and improving the quality of everything related to the frontend, generating unit tests, refactoring inherited code and even informing the provider's frontend architecture team about problems or improvements to implement in their libraries.” - Guillermo Leiva Ocaña, UNIR Project"
+    },
+    {
+      "reference": "\"Marius has participated in the UNIR/BackOffice project since his arrival at Avanade, contributing knowledge and experience in Frontend development with Angular, from the point of view of implementing functionality from scratch, design, coding, unit testing and reviewing the quality of his own and existing code base. I would definitely be happy to be able to count on him again in future projects with Angular development needs to ensure a quality delivery.” - Bernabé Giral Soto, UNIR Project"
+    },
+    {
+      "reference": "\"Great partner, he has done a great job in his last project demonstrating that he can design and build business applications successfully.\" - Antonio Bermúdez Rodríguez, UNIR Project"
+    }
+  ],
   "projects": [
     {
       "name": "concise-comrade-bot",
