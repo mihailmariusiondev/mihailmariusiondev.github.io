@@ -7,24 +7,20 @@ import CSS from "@/icons/css.astro";
 import JavaScript from "@/icons/javascript.astro";
 import TypeScript from "@/icons/type.astro";
 import React from "@/icons/react.astro";
-import Node from "@/icons/node.astro";
-import MySQL from "@/icons/sql.astro";
 import Git from "@/icons/git.astro";
-import GitHub from "@/icons/GitHub.astro";
-import Tailwind from "@/icons/tailwind.astro";
-import Next from "@/icons/next.astro";
+import CICD from "@/icons/CICD.astro";
 import Angular from "@/icons/Angular.astro";
 import Agile from "@/icons/Agile.astro";
-import CICD from "@/icons/CICD.astro";
-import UnitTesting from "@/icons/UnitTesting.astro";
-import ReactiveProgramming from "@/icons/ReactiveProgramming.astro";
-import Postman from "@/icons/Postman.astro";
-import VisualStudioCode from "@/icons/VisualStudioCode.astro";
-import AngularMaterial from "@/icons/AngularMaterial.astro";
 import Figma from "@/icons/Figma.astro";
 import Storybook from "@/icons/Storybook.astro";
-import AstroJS from "@/icons/AstroJS.astro";
-import Python from "@/icons/Python.astro";
+import GitHub from "@/icons/GitHub.astro";
+import RxJS from "@/icons/RxJS.astro";
+import PrimeNG from "@/icons/primeng.astro";
+import NX from "@/icons/nx.astro";
+import UnitTesting from "@/icons/unit-testing.astro";
+import VisualStudioCode from "@/icons/visual-studio-code.astro";
+import AngularMaterial from "@/icons/angular-material.astro";
+import WorldMap from "@/icons/world-map.astro";
 
 const SKILLS_ICONS: Record<string, any> = {
   HTML,
@@ -32,35 +28,30 @@ const SKILLS_ICONS: Record<string, any> = {
   JavaScript,
   TypeScript,
   React,
-  Node,
-  MySQL,
-  Git,
-  GitHub,
-  Next,
-  Tailwind,
+  "NX (monorepo)": NX,
+  "Git (gitflow)": Git,
+  PrimeNG: PrimeNG,
   Angular,
   "Agile Methodologies": Agile,
   "CI/CD": CICD,
   "Unit Testing": UnitTesting,
-  RxJS: ReactiveProgramming,
-  Postman,
+  RxJS: RxJS,
   "Visual Studio Code": VisualStudioCode,
   "Angular Material": AngularMaterial,
   Figma,
   Storybook,
-  Astro: AstroJS,
-  Python,
+  GitHub,
+  "REST API Integration": WorldMap,
 };
 ---
 
 <Section title="Skills">
   <ul>
     {
-      skills.map(({ name, category }) => {
+      skills.map(({ name }) => {
         const iconName = name === "Next.js" ? "Next" : name;
         const Icon = SKILLS_ICONS[iconName];
 
-        console.log(iconName);
         return (
           <li>
             {Icon && <Icon />}
@@ -71,9 +62,10 @@ const SKILLS_ICONS: Record<string, any> = {
     }
   </ul>
 </Section>
+
 <style>
   ul {
-    display: inline-flex;
+    display: flex;
     gap: 8px;
     flex-wrap: wrap;
   }
