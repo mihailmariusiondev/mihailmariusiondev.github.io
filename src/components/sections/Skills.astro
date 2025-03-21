@@ -56,14 +56,15 @@ const SKILLS_ICONS: Record<string, any> = {
 <Section title="Skills">
   <ul>
     {
-      skills.map(({ name }) => {
+      skills.map(({ name, category }) => {
         const iconName = name === "Next.js" ? "Next" : name;
         const Icon = SKILLS_ICONS[iconName];
 
         console.log(iconName);
         return (
           <li>
-            {Icon && <Icon />} <span>{name}</span>
+            {Icon && <Icon />}
+            <span>{name}</span>
           </li>
         );
       })
