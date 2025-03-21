@@ -5,7 +5,7 @@
     "image": "/me.webp",
     "email": "mihailmariusion@gmail.com",
     "phone": "662439252",
-    "url": "https://mihailmariusiondev.github.io/tecdata-superheros/",
+    "url": "https://mihailmariusiondev.github.io/",
     "summary": "Senior Front-End Engineer with 5+ years of experience specializing in Angular and modern web technologies. Proven track record of technical leadership, delivering high-quality solutions, and optimizing development workflows. Experienced in monorepo architecture (NX) for scalable enterprise applications, with exposure to micro frontend concepts. Proficient in translating designs from tools like Figma into functional, maintainable code. Passionate about clean code, performance optimization, unit testing (Jest, Karma), and creating maintainable applications. Skilled in mentoring junior developers and collaborating with cross-functional teams to deliver exceptional user experiences. Proficient in leveraging AI tools to enhance productivity and code quality.",
     "location": {
       "address": "",
@@ -339,19 +339,19 @@
   "interests": [],
   "references": [
     {
-      "reference": "\"Marius was a great professional to work with. We worked together at Enzo, and his work ethic is impeccable and he is very easy to work with. He goes above and beyond when you ask for help and guidance.\" - Gonzalo Rodríguez Muñoz"
+      "reference": "“Marius was a great professional to work with. We worked together at Enzo, and his work ethic is impeccable and he is very easy to work with. He goes above and beyond when you ask for help and guidance.” - Gonzalo Rodríguez Muñoz, Enzo"
     },
     {
-      "reference": "\"Marius has demonstrated consistently a deep technical knowledge in frontend development with the Angular framework, developing efficient code, updated to the latest practices of the community and always avoiding technical debt. It is clear that he thinks long-term when making decisions, as he quickly discards ‘patch' solutions that may work today but be problematic tomorrow.” - José Luis Murcia Gámez, UNIR Project"
+      "reference": "“Marius has demonstrated consistently a deep technical knowledge in frontend development with the Angular framework, developing efficient code, updated to the latest practices of the community and always avoiding technical debt. It is clear that he thinks long-term when making decisions, as he quickly discards 'patch' solutions that may work today but be problematic tomorrow.” - José Luis Murcia Gámez, UNIR Project."
     },
     {
       "reference": "“Marius worked efficiently, building the product for the client and improving the quality of everything related to the frontend, generating unit tests, refactoring inherited code and even informing the provider's frontend architecture team about problems or improvements to implement in their libraries.” - Guillermo Leiva Ocaña, UNIR Project"
     },
     {
-      "reference": "\"Marius has participated in the UNIR/BackOffice project since his arrival at Avanade, contributing knowledge and experience in Frontend development with Angular, from the point of view of implementing functionality from scratch, design, coding, unit testing and reviewing the quality of his own and existing code base. I would definitely be happy to be able to count on him again in future projects with Angular development needs to ensure a quality delivery.” - Bernabé Giral Soto, UNIR Project"
+      "reference": "“Marius has participated in the UNIR/BackOffice project since his arrival at Avanade, contributing knowledge and experience in Frontend development with Angular, from the point of view of implementing functionality from scratch, design, coding, unit testing and reviewing the quality of his own and existing code base. I would definitely be happy to be able to count on him again in future projects with Angular development needs to ensure a quality delivery.” - Bernabé Giral Soto, UNIR Project"
     },
     {
-      "reference": "\"Great partner, he has done a great job in his last project demonstrating that he can design and build business applications successfully.\" - Antonio Bermúdez Rodríguez, UNIR Project"
+      "reference": "“Great partner, he has done a great job in his last project demonstrating that he can design and build business applications successfully.” - Antonio Bermúdez Rodríguez, UNIR Project"
     }
   ],
   "projects": [
@@ -390,10 +390,10 @@
     {
       "name": "mihailmariusiondev.github.io",
       "isActive": true,
-      "description": "Este proyecto es un CV minimalista diseñado para web y pdf. Utiliza el esquema de CV de jsonresume.org y está basado en el diseño de Bartosz Jarocki. Es un fork de la plantilla 'minimalist-portfolio-json' de midudev. El proyecto está construido con el framework Astro, Typescript y la biblioteca Ninja Keys para atajos de teclado.",
+      "description": "This project is a minimalist CV designed for web and pdf. It uses the CV scheme from jsonresume.org and is based on the design of Bartosz Jarocki. It is a fork of the 'minimalist-portfolio-json' template by midudev. The project is built with the Astro framework, Typescript, and the Ninja Keys library for keyboard shortcuts.",
       "highlights": ["Astro", "Typescript", "Ninja Keys"],
-      "url": "https://github.com/yourusername/yourprojectname",
-      "github": "https://github.com/yourusername/yourprojectname"
+      "url": "https://mihailmariusiondev.github.io/",
+      "github": "https://github.com/mihailmariusiondev/mihailmariusiondev.github.io"
     }
   ]
 }
