@@ -1,12 +1,12 @@
 {
   "basics": {
     "name": "Marius Mihail Ion",
-    "label": "Senior Front-End Engineer",
+    "label": "Senior Front-End Developer",
     "image": "/me.webp",
     "email": "mihailmariusion@gmail.com",
-    "phone": "662439252",
+    "phone": "+34 662 439 252",
     "url": "https://mihailmariusiondev.github.io/",
-    "summary": "Senior Front-End Engineer with 5+ years of experience specializing in Angular and modern web technologies. Proven track record of technical leadership, delivering high-quality solutions, and optimizing development workflows. Experienced in monorepo architecture (NX) for scalable enterprise applications, with exposure to micro frontend concepts. Proficient in translating designs from tools like Figma into functional, maintainable code. Passionate about clean code, performance optimization, unit testing (Jest, Karma), and creating maintainable applications. Skilled in mentoring junior developers and collaborating with cross-functional teams to deliver exceptional user experiences. Proficient in leveraging AI tools to enhance productivity and code quality.",
+    "summary": "Senior Front-End Developer with 7+ years of experience specializing in Angular and modern web technologies. Proven track record of technical leadership, delivering high-quality solutions, and optimizing development workflows. Experienced in monorepo architecture (NX) for scalable enterprise applications. Proficient in translating designs from tools like Figma into functional, maintainable code. Passionate about clean code, performance optimization, unit testing (Jest, Karma), and creating maintainable applications. Skilled in mentoring junior developers and collaborating with cross-functional teams to deliver exceptional user experiences. Proficient in leveraging AI tools to enhance productivity and code quality.",
     "location": {
       "address": "",
       "postalCode": "50005",
@@ -29,24 +29,24 @@
   },
   "work": [
     {
-      "name": "Avanade",
+      "name": "Avanade Spain",
       "position": "Senior Front-End Analyst (Angular)",
       "startDate": "2024-03-01",
-      "endDate": null,
+      "endDate": "",
       "highlights": [],
-      "summary": "Design and implement scalable front-end solutions using Angular and modern web technologies.\nCollaborate with cross-functional teams to deliver applications that meet client requirements.\nLead technical initiatives, establish coding standards, and mentor junior developers.\nFocus on code quality, performance optimization, and security best practices.\nApplied monorepo architecture principles using NX for improved code sharing and maintainability.\nExposure to micro frontend architecture in enterprise applications.\n\nKey Project: UNIR ‘Mateo' - Technical Lead for Backoffice Front-End\n- Led the front-end development of the Backoffice application, serving as the primary technical reference point.\n- Defined the front-end architecture, establishing code structure and organization using scalable design patterns.\n- Implemented essential components including user authentication flows and critical UI elements.\n- Introduced unit testing practices, significantly increasing code coverage and application reliability.\n- Optimized development workflow by implementing a new Git branching strategy and enforcing code standards.\n- Volunteered as the primary code reviewer, ensuring quality and consistency across the codebase.\n- Created dedicated communication channels to improve team collaboration and cross-team coordination.\n- Collaborated with client's technical teams, back-end developers, and QA to ensure seamless integration.\n- Resolved critical bugs in both Backoffice and Forms applications during the maintenance phase.\n- Received positive feedback from the client's lead front-end architect for code quality and problem-solving.",
+      "summary": "Leading front-end development and technical direction for client projects, focusing on Angular and scalable architectures.\nSpearheaded scalable front-end solutions using Angular, exceeding client expectations with modern web technologies.\nCollaborated with cross-functional teams to align applications with complex client needs and business goals.\nProvided technical leadership, enforced coding standards, and mentored juniors to boost team performance.\nFocused on code quality, performance optimization, and security, delivering robust applications.\nImplemented NX monorepo architecture, enhancing code sharing and maintainability in large projects.\n\n**Key Achievement: UNIR 'Mateo' Platform Technical Lead**\n\n- Led front-end development of a critical Backoffice app, improving code quality and collaboration.\n- Defined scalable architecture with modern patterns for long-term maintainability.\n- Developed core components like authentication flows and UI elements, meeting deadlines.\n- Championed unit testing, increasing code coverage and reliability significantly.",
       "url": "https://www.avanade.com/",
       "location": "Madrid, Spain"
     },
     {
       "name": "Vermont Solutions",
-      "position": "Senior front-end developer (Angular)",
+      "position": "Senior Front-End Developer (Angular)",
       "startDate": "2023-01-01",
       "endDate": "2024-03-01",
       "highlights": [],
-      "summary": "Led multiple Angular projects, providing technical leadership and mentoring to development teams.\nImplemented complex UI components and data visualization solutions using ChartsJS.\nEnsured code quality through comprehensive unit testing and static code analysis.\nCollaborated with UX/UI designers to implement designs from Figma into functional components.\nIntegrated with REST APIs and implemented security best practices.\n\nKey Projects:\n- Banking Transaction Tool: Led development of a charting tool with ChartsJS.\n- Mobile Banking Application: Technical lead for a team of 5 developers creating an employee transaction and card management application.\n- Real Estate Portal: Provided technical leadership for an internal Santander bank portal, improving team management and communication.\n\nTechnologies: Angular 16, TypeScript, RxJS, Karma/Jasmine, SonarQube, ESLint, Fortify, Figma, Jenkins, Jira, Confluence, Storybook, Swagger, ChartsJS, HammerJS, NgDarwin.",
+      "summary": "Led Angular projects, guiding teams of up to 5 developers with technical expertise.\nBuilt complex UI components and data visualizations with ChartsJS, enhancing UX.\nEnsured high code quality via unit testing and static analysis, reducing technical debt.\nWorked with UX/UI designers to turn Figma designs into pixel-perfect Angular components.\nIntegrated REST APIs with strong security practices across development cycles.\n  **Notable Projects:**\n- _Santander Transaction Portal:_ Developed real-time monitoring, cut response time by 35%.\n- _Mobile Banking App:_ Led team of 5 to build employee transaction management app.\n- _Real Estate Portal:_ Improved team management and communication for Santander portal.",
       "url": "https://www.linkedin.com/company/vermont-solutions/",
-      "location": "Madrid"
+      "location": "Madrid, Spain"
     },
     {
       "name": "CloudAPPi",
@@ -54,7 +54,7 @@
       "startDate": "2022-11-01",
       "endDate": "2022-12-31",
       "highlights": [],
-      "summary": "Rapidly adapted to multiple projects with varying complexities using React and AngularJS.\nQuickly regained proficiency in React to meet project requirements.\nEnsured productive code creation and effective team communication.\n\nTechnologies: React 17, Redux Toolkit, React Hooks, Material UI, Bootstrap, Angular 8, Angular Material, RxJS, Angular Flex Layout.",
+      "summary": "Adapted quickly to React and Angular, contributing to multiple fast-paced projects.\nTransitioned between projects of varying complexity, using both frameworks effectively.\nRegained React proficiency rapidly to meet urgent project demands successfully.\nMaintained productive coding and strong team communication throughout tenure.\nDelivered consistent results under tight deadlines, supporting project progress.\nShowcased flexibility and commitment by mastering tools to meet immediate needs.\nWorked collaboratively, ensuring smooth handoffs and team alignment on goals.",
       "url": "https://www.linkedin.com/company/cloudappi/",
       "location": "Madrid, Spain"
     },
@@ -64,16 +64,17 @@
       "startDate": "2021-07-01",
       "endDate": "2022-10-31",
       "highlights": [],
-      "summary": "Developed components, reusable modules, and services for an international agricultural sector client.\nImplemented responsive designs using Angular Flex Layout and Angular Material.\nCreated and maintained REST API integrations and reactive forms.\nParticipated in client meetings (in English) and contributed to project documentation.\nTrained new team members and improved project organization.\n\nTechnologies: Angular 13+, TypeScript, RxJS, Angular Material, Angular Flex Layout, ngx-Rocket, HTML5, CSS3, SCSS, Lodash.",
+      "summary": "Built reusable Angular components for a large-scale agricultural sector application.\nCreated high-quality modules and services, enhancing app functionality globally.\nUsed Angular Flex Layout and Material for responsive, user-friendly designs.\nManaged REST API integrations and reactive forms for seamless data handling.\nEngaged in English client meetings and improved project documentation clarity.\nTrained new team members, boosting efficiency and knowledge sharing in team.\nContributed to a major international client, delivering impactful solutions.",
       "url": "https://www.linkedin.com/company/enzosoftware/",
       "location": "Madrid, Spain"
     },
     {
-      "position": "Freelance Web Developer (Wordpress)",
+      "name": "Freelance Web Developer",
+      "position": "WordPress Developer",
       "startDate": "2020-07-01",
       "endDate": "2021-06-30",
       "highlights": [],
-      "summary": "Designed and developed WordPress websites for various clients.\nImproved skills in self-management, project planning, and decision-making.\nGained experience in SEO, digital marketing, security, and resource optimization.\nUtilized graphic design tools including Adobe Photoshop and Canva.",
+      "summary": "Designed custom WordPress sites, expanding technical and client management skills.\nImproved self-management and decision-making through independent project work.\nGained expertise in SEO, digital marketing, and website security practices.\nOptimized resources for online platforms, enhancing site performance broadly.\nUsed Photoshop and Canva to craft visually appealing website assets for clients.\nDelivered diverse projects, meeting unique client needs with tailored solutions.\nStrengthened planning skills, ensuring timely delivery across all engagements.",
       "url": "",
       "location": "Remote"
     },
@@ -85,7 +86,7 @@
       "highlights": [],
       "summary": "",
       "url": "https://www.linkedin.com/company/altran/",
-      "location": "Madrid, Comunidad de Madrid, España"
+      "location": "Madrid, Spain"
     },
     {
       "name": "IO Digital",
@@ -95,7 +96,7 @@
       "highlights": [],
       "summary": "",
       "url": "https://www.linkedin.com/company/iodigital-es/",
-      "location": "Madrid, Comunidad de Madrid, España"
+      "location": "Madrid, Spain"
     },
     {
       "name": "STRATESYS",
@@ -105,25 +106,15 @@
       "highlights": [],
       "summary": "",
       "url": "https://www.linkedin.com/company/stratesys/",
-      "location": "Madrid, Comunidad de Madrid, España"
+      "location": "Madrid, Spain"
     }
   ],
-  "volunteer": [
-    {
-      "organization": "Organization",
-      "position": "Volunteer",
-      "url": "https://organization.com/",
-      "startDate": "2012-01-01",
-      "endDate": "2013-01-01",
-      "summary": "Description…",
-      "highlights": ["Awarded 'Volunteer of the Month'"]
-    }
-  ],
+  "volunteer": [],
   "education": [
     {
       "institution": "Joyfe College",
       "url": "https://joyfe.iepgroup.es/",
-      "area": "Student of Higher Technician in Multi-platform Applications Development",
+      "area": "Higher Technician in Multi-platform Applications Development",
       "studyType": "Higher Technician in Multi-platform Applications Development",
       "startDate": "2017-01-01",
       "endDate": "2018-12-31",
@@ -133,7 +124,7 @@
     {
       "institution": "San Gabriel College",
       "url": "https://www.sangabriel.es/",
-      "area": "Student of Technician in Microcomputer Systems and Networks",
+      "area": "Technician in Microcomputer Systems and Networks",
       "studyType": "Technician in Microcomputer Systems and Networks",
       "startDate": "2015-01-01",
       "endDate": "2016-12-31",
@@ -191,149 +182,142 @@
       "url": "https://www.credential.net/17bd70ea-acda-4bf9-a965-3b55e47b682b"
     }
   ],
-  "publications": [
-    {
-      "name": "Publication",
-      "publisher": "Company",
-      "releaseDate": "2014-10-01",
-      "url": "https://publication.com",
-      "summary": "Description…"
-    }
-  ],
+  "publications": [],
   "skills": [
     {
       "name": "Angular",
-      "level": "Master",
-      "keywords": ["SPA Development", "Angular CLI", "NgRx", "RxJS", "NX", "Module Federation", "Micro frontends"]
+      "level": "Master"
     },
     {
       "name": "TypeScript",
-      "level": "Master",
-      "keywords": ["Static Typing", "ES6+", "OOP in JavaScript"]
+      "level": "Master"
     },
     {
-      "name": "JavaScript",
-      "level": "Master",
-      "keywords": ["ES6+", "Asynchronous Programming", "DOM Manipulation"]
-    },
-    {
-      "name": "HTML",
-      "level": "Master",
-      "keywords": ["Semantic Web", "Accessibility", "SEO Friendly Markup"]
-    },
-    {
-      "name": "CSS",
-      "level": "Master",
-      "keywords": ["Responsive Design", "Flexbox", "Grid", "SCSS/SASS"]
-    },
-    {
-      "name": "React",
-      "level": "Advanced",
-      "keywords": ["Hooks", "Redux Toolkit", "Functional Components"]
+      "name": "JavaScript (ES6+)",
+      "level": "Master"
     },
     {
       "name": "RxJS",
-      "level": "Advanced",
-      "keywords": ["Reactive Programming", "Asynchronous Data Streams", "Observable Patterns"]
+      "level": "Advanced"
     },
     {
-      "name": "Unit Testing",
-      "level": "Advanced",
-      "keywords": ["Karma", "Jasmine", "Jest", "Test Automation"]
+      "name": "NgRx",
+      "level": "Advanced"
     },
     {
-      "name": "CI/CD",
-      "level": "Advanced",
-      "keywords": ["Jenkins", "GitHub Actions", "Automation"]
+      "name": "NX",
+      "level": "Master"
     },
     {
-      "name": "Git",
-      "level": "Master",
-      "keywords": ["Git", "Gitflow", "Code Versioning"]
+      "name": "Micro frontends",
+      "level": "Master"
+    },
+
+    {
+      "name": "HTML5",
+      "level": "Master"
     },
     {
-      "name": "Agile Methodologies",
-      "level": "Advanced",
-      "keywords": ["Scrum", "Kanban", "JIRA", "Confluence"]
+      "name": "CSS3/SCSS/SASS",
+      "level": "Master"
     },
     {
-      "name": "Figma",
-      "level": "Advanced",
-      "keywords": ["Design Prototyping", "UI Design", "Collaboration"]
-    },
-    {
-      "name": "Storybook",
-      "level": "Intermediate",
-      "keywords": ["UI Component Development", "Documentation", "Isolation"]
-    },
-    {
-      "name": "Visual Studio Code",
-      "level": "Advanced",
-      "keywords": ["Integrated Development Environment", "Extensions", "Debugging"]
+      "name": "Responsive Design",
+      "level": "Master"
     },
     {
       "name": "Angular Material",
-      "level": "Advanced",
-      "keywords": ["Material Design", "UI Components", "Theming"]
+      "level": "Advanced"
     },
     {
-      "name": "Material UI",
-      "level": "Intermediate",
-      "keywords": []
-    },
-    {
-      "name": "Bootstrap",
-      "level": "Intermediate",
-      "keywords": []
+      "name": "Unit Testing (Karma, Jasmine, Jest)",
+      "level": "Advanced"
     },
     {
       "name": "REST API integration",
-      "level": "Advanced",
-      "keywords": ["Swagger"]
+      "level": "Advanced"
     },
     {
-      "name": "Nexus Repository",
-      "level": "Intermediate",
-      "keywords": ["npm", "yarn"]
+      "name": "Figma",
+      "level": "Advanced"
+    },
+    {
+      "name": "Git (Gitflow)",
+      "level": "Master"
+    },
+    {
+      "name": "CI/CD (Jenkins, GitHub Actions)",
+      "level": "Advanced"
+    },
+    {
+      "name": "Agile/Scrum",
+      "level": "Advanced"
+    },
+    {
+      "name": "Clean Code (SOLID, DRY, KISS)",
+      "level": "Advanced"
     },
     {
       "name": "SonarQube",
-      "level": "Advanced",
-      "keywords": ["ESLint", "Prettier", "Fortify", "Code quality metrics"]
+      "level": "Advanced"
     },
     {
-      "name": "AI Tools",
-      "level": "Intermediate",
-      "keywords": ["ChatGPT", "Cursor IDE", "GitHub Copilot", "Microsoft 365 Copilot", "AI Studio", "Claude"]
+      "name": "ESLint",
+      "level": "Advanced"
     },
     {
-      "name": "Flame Design System",
-      "level": "Intermediate",
-      "keywords": []
+      "name": "Prettier",
+      "level": "Advanced"
     },
     {
-      "name": "MySQL",
-      "level": "Advanced",
-      "keywords": ["Database Management", "SQL", "Data Modeling"]
+      "name": "Storybook",
+      "level": "Intermediate"
     },
     {
-      "name": "Python",
-      "level": "Intermediate",
-      "keywords": []
+      "name": "React",
+      "level": "Advanced"
+    },
+    {
+      "name": "VS Code",
+      "level": "Advanced"
+    },
+    {
+      "name": "JavaScript",
+      "level": "Master"
+    },
+    {
+      "name": "SPA Development",
+      "level": "Master"
+    },
+    {
+      "name": "npm/yarn",
+      "level": "Intermediate"
+    },
+    {
+      "name": "UI Design",
+      "level": "Advanced"
+    },
+    {
+      "name": "Accessibility",
+      "level": "Master"
+    },
+    {
+      "name": "GitHub Copilot",
+      "level": "Intermediate"
     }
   ],
   "languages": [
     {
-      "fluency": "Native Speaker",
-      "language": "Español"
+      "language": "Spanish",
+      "fluency": "Native Speaker"
     },
     {
-      "fluency": "Full Professional",
-      "language": "Inglés"
+      "language": "English",
+      "fluency": "Full Professional"
     },
     {
-      "fluency": "Native Speaker",
-      "language": "Rumano"
+      "language": "Romanian",
+      "fluency": "Native Speaker"
     }
   ],
   "interests": [],
