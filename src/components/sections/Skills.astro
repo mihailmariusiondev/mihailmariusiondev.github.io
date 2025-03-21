@@ -8,20 +8,20 @@ import JavaScript from "@/icons/javascript.astro";
 import TypeScript from "@/icons/type.astro";
 import React from "@/icons/react.astro";
 import Git from "@/icons/git.astro";
-import CICD from "@/icons/CICD.astro";
-import Angular from "@/icons/Angular.astro";
-import Agile from "@/icons/Agile.astro";
-import Figma from "@/icons/Figma.astro";
-import Storybook from "@/icons/Storybook.astro";
-import GitHub from "@/icons/GitHub.astro";
-import RxJS from "@/icons/RxJS.astro";
+import CICD from "@/icons/cicd.astro";
+import Angular from "@/icons/angular.astro";
+import Agile from "@/icons/agile.astro";
+import Figma from "@/icons/figma.astro";
+import Storybook from "@/icons/storybook.astro";
+import GitHub from "@/icons/github.astro";
+import RxJS from "@/icons/rxjs.astro";
 import PrimeNG from "@/icons/primeng.astro";
 import NX from "@/icons/nx.astro";
 import UnitTesting from "@/icons/unit-testing.astro";
 import VisualStudioCode from "@/icons/visual-studio-code.astro";
 import AngularMaterial from "@/icons/angular-material.astro";
 import WorldMap from "@/icons/world-map.astro";
-
+import Cursor from "@/icons/cursor.astro";
 const SKILLS_ICONS: Record<string, any> = {
   HTML,
   CSS,
@@ -42,6 +42,7 @@ const SKILLS_ICONS: Record<string, any> = {
   Storybook,
   GitHub,
   "REST API Integration": WorldMap,
+  Cursor: Cursor,
 };
 ---
 
@@ -49,8 +50,7 @@ const SKILLS_ICONS: Record<string, any> = {
   <ul>
     {
       skills.map(({ name }) => {
-        const iconName = name === "Next.js" ? "Next" : name;
-        const Icon = SKILLS_ICONS[iconName];
+        const Icon = SKILLS_ICONS[name];
 
         return (
           <li>
