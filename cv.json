@@ -279,44 +279,88 @@
   ],
   "projects": [
     {
-      "name": "concise-comrade-bot",
+      "name": "Al-Grano Telegram Summarization Bot",
       "isActive": true,
-      "description": "The concise-comrade-bot is a Telegram bot designed to provide concise and accurate summaries for various types of content. It leverages advanced algorithms to summarize YouTube videos and chat conversations efficiently, with a scalable architecture ready for future expansion into other summarization domains.",
+      "description": "A powerful Telegram bot that helps users summarize various types of content, from chat conversations to videos, documents, and web articles. The bot leverages OpenAI's advanced language models to generate concise, informative summaries.",
       "highlights": [
-        "Chat Conversation Summarization",
-        "YouTube Video Summarization",
-        "Language Detection",
-        "Content Translation",
-        "Customizable Summaries",
-        "Extensible Architecture",
-        "Robust Error Handling"
+        "Text Summarization",
+        "Media Summarization",
+        "YouTube Transcripts",
+        "Document Parsing",
+        "Daily Summaries",
+        "User Management",
+        "Cooldown System",
+        "Python 3.12",
+        "OpenAI",
+        "SQLite"
       ],
-      "url": "https://github.com/mihailmariusiondev/concise-comrate-bot",
-      "github": "https://github.com/mihailmariusiondev/concise-comrate-bot"
+      "url": "https://github.com/mihailmariusiondev/al-grano-bot",
+      "github": "https://github.com/mihailmariusiondev/al-grano-bot"
     },
     {
-      "name": "angular-stock-tracker",
+      "name": "PixelProphetBot",
       "isActive": true,
-      "description": "An interactive stock tracking web application that allows users to monitor real-time stock performance for companies listed on the stock market. Built with Angular, it provides a user-friendly interface to search for stock symbols and view essential stock details.",
+      "description": "A feature-rich Telegram bot that generates high-quality images from text descriptions using advanced AI models. Built with Python and the Telegram Bot API, it offers a seamless experience for creating custom images directly in Telegram chats.",
       "highlights": [
-        "Real-Time Stock Information",
-        "Search Functionality",
-        "Multiple Stock Tracking",
-        "Dynamic Stock Cards",
-        "Error Handling",
-        "Interactive UI Components",
-        "Sentiment Analysis"
+        "Text-to-Image Generation",
+        "Multiple Styles",
+        "Batch Generation",
+        "Image Analysis",
+        "Customizable Configuration",
+        "Python 3.12",
+        "OpenAI API",
+        "Replicate API",
+        "SQLite",
+        "Pydantic"
       ],
-      "url": "https://mihailmariusiondev.github.io/angular-stock-tracker/",
-      "github": "https://github.com/mihailmariusiondev/angular-stock-tracker"
+      "url": "https://github.com/mihailmariusiondev/pixel-prophet-bot",
+      "github": "https://github.com/mihailmariusiondev/pixel-prophet-bot"
     },
     {
       "name": "mihailmariusiondev.github.io",
       "isActive": true,
       "description": "This project is a minimalist CV designed for web and pdf. It uses the CV scheme from jsonresume.org and is based on the design of Bartosz Jarocki. It is a fork of the 'minimalist-portfolio-json' template by midudev. The project is built with the Astro framework, Typescript, and the Ninja Keys library for keyboard shortcuts.",
-      "highlights": ["Astro", "Typescript", "Ninja Keys"],
+      "highlights": ["Astro", "Typescript", "Ninja Keys", "JSON Resume", "Responsive Design", "Dark Mode", "SEO Optimized"],
       "url": "https://mihailmariusiondev.github.io/",
       "github": "https://github.com/mihailmariusiondev/mihailmariusiondev.github.io"
+    },
+    {
+      "name": "ArkanTranscripter Bot",
+      "isActive": true,
+      "description": "A Telegram bot designed to transcribe YouTube videos, directly sent videos, and audio messages. Leveraging the YouTube Transcript API and OpenAI's advanced models, it provides accurate and enhanced transcriptions to improve accessibility and convenience within Telegram chats.",
+      "highlights": [
+        "YouTube Transcription",
+        "Video Transcription",
+        "Audio Transcription",
+        "Enhanced Transcriptions",
+        "OpenAI GPT-4o mini",
+        "Automatic Processing",
+        "Text File Output",
+        "Concurrency Management",
+        "Caching Mechanism",
+        "Python 3.12"
+      ],
+      "url": "https://github.com/mihailmariusiondev/arkantranscripter",
+      "github": "https://github.com/mihailmariusiondev/arkantranscripter"
+    },
+    {
+      "name": "Fixerino Bot",
+      "isActive": true,
+      "description": "A Telegram bot that automatically converts links from Twitter, X, Instagram, and TikTok to their respective frontend alternatives for a better viewing experience, solving the common issue of media previews not displaying properly in Telegram chats.",
+      "highlights": [
+        "Automatic Link Conversion",
+        "Social Media Integration",
+        "Configurable Settings",
+        "User-Friendly Interface",
+        "Twitter/X Support",
+        "Instagram Support",
+        "TikTok Support",
+        "Python 3.12",
+        "SQLite",
+        "Deployment Ready"
+      ],
+      "url": "https://github.com/mihailmariusiondev/fixerino",
+      "github": "https://github.com/mihailmariusiondev/fixerino"
     }
   ]
 }
