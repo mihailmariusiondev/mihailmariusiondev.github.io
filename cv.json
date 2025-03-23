@@ -34,7 +34,7 @@
       "startDate": "2024-03-01",
       "endDate": "",
       "highlights": [],
-      "summary": "Leading front-end development and technical direction for client projects, focusing on Angular and scalable architectures.\nSpearheaded scalable front-end solutions using Angular, exceeding client expectations with modern web technologies.\nCollaborated with cross-functional teams to align applications with complex client needs and business goals.\nProvided technical leadership, enforced coding standards, and mentored juniors to boost team performance.\nFocused on code quality, performance optimization, and security, delivering robust applications.\nImplemented NX monorepo architecture, enhancing code sharing and maintainability in large projects.\n\n**Key Achievement: UNIR 'Mateo' Platform Technical Lead**\n\n- Led front-end development of a critical Backoffice app, improving code quality and collaboration.\n- Defined scalable architecture with modern patterns for long-term maintainability.\n- Developed core components like authentication flows and UI elements, meeting deadlines.\n- Championed unit testing, increasing code coverage and reliability significantly.",
+      "summary": "- Leading front-end development and technical direction for client projects, focusing on Angular and scalable architectures.\n- Spearheaded scalable front-end solutions using Angular, exceeding client expectations with modern web technologies.\n- Collaborated with cross-functional teams to align applications with complex client needs and business goals.\n- Provided technical leadership, enforced coding standards, and mentored juniors to boost team performance.\n- Focused on code quality, performance optimization, and security, delivering robust applications.\n- Implemented NX monorepo architecture, enhancing code sharing and maintainability in large projects.\n- Key Achievement: UNIR 'Mateo' Platform Technical Lead\n- Led front-end development of a critical Backoffice app, improving code quality and collaboration.\n- Defined scalable architecture with modern patterns for long-term maintainability.\n- Developed core components like authentication flows and UI elements, meeting deadlines.\n- Championed unit testing, increasing code coverage and reliability significantly.",
       "url": "https://www.avanade.com/",
       "location": "Madrid, Spain"
     },
@@ -44,7 +44,7 @@
       "startDate": "2023-01-01",
       "endDate": "2024-03-01",
       "highlights": [],
-      "summary": "Led Angular projects, guiding teams of up to 5 developers with technical expertise.\nBuilt complex UI components and data visualizations with ChartsJS, enhancing UX.\nEnsured high code quality via unit testing and static analysis, reducing technical debt.\nWorked with UX/UI designers to turn Figma designs into pixel-perfect Angular components.\nIntegrated REST APIs with strong security practices across development cycles.\n  **Notable Projects:**\n- _Santander Transaction Portal:_ Developed real-time monitoring, cut response time by 35%.\n- _Mobile Banking App:_ Led team of 5 to build employee transaction management app.\n- _Real Estate Portal:_ Improved team management and communication for Santander portal.",
+      "summary": "- Led Angular projects, guiding teams of up to 5 developers with technical expertise.\n- Built complex UI components and data visualizations with ChartsJS, enhancing UX.\n- Ensured high code quality via unit testing and static analysis, reducing technical debt.\n- Worked with UX/UI designers to turn Figma designs into pixel-perfect Angular components.\n- Integrated REST APIs with strong security practices across development cycles.\n- Notable Projects:\n- Santander Transaction Portal: Developed real-time monitoring, cut response time by 35%.\n- Mobile Banking App: Led team of 5 to build employee transaction management app.\n- Real Estate Portal: Improved team management and communication for Santander portal.",
       "url": "https://www.linkedin.com/company/vermont-solutions/",
       "location": "Madrid, Spain"
     },
@@ -54,7 +54,7 @@
       "startDate": "2022-11-01",
       "endDate": "2022-12-31",
       "highlights": [],
-      "summary": "Adapted quickly to React and Angular, contributing to multiple fast-paced projects.\nTransitioned between projects of varying complexity, using both frameworks effectively.\nRegained React proficiency rapidly to meet urgent project demands successfully.\nMaintained productive coding and strong team communication throughout tenure.\nDelivered consistent results under tight deadlines, supporting project progress.\nShowcased flexibility and commitment by mastering tools to meet immediate needs.\nWorked collaboratively, ensuring smooth handoffs and team alignment on goals.",
+      "summary": "- Adapted quickly to React and Angular, contributing to multiple fast-paced projects.\n- Transitioned between projects of varying complexity, using both frameworks effectively.\n- Regained React proficiency rapidly to meet urgent project demands successfully.\n- Maintained productive coding and strong team communication throughout tenure.\n- Delivered consistent results under tight deadlines, supporting project progress.\n- Showcased flexibility and commitment by mastering tools to meet immediate needs.\n- Worked collaboratively, ensuring smooth handoffs and team alignment on goals.",
       "url": "https://www.linkedin.com/company/cloudappi/",
       "location": "Madrid, Spain"
     },
@@ -64,7 +64,7 @@
       "startDate": "2021-07-01",
       "endDate": "2022-10-31",
       "highlights": [],
-      "summary": "Built reusable Angular components for a large-scale agricultural sector application.\nCreated high-quality modules and services, enhancing app functionality globally.\nUsed Angular Flex Layout and Material for responsive, user-friendly designs.\nManaged REST API integrations and reactive forms for seamless data handling.\nEngaged in English client meetings and improved project documentation clarity.\nTrained new team members, boosting efficiency and knowledge sharing in team.\nContributed to a major international client, delivering impactful solutions.",
+      "summary": "- Built reusable Angular components for a large-scale agricultural sector application.\n- Created high-quality modules and services, enhancing app functionality globally.\n- Used Angular Flex Layout and Material for responsive, user-friendly designs.\n- Managed REST API integrations and reactive forms for seamless data handling.\n- Engaged in English client meetings and improved project documentation clarity.\n- Trained new team members, boosting efficiency and knowledge sharing in team.\n- Contributed to a major international client, delivering impactful solutions.",
       "url": "https://www.linkedin.com/company/enzosoftware/",
       "location": "Madrid, Spain"
     },
@@ -74,7 +74,7 @@
       "startDate": "2020-07-01",
       "endDate": "2021-06-30",
       "highlights": [],
-      "summary": "Designed custom WordPress sites, expanding technical and client management skills.\nImproved self-management and decision-making through independent project work.\nGained expertise in SEO, digital marketing, and website security practices.\nOptimized resources for online platforms, enhancing site performance broadly.\nUsed Photoshop and Canva to craft visually appealing website assets for clients.\nDelivered diverse projects, meeting unique client needs with tailored solutions.\nStrengthened planning skills, ensuring timely delivery across all engagements.",
+      "summary": "- Designed custom WordPress sites, expanding technical and client management skills.\n- Improved self-management and decision-making through independent project work.\n- Gained expertise in SEO, digital marketing, and website security practices.\n- Optimized resources for online platforms, enhancing site performance broadly.\n- Used Photoshop and Canva to craft visually appealing website assets for clients.\n- Delivered diverse projects, meeting unique client needs with tailored solutions.\n- Strengthened planning skills, ensuring timely delivery across all engagements.",
       "url": "",
       "location": "Remote"
     },
@@ -185,125 +185,64 @@
   "publications": [],
   "skills": [
     {
-      "name": "Angular",
-      "level": "Master"
+      "name": "Angular"
     },
     {
-      "name": "TypeScript",
-      "level": "Master"
+      "name": "TypeScript"
     },
     {
-      "name": "JavaScript (ES6+)",
-      "level": "Master"
+      "name": "JavaScript"
     },
     {
-      "name": "RxJS",
-      "level": "Advanced"
+      "name": "HTML"
     },
     {
-      "name": "NgRx",
-      "level": "Advanced"
+      "name": "CSS"
     },
     {
-      "name": "NX",
-      "level": "Master"
+      "name": "Git (gitflow)"
     },
     {
-      "name": "Micro frontends",
-      "level": "Master"
-    },
-
-    {
-      "name": "HTML5",
-      "level": "Master"
+      "name": "GitHub"
     },
     {
-      "name": "CSS3/SCSS/SASS",
-      "level": "Master"
+      "name": "React"
     },
     {
-      "name": "Responsive Design",
-      "level": "Master"
+      "name": "RxJS"
     },
     {
-      "name": "Angular Material",
-      "level": "Advanced"
+      "name": "REST API Integration"
     },
     {
-      "name": "Unit Testing (Karma, Jasmine, Jest)",
-      "level": "Advanced"
+      "name": "Angular Material"
     },
     {
-      "name": "REST API integration",
-      "level": "Advanced"
+      "name": "PrimeNG"
     },
     {
-      "name": "Figma",
-      "level": "Advanced"
+      "name": "Unit Testing"
     },
     {
-      "name": "Git (Gitflow)",
-      "level": "Master"
+      "name": "NX (monorepo)"
     },
     {
-      "name": "CI/CD (Jenkins, GitHub Actions)",
-      "level": "Advanced"
+      "name": "CI/CD"
     },
     {
-      "name": "Agile/Scrum",
-      "level": "Advanced"
+      "name": "Agile Methodologies"
     },
     {
-      "name": "Clean Code (SOLID, DRY, KISS)",
-      "level": "Advanced"
+      "name": "Visual Studio Code"
     },
     {
-      "name": "SonarQube",
-      "level": "Advanced"
+      "name": "Cursor"
     },
     {
-      "name": "ESLint",
-      "level": "Advanced"
+      "name": "Figma"
     },
     {
-      "name": "Prettier",
-      "level": "Advanced"
-    },
-    {
-      "name": "Storybook",
-      "level": "Intermediate"
-    },
-    {
-      "name": "React",
-      "level": "Advanced"
-    },
-    {
-      "name": "VS Code",
-      "level": "Advanced"
-    },
-    {
-      "name": "JavaScript",
-      "level": "Master"
-    },
-    {
-      "name": "SPA Development",
-      "level": "Master"
-    },
-    {
-      "name": "npm/yarn",
-      "level": "Intermediate"
-    },
-    {
-      "name": "UI Design",
-      "level": "Advanced"
-    },
-    {
-      "name": "Accessibility",
-      "level": "Master"
-    },
-    {
-      "name": "GitHub Copilot",
-      "level": "Intermediate"
+      "name": "Storybook"
     }
   ],
   "languages": [
@@ -340,44 +279,88 @@
   ],
   "projects": [
     {
-      "name": "concise-comrade-bot",
+      "name": "Al-Grano Telegram Summarization Bot",
       "isActive": true,
-      "description": "The concise-comrade-bot is a Telegram bot designed to provide concise and accurate summaries for various types of content. It leverages advanced algorithms to summarize YouTube videos and chat conversations efficiently, with a scalable architecture ready for future expansion into other summarization domains.",
+      "description": "A powerful Telegram bot that helps users summarize various types of content, from chat conversations to videos, documents, and web articles. The bot leverages OpenAI's advanced language models to generate concise, informative summaries.",
       "highlights": [
-        "Chat Conversation Summarization",
-        "YouTube Video Summarization",
-        "Language Detection",
-        "Content Translation",
-        "Customizable Summaries",
-        "Extensible Architecture",
-        "Robust Error Handling"
+        "Text Summarization",
+        "Media Summarization",
+        "YouTube Transcripts",
+        "Document Parsing",
+        "Daily Summaries",
+        "User Management",
+        "Cooldown System",
+        "Python 3.12",
+        "OpenAI",
+        "SQLite"
       ],
-      "url": "https://github.com/mihailmariusiondev/concise-comrate-bot",
-      "github": "https://github.com/mihailmariusiondev/concise-comrate-bot"
+      "url": "https://github.com/mihailmariusiondev/al-grano-bot",
+      "github": "https://github.com/mihailmariusiondev/al-grano-bot"
     },
     {
-      "name": "angular-stock-tracker",
+      "name": "PixelProphetBot",
       "isActive": true,
-      "description": "An interactive stock tracking web application that allows users to monitor real-time stock performance for companies listed on the stock market. Built with Angular, it provides a user-friendly interface to search for stock symbols and view essential stock details.",
+      "description": "A feature-rich Telegram bot that generates high-quality images from text descriptions using advanced AI models. Built with Python and the Telegram Bot API, it offers a seamless experience for creating custom images directly in Telegram chats.",
       "highlights": [
-        "Real-Time Stock Information",
-        "Search Functionality",
-        "Multiple Stock Tracking",
-        "Dynamic Stock Cards",
-        "Error Handling",
-        "Interactive UI Components",
-        "Sentiment Analysis"
+        "Text-to-Image Generation",
+        "Multiple Styles",
+        "Batch Generation",
+        "Image Analysis",
+        "Customizable Configuration",
+        "Python 3.12",
+        "OpenAI API",
+        "Replicate API",
+        "SQLite",
+        "Pydantic"
       ],
-      "url": "https://mihailmariusiondev.github.io/angular-stock-tracker/",
-      "github": "https://github.com/mihailmariusiondev/angular-stock-tracker"
+      "url": "https://github.com/mihailmariusiondev/pixel-prophet-bot",
+      "github": "https://github.com/mihailmariusiondev/pixel-prophet-bot"
     },
     {
       "name": "mihailmariusiondev.github.io",
       "isActive": true,
       "description": "This project is a minimalist CV designed for web and pdf. It uses the CV scheme from jsonresume.org and is based on the design of Bartosz Jarocki. It is a fork of the 'minimalist-portfolio-json' template by midudev. The project is built with the Astro framework, Typescript, and the Ninja Keys library for keyboard shortcuts.",
-      "highlights": ["Astro", "Typescript", "Ninja Keys"],
+      "highlights": ["Astro", "Typescript", "Ninja Keys", "JSON Resume", "Responsive Design", "Dark Mode", "SEO Optimized"],
       "url": "https://mihailmariusiondev.github.io/",
       "github": "https://github.com/mihailmariusiondev/mihailmariusiondev.github.io"
+    },
+    {
+      "name": "ArkanTranscripter Bot",
+      "isActive": true,
+      "description": "A Telegram bot designed to transcribe YouTube videos, directly sent videos, and audio messages. Leveraging the YouTube Transcript API and OpenAI's advanced models, it provides accurate and enhanced transcriptions to improve accessibility and convenience within Telegram chats.",
+      "highlights": [
+        "YouTube Transcription",
+        "Video Transcription",
+        "Audio Transcription",
+        "Enhanced Transcriptions",
+        "OpenAI GPT-4o mini",
+        "Automatic Processing",
+        "Text File Output",
+        "Concurrency Management",
+        "Caching Mechanism",
+        "Python 3.12"
+      ],
+      "url": "https://github.com/mihailmariusiondev/arkantranscripter",
+      "github": "https://github.com/mihailmariusiondev/arkantranscripter"
+    },
+    {
+      "name": "Fixerino Bot",
+      "isActive": true,
+      "description": "A Telegram bot that automatically converts links from Twitter, X, Instagram, and TikTok to their respective frontend alternatives for a better viewing experience, solving the common issue of media previews not displaying properly in Telegram chats.",
+      "highlights": [
+        "Automatic Link Conversion",
+        "Social Media Integration",
+        "Configurable Settings",
+        "User-Friendly Interface",
+        "Twitter/X Support",
+        "Instagram Support",
+        "TikTok Support",
+        "Python 3.12",
+        "SQLite",
+        "Deployment Ready"
+      ],
+      "url": "https://github.com/mihailmariusiondev/fixerino",
+      "github": "https://github.com/mihailmariusiondev/fixerino"
     }
   ]
 }
