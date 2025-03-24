@@ -32,7 +32,7 @@
       "name": "Avanade Spain",
       "position": "Senior Front-End Analyst (Angular)",
       "startDate": "2024-03-01",
-      "endDate": "",
+      "endDate": null,
       "highlights": [],
       "summary": "- Leading front-end development and technical direction for client projects, focusing on Angular and scalable architectures.\n- Spearheaded scalable front-end solutions using Angular, exceeding client expectations with modern web technologies.\n- Collaborated with cross-functional teams to align applications with complex client needs and business goals.\n- Provided technical leadership, enforced coding standards, and mentored juniors to boost team performance.\n- Focused on code quality, performance optimization, and security, delivering robust applications.\n- Implemented NX monorepo architecture, enhancing code sharing and maintainability in large projects.\n- Key Achievement: UNIR 'Mateo' Platform Technical Lead\n- Led front-end development of a critical Backoffice app, improving code quality and collaboration.\n- Defined scalable architecture with modern patterns for long-term maintainability.\n- Developed core components like authentication flows and UI elements, meeting deadlines.\n- Championed unit testing, increasing code coverage and reliability significantly.",
       "url": "https://www.avanade.com/",
@@ -137,48 +137,43 @@
     {
       "name": "Angular (Intermediate) Certificate",
       "issuer": "HackerRank",
-      "endDate": "2034-01-31",
-      "startDate": "2024-01-31",
+      "date": "2024-01-31",
       "url": "https://www.hackerrank.com/certificates/958d428d95f0"
     },
     {
       "name": "Angular (Basic) Certificate",
       "issuer": "HackerRank",
-      "endDate": "2034-01-31",
-      "startDate": "2024-01-31",
+      "date": "2024-01-31",
       "url": "https://www.hackerrank.com/certificates/6d5ed4bee302"
     },
     {
       "name": "JavaScript (Intermediate) Certificate",
       "issuer": "HackerRank",
-      "endDate": "2034-01-31",
-      "startDate": "2024-01-31",
+      "date": "2024-01-31",
       "url": "https://www.hackerrank.com/certificates/677c70b204a9"
     },
     {
       "name": "JavaScript (Basic) Certificate",
       "issuer": "HackerRank",
-      "endDate": "2034-01-31",
-      "startDate": "2024-01-31",
+      "date": "2024-01-31",
       "url": "https://www.hackerrank.com/certificates/1c3f07549dbf"
     },
     {
       "name": "Super Ninja",
       "issuer": "Ninja Talent",
-      "startDate": "2023-03-31",
+      "date": "2023-03-31",
       "url": "https://www.credential.net/2168ae97-80a0-4e8b-87d6-43cb6f378390"
     },
     {
       "name": "Angular Level 2 Certification",
       "issuer": "Interstate 21",
-      "endDate": "2025-12-31",
-      "startDate": "2022-12-31",
+      "date": "2022-12-31",
       "url": "https://interstate21.com/certificate/?code=3L11N3E"
     },
     {
       "name": "API OWNER",
       "issuer": "APIAddicts",
-      "startDate": "2022-10-31",
+      "date": "2022-10-31",
       "url": "https://www.credential.net/17bd70ea-acda-4bf9-a965-3b55e47b682b"
     }
   ],

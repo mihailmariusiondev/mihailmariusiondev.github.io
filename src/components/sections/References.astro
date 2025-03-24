@@ -1,0 +1,34 @@
+---
+import Section from "../Section.astro";
+import { references } from "@cv";
+---
+
+<Section title="References">
+  <ul>
+    {
+      references.map(({ reference }) => (
+        <li>
+          <blockquote>{reference}</blockquote>
+        </li>
+      ))
+    }
+  </ul>
+</Section>
+
+<style>
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  blockquote {
+    margin: 0;
+    padding: 16px;
+    background: #f8f8f8;
+    border-left: 3px solid #eee;
+    font-style: italic;
+    color: #444;
+    line-height: 1.6;
+  }
+</style>
