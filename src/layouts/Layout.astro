@@ -1,0 +1,115 @@
+---
+import "../styles/global.css";
+import SiteNav from "../components/SiteNav.astro";
+import { localeFromPath, pathInLocale, t } from "../i18n";
+import { ui } from "../data/ui";
+
+interface Props {
+  title: string;
+  description: string;
+  ogTitle?: string;
+  ogDescription?: string;
+}
+
+const {
+  title,
+  description,
+  ogTitle = title,
+  ogDescription = description,
+} = Astro.props;
+
+// The URL is the only language signal. No Accept-Language, no cookie.
+const lang = localeFromPath(Astro.url.pathname);
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+// Both alternates point at THIS page in each language, never at a home page.
+const enURL = new URL(pathInLocale(Astro.url.pathname, "en"), Astro.site);
+const esURL = new URL(pathInLocale(Astro.url.pathname, "es"), Astro.site);
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonicalURL} />
+
+    <link rel="alternate" hreflang="en" href={enURL} />
+    <link rel="alternate" hreflang="es" href={esURL} />
+    <link rel="alternate" hreflang="x-default" href={enURL} />
+
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content={lang === "es" ? "es_ES" : "en_US"} />
+    <meta property="og:title" content={ogTitle} />
+    <meta property="og:description" content={ogDescription} />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={ogTitle} />
+    <meta name="twitter:description" content={ogDescription} />
+  </head>
+  <body>
+    <a href="#main" class="skip-link">{t(ui.skipLink, lang)}</a>
+
+    <SiteNav />
+
+    <main id="main">
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap site-footer__row">
+        <p class="site-footer__a11y prose">
+          <strong>{t(ui.footerA11yTitle, lang)}</strong>
+          {t(ui.footerA11yBody, lang)}
+          <code>prefers-reduced-motion</code>
+          {t(ui.footerA11yReport, lang)}
+          <a href="mailto:mihailmariusion@gmail.com"
+            >mihailmariusion@gmail.com</a
+          >.
+        </p>
+        <p class="site-footer__meta">
+          &copy; {new Date().getFullYear()} Marius Mihail Ion · {
+            t(ui.footerBuilt, lang)
+          }
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style>
+  .site-footer {
+    border-top: 1px solid var(--rule);
+    background: var(--paper-sunk);
+    margin-top: var(--space-6);
+    /* Never let the floating mobile nav sit on top of the footer text. */
+    padding-bottom: var(--nav-clearance);
+  }
+
+  .site-footer__row {
+    padding-block: var(--space-4);
+    display: grid;
+    gap: var(--space-2);
+  }
+
+  .site-footer__a11y {
+    font-size: var(--step-small);
+    color: var(--slate);
+  }
+
+  .site-footer__a11y code {
+    font-family: var(--font-mono);
+    font-size: 0.875em;
+  }
+
+  .site-footer__meta {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--slate-quiet);
+  }
+</style>
