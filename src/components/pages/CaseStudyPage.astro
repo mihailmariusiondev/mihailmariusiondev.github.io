@@ -1,0 +1,125 @@
+---
+/** A single case study, rendered once per language at the same slug. */
+import Layout from "../../layouts/Layout.astro";
+import type { CaseStudy } from "../../data/caseStudies";
+import { ui } from "../../data/ui";
+import { localizedPath, t, type Locale } from "../../i18n";
+
+interface Props {
+  study: CaseStudy;
+  lang: Locale;
+}
+
+const { study, lang } = Astro.props;
+const allCases = localizedPath("/case-studies/", lang);
+---
+
+<Layout
+  title={`${t(study.title, lang)} · Marius Mihail Ion`}
+  description={t(study.summary, lang)}
+>
+  <div class="wrap wrap--narrow case">
+    <nav class="crumbs" aria-label={t(ui.breadcrumbLabel, lang)}>
+      <ol class="crumbs__list">
+        <li><a href={allCases}>{t(ui.casesEyebrow, lang)}</a></li>
+        <li aria-current="page">{t(study.title, lang)}</li>
+      </ol>
+    </nav>
+
+    <article>
+      <header class="case__head">
+        <h1 class="case__title">{t(study.title, lang)}</h1>
+        <p class="case__summary prose">{t(study.summary, lang)}</p>
+        <ul class="tag-row case__tags" aria-label={t(ui.tagsLabel, lang)}>
+          {study.tags.map((tag) => <li class="tag">{tag}</li>)}
+        </ul>
+      </header>
+
+      <dl class="case__fields">
+        {
+          study.fields.map((field) => (
+            <div class="field">
+              <dt>{t(field.label, lang)}</dt>
+              <dd>{t(field.value, lang)}</dd>
+            </div>
+          ))
+        }
+      </dl>
+
+      {
+        study.confidential && (
+          <p class="verified case__confidential">
+            {t(study.confidential, lang)}
+          </p>
+        )
+      }
+    </article>
+
+    <nav class="case__nav" aria-label={t(ui.caseNavLabel, lang)}>
+      <a href={allCases}>&larr; {t(ui.caseNavAll, lang)}</a>
+    </nav>
+  </div>
+</Layout>
+
+<style>
+  .case {
+    padding-block: var(--space-4) var(--space-5);
+  }
+
+  .crumbs__list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-mono);
+    font-size: var(--step-micro);
+    color: var(--slate);
+  }
+
+  .crumbs__list li + li::before {
+    content: "/";
+    margin-right: 0.5rem;
+    color: var(--slate-quiet);
+  }
+
+  .case__head {
+    padding-bottom: var(--space-4);
+    margin-bottom: var(--space-4);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .case__title {
+    font-size: var(--step-h1);
+    margin-block: var(--space-2) var(--space-2);
+    max-width: 20ch;
+  }
+
+  .case__summary {
+    font-size: var(--step-lede);
+    color: var(--slate);
+    margin-bottom: var(--space-3);
+  }
+
+  .case__tags {
+    margin: 0;
+  }
+
+  .case__fields {
+    margin: 0;
+  }
+
+  .case__confidential {
+    margin-top: var(--space-4);
+  }
+
+  .case__nav {
+    margin-top: var(--space-4);
+    padding-top: var(--space-3);
+    border-top: 1px solid var(--rule);
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+  }
+</style>

@@ -1,0 +1,223 @@
+---
+/** The career timeline and recommendations, rendered once per language. */
+import Layout from "../../layouts/Layout.astro";
+import { experience, recommendations } from "../../data/experience";
+import { ui } from "../../data/ui";
+import { t, type Locale } from "../../i18n";
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+---
+
+<Layout
+  title={t(ui.experienceTitle, lang)}
+  description={t(ui.experienceDescription, lang)}
+>
+  <div class="wrap page">
+    <header class="page-head">
+      <p class="eyebrow">{t(ui.experienceEyebrow, lang)}</p>
+      <h1>{t(ui.experienceHeading, lang)}</h1>
+    </header>
+
+    <section class="timeline" aria-label={t(ui.timelineLabel, lang)}>
+      <ol class="timeline__list">
+        {
+          experience.map((entry) => (
+            <li class="timeline__item">
+              <p class="timeline__period">{t(entry.period, lang)}</p>
+              <div class="timeline__detail">
+                <p class="timeline__company">
+                  {entry.company}
+                  {entry.client && (
+                    <span class="timeline__client">
+                      {" "}
+                      · {t(ui.timelineClient, lang)} {entry.client}
+                    </span>
+                  )}
+                </p>
+                {entry.role && <p class="timeline__role">{entry.role}</p>}
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+    </section>
+
+    <section class="recs" aria-labelledby="recs-heading">
+      <h2 id="recs-heading" class="recs__heading">{t(ui.recsHeading, lang)}</h2>
+      <ul class="recs__list">
+        {
+          recommendations.map((rec) => (
+            <li class="rec">
+              <blockquote class="rec__quote">
+                <p>{t(rec.quote, lang)}</p>
+              </blockquote>
+              <p class="rec__attribution">
+                <span class="rec__author">{rec.author}</span>
+                <span class="rec__role">{t(rec.role, lang)}</span>
+                {t(rec.note, lang) && (
+                  <span class="rec__note">{t(rec.note, lang)}</span>
+                )}
+              </p>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .page {
+    padding-bottom: var(--space-5);
+  }
+
+  /* ---------------- Timeline ---------------- */
+
+  .timeline__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .timeline__item {
+    position: relative;
+    display: grid;
+    gap: 0.35rem;
+    /* Room for the spine and its marker. */
+    padding: 0 0 var(--space-3) var(--space-3);
+    border-left: 1px solid var(--rule);
+  }
+
+  .timeline__item:last-child {
+    border-left-color: transparent;
+    padding-bottom: 0;
+  }
+
+  /* The marker is the sequence: the roles are read in order, most recent first. */
+  .timeline__item::before {
+    content: "";
+    position: absolute;
+    left: -4.5px;
+    top: 0.55rem;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--rule-strong);
+  }
+
+  /* The current role is the one that matters most: it gets the accent. */
+  .timeline__item:first-child::before {
+    background: var(--steel);
+    box-shadow: 0 0 0 4px var(--steel-wash);
+  }
+
+  .timeline__period {
+    font-family: var(--font-mono);
+    font-size: var(--step-micro);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--slate);
+  }
+
+  @media (min-width: 48rem) {
+    .timeline__item {
+      grid-template-columns: 14rem 1fr;
+      align-items: baseline;
+      column-gap: var(--space-3);
+      padding-left: var(--space-3);
+      padding-bottom: var(--space-4);
+    }
+  }
+
+  .timeline__company {
+    font-weight: 500;
+  }
+
+  .timeline__client {
+    color: var(--slate);
+    font-weight: 400;
+  }
+
+  .timeline__role {
+    color: var(--slate);
+  }
+
+  /* ---------------- Recommendations ---------------- */
+
+  .recs {
+    margin-top: var(--space-5);
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--rule);
+  }
+
+  .recs__heading {
+    font-size: var(--step-h2);
+    margin-bottom: var(--space-3);
+  }
+
+  .recs__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-3);
+  }
+
+  @media (min-width: 56rem) {
+    .recs__list {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .rec {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+    background: var(--paper-raised);
+    padding: var(--space-3);
+  }
+
+  .rec__quote {
+    /* A blockquote carries a default margin: kill it, the card owns the padding. */
+    margin: 0 0 var(--space-3);
+    flex: 1 1 auto;
+    font-family: var(--font-display);
+    font-size: 1.0625rem;
+    line-height: 1.55;
+  }
+
+  .rec__quote p::before {
+    content: "\201C";
+  }
+
+  .rec__quote p::after {
+    content: "\201D";
+  }
+
+  .rec__attribution {
+    display: grid;
+    gap: 0.15rem;
+    padding-top: var(--space-2);
+    border-top: 1px solid var(--rule);
+    font-size: var(--step-small);
+    color: var(--slate);
+  }
+
+  .rec__author {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .rec__note {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    line-height: 1.5;
+    color: var(--slate-quiet);
+  }
+</style>

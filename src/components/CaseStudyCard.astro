@@ -1,0 +1,86 @@
+---
+import type { CaseStudy } from "../data/caseStudies";
+import { localeFromPath, localizedPath, t } from "../i18n";
+import { ui } from "../data/ui";
+
+interface Props {
+  study: CaseStudy;
+}
+
+const { study } = Astro.props;
+const lang = localeFromPath(Astro.url.pathname);
+// The slug is shared across languages: /es/ mirrors the same case at the same
+// address, which is what lets the language switcher map one page to one page.
+const href = localizedPath(`/case-studies/${study.slug}/`, lang);
+---
+
+<a class="card" href={href}>
+  <p class="card__eyebrow eyebrow">{t(ui.cardEyebrow, lang)}</p>
+  <h3 class="card__title">{t(study.title, lang)}</h3>
+  <p class="card__summary">{t(study.summary, lang)}</p>
+  <ul class="card__tags tag-row" aria-label={t(ui.tagsLabel, lang)}>
+    {study.tags.slice(0, 4).map((tag) => <li class="tag">{tag}</li>)}
+  </ul>
+  <span class="card__cue" aria-hidden="true">
+    {t(ui.cardCue, lang)} &rarr;
+  </span>
+</a>
+
+<style>
+  .card {
+    display: flex;
+    flex-direction: column;
+    /* Equal-height cards in a row: the tags sit on the same baseline. */
+    height: 100%;
+    padding: var(--space-3);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+    text-decoration: none;
+    color: var(--ink);
+    background: var(--paper-raised);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease,
+      transform 0.15s ease;
+  }
+
+  .card:hover {
+    border-color: var(--steel);
+    box-shadow: var(--shadow-raised);
+    transform: translateY(-2px);
+  }
+
+  .card:hover .card__title {
+    color: var(--steel-dark);
+  }
+
+  .card__eyebrow {
+    margin-bottom: 0.5rem;
+  }
+
+  .card__title {
+    font-size: var(--step-h3);
+    margin-bottom: 0.6rem;
+  }
+
+  .card__summary {
+    color: var(--slate);
+    margin-bottom: var(--space-3);
+    /* Pushes the tags and the cue to the bottom of the card. */
+    flex: 1 1 auto;
+  }
+
+  .card__tags {
+    margin-bottom: var(--space-2);
+  }
+
+  .card__cue {
+    font-family: var(--font-mono);
+    font-size: var(--step-micro);
+    color: var(--steel-dark);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .card:hover {
+      transform: none;
+    }
+  }
+</style>

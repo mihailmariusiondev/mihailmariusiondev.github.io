@@ -1,0 +1,102 @@
+---
+/** The contact page, rendered once per language. */
+import Layout from "../../layouts/Layout.astro";
+import { contactLinks, ui } from "../../data/ui";
+import { t, type Locale } from "../../i18n";
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+---
+
+<Layout
+  title={t(ui.contactTitle, lang)}
+  description={t(ui.contactDescription, lang)}
+>
+  <div class="wrap wrap--narrow page">
+    <header class="page-head">
+      <p class="eyebrow">{t(ui.contactEyebrow, lang)}</p>
+      <h1>{t(ui.contactHeading, lang)}</h1>
+      <p class="page-head__lede prose">{t(ui.contactLede, lang)}</p>
+      <p class="contact__relocation prose">{t(ui.contactRelocation, lang)}</p>
+    </header>
+
+    <section class="contact" aria-label={t(ui.contactAriaLabel, lang)}>
+      <ul class="contact__links">
+        {
+          contactLinks.map((link) => (
+            <li class="contact__item">
+              <span class="contact__label">{t(link.label, lang)}</span>
+              <a class="contact__value" href={link.href}>
+                {link.value}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+
+      <a class="btn btn-primary contact__cv" href="/marius-mihail-ion-cv.pdf">
+        {t(ui.heroCtaCv, lang)}
+      </a>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .page {
+    padding-bottom: var(--space-5);
+  }
+
+  .page-head {
+    padding-bottom: var(--space-3);
+  }
+
+  .contact__relocation {
+    margin-top: 0.5rem;
+    color: var(--slate);
+    font-size: var(--step-lede);
+  }
+
+  .contact__links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+  }
+
+  .contact__item {
+    display: grid;
+    gap: 0.25rem;
+    padding-block: var(--space-2);
+    border-top: 1px solid var(--rule);
+  }
+
+  @media (min-width: 40rem) {
+    .contact__item {
+      grid-template-columns: 8rem 1fr;
+      align-items: baseline;
+      gap: var(--space-2);
+    }
+  }
+
+  .contact__label {
+    font-family: var(--font-mono);
+    font-size: var(--step-micro);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--slate);
+  }
+
+  .contact__value {
+    font-family: var(--font-mono);
+    font-size: var(--step-small);
+    /* Long addresses must wrap, never overflow the 390px viewport. */
+    overflow-wrap: anywhere;
+  }
+
+  .contact__cv {
+    margin-top: var(--space-4);
+  }
+</style>

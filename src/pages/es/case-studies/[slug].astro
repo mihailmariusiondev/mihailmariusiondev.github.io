@@ -1,0 +1,17 @@
+---
+import CaseStudyPage from "../../../components/pages/CaseStudyPage.astro";
+import { caseStudies } from "../../../data/caseStudies";
+
+// The Spanish routes are generated from the SAME slug list as the English ones:
+// one case study can never exist in one language and not the other.
+export function getStaticPaths() {
+  return caseStudies.map((study) => ({
+    params: { slug: study.slug },
+    props: { study },
+  }));
+}
+
+const { study } = Astro.props;
+---
+
+<CaseStudyPage study={study} lang="es" />
