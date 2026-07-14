@@ -31,7 +31,7 @@ const allCases = localizedPath("/case-studies/", lang);
         <h1 class="case__title">{t(study.title, lang)}</h1>
         <p class="case__summary prose">{t(study.summary, lang)}</p>
         <ul class="tag-row case__tags" aria-label={t(ui.tagsLabel, lang)}>
-          {study.tags.map((tag) => <li class="tag">{tag}</li>)}
+          {study.tags.map((tag) => <li class="tag">{t(tag, lang)}</li>)}
         </ul>
       </header>
 

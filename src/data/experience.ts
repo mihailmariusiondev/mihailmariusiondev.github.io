@@ -2,73 +2,102 @@ import type { Localized } from "../i18n";
 
 export interface ExperienceEntry {
   period: Localized<string>;
-  company: string;
+  company: Localized<string>;
   client?: string;
-  /** Job titles stay in English in both versions: they are the industry term. */
-  role: string;
+  role: Localized<string>;
 }
 
 export const experience: ExperienceEntry[] = [
   {
     // Decskill is the current role. No end date, in either language.
     period: { en: "May 2025 – Present", es: "Mayo 2025 – Presente" },
-    company: "Decskill España",
+    company: { en: "Decskill Spain", es: "Decskill España" },
     client: "Zara Home (Inditex)",
-    role: "Senior Front-End Analyst (Angular)",
+    role: {
+      en: "Senior Front-End Analyst (Angular)",
+      es: "Analista Frontend Sénior (Angular)",
+    },
   },
   {
     period: { en: "March 2024 – May 2025", es: "Marzo 2024 – Mayo 2025" },
-    company: "Avanade",
+    company: { en: "Avanade", es: "Avanade" },
     client: "UNIR",
-    role: "Senior Front-End Analyst (Angular)",
+    role: {
+      en: "Senior Front-End Analyst (Angular)",
+      es: "Analista Frontend Sénior (Angular)",
+    },
   },
   {
     period: {
       en: "December 2022 – March 2024",
       es: "Diciembre 2022 – Marzo 2024",
     },
-    company: "Vermont Solutions",
+    company: { en: "Vermont Solutions", es: "Vermont Solutions" },
     client: "Santander",
-    role: "Senior Front-End Developer (Angular)",
+    role: {
+      en: "Senior Front-End Developer (Angular)",
+      es: "Desarrollador Frontend Sénior (Angular)",
+    },
   },
   {
     period: {
       en: "October 2022 – December 2022",
       es: "Octubre 2022 – Diciembre 2022",
     },
-    company: "CloudAPPi",
-    role: "Mid-Level Front-End Developer (Angular, React)",
+    company: { en: "CloudAPPi", es: "CloudAPPi" },
+    role: {
+      en: "Mid-Level Front-End Developer (Angular, React)",
+      es: "Desarrollador Frontend Intermedio (Angular, React)",
+    },
   },
   {
     period: {
       en: "September 2021 – October 2022",
       es: "Septiembre 2021 – Octubre 2022",
     },
-    company: "ENZO / Rent & Buy S.A.",
-    role: "Mid-Level Front-End Developer (Angular)",
+    company: { en: "ENZO / Rent & Buy S.A.", es: "ENZO / Rent & Buy S.A." },
+    role: {
+      en: "Mid-Level Front-End Developer (Angular)",
+      es: "Desarrollador Frontend Intermedio (Angular)",
+    },
   },
   {
     period: { en: "June 2020 – September 2021", es: "Junio 2020 – Septiembre 2021" },
-    company: "Independent Projects & Upskilling",
-    role: "",
+    company: {
+      en: "Independent Projects & Upskilling",
+      es: "Proyectos propios y formación",
+    },
+    role: { en: "", es: "" },
   },
   {
     period: { en: "March 2020 – June 2020", es: "Marzo 2020 – Junio 2020" },
-    company: "Altran",
-    role: "Mid-Level Full Stack Developer",
+    company: { en: "Altran", es: "Altran" },
+    role: {
+      en: "Mid-Level Full Stack Developer",
+      es: "Desarrollador Full Stack Intermedio",
+    },
   },
   {
     period: {
       en: "November 2018 – September 2019",
       es: "Noviembre 2018 – Septiembre 2019",
     },
-    company: "IO Digital / Query Software",
-    role: "Mid-Level Full Stack Developer",
+    company: {
+      en: "IO Digital / Query Software",
+      es: "IO Digital / Query Software",
+    },
+    role: {
+      en: "Mid-Level Full Stack Developer",
+      es: "Desarrollador Full Stack Intermedio",
+    },
   },
   {
     period: { en: "July 2018 – November 2018", es: "Julio 2018 – Noviembre 2018" },
-    company: "STRATESYS",
-    role: "Junior Full Stack Developer",
+    company: { en: "STRATESYS", es: "STRATESYS" },
+    role: {
+      en: "Junior Full Stack Developer",
+      es: "Desarrollador Full Stack Junior",
+    },
   },
 ];
 
@@ -76,7 +105,7 @@ export interface Recommendation {
   /**
    * The English quote is a translation; the Spanish one is the LITERAL text the
    * author published on LinkedIn, cut to the same fragment. Antonio Bermúdez
-   * wrote his in English, so both languages carry the same original words.
+   * wrote his in English, so the Spanish surface carries a marked translation.
    */
   quote: Localized<string>;
   author: string;
@@ -106,7 +135,7 @@ export const recommendations: Recommendation[] = [
     author: "José Luis Murcia Gámez",
     role: {
       en: "Frontend Developer, UNIR project (Avanade)",
-      es: "Frontend Developer, proyecto UNIR (Avanade)",
+      es: "Desarrollador Frontend, proyecto UNIR (Avanade)",
     },
     note: TRANSLATED_NOTE,
   },
@@ -118,7 +147,7 @@ export const recommendations: Recommendation[] = [
     author: "Juan Pablo Romero Pereira",
     role: {
       en: "Frontend Developer, Zara Home (Inditex)",
-      es: "Frontend Developer, Zara Home (Inditex)",
+      es: "Desarrollador Frontend, Zara Home (Inditex)",
     },
     note: TRANSLATED_NOTE,
   },
@@ -135,17 +164,16 @@ export const recommendations: Recommendation[] = [
     note: TRANSLATED_NOTE,
   },
   {
-    // Written in English by its author: the same words in both versions, and no
-    // "translated from" marker on either side.
+    // Written in English by its author; the Spanish surface uses a marked translation.
     quote: {
       en: "Great partner, he has done a great job in his last project demonstrating that he can design and build business applications successfully.",
-      es: "Great partner, he has done a great job in his last project demonstrating that he can design and build business applications successfully.",
+      es: "Gran compañero. Hizo un trabajo excelente en su último proyecto y demostró que puede diseñar y construir aplicaciones empresariales con éxito.",
     },
     author: "Antonio Bermúdez Rodríguez",
-    role: { en: "Developer", es: "Developer" },
+    role: { en: "Developer", es: "Desarrollador" },
     note: {
       en: "Published on LinkedIn",
-      es: "Publicada en LinkedIn (original en inglés)",
+      es: "Traducida de una recomendación publicada en inglés en LinkedIn",
     },
   },
   {
@@ -156,7 +184,7 @@ export const recommendations: Recommendation[] = [
     author: "Gonzalo Rodríguez Muñoz",
     role: {
       en: "Full Stack Software Developer, ENZO",
-      es: "Desarrollador full stack, ENZO",
+      es: "Desarrollador Full Stack, ENZO",
     },
     note: TRANSLATED_NOTE,
   },
@@ -173,11 +201,11 @@ export const stats: Stat[] = [
     value: { en: "96%", es: "96%" },
     label: {
       en: "Reduction in the AI shopping assistant's tool payloads (570 KB to 22 KB per execution), achieved with a routing and context-stripping design",
-      es: "Reducción de los payloads de las tools del asistente de compra con IA (de 570 KB a 22 KB por ejecución), lograda con un diseño de enrutado y limpieza de contexto",
+      es: "Reducción de las cargas útiles de las herramientas del asistente de compra con IA (de 570 KB a 22 KB por ejecución), lograda con un diseño de enrutado y limpieza de contexto",
     },
   },
   {
-    value: { en: "Top 1.42%", es: "Top 1.42%" },
+    value: { en: "Top 1.42%", es: "1,42% superior" },
     label: {
       en: "Ranking among all candidates on an independent Angular assessment by SkillValue, with a 95% score",
       es: "Puesto entre todos los candidatos en una evaluación independiente de Angular de SkillValue, con una puntuación del 95%",
@@ -187,7 +215,7 @@ export const stats: Stat[] = [
     value: { en: "34", es: "34" },
     label: {
       en: "Accessibility findings from a formal WCAG 2.1 AA audit closed through 23 merged pull requests: headings, keyboard, ARIA and focus",
-      es: "Hallazgos de accesibilidad de una auditoría formal WCAG 2.1 AA cerrados con 23 pull requests mergeadas: encabezados, teclado, ARIA y foco",
+      es: "Hallazgos de accesibilidad de una auditoría formal WCAG 2.1 AA cerrados con 23 solicitudes de cambio integradas: encabezados, teclado, ARIA y foco",
     },
   },
   {

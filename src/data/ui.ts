@@ -46,7 +46,7 @@ export const NAV_ITEMS: NavItem[] = [
 export const ui = {
   siteRole: {
     en: "Senior Angular / Frontend Engineer",
-    es: "Senior Angular / Frontend Engineer",
+    es: "Ingeniero Frontend Sénior (Angular)",
   },
   skipLink: {
     en: "Skip to main content",
@@ -86,11 +86,11 @@ export const ui = {
   // Home
   homeTitle: {
     en: "Marius Mihail Ion · Senior Angular / Frontend Engineer",
-    es: "Marius Mihail Ion · Senior Angular / Frontend Engineer",
+    es: "Marius Mihail Ion · Ingeniero Frontend Sénior (Angular)",
   },
   homeDescription: {
     en: "Senior Angular / Frontend Engineer for enterprise e-commerce and product frontend. TypeScript, RxJS, NgRx, SSR, accessibility and API integration.",
-    es: "Senior Angular / Frontend Engineer para e-commerce corporativo y frontend de producto. TypeScript, RxJS, NgRx, SSR, accesibilidad e integración de APIs.",
+    es: "Ingeniero Frontend Sénior (Angular) para comercio electrónico corporativo y frontend de producto. TypeScript, RxJS, NgRx, SSR, accesibilidad e integración de API.",
   },
   homeOgTitle: {
     en: "Marius Mihail Ion · Angular Frontend Case Studies",
@@ -106,7 +106,7 @@ export const ui = {
   },
   heroTitle: {
     en: "Enterprise frontend for e-commerce, banking and education.",
-    es: "Frontend corporativo para e-commerce, banca y educación.",
+    es: "Frontend corporativo para comercio electrónico, banca y educación.",
   },
   heroLede: {
     en: "Software developer since 2018, specialized in Angular since 2021. I work on authentication, SSR, accessibility, performance and API integration: the points where frontend decisions carry product risk.",
@@ -132,7 +132,7 @@ export const ui = {
   },
   casesDescription: {
     en: "Sanitized case studies of enterprise Angular work: real-time voice assistant, SSR feature-flag rollout, passwordless authentication migration and engineering controls.",
-    es: "Casos sanitizados de trabajo corporativo en Angular: asistente de voz en tiempo real, despliegue con feature flags bajo SSR, migración de autenticación passwordless y controles de ingeniería.",
+    es: "Casos sanitizados de trabajo corporativo en Angular: asistente de voz en tiempo real, despliegue con indicadores de funcionalidad bajo SSR, migración de autenticación sin contraseña y controles de ingeniería.",
   },
   casesEyebrow: { en: "Case studies", es: "Casos" },
   casesHeading: {
@@ -161,7 +161,7 @@ export const ui = {
   },
   experienceDescription: {
     en: "Career timeline: Decskill / Zara Home, Avanade / UNIR, Vermont Solutions / Santander and earlier front-end and full-stack roles since 2018.",
-    es: "Trayectoria profesional: Decskill / Zara Home, Avanade / UNIR, Vermont Solutions / Santander y puestos anteriores de front-end y full-stack desde 2018.",
+    es: "Trayectoria profesional: Decskill / Zara Home, Avanade / UNIR, Vermont Solutions / Santander y puestos anteriores de frontend y full stack desde 2018.",
   },
   experienceEyebrow: { en: "Experience", es: "Experiencia" },
   experienceHeading: {
@@ -176,7 +176,7 @@ export const ui = {
   aboutTitle: { en: "About · Marius Mihail Ion", es: "Perfil · Marius Mihail Ion" },
   aboutDescription: {
     en: "Senior frontend individual contributor working on enterprise Angular products: authentication migrations, API contracts, controlled rollouts, accessibility, performance and SSR.",
-    es: "Individual contributor senior de frontend en productos corporativos de Angular: migraciones de autenticación, contratos de API, despliegues controlados, accesibilidad, rendimiento y SSR.",
+    es: "Profesional sénior de frontend en productos corporativos de Angular: migraciones de autenticación, contratos de API, despliegues controlados, accesibilidad, rendimiento y SSR.",
   },
   aboutEyebrow: { en: "Profile", es: "Perfil" },
   aboutHeading: { en: "About", es: "Perfil" },
@@ -189,12 +189,12 @@ export const ui = {
   },
   contactDescription: {
     en: "Senior Angular / Frontend Engineer roles for remote international teams, including the UK, Switzerland and the US. Open to relocation anywhere in the EU.",
-    es: "Puestos de Senior Angular / Frontend Engineer para equipos internacionales en remoto, incluidos Reino Unido, Suiza y Estados Unidos. Abierto a reubicación en cualquier país de la UE.",
+    es: "Puestos de Ingeniero Frontend Sénior (Angular) para equipos internacionales en remoto, incluidos Reino Unido, Suiza y Estados Unidos. Abierto a reubicación en cualquier país de la UE.",
   },
   contactEyebrow: { en: "Contact", es: "Contacto" },
   contactHeading: {
     en: "Senior Angular / Frontend Engineer roles",
-    es: "Puestos de Senior Angular / Frontend Engineer",
+    es: "Puestos de Ingeniero Frontend Sénior (Angular)",
   },
   contactLede: {
     en: "Remote international teams, including the UK, Switzerland and the US.",
@@ -211,7 +211,7 @@ export const ui = {
 export const aboutParagraphs: Localized<string>[] = [
   {
     en: "I am a senior frontend individual contributor working on enterprise Angular products with TypeScript, RxJS, NgRx and server-side rendering.",
-    es: "Soy un individual contributor senior de frontend que trabaja en productos corporativos de Angular con TypeScript, RxJS, NgRx y renderizado en servidor.",
+    es: "Soy un profesional sénior de frontend que trabaja en productos corporativos de Angular con TypeScript, RxJS, NgRx y renderizado en servidor.",
   },
   {
     en: "I am strongest where product frontend meets platform concerns: authentication migrations, API contracts, controlled rollouts, accessibility, performance and SSR.",
@@ -219,7 +219,7 @@ export const aboutParagraphs: Localized<string>[] = [
   },
   {
     en: "Earlier full-stack .NET/C# work from 2018 to 2020 gives me useful backend context without changing the direction of my career: frontend product engineering is the focus.",
-    es: "El trabajo previo de full-stack en .NET/C# entre 2018 y 2020 me da un contexto útil de backend sin cambiar la dirección de mi carrera: el foco es la ingeniería de producto en frontend.",
+    es: "El trabajo previo full stack en .NET/C# entre 2018 y 2020 me da un contexto útil de servidor sin cambiar la dirección de mi carrera: el foco es la ingeniería de producto en frontend.",
   },
   {
     en: "I also build engineering controls when they solve a delivery problem (automated review, context management and documentation search) but they remain part of the frontend system rather than a separate professional identity.",
@@ -230,7 +230,7 @@ export const aboutParagraphs: Localized<string>[] = [
 /** Contact links. Labels localized, values identical (they are addresses). */
 export const contactLinks = [
   {
-    label: { en: "Email", es: "Email" },
+    label: { en: "Email", es: "Correo electrónico" },
     href: "mailto:mihailmariusion@gmail.com",
     value: "mihailmariusion@gmail.com",
   },

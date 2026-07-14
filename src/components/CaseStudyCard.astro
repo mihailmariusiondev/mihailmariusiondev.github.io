@@ -19,7 +19,7 @@ const href = localizedPath(`/case-studies/${study.slug}/`, lang);
   <h3 class="card__title">{t(study.title, lang)}</h3>
   <p class="card__summary">{t(study.summary, lang)}</p>
   <ul class="card__tags tag-row" aria-label={t(ui.tagsLabel, lang)}>
-    {study.tags.slice(0, 4).map((tag) => <li class="tag">{tag}</li>)}
+    {study.tags.slice(0, 4).map((tag) => <li class="tag">{t(tag, lang)}</li>)}
   </ul>
   <span class="card__cue" aria-hidden="true">
     {t(ui.cardCue, lang)} &rarr;

@@ -30,7 +30,7 @@ const { lang } = Astro.props;
               <p class="timeline__period">{t(entry.period, lang)}</p>
               <div class="timeline__detail">
                 <p class="timeline__company">
-                  {entry.company}
+                  {t(entry.company, lang)}
                   {entry.client && (
                     <span class="timeline__client">
                       {" "}
@@ -38,7 +38,9 @@ const { lang } = Astro.props;
                     </span>
                   )}
                 </p>
-                {entry.role && <p class="timeline__role">{entry.role}</p>}
+                {t(entry.role, lang) && (
+                  <p class="timeline__role">{t(entry.role, lang)}</p>
+                )}
               </div>
             </li>
           ))
