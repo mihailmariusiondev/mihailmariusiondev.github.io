@@ -62,7 +62,7 @@
 
 % Bullet list
 \newenvironment{items}{%
-  \begin{itemize}[leftmargin=1.2em, itemsep=1.5pt, topsep=2pt, parsep=0pt, label={\color{light}\textbullet}]
+  \begin{itemize}[leftmargin=1.2em, itemsep=0pt, topsep=2pt, parsep=0pt, label={\color{light}\textbullet}]
     \small\color{dark}
 }{%
   \end{itemize}%
@@ -106,13 +106,13 @@
 % ── SUMMARY ──
 \section{Perfil profesional}
 {\small\color{dark}
-Desarrollador de software desde 2018, especializado en Angular desde 2021. Frontends empresariales para comercio electrónico global (Zara Home, Inditex), banca (Santander) y educación en línea (UNIR). Desarrollador Angular certificado, con puntuación dentro del \textbf{1,42\% mejor} de los candidatos en una evaluación independiente de Angular. Mi punto fuerte son los frontends de producto complejos: arquitectura, rendimiento, accesibilidad y automatización de calidad. Mi origen full stack en .NET/C\# (2018--2020) sigue dando fruto al negociar contratos de API, autenticación y seguridad. Trilingüe: español, rumano e inglés (C2, goFLUENT).
+Desarrollador de software desde 2018, especializado en Angular desde 2021. Frontends empresariales para comercio electrónico global (Zara Home, Inditex), banca (Santander) y educación en línea (UNIR). Desarrollador Angular certificado, situado entre el \textbf{1,42\% de los mejores} candidatos en una evaluación independiente de Angular. Destaco en frontends de producto complejos: arquitectura, rendimiento, accesibilidad y automatización de calidad. Mi experiencia full stack en .NET/C\# (2018--2020) sigue siendo útil al negociar contratos de API, autenticación y seguridad. Trilingüe: español, rumano e inglés (C2, goFLUENT).
 }
 
 % ── SKILLS ──
 \section{Competencias técnicas}
 
-\skill{Angular}{Angular (Signals, componentes independientes, SSR, carga diferida), TypeScript, RxJS, NgRx, Angular Material/CDK, indicadores de funcionalidad (GrowthBook)}
+\skill{Angular}{Signals, componentes independientes, SSR, carga diferida, TypeScript, RxJS, NgRx, Angular Material/CDK, feature flags (GrowthBook)}
 
 \skill{Frontend de producto}{SCSS/SASS, diseño adaptable, accesibilidad WCAG 2.1 AA, i18n (Transloco), rendimiento web}
 
@@ -120,7 +120,7 @@ Desarrollador de software desde 2018, especializado en Angular desde 2021. Front
 
 \skill{API y entrega}{REST, OpenAPI/Swagger, OAuth 2.0, JWT, interceptores HTTP, WebRTC, servicios sin servidor de AWS (Lambda, Cognito, API Gateway, S3), GitHub Actions, Git/GitHub, Jira, Figma, Agile/Scrum}
 
-\skill{Controles de ingeniería}{OpenAI Realtime API (voz y texto sobre WebRTC), ingeniería de instrucciones y contexto, controles de revisión automatizados.}
+\skill{Controles de ingeniería}{OpenAI Realtime API (voz y texto sobre WebRTC), ingeniería de prompts y contexto, controles de revisión automatizados.}
 
 % ── EXPERIENCE ──
 \section{Experiencia}
@@ -128,11 +128,11 @@ Desarrollador de software desde 2018, especializado en Angular desde 2021. Front
 \job{Decskill España \,\textperiodcentered\, Cliente: Zara Home (Inditex)}{Zaragoza, España}{Analista Frontend Sénior (Angular)}{Mayo 2025 \textendash{} Actualidad}
 \context{Zara Home: plataforma de comercio electrónico global, multiempresa y multimercado}
 \begin{items}
-  \item Desarrollé el frontend Angular del asistente de compra con IA de Zara Home: voz y texto en tiempo real sobre WebRTC, conectado a un catálogo de herramientas de servidor. Publicado en producción tras un indicador de funcionalidad como piloto controlado.
+  \item Desarrollé el frontend Angular del asistente de compra con IA de Zara Home: voz y texto en tiempo real sobre WebRTC, conectado a un catálogo de herramientas del backend. Publicado en producción mediante una feature flag como piloto controlado.
   \item Reduje el coste de LLM con un patrón de enrutado y limpieza de contexto: las cargas útiles de las herramientas bajaron de 570\,KB a 22\,KB por ejecución (\textbf{96\% de reducción})
-  \item Entregué un Centro de Ayuda conversacional que sustituyó en producción a las antiguas guías de compra, desplegado mercado a mercado con integración Angular segura bajo SSR, rutas localizadas y accesibilidad preservada durante el lanzamiento
+  \item Entregué un Centro de Ayuda conversacional que sustituyó en producción a las antiguas guías de compra, desplegado mercado a mercado con integración Angular compatible con SSR, rutas localizadas y accesibilidad preservada durante el lanzamiento
   \item Construí un sistema automatizado de revisión de PR conectado a GitHub, con comprobaciones específicas de dominio, que detectaba defectos de inyección, autorización y gestión de secretos antes de la integración; después lo medí contra su propia salida en vez de confiar en él, \textbf{retirando 21 de sus 53 reglas} cuando los datos mostraron que el equipo las ignoraba
-  \item Audité un paquete de JavaScript de 19\,MB, \textbf{identifiqué ~3,4\,MB} de peso eliminable y envié las reducciones en dos PR integradas: importaciones dinámicas de hls.js y html2canvas, eliminación de lodash-es y migración de luxon a Date nativo
+  \item Audité un paquete de JavaScript de 19\,MB, \textbf{identifiqué ~3,4\,MB} de peso eliminable e implementé las reducciones en dos PR integradas: importaciones dinámicas de hls.js y html2canvas, eliminación de lodash-es y migración de Luxon a Date nativo
   \item Investigué y escalé formalmente hallazgos de producción y seguridad, documentando cada uno con evidencia de ejecución para los equipos responsables e impulsando los casos confirmados durante la revisión
   \item Entregué la migración del área de cuenta a autenticación sin contraseña (OTP): diseñé una UX de doble vía gobernada por \texttt{hasPassword}, con flujos OTP para cambio de email y creación de contraseña, validada en cuatro escenarios documentados
   \item Cerré 34 hallazgos WCAG 2.1 AA de una auditoría formal de accesibilidad: jerarquía de encabezados en todo el sitio, navegación por teclado, semántica ARIA y gestión del foco
@@ -141,22 +141,22 @@ Desarrollador de software desde 2018, especializado en Angular desde 2021. Front
 \end{items}
 
 % ── AVANADE ──
-\job{Avanade España \,\textperiodcentered\, Cliente: UNIR}{Remoto, España}{Analista Frontend Sénior (Angular)}{Marzo 2024 -- Mayo 2025}
+\job{Avanade España \,\textperiodcentered\, Cliente: UNIR}{Remoto, España}{Analista Frontend Sénior (Angular)}{Marzo 2024 \textendash{} Mayo 2025}
 \context{UNIR: la mayor universidad en línea de España. \textquotedblleft Mateo\textquotedblright: sistema administrativo para la gestión de alumnos}
 \begin{items}
-  \item Actué como referente técnico de frontend con las manos en el código, guiando la arquitectura Angular, el diseño de componentes y las decisiones de calidad de código en todo el equipo
+  \item Actué como referente técnico de frontend, trabajando directamente en el código y guiando la arquitectura Angular, el diseño de componentes y las decisiones de calidad en todo el equipo
   \item Definí la arquitectura base: flujos de autenticación, interfaz de administración, permisos centralizados y navegación
-  \item Trabajé dentro de un monorepo NX; refactoricé el módulo de Admisiones, eliminando dependencias circulares y centralizando la lógica de permisos
-  \item Introduje análisis estático, formateo y pruebas unitarias en un sistema administrativo que no tenía ninguno, además de protocolos de revisión y puertas de calidad
+  \item Trabajé dentro de un monorepo Nx; refactoricé el módulo de Admisiones, eliminando dependencias circulares y centralizando la lógica de permisos
+  \item Introduje análisis estático, formateo y pruebas unitarias en un sistema administrativo que no tenía ninguno, además de protocolos de revisión y controles de calidad
   \item Formé al equipo en prácticas de Angular y dirigí sesiones de análisis con SonarQube
   \item Recibí el reconocimiento \textbf{Inspire Greatness} por dedicación y profesionalidad (agosto 2024)
 \end{items}
 
 % ── VERMONT ──
-\job{Vermont Solutions (Viewnext / IBM) \,\textperiodcentered\, Cliente: Santander}{Madrid, España}{Desarrollador Frontend Sénior (Angular)}{Diciembre 2022 -- Marzo 2024}
+\job{Vermont Solutions (Viewnext / IBM) \,\textperiodcentered\, Cliente: Santander}{Madrid, España}{Desarrollador Frontend Sénior (Angular)}{Diciembre 2022 \textendash{} Marzo 2024}
 \context{Santander: aplicaciones bancarias de monitorización de transacciones, gestión de empleados y operaciones inmobiliarias}
 \begin{items}
-  \item Referente sénior de Angular en tres aplicaciones bancarias concurrentes, liderando la entrega diaria con servidor, diseño e interlocutores de Scrum
+  \item Referente sénior de Angular en tres aplicaciones bancarias concurrentes, liderando la entrega diaria con los equipos de backend, diseño y Scrum
   \item Lideré un equipo de 5 en una aplicación bancaria móvil interna (empleados gestionando sus propias transacciones y tarjetas), y fui el referente técnico sénior de un equipo de 4 en el portal inmobiliario interno de Santander
   \item Construí un panel de monitorización de transacciones con Chart.js (gráficos de barras y anillos) e interacciones gestuales con HammerJS; en un proyecto asumí en solitario cerca del 80\% de la implementación del frontend
   \item Implementé diseños de Figma como componentes Angular sobre la plataforma interna de frontend de Santander: sistema de diseño Flame, librerías de seguridad y registro NgDarwin, Storybook y Nexus para paquetes internos
@@ -164,7 +164,7 @@ Desarrollador de software desde 2018, especializado en Angular desde 2021. Front
 \end{items}
 
 % ── CLOUDAPPI ──
-\job{CloudAPPi}{Madrid, España}{Desarrollador Frontend Intermedio (Angular, React)}{Octubre -- Diciembre 2022}
+\job{CloudAPPi}{Madrid, España}{Desarrollador Frontend Intermedio (Angular, React)}{Octubre \textendash{} Diciembre 2022}
 \context{Contrato de dos meses para la Comunidad de Madrid.}
 \begin{items}
   \item Desarrollé flujos de autenticación y mejoras incrementales en \textbf{Madrid Digital}, un monolito heredado en Angular 8 (Angular Material, RxJS)
@@ -172,8 +172,8 @@ Desarrollador de software desde 2018, especializado en Angular desde 2021. Front
 \end{items}
 
 % ── ENZO ──
-\job{ENZO (Rent \& Buy S.A.)}{Madrid, España}{Desarrollador Frontend Intermedio (Angular)}{Septiembre 2021 -- Octubre 2022}
-\context{Empresa pequeña para un cliente agrícola internacional, sobre servicios sin servidor de AWS. Donde pasé de .NET a Angular y a la nube.}
+\job{ENZO (Rent \& Buy S.A.)}{Madrid, España}{Desarrollador Frontend Intermedio (Angular)}{Septiembre 2021 \textendash{} Octubre 2022}
+\context{Empresa pequeña para un cliente agrícola internacional, sobre servicios sin servidor de AWS. Allí pasé de .NET a Angular y a la nube.}
 \begin{items}
   \item Desarrollé componentes Angular reutilizables sobre servicios sin servidor de AWS (Lambda, API Gateway, S3, CloudFront, SQS/SNS) y flujos de autenticación con AWS Cognito
   \item Acompañé a los nuevos miembros del equipo en la arquitectura y las prácticas de Angular; participé en reuniones con el cliente en inglés y en la toma de requisitos
@@ -182,12 +182,12 @@ Desarrollador de software desde 2018, especializado en Angular desde 2021. Front
 % ── PREVIOUS ──
 \vspace{4pt}
 {\latosemibold\small\color{dark} Experiencia anterior}\vspace{1pt}
-\context{Antes de especializarme en Angular en 2021: puestos de desarrollo full stack en .NET (2018 -- 2020) y un periodo por cuenta propia.}
+\context{Antes de especializarme en Angular en 2021: puestos de desarrollo full stack en .NET (2018 \textendash{} 2020) y un periodo por cuenta propia.}
 \begin{items}
-  \item \textbf{Proyectos propios y formación} \,\textperiodcentered\, Desarrollo WordPress (temas, complementos, SEO), herramientas de automatización de Office y formación estructurada en frontend, junio 2020 -- septiembre 2021
-  \item \textbf{Altran (Capgemini)} \,\textperiodcentered\, Desarrollador Full Stack Intermedio (.NET), marzo -- junio 2020
-  \item \textbf{IO Digital (Query Software)} \,\textperiodcentered\, Desarrollador Full Stack Intermedio (.NET), noviembre 2018 -- septiembre 2019
-  \item \textbf{STRATESYS} \,\textperiodcentered\, Desarrollador Full Stack Junior (.NET), julio -- noviembre 2018
+  \item \textbf{Proyectos propios y formación} \,\textperiodcentered\, Desarrollo WordPress (temas, complementos, SEO), herramientas de automatización de Office y formación estructurada en frontend, junio 2020 \textendash{} septiembre 2021
+  \item \textbf{Altran (Capgemini)} \,\textperiodcentered\, Desarrollador Full Stack Intermedio (.NET), marzo \textendash{} junio 2020
+  \item \textbf{IO Digital (Query Software)} \,\textperiodcentered\, Desarrollador Full Stack Intermedio (.NET), noviembre 2018 \textendash{} septiembre 2019
+  \item \textbf{STRATESYS} \,\textperiodcentered\, Desarrollador Full Stack Junior (.NET), julio \textendash{} noviembre 2018
 \end{items}
 
 % ── CERTIFICATIONS ──
@@ -196,7 +196,7 @@ Desarrollador de software desde 2018, especializado en Angular desde 2021. Front
 \entry{\textbf{Angular Certified Developer} \,\textperiodcentered\, Angular Training (Alain Chautard, Google Developer Expert)}{Diciembre 2022}
 \entry{\textbf{Evaluación de Angular: 95\% de puntuación, 1,42\% mejor de todos los candidatos} \,\textperiodcentered\, SkillValue}{Septiembre 2022}
 \entry{English Proficiency Test, C2 \,\textperiodcentered\, goFLUENT\enspace\textbar\enspace Green Software for Practitioners \,\textperiodcentered\, Linux Foundation}{2025}
-\entry{Técnico Superior en Desarrollo de Aplicaciones Multiplataforma \,\textperiodcentered\, Centro de Estudios Joyfe, Madrid}{2017 -- 2018}
+\entry{Técnico Superior en Desarrollo de Aplicaciones Multiplataforma \,\textperiodcentered\, Centro de Estudios Joyfe, Madrid}{2017 \textendash{} 2018}
 
 % ── LANGUAGES ──
 \section{Idiomas}
@@ -204,7 +204,7 @@ Desarrollador de software desde 2018, especializado en Angular desde 2021. Front
 {\small
 \textbf{Español:} Nativo \quad\textbar\quad
 \textbf{Rumano:} Nativo \quad\textbar\quad
-\textbf{Inglés:} Competencia profesional plena (C2, evaluado por goFLUENT)
+\textbf{Inglés:} Competencia profesional completa (C2, evaluado por goFLUENT)
 }
 
 % ── RECOGNITION ──
@@ -212,8 +212,8 @@ Desarrollador de software desde 2018, especializado en Angular desde 2021. Front
 
 \recognition{Trabajar con Marius ha sido un verdadero placer. Destaco su iniciativa con herramientas de IA aplicadas al desarrollo, de las que aprendí trabajando codo con codo con él. Cualquier equipo sería afortunado de contar con su nivel técnico y su actitud.}{Juan Pablo Romero Pereira, Desarrollador Frontend, Zara Home (Inditex)}
 
-\recognition{Su conocimiento en Angular es excelente, pero lo que realmente destaco es su disposición para ayudar y compartir su experiencia. No solo aplica las buenas prácticas en su trabajo diario, sino que fomenta su adopción dentro del equipo.}{José Luis Murcia Gámez, Desarrollador Frontend, proyecto UNIR (Avanade)}
+\recognition{Su conocimiento de Angular es excelente, pero lo que realmente destaco es su disposición para ayudar y compartir su experiencia. No solo aplica las buenas prácticas en su trabajo diario, sino que fomenta su adopción dentro del equipo.}{José Luis Murcia Gámez, Desarrollador Frontend, proyecto UNIR (Avanade)}
 
-\recognition{Marius demostró ser un programador altamente adaptable y resolutivo en ambas ocasiones que trabajamos juntos, en Stratesys y en Avanade. Su capacidad para aprender rápidamente y su contribución a los proyectos fueron fundamentales.}{José Luis Rodríguez-Campra Camberos, Coordinador BAU / Scrum Master}
+\recognition{Marius demostró ser un programador muy adaptable y resolutivo las dos veces que trabajamos juntos, en Stratesys y en Avanade. Su capacidad para aprender rápido y su contribución a los proyectos fueron fundamentales.}{José Luis Rodríguez-Campra Camberos, Coordinador BAU / Scrum Master}
 
 \end{document}
