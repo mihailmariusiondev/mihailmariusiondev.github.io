@@ -12,7 +12,7 @@ Astro, TypeScript, semantic HTML, responsive CSS, GitHub Pages.
 ## Content
 
 Profile, verified career timeline, sanitized case studies, recommendations,
-downloadable 2-page CV.
+and downloadable 2-page CVs in English and Spanish.
 
 ## Privacy
 

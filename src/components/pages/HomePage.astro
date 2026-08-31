@@ -20,6 +20,10 @@ interface Props {
 }
 
 const { lang } = Astro.props;
+const cvHref =
+  lang === "es"
+    ? "/marius-mihail-ion-cv-es.pdf"
+    : "/marius-mihail-ion-cv.pdf";
 ---
 
 <Layout
@@ -27,6 +31,7 @@ const { lang } = Astro.props;
   description={t(ui.homeDescription, lang)}
   ogTitle={t(ui.homeOgTitle, lang)}
   ogDescription={t(ui.homeOgDescription, lang)}
+  includePersonSchema
 >
   <section class="hero">
     <div class="wrap hero__grid">
@@ -51,7 +56,7 @@ const { lang } = Astro.props;
           <a class="btn btn-primary" href={localizedPath("/case-studies/", lang)}>
             {t(ui.heroCtaCases, lang)}
           </a>
-          <a class="btn" href="/marius-mihail-ion-cv.pdf">
+          <a class="btn" href={cvHref} download>
             {t(ui.heroCtaCv, lang)}
           </a>
           <a class="btn" href="https://linkedin.com/in/mariusdev">LinkedIn</a>

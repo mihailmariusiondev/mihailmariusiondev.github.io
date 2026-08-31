@@ -40,15 +40,15 @@ export const caseStudies: CaseStudy[] = [
       { en: "Accessibility", es: "Accesibilidad" },
     ],
     summary: {
-      en: "A controlled whitelist pilot: 96% smaller tool payloads, safe under SSR, never opened to the public.",
-      es: "Un piloto controlado mediante lista blanca: cargas útiles de herramientas un 96% más pequeñas, seguro bajo SSR y nunca abierto al público.",
+      en: "A controlled whitelist pilot: 96% smaller tool payloads, SSR-compatible and never opened to the public.",
+      es: "Un piloto controlado mediante lista blanca: cargas útiles de herramientas un 96 % más pequeñas, compatible con SSR y nunca abierto al público.",
     },
     fields: [
       {
         label: CONTEXT,
         value: {
-          en: "A global, multi-market e-commerce frontend needed a conversational shopping experience with voice, text, product context and escalation to a human agent.",
-          es: "Un frontend de comercio electrónico global y multimercado necesitaba una experiencia de compra conversacional con voz, texto, contexto de producto y escalado a un agente humano.",
+          en: "A global, multi-market e-commerce frontend needed a conversational shopping experience with voice, text and product context.",
+          es: "Un frontend de comercio electrónico global y multimercado necesitaba una experiencia de compra conversacional con voz, texto y contexto de producto.",
         },
       },
       {
@@ -69,7 +69,7 @@ export const caseStudies: CaseStudy[] = [
         label: { en: "Engineering decisions", es: "Decisiones de ingeniería" },
         value: {
           en: "Lazy initialization, platform guards, a controlled feature flag and a routing and context-stripping design.",
-          es: "Inicialización diferida, protecciones de plataforma, un indicador de funcionalidad controlado y un diseño de enrutado y limpieza de contexto.",
+          es: "Inicialización diferida, protecciones de plataforma, una feature flag controlada y un diseño de enrutado y limpieza de contexto.",
         },
       },
       {
@@ -98,13 +98,13 @@ export const caseStudies: CaseStudy[] = [
     tags: [
       { en: "Angular", es: "Angular" },
       { en: "SSR", es: "SSR" },
-      { en: "Feature Flags", es: "Indicadores de funcionalidad" },
+      { en: "Feature Flags", es: "Feature flags" },
       { en: "Observability", es: "Observabilidad" },
       { en: "Accessibility", es: "Accesibilidad" },
     ],
     summary: {
       en: "A country-by-country Help Center rollout with SSR-safe Angular integration, stable routes and accessible localized experiences.",
-      es: "Un despliegue del Centro de Ayuda país por país con integración Angular segura bajo SSR, rutas estables y experiencias localizadas accesibles.",
+      es: "Un despliegue del Centro de Ayuda país por país con integración Angular compatible con SSR, rutas estables y experiencias localizadas accesibles.",
     },
     fields: [
       {
@@ -230,7 +230,7 @@ export const caseStudies: CaseStudy[] = [
     tags: [
       { en: "GitHub", es: "GitHub" },
       { en: "Automated Review", es: "Revisión automatizada" },
-      { en: "Prompt and Context Engineering", es: "Ingeniería de instrucciones y contexto" },
+      { en: "Prompt and Context Engineering", es: "Ingeniería de prompts y contexto" },
       { en: "MCP", es: "MCP" },
       { en: "Developer Tooling", es: "Herramientas de desarrollo" },
     ],

@@ -9,6 +9,10 @@ interface Props {
 }
 
 const { lang } = Astro.props;
+const cvHref =
+  lang === "es"
+    ? "/marius-mihail-ion-cv-es.pdf"
+    : "/marius-mihail-ion-cv.pdf";
 ---
 
 <Layout
@@ -37,7 +41,7 @@ const { lang } = Astro.props;
         }
       </ul>
 
-      <a class="btn btn-primary contact__cv" href="/marius-mihail-ion-cv.pdf">
+      <a class="btn btn-primary contact__cv" href={cvHref} download>
         {t(ui.heroCtaCv, lang)}
       </a>
     </section>

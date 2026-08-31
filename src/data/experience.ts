@@ -9,8 +9,8 @@ export interface ExperienceEntry {
 
 export const experience: ExperienceEntry[] = [
   {
-    // Decskill is the current role. No end date, in either language.
-    period: { en: "May 2025 – Present", es: "Mayo 2025 – Presente" },
+    // Decskill is the most recent role and ended in July 2026.
+    period: { en: "May 2025 – July 2026", es: "Mayo 2025 – Julio 2026" },
     company: { en: "Decskill Spain", es: "Decskill España" },
     client: "Zara Home (Inditex)",
     role: {
@@ -205,10 +205,10 @@ export const stats: Stat[] = [
     },
   },
   {
-    value: { en: "Top 1.42%", es: "1,42% superior" },
+    value: { en: "Top 1.42%", es: "1,42 %" },
     label: {
       en: "Ranking among all candidates on an independent Angular assessment by SkillValue, with a 95% score",
-      es: "Puesto entre todos los candidatos en una evaluación independiente de Angular de SkillValue, con una puntuación del 95%",
+      es: "Posición entre el 1,42 % de los mejores candidatos en una evaluación independiente de Angular de SkillValue, con una puntuación del 95 %",
     },
   },
   {

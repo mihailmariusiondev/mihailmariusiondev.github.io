@@ -9,6 +9,8 @@ interface Props {
   description: string;
   ogTitle?: string;
   ogDescription?: string;
+  includePersonSchema?: boolean;
+  noIndex?: boolean;
 }
 
 const {
@@ -16,6 +18,8 @@ const {
   description,
   ogTitle = title,
   ogDescription = description,
+  includePersonSchema = false,
+  noIndex = false,
 } = Astro.props;
 
 // The URL is the only language signal. No Accept-Language, no cookie.
@@ -25,6 +29,24 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 // Both alternates point at THIS page in each language, never at a home page.
 const enURL = new URL(pathInLocale(Astro.url.pathname, "en"), Astro.site);
 const esURL = new URL(pathInLocale(Astro.url.pathname, "es"), Astro.site);
+const socialImageURL = new URL("/me.webp", Astro.site);
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Marius Mihail Ion",
+  url: new URL("/", Astro.site).toString(),
+  image: socialImageURL.toString(),
+  jobTitle: t(ui.siteRole, lang),
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Zaragoza",
+    addressCountry: "ES",
+  },
+  sameAs: [
+    "https://linkedin.com/in/mariusdev",
+    "https://github.com/mihailmariusiondev",
+  ],
+};
 ---
 
 <!doctype html>
@@ -35,27 +57,47 @@ const esURL = new URL(pathInLocale(Astro.url.pathname, "es"), Astro.site);
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light dark" />
+    {noIndex && <meta name="robots" content="noindex" />}
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="canonical" href={canonicalURL} />
+    {!noIndex && <link rel="canonical" href={canonicalURL} />}
 
-    <link rel="alternate" hreflang="en" href={enURL} />
-    <link rel="alternate" hreflang="es" href={esURL} />
-    <link rel="alternate" hreflang="x-default" href={enURL} />
+    {
+      !noIndex && (
+        <Fragment>
+          <link rel="alternate" hreflang="en" href={enURL} />
+          <link rel="alternate" hreflang="es" href={esURL} />
+          <link rel="alternate" hreflang="x-default" href={enURL} />
+        </Fragment>
+      )
+    }
 
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content={lang === "es" ? "es_ES" : "en_US"} />
     <meta property="og:title" content={ogTitle} />
     <meta property="og:description" content={ogDescription} />
+    <meta property="og:image" content={socialImageURL} />
+    <meta property="og:image:alt" content={t(ui.heroPhotoAlt, lang)} />
 
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content={ogTitle} />
     <meta name="twitter:description" content={ogDescription} />
+    <meta name="twitter:image" content={socialImageURL} />
+    <meta name="twitter:image:alt" content={t(ui.heroPhotoAlt, lang)} />
+    {
+      includePersonSchema && (
+        <script
+          type="application/ld+json"
+          is:inline
+          set:html={JSON.stringify(personSchema)}
+        />
+      )
+    }
   </head>
   <body>
     <a href="#main" class="skip-link">{t(ui.skipLink, lang)}</a>
 
-    <SiteNav />
+    <SiteNav showLanguageSwitcher={!noIndex} />
 
     <main id="main">
       <slot />

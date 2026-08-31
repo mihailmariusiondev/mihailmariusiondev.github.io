@@ -254,7 +254,9 @@ input:focus-visible,
   border-radius: 3px;
   padding: 0.2em 0.6em;
   background: var(--paper-raised);
-  white-space: nowrap;
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 
 /* Definition rows used by the case studies. */

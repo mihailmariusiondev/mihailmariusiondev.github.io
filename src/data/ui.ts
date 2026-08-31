@@ -115,8 +115,8 @@ export const ui = {
   heroCtaCases: { en: "View case studies", es: "Ver casos" },
   heroCtaCv: { en: "Download CV", es: "Descargar CV" },
   heroLocation: {
-    en: "Based in Zaragoza, Spain · EU citizen · Remote international · Open to relocation anywhere in the EU",
-    es: "Con base en Zaragoza, España · Ciudadano de la UE · Remoto internacional · Abierto a reubicación en cualquier país de la UE",
+    en: "Based in Zaragoza, Spain · EU citizen · Remote-first · Open to occasional travel and relocation, including outside the EU with sponsorship",
+    es: "Con base en Zaragoza, España · Ciudadano de la UE · Remoto como prioridad · Disponible para viajar puntualmente y reubicarme, también fuera de la UE con patrocinio",
   },
   statsHeading: { en: "Verified results", es: "Resultados verificados" },
   workTitle: { en: "Case studies", es: "Casos" },
@@ -132,7 +132,7 @@ export const ui = {
   },
   casesDescription: {
     en: "Sanitized case studies of enterprise Angular work: real-time voice assistant, SSR feature-flag rollout, passwordless authentication migration and engineering controls.",
-    es: "Casos sanitizados de trabajo corporativo en Angular: asistente de voz en tiempo real, despliegue con indicadores de funcionalidad bajo SSR, migración de autenticación sin contraseña y controles de ingeniería.",
+    es: "Casos sanitizados de trabajo corporativo en Angular: asistente de voz en tiempo real, despliegue con feature flags compatible con SSR, migración de autenticación sin contraseña y controles de ingeniería.",
   },
   casesEyebrow: { en: "Case studies", es: "Casos" },
   casesHeading: {
@@ -188,8 +188,8 @@ export const ui = {
     es: "Contacto · Marius Mihail Ion",
   },
   contactDescription: {
-    en: "Senior Angular / Frontend Engineer roles for remote international teams, including the UK, Switzerland and the US. Open to relocation anywhere in the EU.",
-    es: "Puestos de Ingeniero Frontend Sénior (Angular) para equipos internacionales en remoto, incluidos Reino Unido, Suiza y Estados Unidos. Abierto a reubicación en cualquier país de la UE.",
+    en: "Senior Angular / Frontend Engineer roles for remote international teams. Permanent or B2B, with occasional travel and relocation considered.",
+    es: "Puestos de Ingeniero Frontend Sénior (Angular) para equipos internacionales en remoto. Indefinido o B2B, con disponibilidad para viajar puntualmente y valorar una reubicación.",
   },
   contactEyebrow: { en: "Contact", es: "Contacto" },
   contactHeading: {
@@ -197,12 +197,12 @@ export const ui = {
     es: "Puestos de Ingeniero Frontend Sénior (Angular)",
   },
   contactLede: {
-    en: "Remote international teams, including the UK, Switzerland and the US.",
-    es: "Equipos internacionales en remoto, incluidos Reino Unido, Suiza y Estados Unidos.",
+    en: "Remote-first international teams. Permanent or B2B.",
+    es: "Equipos internacionales, con remoto como prioridad. Indefinido o B2B.",
   },
   contactRelocation: {
-    en: "Open to relocation anywhere in the EU.",
-    es: "Abierto a reubicación en cualquier país de la UE.",
+    en: "Available for occasional travel and relocation, including outside the EU where sponsorship is available.",
+    es: "Disponible para viajar puntualmente y reubicarme, también fuera de la UE cuando la empresa pueda gestionar el permiso necesario.",
   },
   contactAriaLabel: { en: "Contact details", es: "Datos de contacto" },
 } satisfies Record<string, Localized<string>>;

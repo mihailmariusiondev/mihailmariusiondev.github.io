@@ -21,6 +21,12 @@ import { localeFromPath, localizedPath, pathInLocale, t } from "../i18n";
 import { NAV_ITEMS, ui } from "../data/ui";
 import type { NavItem } from "../data/ui";
 
+interface Props {
+  showLanguageSwitcher?: boolean;
+}
+
+const { showLanguageSwitcher = true } = Astro.props;
+
 const path = Astro.url.pathname;
 const lang = localeFromPath(path);
 const other = lang === "en" ? "es" : "en";
@@ -62,15 +68,19 @@ function isCurrent(item: NavItem): boolean {
         </ul>
       </nav>
 
-      <a
-        class="langswitch"
-        href={otherLangHref}
-        hreflang={other}
-        lang={other}
-        aria-label={t(ui.languageSwitchTo, lang)}
-      >
-        <span class="langswitch__code">{t(ui.languageSwitchText, lang)}</span>
-      </a>
+      {
+        showLanguageSwitcher && (
+          <a
+            class="langswitch"
+            href={otherLangHref}
+            hreflang={other}
+            lang={other}
+            aria-label={t(ui.languageSwitchTo, lang)}
+          >
+            <span class="langswitch__code">{t(ui.languageSwitchText, lang)}</span>
+          </a>
+        )
+      }
     </div>
   </div>
 </header>
@@ -348,6 +358,13 @@ function isCurrent(item: NavItem): boolean {
     .bottomnav__link[aria-current="page"] {
       color: var(--steel-dark);
       background: var(--steel-wash);
+    }
+  }
+
+  @media (max-width: 22rem) {
+    .bottomnav__label {
+      overflow: visible;
+      text-overflow: clip;
     }
   }
 </style>

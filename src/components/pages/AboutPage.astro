@@ -9,6 +9,10 @@ interface Props {
 }
 
 const { lang } = Astro.props;
+const cvHref =
+  lang === "es"
+    ? "/marius-mihail-ion-cv-es.pdf"
+    : "/marius-mihail-ion-cv.pdf";
 ---
 
 <Layout
@@ -26,7 +30,7 @@ const { lang } = Astro.props;
       <div class="about__body prose">
         {aboutParagraphs.map((p) => <p>{t(p, lang)}</p>)}
       </div>
-      <a class="btn" href="/marius-mihail-ion-cv.pdf">{t(ui.heroCtaCv, lang)}</a>
+      <a class="btn" href={cvHref} download>{t(ui.heroCtaCv, lang)}</a>
     </section>
   </div>
 </Layout>
