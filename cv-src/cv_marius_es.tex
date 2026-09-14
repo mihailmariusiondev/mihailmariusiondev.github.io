@@ -22,7 +22,6 @@
 \usepackage{titlesec}
 \usepackage{enumitem}
 \usepackage{hyperref}
-\usepackage{tabularx}
 
 \definecolor{dark}{HTML}{2C2C2C}
 \definecolor{mid}{HTML}{555555}
@@ -49,10 +48,8 @@
 % Experience header
 \newcommand{\job}[4]{%
   \vspace{5pt}%
-  \begin{tabular*}{\textwidth}{@{}l@{\extracolsep{\fill}}r@{}}
-    {\latosemibold\color{dark}#1} & {\latolight\small\color{light}#2} \\
-    {\itshape\small\color{mid}#3} & {\latolight\itshape\small\color{light}#4} \\
-  \end{tabular*}\vspace{2pt}%
+  {\latosemibold\color{dark}#1\hfill{\latolight\small\color{light}#2}}\par
+  {\itshape\small\color{mid}#3\hfill{\latolight\small\color{light}#4}}\par\vspace{2pt}%
 }
 
 % Context line
@@ -99,7 +96,7 @@
     \href{https://github.com/mihailmariusiondev}{github.com/mihailmariusiondev}
   }\\[3pt]
   {\small\latosemibold\color{dark} Ciudadano de la UE: autorizado para trabajar en toda la UE/EEE sin patrocinio}\\[1pt]
-  {\latolight\footnotesize\color{light} Indefinido o B2B\enspace\textbar\enspace Remoto como prioridad\enspace\textbar\enspace Abierto a reubicación, con patrocinio fuera de la UE}
+  {\latolight\footnotesize\color{light} Indefinido o B2B\enspace\textbar\enspace Remoto o híbrido desde Zaragoza\enspace\textbar\enspace Reubicación internacional solo ante una oferta excepcional}
 \end{center}
 \vspace{2pt}
 
@@ -112,7 +109,7 @@ Desarrollador de software desde 2018, especializado en Angular desde 2021. Front
 % ── SKILLS ──
 \section{Competencias técnicas}
 
-\skill{Angular}{Signals, componentes independientes, SSR, carga diferida, TypeScript, RxJS, NgRx, Angular Material/CDK, feature flags}
+\skill{Angular y TypeScript}{Angular 8--20, Signals, Standalone Components, SSR, carga diferida, RxJS, NgRx, Angular Material/CDK, feature flags}
 
 \skill{Frontend de producto}{SCSS/SASS, diseño adaptable, accesibilidad WCAG 2.1 AA, i18n (Transloco), rendimiento web}
 
@@ -126,18 +123,18 @@ Desarrollador de software desde 2018, especializado en Angular desde 2021. Front
 \section{Experiencia}
 
 \job{Decskill España \,\textperiodcentered\, Cliente: Zara Home (Inditex)}{Zaragoza, España}{Analista Frontend Sénior (Angular)}{Mayo 2025 \textendash{} Julio 2026}
-\context{Zara Home: plataforma de comercio electrónico global, multiempresa y multimercado}
+\context{Zara Home: plataforma de comercio electrónico global y multimercado}
 \begin{items}
   \item Desarrollé el frontend Angular del asistente de compra con IA de Zara Home: voz y texto en tiempo real sobre WebRTC, conectado a un catálogo de herramientas del backend. Publicado en producción mediante una feature flag como piloto controlado.
   \item Reduje el coste de LLM con un patrón de enrutado y limpieza de contexto: las cargas útiles de las herramientas bajaron de 570\,KB a 22\,KB por ejecución (\textbf{96\% de reducción})
   \item Entregué un Centro de Ayuda conversacional que sustituyó en producción a las antiguas guías de compra, desplegado mercado a mercado con integración Angular compatible con SSR, rutas localizadas y accesibilidad preservada durante el lanzamiento
   \item Construí un sistema automatizado de revisión de PR conectado a GitHub, con comprobaciones específicas de dominio, que detectaba defectos de inyección, autorización y gestión de secretos antes de la integración. Después lo medí contra su propia salida en vez de confiar en él, \textbf{retirando 21 de sus 53 reglas} cuando los datos mostraron que el equipo las ignoraba
-  \item Audité un paquete de JavaScript de 19\,MB, \textbf{identifiqué ~3,4\,MB} de peso eliminable e implementé las reducciones en dos PR integradas: importaciones dinámicas de hls.js y html2canvas, eliminación de lodash-es y migración de Luxon a Date nativo
+  \item Audité un paquete de JavaScript de 19\,MB e \textbf{identifiqué ~3,4\,MB} de peso eliminable; entregué dos PR con importaciones dinámicas de hls.js y html2canvas, eliminación de lodash-es y migración de Luxon a Date nativo
   \item Investigué y escalé formalmente hallazgos de producción y seguridad, documentando cada uno con evidencia de ejecución para los equipos responsables e impulsando los casos confirmados durante la revisión
   \item Entregué la migración del área de cuenta a autenticación sin contraseña (OTP): diseñé una UX de doble vía gobernada por \texttt{hasPassword}, con flujos OTP para cambio de email y creación de contraseña, validada en cuatro escenarios documentados
   \item Cerré 34 hallazgos WCAG 2.1 AA de una auditoría formal de accesibilidad: jerarquía de encabezados en todo el sitio, navegación por teclado, semántica ARIA y gestión del foco
   \item Construí herramientas internas de desarrollo adoptadas fuera de mi equipo: una CLI de mensajería para Teams integrada en el repositorio compartido de Inditex, y un servidor MCP de documentación que curé y desplegué en la plataforma interna, adoptado por el equipo de plataforma Android
-  \item Escribí la guía de integración para iOS (arquitectura, contrato del SDK, catálogo de herramientas) que usó el equipo nativo para portar el asistente a la aplicación de Zara Home
+  \item Escribí la guía de integración para iOS: arquitectura, contrato del SDK y catálogo de herramientas del asistente de Zara Home
 \end{items}
 
 % ── AVANADE ──
@@ -153,6 +150,7 @@ Desarrollador de software desde 2018, especializado en Angular desde 2021. Front
 \end{items}
 
 % ── VERMONT ──
+\newpage
 \job{Vermont Solutions (Viewnext / IBM) \,\textperiodcentered\, Cliente: Santander}{Madrid, España}{Desarrollador Frontend Sénior (Angular)}{Diciembre 2022 \textendash{} Marzo 2024}
 \context{Santander: aplicaciones bancarias de monitorización de transacciones, gestión de empleados y operaciones inmobiliarias}
 \begin{items}
@@ -195,7 +193,6 @@ Desarrollador de software desde 2018, especializado en Angular desde 2021. Front
 
 \entry{\textbf{Angular Certified Developer} \,\textperiodcentered\, Angular Training (expirado en diciembre de 2025)}{Diciembre 2022}
 \entry{\textbf{Evaluación de Angular: 95\% de puntuación, entre el 1,42\% de los mejores candidatos} \,\textperiodcentered\, SkillValue}{Septiembre 2022}
-\entry{English Proficiency Test, C2 \,\textperiodcentered\, goFLUENT}{Marzo 2025}
 \entry{Green Software for Practitioners \,\textperiodcentered\, Linux Foundation + Green Software Foundation}{2025}
 \entry{Técnico Superior en Desarrollo de Aplicaciones Multiplataforma \,\textperiodcentered\, Centro de Estudios Joyfe, Madrid}{2017 \textendash{} 2018}
 
@@ -205,7 +202,7 @@ Desarrollador de software desde 2018, especializado en Angular desde 2021. Front
 {\small
 \textbf{Español:} Nativo \quad\textbar\quad
 \textbf{Rumano:} Nativo \quad\textbar\quad
-\textbf{Inglés:} Competencia profesional, con una evaluación C2 de goFLUENT (2025)
+\textbf{Inglés:} Competencia profesional
 }
 
 % ── RECOGNITION ──

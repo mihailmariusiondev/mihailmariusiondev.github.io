@@ -22,7 +22,6 @@
 \usepackage{titlesec}
 \usepackage{enumitem}
 \usepackage{hyperref}
-\usepackage{tabularx}
 
 \definecolor{dark}{HTML}{2C2C2C}
 \definecolor{mid}{HTML}{555555}
@@ -49,10 +48,8 @@
 % Experience header
 \newcommand{\job}[4]{%
   \vspace{5pt}%
-  \begin{tabular*}{\textwidth}{@{}l@{\extracolsep{\fill}}r@{}}
-    {\latosemibold\color{dark}#1} & {\latolight\small\color{light}#2} \\
-    {\itshape\small\color{mid}#3} & {\latolight\itshape\small\color{light}#4} \\
-  \end{tabular*}\vspace{2pt}%
+  {\latosemibold\color{dark}#1\hfill{\latolight\small\color{light}#2}}\par
+  {\itshape\small\color{mid}#3\hfill{\latolight\small\color{light}#4}}\par\vspace{2pt}%
 }
 
 % Context line
@@ -99,7 +96,7 @@
     \href{https://github.com/mihailmariusiondev}{github.com/mihailmariusiondev}
   }\\[3pt]
   {\small\latosemibold\color{dark} EU Citizen: authorized to work across the EU/EEA without sponsorship}\\[1pt]
-  {\latolight\footnotesize\color{light} Permanent or B2B\enspace\textbar\enspace Remote-first international\enspace\textbar\enspace Open to relocation, with sponsorship outside the EU}
+  {\latolight\footnotesize\color{light} Permanent or B2B\enspace\textbar\enspace Remote or hybrid from Zaragoza\enspace\textbar\enspace International relocation for an exceptional offer}
 \end{center}
 \vspace{2pt}
 
@@ -112,7 +109,7 @@ Software developer since 2018, specialized in Angular since 2021. Enterprise fro
 % ── SKILLS ──
 \section{Technical Skills}
 
-\skill{Angular}{Signals, Standalone Components, SSR, lazy loading, TypeScript, RxJS, NgRx, Angular Material/CDK, feature flags}
+\skill{Angular \& TypeScript}{Angular 8--20, Signals, Standalone Components, SSR, lazy loading, RxJS, NgRx, Angular Material/CDK, feature flags}
 
 \skill{Product Frontend}{SCSS/SASS, responsive design, WCAG 2.1 AA accessibility, i18n (Transloco), web performance}
 
@@ -126,18 +123,18 @@ Software developer since 2018, specialized in Angular since 2021. Enterprise fro
 \section{Experience}
 
 \job{Decskill Espa\~na \,\textperiodcentered\, Client: Zara Home (Inditex)}{Zaragoza, Spain}{Senior Front-End Analyst (Angular)}{May 2025 \textendash{} July 2026}
-\context{Zara Home: global e-commerce platform, multi-tenant, multi-market}
+\context{Zara Home: global, multi-market e-commerce platform}
 \begin{items}
   \item Built the Angular frontend of Zara Home's AI shopping assistant: real-time voice and text over WebRTC, wired to a catalog of backend tools. Released to production behind a feature flag as a controlled pilot.
   \item Cut LLM cost with a router pattern and context stripping: tool payloads dropped from 570\,KB to 22\,KB per execution (\textbf{96\% reduction})
   \item Delivered a conversational Help Center that replaced legacy shopping guides in production, rolled out market by market with SSR-safe Angular integration, localized routes and accessibility preserved throughout the release
   \item Built an automated PR-review system connected to GitHub, with domain-specific checks, that surfaced injection, authorization and secrets-management defects before merge. I then measured it against its own output rather than trusting it, \textbf{retiring 21 of its 53 rules} once the data showed the team was ignoring them
-  \item Audited a 19\,MB JavaScript bundle, \textbf{identified ~3.4\,MB} of removable weight and shipped the reductions in two merged PRs: dynamic imports for hls.js and html2canvas, lodash-es removed, and a luxon-to-native-Date migration
+  \item Audited a 19\,MB JavaScript bundle and \textbf{identified ~3.4\,MB} of removable weight; shipped two PRs with dynamic imports for hls.js and html2canvas, lodash-es removal and a Luxon-to-native-Date migration
   \item Investigated and formally escalated production and security findings, documenting each with runtime evidence for the owning teams and driving confirmed issues through review
   \item Delivered the account-area migration to passwordless (OTP) authentication: designed dual-path UX driven by \texttt{hasPassword}, with OTP flows for email change and password creation, validated end-to-end on the pre-integration environment across four documented scenarios
   \item Closed 34 WCAG 2.1 AA findings from a formal accessibility audit: heading hierarchy site-wide, keyboard navigation, ARIA semantics and focus management
   \item Built internal developer tooling adopted outside my own team: a Teams messaging CLI merged into Inditex's shared engineering repository, and a documentation MCP server I curated and deployed on the internal platform, taken up by the Android platform team
-  \item Wrote the iOS integration guide (architecture, SDK contract, tool catalog) used by the native team to port the assistant to the Zara Home app
+  \item Wrote the iOS integration guide covering the Zara Home assistant architecture, SDK contract and tool catalog
 \end{items}
 
 % ── AVANADE ──
@@ -153,6 +150,7 @@ Software developer since 2018, specialized in Angular since 2021. Enterprise fro
 \end{items}
 
 % ── VERMONT ──
+\newpage
 \job{Vermont Solutions (Viewnext / IBM) \,\textperiodcentered\, Client: Santander}{Madrid, Spain}{Senior Front-End Developer (Angular)}{December 2022 \textendash{} March 2024}
 \context{Santander: banking applications for transaction monitoring, employee management and real estate operations}
 \begin{items}
@@ -195,7 +193,6 @@ Software developer since 2018, specialized in Angular since 2021. Enterprise fro
 
 \entry{\textbf{Angular Certified Developer} \,\textperiodcentered\, Angular Training (expired December 2025)}{December 2022}
 \entry{\textbf{Angular assessment: 95\% score, top 1.42\% of all candidates} \,\textperiodcentered\, SkillValue}{September 2022}
-\entry{English Proficiency Test, C2 \,\textperiodcentered\, goFLUENT}{March 2025}
 \entry{Green Software for Practitioners \,\textperiodcentered\, Linux Foundation + Green Software Foundation}{2025}
 \entry{Higher Technician in Multi-platform Applications Development \,\textperiodcentered\, Joyfe College, Madrid}{2017 \textendash{} 2018}
 
@@ -205,7 +202,7 @@ Software developer since 2018, specialized in Angular since 2021. Enterprise fro
 {\small
 \textbf{Spanish:} Native \quad\textbar\quad
 \textbf{Romanian:} Native \quad\textbar\quad
-\textbf{English:} Professional working proficiency, with a goFLUENT C2 assessment (2025)
+\textbf{English:} Professional working proficiency
 }
 
 % ── RECOGNITION ──
