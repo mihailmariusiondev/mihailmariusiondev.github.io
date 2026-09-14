@@ -60,14 +60,14 @@
 % Bullet list
 \newenvironment{items}{%
   \begin{itemize}[leftmargin=1.2em, itemsep=0pt, topsep=2pt, parsep=0pt, label={\color{light}\textbullet}]
-    \small\color{dark}
+    \normalsize\color{dark}
 }{%
   \end{itemize}%
 }
 
 % Skill line
 \newcommand{\skill}[2]{%
-  {\small\latosemibold #1\normalfont\enspace\color{mid}#2}\\[2.5pt]
+  {\normalsize\latosemibold #1\normalfont\enspace\color{mid}#2}\\[3pt]
 }
 
 % Entry line
@@ -96,14 +96,14 @@
     \href{https://github.com/mihailmariusiondev}{github.com/mihailmariusiondev}
   }\\[3pt]
   {\small\latosemibold\color{dark} Ciudadano de la UE: autorizado para trabajar en toda la UE/EEE sin patrocinio}\\[1pt]
-  {\latolight\footnotesize\color{light} Indefinido o B2B\enspace\textbar\enspace Remoto o híbrido desde Zaragoza\enspace\textbar\enspace Reubicación internacional solo ante una oferta excepcional}
+  {\latolight\footnotesize\color{light} Indefinido o B2B\enspace\textbar\enspace Remoto o híbrido desde Zaragoza\enspace\textbar\enspace Disponibilidad para viajes puntuales}
 \end{center}
 \vspace{2pt}
 
 % ── SUMMARY ──
 \section{Perfil profesional}
-{\small\color{dark}
-Desarrollador de software desde 2018, especializado en Angular desde 2021. Frontends empresariales para comercio electrónico global (Zara Home, Inditex), banca (Santander) y educación en línea (UNIR). Obtuve una puntuación que me situó entre el \textbf{1,42\% de los mejores} candidatos en una evaluación independiente de Angular. Destaco en frontends de producto complejos: arquitectura, rendimiento, accesibilidad y automatización de calidad. Mi experiencia full stack en .NET/C\# (2018--2020) sigue siendo útil al negociar contratos de API, autenticación y seguridad. Español y rumano nativos. Inglés profesional.
+{\normalsize\color{dark}
+Ingeniero Frontend Sénior con experiencia en software desde 2018 y especializado en Angular y TypeScript desde 2021. He desarrollado productos para comercio electrónico global (Zara Home), banca (Santander) y educación en línea (UNIR). Trabajo en arquitectura frontend, rendimiento, accesibilidad, testing e integraciones con API e IA. Mi base full stack en .NET/C\# (2018--2020) aporta contexto al diseñar autenticación y contratos de API.
 }
 
 % ── SKILLS ──
@@ -111,13 +111,13 @@ Desarrollador de software desde 2018, especializado en Angular desde 2021. Front
 
 \skill{Angular y TypeScript}{Angular 8--20, Signals, Standalone Components, SSR, carga diferida, RxJS, NgRx, Angular Material/CDK, feature flags}
 
-\skill{Frontend de producto}{SCSS/SASS, diseño adaptable, accesibilidad WCAG 2.1 AA, i18n (Transloco), rendimiento web}
+\skill{Frontend de producto}{JavaScript, HTML5, CSS/SCSS, React 17 (experiencia en proyecto), diseño adaptable, sistemas de diseño, accesibilidad WCAG 2.1 AA, i18n (Transloco), rendimiento web}
 
 \skill{Pruebas y calidad}{Jest, Karma/Jasmine, SonarQube/SonarCloud, ESLint, Prettier, revisión sistemática de PR}
 
 \skill{API y entrega}{REST, OpenAPI/Swagger, OAuth 2.0, JWT, interceptores HTTP, WebRTC, servicios sin servidor de AWS (Lambda, Cognito, API Gateway, S3), GitHub Actions, Git/GitHub, Jira, Figma, Agile/Scrum}
 
-\skill{Controles de ingeniería}{OpenAI Realtime API (voz y texto sobre WebRTC), ingeniería de prompts y contexto, controles de revisión automatizados.}
+\skill{IA y herramientas de ingeniería}{OpenAI Realtime API, WebRTC, integraciones LLM, ingeniería de prompts y contexto, herramientas MCP}
 
 % ── EXPERIENCE ──
 \section{Experiencia}
@@ -126,15 +126,11 @@ Desarrollador de software desde 2018, especializado en Angular desde 2021. Front
 \context{Zara Home: plataforma de comercio electrónico global y multimercado}
 \begin{items}
   \item Desarrollé el frontend Angular del asistente de compra con IA de Zara Home: voz y texto en tiempo real sobre WebRTC, conectado a un catálogo de herramientas del backend. Publicado en producción mediante una feature flag como piloto controlado.
-  \item Reduje el coste de LLM con un patrón de enrutado y limpieza de contexto: las cargas útiles de las herramientas bajaron de 570\,KB a 22\,KB por ejecución (\textbf{96\% de reducción})
+  \item Reduje el payload de contexto del LLM de 570\,KB a 22\,KB por ejecución mediante enrutado y limpieza de contexto (\textbf{96\% de reducción})
   \item Entregué un Centro de Ayuda conversacional que sustituyó en producción a las antiguas guías de compra, desplegado mercado a mercado con integración Angular compatible con SSR, rutas localizadas y accesibilidad preservada durante el lanzamiento
-  \item Construí un sistema automatizado de revisión de PR conectado a GitHub, con comprobaciones específicas de dominio, que detectaba defectos de inyección, autorización y gestión de secretos antes de la integración. Después lo medí contra su propia salida en vez de confiar en él, \textbf{retirando 21 de sus 53 reglas} cuando los datos mostraron que el equipo las ignoraba
-  \item Audité un paquete de JavaScript de 19\,MB e \textbf{identifiqué ~3,4\,MB} de peso eliminable; entregué dos PR con importaciones dinámicas de hls.js y html2canvas, eliminación de lodash-es y migración de Luxon a Date nativo
-  \item Investigué y escalé formalmente hallazgos de producción y seguridad, documentando cada uno con evidencia de ejecución para los equipos responsables e impulsando los casos confirmados durante la revisión
+  \item Audité un paquete de JavaScript de 19\,MB e \textbf{identifiqué ~3,4\,MB} de peso eliminable. Entregué dos PR con importaciones dinámicas de hls.js y html2canvas, eliminación de lodash-es y migración de Luxon a Date nativo
   \item Entregué la migración del área de cuenta a autenticación sin contraseña (OTP): diseñé una UX de doble vía gobernada por \texttt{hasPassword}, con flujos OTP para cambio de email y creación de contraseña, validada en cuatro escenarios documentados
   \item Cerré 34 hallazgos WCAG 2.1 AA de una auditoría formal de accesibilidad: jerarquía de encabezados en todo el sitio, navegación por teclado, semántica ARIA y gestión del foco
-  \item Construí herramientas internas de desarrollo adoptadas fuera de mi equipo: una CLI de mensajería para Teams integrada en el repositorio compartido de Inditex, y un servidor MCP de documentación que curé y desplegué en la plataforma interna, adoptado por el equipo de plataforma Android
-  \item Escribí la guía de integración para iOS: arquitectura, contrato del SDK y catálogo de herramientas del asistente de Zara Home
 \end{items}
 
 % ── AVANADE ──
@@ -145,8 +141,7 @@ Desarrollador de software desde 2018, especializado en Angular desde 2021. Front
   \item Definí la arquitectura base: flujos de autenticación, interfaz de administración, permisos centralizados y navegación
   \item Trabajé dentro de un monorepo Nx y refactoricé el módulo de Admisiones, eliminando dependencias circulares y centralizando la lógica de permisos
   \item Introduje análisis estático, formateo y pruebas unitarias en un sistema administrativo que no tenía ninguno, además de protocolos de revisión y controles de calidad
-  \item Formé al equipo en prácticas de Angular y dirigí sesiones de análisis con SonarQube
-  \item Recibí el reconocimiento \textbf{Inspire Greatness} por dedicación y profesionalidad (agosto 2024)
+  \item Formé al equipo en prácticas de Angular, dirigí sesiones de análisis con SonarQube y recibí el reconocimiento \textbf{Inspire Greatness} (agosto 2024)
 \end{items}
 
 % ── VERMONT ──
@@ -191,7 +186,6 @@ Desarrollador de software desde 2018, especializado en Angular desde 2021. Front
 % ── CERTIFICATIONS ──
 \section{Certificaciones y formación}
 
-\entry{\textbf{Angular Certified Developer} \,\textperiodcentered\, Angular Training (expirado en diciembre de 2025)}{Diciembre 2022}
 \entry{\textbf{Evaluación de Angular: 95\% de puntuación, entre el 1,42\% de los mejores candidatos} \,\textperiodcentered\, SkillValue}{Septiembre 2022}
 \entry{Green Software for Practitioners \,\textperiodcentered\, Linux Foundation + Green Software Foundation}{2025}
 \entry{Técnico Superior en Desarrollo de Aplicaciones Multiplataforma \,\textperiodcentered\, Centro de Estudios Joyfe, Madrid}{2017 \textendash{} 2018}
@@ -209,9 +203,5 @@ Desarrollador de software desde 2018, especializado en Angular desde 2021. Front
 \section{Reconocimientos}
 
 \recognition{Trabajar con Marius ha sido un verdadero placer. Destaco su iniciativa con herramientas de IA aplicadas al desarrollo, de las que aprendí trabajando codo con codo con él. Cualquier equipo sería afortunado de contar con su nivel técnico y su actitud.}{Juan Pablo Romero Pereira, Desarrollador Frontend, Zara Home (Inditex)}
-
-\recognition{Su conocimiento de Angular es excelente, pero lo que realmente destaco es su disposición para ayudar y compartir su experiencia. No solo aplica las buenas prácticas en su trabajo diario, sino que fomenta su adopción dentro del equipo.}{José Luis Murcia Gámez, Desarrollador Frontend, proyecto UNIR (Avanade)}
-
-\recognition{Marius demostró ser un programador muy adaptable y resolutivo las dos veces que trabajamos juntos, en Stratesys y en Avanade. Su capacidad para aprender rápido y su contribución a los proyectos fueron fundamentales.}{José Luis Rodríguez-Campra Camberos, Coordinador BAU / Scrum Master}
 
 \end{document}

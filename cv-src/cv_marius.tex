@@ -60,14 +60,14 @@
 % Bullet list
 \newenvironment{items}{%
   \begin{itemize}[leftmargin=1.2em, itemsep=0pt, topsep=2pt, parsep=0pt, label={\color{light}\textbullet}]
-    \small\color{dark}
+    \normalsize\color{dark}
 }{%
   \end{itemize}%
 }
 
 % Skill line
 \newcommand{\skill}[2]{%
-  {\small\latosemibold #1\normalfont\enspace\color{mid}#2}\\[2.5pt]
+  {\normalsize\latosemibold #1\normalfont\enspace\color{mid}#2}\\[3pt]
 }
 
 % Entry line
@@ -96,14 +96,14 @@
     \href{https://github.com/mihailmariusiondev}{github.com/mihailmariusiondev}
   }\\[3pt]
   {\small\latosemibold\color{dark} EU Citizen: authorized to work across the EU/EEA without sponsorship}\\[1pt]
-  {\latolight\footnotesize\color{light} Permanent or B2B\enspace\textbar\enspace Remote or hybrid from Zaragoza\enspace\textbar\enspace International relocation for an exceptional offer}
+  {\latolight\footnotesize\color{light} Permanent or B2B\enspace\textbar\enspace Remote or hybrid from Zaragoza\enspace\textbar\enspace Available for occasional travel}
 \end{center}
 \vspace{2pt}
 
 % ── SUMMARY ──
 \section{Professional Summary}
-{\small\color{dark}
-Software developer since 2018, specialized in Angular since 2021. Enterprise front-ends for global e-commerce (Zara Home, Inditex), banking (Santander) and online education (UNIR). Scored in the \textbf{top 1.42\%} of candidates on an independent Angular assessment. Strongest on complex product frontends: architecture, performance, accessibility and quality automation. Full-stack .NET/C\# origin (2018--2020) that still pays off when negotiating API contracts, auth and security. Native Spanish and Romanian. Professional English.
+{\normalsize\color{dark}
+Senior Frontend Engineer with software experience since 2018, specialized in Angular and TypeScript since 2021. I have built products for global e-commerce (Zara Home), banking (Santander) and online education (UNIR). My work covers frontend architecture, performance, accessibility, testing, APIs and AI integrations. My full-stack .NET/C\# background (2018--2020) helps when designing authentication and API contracts.
 }
 
 % ── SKILLS ──
@@ -111,13 +111,13 @@ Software developer since 2018, specialized in Angular since 2021. Enterprise fro
 
 \skill{Angular \& TypeScript}{Angular 8--20, Signals, Standalone Components, SSR, lazy loading, RxJS, NgRx, Angular Material/CDK, feature flags}
 
-\skill{Product Frontend}{SCSS/SASS, responsive design, WCAG 2.1 AA accessibility, i18n (Transloco), web performance}
+\skill{Product Frontend}{JavaScript, HTML5, CSS/SCSS, React 17 (project experience), responsive design, design systems, WCAG 2.1 AA accessibility, i18n (Transloco), web performance}
 
 \skill{Testing \& Quality}{Jest, Karma/Jasmine, SonarQube/SonarCloud, ESLint, Prettier, systematic PR review}
 
 \skill{APIs \& Delivery}{REST, OpenAPI/Swagger, OAuth 2.0, JWT, HTTP interceptors, WebRTC, AWS serverless services (Lambda, Cognito, API Gateway, S3), GitHub Actions, Git/GitHub, Jira, Figma, Agile/Scrum}
 
-\skill{Engineering Controls}{OpenAI Realtime API (WebRTC voice + text), prompt \& context engineering, automated review controls.}
+\skill{AI \& Engineering Tools}{OpenAI Realtime API, WebRTC, LLM integrations, prompt \& context engineering, MCP tooling}
 
 % ── EXPERIENCE ──
 \section{Experience}
@@ -126,15 +126,11 @@ Software developer since 2018, specialized in Angular since 2021. Enterprise fro
 \context{Zara Home: global, multi-market e-commerce platform}
 \begin{items}
   \item Built the Angular frontend of Zara Home's AI shopping assistant: real-time voice and text over WebRTC, wired to a catalog of backend tools. Released to production behind a feature flag as a controlled pilot.
-  \item Cut LLM cost with a router pattern and context stripping: tool payloads dropped from 570\,KB to 22\,KB per execution (\textbf{96\% reduction})
+  \item Reduced LLM context payload from 570\,KB to 22\,KB per execution through routing and context stripping (\textbf{96\% reduction})
   \item Delivered a conversational Help Center that replaced legacy shopping guides in production, rolled out market by market with SSR-safe Angular integration, localized routes and accessibility preserved throughout the release
-  \item Built an automated PR-review system connected to GitHub, with domain-specific checks, that surfaced injection, authorization and secrets-management defects before merge. I then measured it against its own output rather than trusting it, \textbf{retiring 21 of its 53 rules} once the data showed the team was ignoring them
-  \item Audited a 19\,MB JavaScript bundle and \textbf{identified ~3.4\,MB} of removable weight; shipped two PRs with dynamic imports for hls.js and html2canvas, lodash-es removal and a Luxon-to-native-Date migration
-  \item Investigated and formally escalated production and security findings, documenting each with runtime evidence for the owning teams and driving confirmed issues through review
+  \item Audited a 19\,MB JavaScript bundle and \textbf{identified ~3.4\,MB} of removable weight. Shipped two PRs with dynamic imports for hls.js and html2canvas, lodash-es removal and a Luxon-to-native-Date migration
   \item Delivered the account-area migration to passwordless (OTP) authentication: designed dual-path UX driven by \texttt{hasPassword}, with OTP flows for email change and password creation, validated end-to-end on the pre-integration environment across four documented scenarios
   \item Closed 34 WCAG 2.1 AA findings from a formal accessibility audit: heading hierarchy site-wide, keyboard navigation, ARIA semantics and focus management
-  \item Built internal developer tooling adopted outside my own team: a Teams messaging CLI merged into Inditex's shared engineering repository, and a documentation MCP server I curated and deployed on the internal platform, taken up by the Android platform team
-  \item Wrote the iOS integration guide covering the Zara Home assistant architecture, SDK contract and tool catalog
 \end{items}
 
 % ── AVANADE ──
@@ -145,8 +141,7 @@ Software developer since 2018, specialized in Angular since 2021. Enterprise fro
   \item Defined the core architecture: authentication flows, admin UI, centralized permissions and navigation
   \item Worked within an Nx monorepo and refactored the Admissions module, removing circular dependencies and centralizing permissions logic
   \item Introduced linting, formatting and unit testing to a back-office that had none, plus review protocols and quality gates
-  \item Mentored the team on Angular practices and ran SonarQube analysis sessions
-  \item Awarded \textbf{Inspire Greatness} recognition for dedication and professionalism (August 2024)
+  \item Mentored the team on Angular practices, ran SonarQube analysis sessions and received an \textbf{Inspire Greatness} award (August 2024)
 \end{items}
 
 % ── VERMONT ──
@@ -191,7 +186,6 @@ Software developer since 2018, specialized in Angular since 2021. Enterprise fro
 % ── CERTIFICATIONS ──
 \section{Certifications \& Education}
 
-\entry{\textbf{Angular Certified Developer} \,\textperiodcentered\, Angular Training (expired December 2025)}{December 2022}
 \entry{\textbf{Angular assessment: 95\% score, top 1.42\% of all candidates} \,\textperiodcentered\, SkillValue}{September 2022}
 \entry{Green Software for Practitioners \,\textperiodcentered\, Linux Foundation + Green Software Foundation}{2025}
 \entry{Higher Technician in Multi-platform Applications Development \,\textperiodcentered\, Joyfe College, Madrid}{2017 \textendash{} 2018}
@@ -209,9 +203,5 @@ Software developer since 2018, specialized in Angular since 2021. Enterprise fro
 \section{Recognition}
 
 \recognition{Working with Marius has been a real pleasure. I especially highlight his initiative with AI tools applied to development, from which I learned a great deal working side by side with him. Any team would be more than fortunate to count on someone with his technical level and his attitude. (Translated from Spanish.)}{Juan Pablo Romero Pereira, Frontend Developer, Zara Home (Inditex)}
-
-\recognition{His knowledge of Angular is excellent, but what I really highlight is his willingness to help and share his experience. He not only applies good practices in his daily work, but promotes their adoption within the team. (Translated from Spanish.)}{José Luis Murcia Gámez, Frontend Developer, UNIR project (Avanade)}
-
-\recognition{Marius proved to be a highly adaptable and resourceful programmer on both occasions we worked together, at Stratesys and at Avanade. His ability to learn quickly and his contribution to the projects were fundamental. (Translated from Spanish.)}{Jos\'e Luis Rodr\'iguez-Campra Camberos, BAU Coordinator / Scrum Master}
 
 \end{document}
