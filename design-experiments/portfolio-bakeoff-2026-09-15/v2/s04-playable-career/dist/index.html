@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Marius Mihail Ion · Senior Angular / Frontend Engineer — Playable Career</title>
+<meta name="description" content="A playable career run through real enterprise Angular work — or skip straight to a fast, readable portfolio." />
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+<link rel="canonical" href="./" />
+<meta property="og:title" content="Marius Mihail Ion · Playable Career" />
+<meta property="og:description" content="A playable career run through real enterprise Angular work — or skip straight to a fast, readable portfolio." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="assets/me.webp" />
+<meta name="twitter:card" content="summary" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="topbar">
+  <span class="brand">MARIUS MIHAIL ION</span>
+  <span class="spacer"></span>
+  <a class="btn" id="cv-link" href="assets/marius-mihail-ion-cv.pdf" download data-i18n-label="downloadCv">CV</a>
+  <button id="lang-toggle" type="button" aria-label="Toggle language">ES</button>
+  <button id="mode-toggle" type="button" class="cta" data-i18n-label="skip">Skip the game — read the portfolio</button>
+</header>
+
+<main id="main">
+
+  <!-- ===== GAME VIEW ===== -->
+  <section id="game-view" aria-label="Playable career run">
+    <div class="game-wrap">
+      <canvas id="game-canvas" role="img" aria-label="Side-scrolling career game canvas"></canvas>
+
+      <div class="hud">
+        <div class="hud-panel" id="hud-zone">
+          <strong>Zone 1</strong> — Origins
+        </div>
+      </div>
+
+      <div class="prompt-bubble" id="prompt-bubble">Press E</div>
+
+      <div class="progress-rail" aria-hidden="true"><div class="progress-fill" id="progress-fill"></div></div>
+
+      <div class="touch-controls" id="touch-controls">
+        <div class="dpad">
+          <button id="btn-left" aria-label="Move left">◀</button>
+          <button id="btn-right" aria-label="Move right">▶</button>
+        </div>
+        <div class="action-group">
+          <button id="btn-interact" class="interact-btn" aria-label="Interact">E</button>
+          <button id="btn-jump" aria-label="Jump">▲</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== READ / SKIP MODE ===== -->
+  <section id="read-view" aria-label="Fast portfolio read">
+    <div class="read-wrap">
+      <p class="hud-panel" id="reduced-motion-note" style="display:none; margin-bottom:24px; text-align:left;" role="note"></p>
+
+      <div class="hero-read">
+        <img src="assets/me.webp" alt="Portrait of Marius Mihail Ion" width="96" height="96" />
+        <div>
+          <h1>Marius Mihail Ion</h1>
+          <p class="role" data-i18n="role"></p>
+          <p class="loc" data-i18n="location"></p>
+          <p class="lede" data-i18n="intro"></p>
+        </div>
+      </div>
+
+      <div class="cta-row">
+        <a class="primary" id="cv-link-2" href="assets/marius-mihail-ion-cv.pdf" download data-i18n-label="downloadCv">Download CV</a>
+        <a href="https://linkedin.com/in/mariusdev">LinkedIn</a>
+        <a href="https://github.com/mihailmariusiondev">GitHub</a>
+        <a href="mailto:mihailmariusion@gmail.com">mihailmariusion@gmail.com</a>
+        <button type="button" id="play-game-btn" data-i18n-label="playGame">Play the career run</button>
+      </div>
+
+      <section class="read-section" aria-labelledby="rs-results">
+        <h2 id="rs-results" data-i18n="verifiedResultsHeading">Verified results</h2>
+        <div class="stats-grid" id="stats-grid"></div>
+      </section>
+
+      <section class="read-section" aria-labelledby="rs-cases">
+        <h2 id="rs-cases" data-i18n="caseStudiesHeading">Case studies</h2>
+        <div class="case-grid" id="case-grid"></div>
+      </section>
+
+      <section class="read-section" aria-labelledby="rs-exp">
+        <h2 id="rs-exp" data-i18n="experienceHeading">Experience</h2>
+        <div class="timeline" id="timeline"></div>
+      </section>
+
+      <section class="read-section" aria-labelledby="rs-rec">
+        <h2 id="rs-rec" data-i18n="recommendationsHeading">Recommendations</h2>
+        <div class="recs-grid" id="recs-grid"></div>
+      </section>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p id="a11y-statement" data-i18n="a11yStatement"></p>
+</footer>
+
+<div class="modal-backdrop" id="modal-backdrop">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <button class="close-btn" id="modal-close" aria-label="Close" data-i18n-label="close" data-icon-only><span aria-hidden="true">×</span></button>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<script src="data.js"></script>
+<script src="portfolio.js"></script>
+<script src="game.js"></script>
+<script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Marius Mihail Ion — Senior Angular / Frontend Engineer</title>
+<meta name="description" content="Software developer since 2018, specialized in Angular since 2021. I work on authentication, SSR, accessibility, performance and API integration.">
+<link rel="canonical" href="https://mihailmariusiondev.github.io/">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Marius Mihail Ion — Senior Angular / Frontend Engineer">
+<meta property="og:description" content="Enterprise frontend for e-commerce, banking and education. Explore an infinite-canvas career map.">
+<meta property="og:image" content="assets/me.webp">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Marius Mihail Ion","jobTitle":"Senior Angular / Frontend Engineer","email":"mailto:mihailmariusion@gmail.com","url":"https://mihailmariusiondev.github.io","sameAs":["https://linkedin.com/in/mariusdev","https://github.com/mihailmariusiondev"],"address":{"@type":"PostalAddress","addressLocality":"Zaragoza","addressCountry":"ES"}}
+</script>
+<style>
+  html{background:#101215}
+  body{visibility:hidden}
+  body.ready{visibility:visible}
+</style>
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+<a class="skip-link" id="skip-link" href="#reading-root">Skip to content</a>
+
+<header class="toolbar" role="banner">
+  <span class="brand" id="brand">Marius Mihail Ion</span>
+  <nav class="toolbar-group" aria-label="Contact">
+    <a class="tbtn" id="link-email" href="#">Email</a>
+    <a class="tbtn" id="link-linkedin" href="#" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="tbtn" id="link-github" href="#" target="_blank" rel="noopener">GitHub</a>
+    <a class="tbtn tbtn--accent" id="cv-en" href="#" download>CV (EN)</a>
+    <a class="tbtn" id="cv-es" href="#" download>CV (ES)</a>
+  </nav>
+  <div class="divider" aria-hidden="true"></div>
+  <div class="toolbar-group">
+    <button class="tbtn" id="lang-toggle" type="button" aria-label="Switch language">ES</button>
+    <button class="tbtn" id="mode-toggle" type="button" aria-pressed="false">Reading mode</button>
+  </div>
+</header>
+
+<main id="viewport" aria-label="Career map, zoomable and pannable canvas">
+  <div id="world" data-tier="full">
+    <svg id="edges-svg" xmlns="http://www.w3.org/2000/svg"></svg>
+  </div>
+</main>
+
+<div class="zoom-controls">
+  <button id="zoom-in" type="button" aria-label="Zoom in">+</button>
+  <button id="zoom-out" type="button" aria-label="Zoom out">&minus;</button>
+</div>
+
+<div class="minimap">
+  <h2 id="minimap-title">Map overview</h2>
+  <svg id="minimap-svg" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Map overview, click to jump"></svg>
+  <button class="tbtn" id="reset-view" type="button" style="margin-top:.4rem;width:100%">Reset view</button>
+</div>
+
+<p class="help-hint" id="help-hint">Drag or arrow keys to pan · scroll / +/- to zoom · Tab to jump between nodes · R for reading mode</p>
+
+<div id="reading-root" tabindex="-1"></div>
+
+<p class="a11y-note" id="a11y-note"></p>
+
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+<script>document.body.classList.add('ready');</script>
+</body>
+</html>

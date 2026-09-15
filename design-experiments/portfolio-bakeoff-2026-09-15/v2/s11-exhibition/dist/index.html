@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Marius Mihail Ion · Interfaces Under Pressure — Senior Angular / Frontend Engineer</title>
+<meta name="description" content="An exhibition of enterprise Angular frontend engineering by Marius Mihail Ion: authentication, SSR, accessibility, performance and controlled product rollouts." />
+<link rel="canonical" href="https://mihailmariusiondev.github.io/" />
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+<meta property="og:title" content="Interfaces Under Pressure — Marius Mihail Ion" />
+<meta property="og:description" content="A curated exhibition of enterprise Angular case studies: real-time voice assistant, SSR rollout, passwordless authentication and engineering controls." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="assets/me.webp" />
+<meta name="theme-color" content="#121014" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<a class="skip-link" href="#entrance">
+  <span lang="en">Skip to main content</span><span lang="es">Saltar al contenido principal</span>
+</a>
+
+<header class="chrome">
+  <a class="brandmark" href="#entrance"><strong>IUP</strong> / <span lang="en">Interfaces Under Pressure</span><span lang="es">Interfaces bajo presión</span></a>
+  <button id="lang-toggle" class="lang-toggle" type="button" aria-pressed="false">
+    <span lang="en" aria-label="Ver esta página en español">ES</span><span lang="es" aria-label="View this page in English">EN</span>
+  </button>
+</header>
+
+<nav class="floorplan" aria-label="Floor plan">
+  <a href="#entrance"><span lang="en">Entrance</span><span lang="es">Entrada</span></a>
+  <a href="#room-1"><span lang="en">Room I</span><span lang="es">Sala I</span></a>
+  <a href="#room-2"><span lang="en">Room II</span><span lang="es">Sala II</span></a>
+  <a href="#room-3"><span lang="en">Room III</span><span lang="es">Sala III</span></a>
+  <a href="#room-4"><span lang="en">Room IV</span><span lang="es">Sala IV</span></a>
+  <a href="#results"><span lang="en">Results</span><span lang="es">Resultados</span></a>
+  <a href="#career"><span lang="en">Career</span><span lang="es">Trayectoria</span></a>
+  <a href="#guestbook"><span lang="en">Guestbook</span><span lang="es">Libro</span></a>
+  <a href="#profile"><span lang="en">Profile</span><span lang="es">Perfil</span></a>
+  <a href="#exit"><span lang="en">Gift Shop</span><span lang="es">Tienda</span></a>
+</nav>
+
+<main>
+
+<!-- ENTRANCE -->
+<section id="entrance" class="room entrance" aria-label="Entrance hall">
+  <div class="room-inner">
+    <img class="portrait" src="assets/me.webp" width="108" height="108" fetchpriority="high" decoding="async" alt="Portrait of Marius Mihail Ion" />
+    <h1 class="wordmark">
+      <span lang="en">Interfaces <em>Under Pressure</em></span>
+      <span lang="es">Interfaces <em>bajo presión</em></span>
+    </h1>
+    <p class="role"><span lang="en">Senior Angular / Frontend Engineer</span><span lang="es">Ingeniero Frontend Sénior (Angular)</span></p>
+    <p class="curator-note">
+      <span lang="en">Software developer since 2018, specialized in Angular since 2021. This exhibition documents real enterprise work on authentication, SSR, accessibility, performance and API integration: the points where frontend decisions carry product risk.</span>
+      <span lang="es">Desarrollador de software desde 2018, especializado en Angular desde 2021. Esta exposición documenta trabajo corporativo real en autenticación, SSR, accesibilidad, rendimiento e integración de APIs: los puntos donde las decisiones de frontend arrastran riesgo de producto.</span>
+    </p>
+    <aside class="hero-proof">
+      <strong>96%</strong>
+      <span lang="en">LLM context payload reduction, from 570 KB to 22 KB per execution.</span>
+      <span lang="es">Reducción del payload de contexto del LLM, de 570 KB a 22 KB por ejecución.</span>
+    </aside>
+    <div class="ctas">
+      <a class="btn btn--solid" lang="en" href="assets/marius-mihail-ion-cv.pdf">Download CV</a>
+      <a class="btn btn--solid" lang="es" href="assets/marius-mihail-ion-cv-es.pdf">Descargar CV</a>
+      <a class="btn btn--contact" href="mailto:mihailmariusion@gmail.com"><span lang="en">Get in touch</span><span lang="es">Contactar</span></a>
+    </div>
+    <p class="location">
+      <span lang="en">Based in Zaragoza, Spain · EU citizen · Remote or hybrid from Zaragoza · Available for occasional travel</span>
+      <span lang="es">Con base en Zaragoza, España · Ciudadano de la UE · Remoto o híbrido desde Zaragoza · Disponibilidad para viajes puntuales</span>
+    </p>
+  </div>
+</section>
+
+<!-- ROOM I: Real-time Shopping Assistant -->
+<section id="room-1" class="room" aria-labelledby="room-1-title">
+  <div class="room-inner">
+    <p class="wall-label"><span lang="en">Case study 01</span><span lang="es">Caso 01</span></p>
+    <h2 id="room-1-title"><span lang="en">Real-time Shopping Assistant</span><span lang="es">Asistente de compra en tiempo real</span></h2>
+    <div class="placard-row">
+      <span class="placard">Angular</span><span class="placard">TypeScript</span><span class="placard">WebRTC</span>
+      <span class="placard">OpenAI Realtime API</span><span class="placard">SSR</span>
+      <span class="placard"><span lang="en">Accessibility</span><span lang="es">Accesibilidad</span></span>
+    </div>
+    <p class="lede">
+      <span lang="en">A controlled production pilot: a 96% smaller LLM context payload, SSR-compatible and never opened to the public.</span>
+      <span lang="es">Un piloto de producción controlado: un payload de contexto del LLM un 96&nbsp;% más pequeño, compatible con SSR y nunca abierto al público.</span>
+    </p>
+    <div class="plinth-stage"><div class="sculpture sculpture--assistant"></div><div class="plinth"></div></div>
+    <dl class="captions">
+      <div class="caption">
+        <dt><span lang="en">Context</span><span lang="es">Contexto</span></dt>
+        <dd><span lang="en">A global, multi-market e-commerce frontend needed a conversational shopping experience with voice, text and product context.</span><span lang="es">Un frontend de comercio electrónico global y multimercado necesitaba una experiencia de compra conversacional con voz, texto y contexto de producto.</span></dd>
+      </div>
+      <div class="caption">
+        <dt><span lang="en">My role</span><span lang="es">Mi papel</span></dt>
+        <dd><span lang="en">I implemented the Angular integration as a senior individual contributor. The wider product was a team effort, with a co-lead alongside me.</span><span lang="es">Implementé la integración en Angular como profesional sénior. El producto en su conjunto fue un trabajo de equipo, con otro responsable técnico a mi lado.</span></dd>
+      </div>
+      <div class="caption">
+        <dt><span lang="en">The frontend problem</span><span lang="es">El problema de frontend</span></dt>
+        <dd><span lang="en">The integration had to manage the WebRTC lifecycle, initialize only when requested, remain safe during server rendering, keep the model context bounded and avoid tracking before the customer opened the assistant.</span><span lang="es">La integración tenía que gestionar el ciclo de vida de WebRTC, inicializarse solo cuando se pedía, ser segura durante el renderizado en servidor, mantener acotado el contexto del modelo y evitar cualquier seguimiento antes de que el cliente abriera el asistente.</span></dd>
+      </div>
+      <div class="caption">
+        <dt><span lang="en">Engineering decisions</span><span lang="es">Decisiones de ingeniería</span></dt>
+        <dd><span lang="en">Lazy initialization, platform guards, a controlled feature flag and a routing and context-stripping design.</span><span lang="es">Inicialización diferida, protecciones de plataforma, una feature flag controlada y un diseño de enrutado y limpieza de contexto.</span></dd>
+      </div>
+      <div class="caption">
+        <dt><span lang="en">Outcome</span><span lang="es">Resultado</span></dt>
+        <dd><span lang="en">The code reached production behind a feature flag as a controlled pilot and was never opened to the public. The LLM context payload fell from 570 KB to 22 KB per execution, a 96% reduction.</span><span lang="es">El código llegó a producción tras una feature flag como piloto controlado y nunca se abrió al público. El payload de contexto del LLM bajó de 570 KB a 22 KB por ejecución, una reducción del 96%.</span></dd>
+      </div>
+      <div class="caption">
+        <dt><span lang="en">What this demonstrates</span><span lang="es">Qué demuestra</span></dt>
+        <dd><span lang="en">Angular integration work, asynchronous lifecycle management, SSR safety, accessibility, controlled rollout and measurable context design.</span><span lang="es">Trabajo de integración en Angular, gestión de ciclos de vida asíncronos, seguridad bajo SSR, accesibilidad, despliegue controlado y diseño de contexto medible.</span></dd>
+      </div>
+    </dl>
+    <p class="conservation-note">
+      <span lang="en">Conservation note: this case study is sanitized. It contains no client source code, credentials, internal URLs or private implementation details.</span>
+      <span lang="es">Nota de conservación: este caso está sanitizado. No contiene código fuente del cliente, credenciales, URLs internas ni detalles privados de implementación.</span>
+    </p>
+  </div>
+</section>
+
+<!-- ROOM II: Help Center Rollout -->
+<section id="room-2" class="room room--alt" aria-labelledby="room-2-title">
+  <div class="room-inner">
+    <p class="wall-label"><span lang="en">Case study 02</span><span lang="es">Caso 02</span></p>
+    <h2 id="room-2-title"><span lang="en">Help Center Rollout</span><span lang="es">Despliegue del Centro de Ayuda</span></h2>
+    <div class="placard-row">
+      <span class="placard">Angular</span><span class="placard">SSR</span>
+      <span class="placard"><span lang="en">Feature Flags</span><span lang="es">Feature flags</span></span>
+      <span class="placard"><span lang="en">Observability</span><span lang="es">Observabilidad</span></span>
+      <span class="placard"><span lang="en">Accessibility</span><span lang="es">Accesibilidad</span></span>
+    </div>
+    <p class="lede">
+      <span lang="en">A country-by-country Help Center rollout with SSR-safe Angular integration, stable routes and accessible localized experiences.</span>
+      <span lang="es">Un despliegue del Centro de Ayuda país por país con integración Angular compatible con SSR, rutas estables y experiencias localizadas accesibles.</span>
+    </p>
+    <div class="plinth-stage"><div class="sculpture sculpture--helpcenter"></div><div class="plinth"></div></div>
+    <dl class="captions">
+      <div class="caption">
+        <dt><span lang="en">Context</span><span lang="es">Contexto</span></dt>
+        <dd><span lang="en">A new conversational Help Center had to be delivered market by market, with SSR-safe Angular integration, localized routes and accessibility preserved.</span><span lang="es">Un nuevo Centro de Ayuda conversacional tenía que entregarse mercado a mercado, con integración Angular compatible con SSR, rutas localizadas y accesibilidad preservada.</span></dd>
+      </div>
+      <div class="caption">
+        <dt><span lang="en">Delivery</span><span lang="es">Entrega</span></dt>
+        <dd><span lang="en">I integrated the conversational experience into the existing Angular routes and localized entry points across markets.</span><span lang="es">Integré la experiencia conversacional en las rutas Angular y los puntos de entrada localizados existentes en cada mercado.</span></dd>
+      </div>
+      <div class="caption">
+        <dt><span lang="en">Rollout</span><span lang="es">Despliegue</span></dt>
+        <dd><span lang="en">The release expanded market by market, with SSR behavior, accessibility and route stability verified before each step.</span><span lang="es">El lanzamiento avanzó mercado a mercado, verificando antes de cada paso el comportamiento bajo SSR, la accesibilidad y la estabilidad de las rutas.</span></dd>
+      </div>
+      <div class="caption">
+        <dt><span lang="en">Risk control</span><span lang="es">Control de riesgo</span></dt>
+        <dd><span lang="en">The integration preserved existing entry points and user-facing behavior while the new experience expanded.</span><span lang="es">La integración preservó los puntos de entrada y el comportamiento visible para el usuario mientras se ampliaba la nueva experiencia.</span></dd>
+      </div>
+      <div class="caption">
+        <dt><span lang="en">Outcome</span><span lang="es">Resultado</span></dt>
+        <dd><span lang="en">The Help Center rolled out country by country with stable routes, localized titles, accessibility and SSR support.</span><span lang="es">El Centro de Ayuda se desplegó país por país con rutas estables, títulos localizados, accesibilidad y soporte SSR.</span></dd>
+      </div>
+      <div class="caption">
+        <dt><span lang="en">What this demonstrates</span><span lang="es">Qué demuestra</span></dt>
+        <dd><span lang="en">Angular delivery, SSR, accessibility, staged rollout and risk control across localized markets.</span><span lang="es">Entrega Angular, SSR, accesibilidad, despliegue gradual y control de riesgo entre mercados localizados.</span></dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+<!-- ROOM III: Passwordless Account Migration -->
+<section id="room-3" class="room" aria-labelledby="room-3-title">
+  <div class="room-inner">
+    <p class="wall-label"><span lang="en">Case study 03</span><span lang="es">Caso 03</span></p>
+    <h2 id="room-3-title"><span lang="en">Passwordless Account Migration</span><span lang="es">Migración de cuentas a autenticación sin contraseña</span></h2>
+    <div class="placard-row">
+      <span class="placard">Angular</span>
+      <span class="placard"><span lang="en">Authentication</span><span lang="es">Autenticación</span></span>
+      <span class="placard"><span lang="en">API Contracts</span><span lang="es">Contratos de API</span></span>
+      <span class="placard">OTP</span><span class="placard">NgRx</span>
+      <span class="placard"><span lang="en">Integration Testing</span><span lang="es">Pruebas de integración</span></span>
+    </div>
+    <p class="lede">
+      <span lang="en">A contract-first passwordless migration with separate password and OTP paths, delivered through incremental scope and end-to-end validation.</span>
+      <span lang="es">Una migración sin contraseña guiada por contratos, con caminos separados para contraseña y OTP, alcance incremental y validación de extremo a extremo.</span>
+    </p>
+    <div class="plinth-stage"><div class="sculpture sculpture--passwordless"></div><div class="plinth"></div></div>
+    <dl class="captions">
+      <div class="caption">
+        <dt><span lang="en">Context</span><span lang="es">Contexto</span></dt>
+        <dd><span lang="en">The account area had to support both existing-password and passwordless users without disrupting established flows.</span><span lang="es">El área de cuenta tenía que admitir usuarios con contraseña y sin ella sin interrumpir los flujos existentes.</span></dd>
+      </div>
+      <div class="caption">
+        <dt><span lang="en">Contract analysis</span><span lang="es">Análisis del contrato</span></dt>
+        <dd><span lang="en">I mapped the UI dependencies and authentication states before changing the flows, then scoped the implementation around the verified contract.</span><span lang="es">Mapeé las dependencias de la interfaz y los estados de autenticación antes de cambiar los flujos, y acoté la implementación al contrato verificado.</span></dd>
+      </div>
+      <div class="caption">
+        <dt><span lang="en">Decision</span><span lang="es">Decisión</span></dt>
+        <dd><span lang="en">I kept the migration incremental, separating password-state handling from the rest of the account experience.</span><span lang="es">Mantuve la migración incremental, separando la gestión del estado de contraseña del resto de la experiencia de cuenta.</span></dd>
+      </div>
+      <div class="caption">
+        <dt><span lang="en">Implementation</span><span lang="es">Implementación</span></dt>
+        <dd><span lang="en">The UI followed separate password and OTP paths, including email change and password creation, with dependent actions gated by authentication state.</span><span lang="es">La interfaz siguió caminos separados para contraseña y OTP, incluido el cambio de email y la creación de contraseña, con las acciones dependientes gobernadas por el estado de autenticación.</span></dd>
+      </div>
+      <div class="caption">
+        <dt><span lang="en">Validation</span><span lang="es">Validación</span></dt>
+        <dd><span lang="en">The resulting flows were validated in a pre-integration environment, including existing-password behaviour, passwordless forms, OTP email change and password creation.</span><span lang="es">Los flujos resultantes se validaron en un entorno de preintegración, incluido el comportamiento con contraseña existente, los formularios sin contraseña, el cambio de correo electrónico por OTP y la creación de contraseña.</span></dd>
+      </div>
+      <div class="caption">
+        <dt><span lang="en">Outcome</span><span lang="es">Resultado</span></dt>
+        <dd><span lang="en">The passwordless flows were delivered incrementally without disrupting existing account behavior.</span><span lang="es">Los flujos sin contraseña se entregaron de forma incremental sin interrumpir el comportamiento existente del área de cuenta.</span></dd>
+      </div>
+      <div class="caption">
+        <dt><span lang="en">What this demonstrates</span><span lang="es">Qué demuestra</span></dt>
+        <dd><span lang="en">Contract-first frontend integration, authentication state, scope control, backward compatibility and risk-based decision-making.</span><span lang="es">Integración de frontend con el contrato por delante, estado de autenticación, control del alcance, retrocompatibilidad y toma de decisiones basada en riesgo.</span></dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+<!-- ROOM IV: Engineering Controls -->
+<section id="room-4" class="room room--alt" aria-labelledby="room-4-title">
+  <div class="room-inner">
+    <p class="wall-label"><span lang="en">Case study 04</span><span lang="es">Caso 04</span></p>
+    <h2 id="room-4-title"><span lang="en">Engineering Controls for Frontend Delivery</span><span lang="es">Controles de ingeniería para la entrega de frontend</span></h2>
+    <div class="placard-row">
+      <span class="placard">GitHub</span>
+      <span class="placard"><span lang="en">Automated Review</span><span lang="es">Revisión automatizada</span></span>
+      <span class="placard"><span lang="en">Prompt and Context Engineering</span><span lang="es">Ingeniería de prompts y contexto</span></span>
+      <span class="placard">MCP</span>
+      <span class="placard"><span lang="en">Developer Tooling</span><span lang="es">Herramientas de desarrollo</span></span>
+    </div>
+    <p class="lede">
+      <span lang="en">An automated review system that measured its own noise, retired 21 of its 53 rules, and got adopted outside its origin team.</span>
+      <span lang="es">Un sistema de revisión automatizada que midió su propio ruido, retiró 21 de sus 53 reglas y acabó adoptado fuera de su equipo de origen.</span>
+    </p>
+    <div class="plinth-stage"><div class="sculpture sculpture--controls"></div><div class="plinth"></div></div>
+    <dl class="captions">
+      <div class="caption">
+        <dt><span lang="en">Problem</span><span lang="es">Problema</span></dt>
+        <dd><span lang="en">Automated review can create the appearance of coverage while producing noise, duplicate feedback and rules that the team does not trust.</span><span lang="es">La revisión automatizada puede aparentar cobertura mientras produce ruido, comentarios duplicados y reglas en las que el equipo no confía.</span></dd>
+      </div>
+      <div class="caption">
+        <dt><span lang="en">System</span><span lang="es">Sistema</span></dt>
+        <dd><span lang="en">I built a GitHub-connected review system with domain-specific checks. The system flagged injection, authorization and secrets-management defects before merge.</span><span lang="es">Construí un sistema de revisión conectado a GitHub con comprobaciones específicas del dominio. El sistema detectaba defectos de inyección, autorización y gestión de secretos antes de la integración.</span></dd>
+      </div>
+      <div class="caption">
+        <dt><span lang="en">Control loop</span><span lang="es">Bucle de control</span></dt>
+        <dd><span lang="en">The first version generated credibility problems. I measured its output and removed rules the team consistently ignored, retiring 21 of its 53 rules.</span><span lang="es">La primera versión generó problemas de credibilidad. Medí su salida y eliminé las reglas que el equipo ignoraba sistemáticamente, retirando 21 de sus 53 reglas.</span></dd>
+      </div>
+      <div class="caption">
+        <dt><span lang="en">Adoption</span><span lang="es">Adopción</span></dt>
+        <dd><span lang="en">A Teams CLI was merged into a shared Inditex engineering repository, and a documentation MCP was adopted by the Android team.</span><span lang="es">Una CLI de Teams se integró en un repositorio de ingeniería compartido de Inditex, y un MCP de documentación fue adoptado por el equipo de Android.</span></dd>
+      </div>
+      <div class="caption">
+        <dt><span lang="en">What this demonstrates</span><span lang="es">Qué demuestra</span></dt>
+        <dd><span lang="en">The useful signal is not that an LLM was present. It is that the automation had boundaries, measurement, rejection criteria and adoption outside its original team.</span><span lang="es">La señal útil no es que hubiera un LLM de por medio. Es que la automatización tenía límites, medición, criterios de rechazo y adopción fuera de su equipo original.</span></dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+<!-- GALLERY OF VERIFIED RESULTS -->
+<section id="results" class="room" aria-labelledby="results-title">
+  <div class="room-inner">
+    <p class="wall-label"><span lang="en">Permanent collection</span><span lang="es">Colección permanente</span></p>
+    <h2 id="results-title"><span lang="en">Verified results</span><span lang="es">Resultados verificados</span></h2>
+    <div class="vitrines">
+      <div class="vitrine">
+        <span class="value">96%</span>
+        <span class="label"><span lang="en">Reduction in the AI shopping assistant's LLM context payload (570 KB to 22 KB per execution), achieved with a routing and context-stripping design</span><span lang="es">Reducción del payload de contexto del LLM del asistente de compra con IA (de 570 KB a 22 KB por ejecución), lograda con un diseño de enrutado y limpieza de contexto</span></span>
+      </div>
+      <div class="vitrine">
+        <span class="value"><span lang="en">Top 1.42%</span><span lang="es">1,42&nbsp;%</span></span>
+        <span class="label"><span lang="en">Ranking among all candidates on an independent Angular assessment by SkillValue, with a 95% score</span><span lang="es">Posición entre el 1,42&nbsp;% de los mejores candidatos en una evaluación independiente de Angular de SkillValue, con una puntuación del 95&nbsp;%</span></span>
+      </div>
+      <div class="vitrine">
+        <span class="value">34</span>
+        <span class="label"><span lang="en">Accessibility findings from a formal WCAG 2.1 AA audit closed through 23 merged pull requests: headings, keyboard, ARIA and focus</span><span lang="es">Hallazgos de accesibilidad de una auditoría formal WCAG 2.1 AA cerrados con 23 solicitudes de cambio integradas: encabezados, teclado, ARIA y foco</span></span>
+      </div>
+      <div class="vitrine">
+        <span class="value"><span lang="en">21 of 53</span><span lang="es">21 de 53</span></span>
+        <span class="label"><span lang="en">Rules retired from my own automated review system after measuring its real output against what the team actually used</span><span lang="es">Reglas retiradas de mi propio sistema de revisión automatizada tras medir su salida real frente a lo que el equipo usaba de verdad</span></span>
+      </div>
+      <div class="vitrine">
+        <span class="value"><span lang="en">Adopted</span><span lang="es">Adoptado</span></span>
+        <span class="label"><span lang="en">Internal documentation tooling (an MCP server) adopted by the Android team, outside its origin platform</span><span lang="es">Herramienta interna de documentación (un servidor MCP) adoptada por el equipo de Android, fuera de su plataforma de origen</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAREER CORRIDOR -->
+<section id="career" class="room room--alt" aria-labelledby="career-title">
+  <div class="room-inner">
+    <p class="wall-label"><span lang="en">The corridor</span><span lang="es">El corredor</span></p>
+    <h2 id="career-title"><span lang="en">Verified career timeline</span><span lang="es">Trayectoria profesional verificada</span></h2>
+    <ol class="corridor">
+      <li>
+        <span class="period"><span lang="en">May 2025 – July 2026</span><span lang="es">Mayo 2025 – Julio 2026</span></span>
+        <span class="company"><span lang="en">Decskill Spain</span><span lang="es">Decskill España</span></span>
+        <span class="client"><span lang="en">Client:</span><span lang="es">Cliente:</span> Zara Home (Inditex)</span>
+        <span class="role"><span lang="en">Senior Front-End Analyst (Angular)</span><span lang="es">Analista Frontend Sénior (Angular)</span></span>
+      </li>
+      <li>
+        <span class="period"><span lang="en">March 2024 – May 2025</span><span lang="es">Marzo 2024 – Mayo 2025</span></span>
+        <span class="company">Avanade</span>
+        <span class="client"><span lang="en">Client:</span><span lang="es">Cliente:</span> UNIR</span>
+        <span class="role"><span lang="en">Senior Front-End Analyst (Angular)</span><span lang="es">Analista Frontend Sénior (Angular)</span></span>
+      </li>
+      <li>
+        <span class="period"><span lang="en">December 2022 – March 2024</span><span lang="es">Diciembre 2022 – Marzo 2024</span></span>
+        <span class="company">Vermont Solutions</span>
+        <span class="client"><span lang="en">Client:</span><span lang="es">Cliente:</span> Santander</span>
+        <span class="role"><span lang="en">Senior Front-End Developer (Angular)</span><span lang="es">Desarrollador Frontend Sénior (Angular)</span></span>
+      </li>
+      <li>
+        <span class="period"><span lang="en">October 2022 – December 2022</span><span lang="es">Octubre 2022 – Diciembre 2022</span></span>
+        <span class="company">CloudAPPi</span>
+        <span class="role"><span lang="en">Mid-Level Front-End Developer (Angular, React)</span><span lang="es">Desarrollador Frontend Intermedio (Angular, React)</span></span>
+      </li>
+      <li>
+        <span class="period"><span lang="en">September 2021 – October 2022</span><span lang="es">Septiembre 2021 – Octubre 2022</span></span>
+        <span class="company">ENZO / Rent &amp; Buy S.A.</span>
+        <span class="role"><span lang="en">Mid-Level Front-End Developer (Angular)</span><span lang="es">Desarrollador Frontend Intermedio (Angular)</span></span>
+      </li>
+      <li>
+        <span class="period"><span lang="en">June 2020 – September 2021</span><span lang="es">Junio 2020 – Septiembre 2021</span></span>
+        <span class="company"><span lang="en">Independent Projects &amp; Upskilling</span><span lang="es">Proyectos propios y formación</span></span>
+      </li>
+      <li>
+        <span class="period"><span lang="en">March 2020 – June 2020</span><span lang="es">Marzo 2020 – Junio 2020</span></span>
+        <span class="company">Altran</span>
+        <span class="role"><span lang="en">Mid-Level Full Stack Developer</span><span lang="es">Desarrollador Full Stack Intermedio</span></span>
+      </li>
+      <li>
+        <span class="period"><span lang="en">November 2018 – September 2019</span><span lang="es">Noviembre 2018 – Septiembre 2019</span></span>
+        <span class="company">IO Digital / Query Software</span>
+        <span class="role"><span lang="en">Mid-Level Full Stack Developer</span><span lang="es">Desarrollador Full Stack Intermedio</span></span>
+      </li>
+      <li>
+        <span class="period"><span lang="en">July 2018 – November 2018</span><span lang="es">Julio 2018 – Noviembre 2018</span></span>
+        <span class="company">STRATESYS</span>
+        <span class="role"><span lang="en">Junior Full Stack Developer</span><span lang="es">Desarrollador Full Stack Junior</span></span>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- VISITOR'S BOOK -->
+<section id="guestbook" class="room" aria-labelledby="guestbook-title">
+  <div class="room-inner">
+    <p class="wall-label"><span lang="en">Leave a note</span><span lang="es">Deja una nota</span></p>
+    <h2 id="guestbook-title"><span lang="en">Visitor's book</span><span lang="es">Libro de visitas</span></h2>
+    <div class="guestbook">
+      <blockquote class="guestbook-entry">
+        <q><span lang="en">His knowledge of Angular is excellent, but what I really highlight from working with him is his willingness to help and share his experience. Another aspect I value a lot about Marius is his focus on good practices. He not only applies them in his daily work, but also promotes their adoption within the team, organizing meetings when necessary and aligning everyone around building quality, maintainable and scalable software.</span>
+        <span lang="es">Su conocimiento en Angular es excelente, pero lo que realmente destaco de trabajar con él es su disposición para ayudar y compartir su experiencia. Otro aspecto que valoro mucho de Marius es su enfoque en las buenas prácticas. No solo las aplica en su trabajo diario, sino que también fomenta su adopción dentro del equipo, organizando reuniones cuando es necesario y alineando a todos en la construcción de software de calidad, mantenible y escalable.</span></q>
+        <span class="author">José Luis Murcia Gámez</span><br />
+        <span class="role"><span lang="en">Frontend Developer, UNIR project (Avanade)</span><span lang="es">Desarrollador Frontend, proyecto UNIR (Avanade)</span></span>
+        <div class="note"><span lang="en">Translated from a recommendation published on LinkedIn</span></div>
+      </blockquote>
+      <blockquote class="guestbook-entry">
+        <q><span lang="en">Working with Marius has been a real pleasure. I especially highlight his initiative with AI tools applied to development, from which I learned a great deal working side by side with him. Any team would be more than fortunate to count on someone with his technical level and his attitude.</span>
+        <span lang="es">Trabajar con Marius ha sido un verdadero placer. Destaco especialmente su iniciativa con herramientas de IA aplicadas al desarrollo, de las que aprendí muchísimo trabajando codo con codo con él. Cualquier equipo sería más que afortunado de contar con alguien con su nivel técnico y su actitud.</span></q>
+        <span class="author">Juan Pablo Romero Pereira</span><br />
+        <span class="role"><span lang="en">Frontend Developer, Zara Home (Inditex)</span><span lang="es">Desarrollador Frontend, Zara Home (Inditex)</span></span>
+        <div class="note"><span lang="en">Translated from a recommendation published on LinkedIn</span></div>
+      </blockquote>
+      <blockquote class="guestbook-entry">
+        <q><span lang="en">Marius proved to be a highly adaptable and resourceful programmer on both occasions we worked together, at Stratesys and at Avanade (consultancy/service provider for Proeduca), where he worked as an external consultant. His ability to learn quickly and his contribution to the projects were fundamental. I highly recommend him for his professionalism and technical skills.</span>
+        <span lang="es">Marius demostró ser un programador altamente adaptable y resolutivo en ambas ocasiones que trabajamos juntos, tanto en Stratesys como en Avanade (consultora/proveedora de servicios para Proeduca), donde trabajó como consultor externo. Su capacidad para aprender rápidamente y su contribución a los proyectos fueron fundamentales. Lo recomiendo ampliamente por su profesionalismo y habilidades técnicas.</span></q>
+        <span class="author">José Luis Rodríguez-Campra Camberos</span><br />
+        <span class="role"><span lang="en">BAU Coordinator / Scrum Master</span><span lang="es">Coordinador BAU / Scrum Master</span></span>
+        <div class="note"><span lang="en">Translated from a recommendation published on LinkedIn</span></div>
+      </blockquote>
+      <blockquote class="guestbook-entry">
+        <q><span lang="en">Great partner, he has done a great job in his last project demonstrating that he can design and build business applications successfully.</span>
+        <span lang="es">Gran compañero. Hizo un trabajo excelente en su último proyecto y demostró que puede diseñar y construir aplicaciones empresariales con éxito.</span></q>
+        <span class="author">Antonio Bermúdez Rodríguez</span><br />
+        <span class="role"><span lang="en">Developer</span><span lang="es">Desarrollador</span></span>
+        <div class="note"><span lang="en">Published on LinkedIn</span><span lang="es">Traducida de una recomendación publicada en inglés en LinkedIn</span></div>
+      </blockquote>
+      <blockquote class="guestbook-entry">
+        <q><span lang="en">Marius was a great professional to work with. We worked together at ENZO, and his work ethic is immaculate; he is very easy to work with and goes out of his way to help when you ask for guidance.</span>
+        <span lang="es">Marius fue un gran profesional con el que trabajé. Trabajamos juntos en Enzo, y su ética de trabajo es inmaculada y es muy fácil trabajar con él. Se desvive cuando le pides ayuda y orientación.</span></q>
+        <span class="author">Gonzalo Rodríguez Muñoz</span><br />
+        <span class="role"><span lang="en">Full Stack Software Developer, ENZO</span><span lang="es">Desarrollador Full Stack, ENZO</span></span>
+        <div class="note"><span lang="en">Translated from a recommendation published on LinkedIn</span></div>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT / CURATOR'S BIOGRAPHY -->
+<section id="profile" class="room room--alt" aria-labelledby="profile-title">
+  <div class="room-inner wall-text">
+    <p class="wall-label"><span lang="en">Curator's biography</span><span lang="es">Biografía del comisario</span></p>
+    <h2 id="profile-title"><span lang="en">Profile</span><span lang="es">Perfil</span></h2>
+    <p><span lang="en">I am a senior frontend individual contributor working on enterprise Angular products with TypeScript, RxJS, NgRx and server-side rendering.</span><span lang="es">Soy un profesional sénior de frontend que trabaja en productos corporativos de Angular con TypeScript, RxJS, NgRx y renderizado en servidor.</span></p>
+    <p><span lang="en">I am strongest where product frontend meets platform concerns: authentication migrations, API contracts, controlled rollouts, accessibility, performance and SSR.</span><span lang="es">Donde más aporto es allí donde el frontend de producto se cruza con la plataforma: migraciones de autenticación, contratos de API, despliegues controlados, accesibilidad, rendimiento y SSR.</span></p>
+    <p><span lang="en">Earlier full-stack .NET/C# work from 2018 to 2020 gives me useful backend context without changing the direction of my career: frontend product engineering is the focus.</span><span lang="es">El trabajo previo full stack en .NET/C# entre 2018 y 2020 me da un contexto útil de servidor sin cambiar la dirección de mi carrera: el foco es la ingeniería de producto en frontend.</span></p>
+    <p><span lang="en">I also build engineering controls when they solve a delivery problem (automated review, context management and documentation search) but they remain part of the frontend system rather than a separate professional identity.</span><span lang="es">También construyo controles de ingeniería cuando resuelven un problema de entrega (revisión automatizada, gestión de contexto y búsqueda en documentación), pero siguen siendo parte del sistema de frontend, no una identidad profesional aparte.</span></p>
+  </div>
+</section>
+
+<!-- GIFT SHOP / EXIT -->
+<section id="exit" class="room giftshop" aria-labelledby="exit-title">
+  <div class="room-inner">
+    <p class="wall-label"><span lang="en">Gift shop &amp; exit</span><span lang="es">Tienda de regalos y salida</span></p>
+    <h2 id="exit-title"><span lang="en">Senior Angular / Frontend Engineer roles</span><span lang="es">Puestos de Ingeniero Frontend Sénior (Angular)</span></h2>
+    <p class="lede"><span lang="en">Remote or hybrid from Zaragoza. Permanent or B2B.</span><span lang="es">Remoto o híbrido desde Zaragoza. Indefinido o B2B.</span></p>
+    <p class="travel"><span lang="en">Available for occasional travel. EU citizen, authorized to work across the EU/EEA without sponsorship.</span><span lang="es">Disponibilidad para viajes puntuales. Ciudadano de la UE, autorizado para trabajar en toda la UE/EEE sin patrocinio.</span></p>
+    <div class="shop-grid">
+      <div class="shop-card">
+        <h3><span lang="en">Take the CV</span><span lang="es">Llévate el CV</span></h3>
+        <a class="link-line" lang="en" href="assets/marius-mihail-ion-cv.pdf">CV — English (PDF)</a>
+        <a class="link-line" lang="es" href="assets/marius-mihail-ion-cv-es.pdf">CV — Español (PDF)</a>
+      </div>
+      <div class="shop-card">
+        <h3><span lang="en">Contact</span><span lang="es">Contacto</span></h3>
+        <a class="link-line" href="mailto:mihailmariusion@gmail.com">mihailmariusion@gmail.com</a>
+        <a class="link-line" href="https://linkedin.com/in/mariusdev" rel="me noopener">linkedin.com/in/mariusdev</a>
+        <a class="link-line" href="https://github.com/mihailmariusiondev" rel="me noopener">github.com/mihailmariusiondev</a>
+      </div>
+    </div>
+    <p class="a11y-statement">
+      <span lang="en">Accessibility statement: this site targets WCAG 2.1 AA. Every interactive element has a visible keyboard focus state, headings are structured in document order, color contrast is checked against the AA thresholds, and motion is disabled when <code>prefers-reduced-motion</code> is set. Report an issue: mihailmariusion@gmail.com</span>
+      <span lang="es">Declaración de accesibilidad: este sitio cumple el objetivo WCAG 2.1 AA. Cada elemento interactivo tiene un estado de foco de teclado visible, los encabezados siguen el orden del documento, el contraste de color se comprueba contra los umbrales AA, y la animación se desactiva cuando <code>prefers-reduced-motion</code> está activo. Informa de un problema: mihailmariusion@gmail.com</span>
+    </p>
+    <p class="built-with"><span lang="en">Static HTML, CSS and vanilla JavaScript. No framework, no build step, no external font or script requests.</span><span lang="es">HTML, CSS y JavaScript nativo estáticos. Sin framework, sin paso de compilación, sin peticiones externas de fuentes o scripts.</span></p>
+  </div>
+</section>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

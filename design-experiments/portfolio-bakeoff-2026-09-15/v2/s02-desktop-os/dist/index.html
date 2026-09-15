@@ -1,0 +1,614 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Marius Mihail Ion · Strata OS — Senior Angular / Frontend Engineer</title>
+<meta name="description" content="An invented desktop OS as a portfolio. Marius Mihail Ion, Senior Angular / Frontend Engineer: case studies, career timeline, recommendations, CV and contact — all as apps." />
+<link rel="canonical" href="https://mihailmariusiondev.github.io/" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Marius Mihail Ion · Strata OS" />
+<meta property="og:description" content="A portfolio built as a small operating system: case studies as documents, career as a timeline app, recommendations as messages, CV as a file, contact as mail." />
+<meta property="og:image" content="assets/me.webp" />
+<meta name="twitter:card" content="summary" />
+<meta name="theme-color" content="#15171b" />
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+<noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" /></noscript>
+<link rel="stylesheet" href="styles.css" />
+<noscript><style>
+  body{overflow:auto}
+  .boot,.statusbar,.dock,#palette{display:none}
+  .desktop{position:static;overflow:visible}
+  .window{position:static !important;width:auto !important;height:auto !important;margin:1rem}
+  .plain-header,.plain-footer{display:block}
+</style></noscript>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Marius Mihail Ion","jobTitle":"Senior Angular / Frontend Engineer","url":"https://mihailmariusiondev.github.io/","sameAs":["https://linkedin.com/in/mariusdev","https://github.com/mihailmariusiondev"],"address":{"@type":"PostalAddress","addressLocality":"Zaragoza","addressCountry":"ES"}}
+</script>
+</head>
+<body>
+<svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+<defs>
+<symbol id="i-about" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8.2" r="3.4"/><path d="M5 19.5c1.1-3.4 4-5.2 7-5.2s5.9 1.8 7 5.2"/></symbol>
+<symbol id="i-cases" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 3.5h8l3 3v14a1 1 0 0 1-1 1h-10a1 1 0 0 1-1-1v-16a1 1 0 0 1 1-1z"/><path d="M14.5 3.5v3h3"/><path d="M8.5 12h7M8.5 15.2h7M8.5 8.8h3.2"/></symbol>
+<symbol id="i-timeline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"/><circle cx="6.5" cy="12" r="1.7" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.7" fill="currentColor" stroke="none"/><circle cx="17.5" cy="12" r="1.7" fill="currentColor" stroke="none"/><path d="M6.5 12V6.5M12 12V17.5M17.5 12V6.5"/></symbol>
+<symbol id="i-messages" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5h16v10h-9l-4 3.3v-3.3H4z"/><path d="M8 9.5h8M8 12.4h5"/></symbol>
+<symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5.5" width="17" height="13" rx="1.2"/><path d="M4.2 6.3 12 12.5l7.8-6.2"/></symbol>
+<symbol id="i-files" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 7.2c0-.7.6-1.2 1.2-1.2h4.2l1.6 1.9h8.3c.7 0 1.2.5 1.2 1.2v9c0 .7-.5 1.2-1.2 1.2H4.7c-.6 0-1.2-.5-1.2-1.2z"/></symbol>
+<symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l5 5"/></symbol>
+<symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+<symbol id="i-max" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5.5" y="5.5" width="13" height="13" rx="1.2"/></symbol>
+<symbol id="i-sound-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10v4h3.2L12 17.6V6.4L7.2 10z"/><path d="M16 9.2a4 4 0 0 1 0 5.6M18.4 6.8a7.5 7.5 0 0 1 0 10.4"/></symbol>
+<symbol id="i-sound-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10v4h3.2L12 17.6V6.4L7.2 10z"/><path d="M16.5 10.5l4 4M20.5 10.5l-4 4"/></symbol>
+<symbol id="i-reader" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5c2.2-1 5-1 8 .3V19c-3-1.3-5.8-1.3-8-.3z"/><path d="M20 5.5c-2.2-1-5-1-8 .3V19c3-1.3 5.8-1.3 8-.3z"/></symbol>
+<symbol id="i-back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></symbol>
+<symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M8 11.5 12 15.5 16 11.5"/><path d="M5 17.5v1.8c0 .7.6 1.2 1.2 1.2h11.6c.7 0 1.2-.5 1.2-1.2v-1.8"/></symbol>
+<symbol id="i-github" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-4.7 0-8.5 3.8-8.5 8.5 0 3.8 2.4 7 5.8 8.1.4.1.6-.2.6-.4v-1.6c-2.4.5-2.9-1.1-2.9-1.1-.4-1-1-1.3-1-1.3-.8-.5.1-.5.1-.5.9.1 1.4.9 1.4.9.8 1.4 2.1 1 2.6.7.1-.6.3-1 .6-1.2-1.9-.2-3.9-1-3.9-4.3 0-.9.3-1.7.9-2.3-.1-.2-.4-1.1.1-2.3 0 0 .7-.2 2.4.9a8 8 0 0 1 4.4 0c1.7-1.1 2.4-.9 2.4-.9.5 1.2.2 2.1.1 2.3.6.6.9 1.4.9 2.3 0 3.3-2 4.1-3.9 4.3.3.3.6.8.6 1.7v2.5c0 .2.2.5.6.4 3.4-1.1 5.8-4.3 5.8-8.1 0-4.7-3.8-8.5-8.5-8.5z"/></symbol>
+<symbol id="i-linkedin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="2"/><path d="M7.6 10v6.2M7.6 7.7v.1M11.4 16.2V10M11.4 12.6c0-1.6 1.1-2.6 2.4-2.6 1.3 0 2.2.9 2.2 2.6v3.6"/></symbol>
+</defs>
+</svg>
+
+<a class="skip-link i18n-en" href="#main">Skip to main content</a>
+<a class="skip-link i18n-es" href="#main" hidden>Saltar al contenido principal</a>
+
+<div id="app">
+
+  <div id="boot" class="boot">
+    <div class="boot-inner">
+      <div class="boot-logo">STRATA<span class="boot-cursor">_</span></div>
+      <div class="boot-bar"><div class="boot-bar-fill" id="boot-fill"></div></div>
+      <p class="boot-line i18n-en">booting workspace for Marius Mihail Ion…</p>
+      <p class="boot-line i18n-es" hidden>iniciando el escritorio de Marius Mihail Ion…</p>
+    </div>
+    <button id="boot-skip" class="boot-skip i18n-en" type="button">Skip boot</button>
+    <button id="boot-skip-es" class="boot-skip i18n-es" type="button" hidden>Omitir inicio</button>
+  </div>
+
+  <header class="statusbar" role="banner">
+    <div class="statusbar-left">
+      <span class="statusbar-os">STRATA<span class="statusbar-os-sub">OS</span></span>
+      <span class="statusbar-clock" id="clock" aria-hidden="true">00:00</span>
+    </div>
+    <div class="statusbar-right">
+      <button id="btn-sound" class="chip" type="button" aria-pressed="false" aria-label="Sound off">
+        <svg class="icon" aria-hidden="true"><use href="#i-sound-off"></use></svg>
+        <span class="i18n-en">Sound off</span><span class="i18n-es" hidden>Sonido apagado</span>
+      </button>
+      <button id="btn-reader" class="chip" type="button" aria-pressed="false" aria-label="Reader">
+        <svg class="icon" aria-hidden="true"><use href="#i-reader"></use></svg>
+        <span class="i18n-en">Reader</span><span class="i18n-es" hidden>Lectura</span>
+      </button>
+      <button id="btn-lang" class="chip chip-lang" type="button" aria-label="Ver esta página en español">ES</button>
+      <button id="btn-palette" class="chip chip-accent" type="button" aria-label="Command palette">
+        <svg class="icon" aria-hidden="true"><use href="#i-search"></use></svg>
+        <span class="kbd">⌘K</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main" class="desktop" tabindex="-1">
+
+    <div class="plain-header">
+      <img class="plain-avatar" src="assets/me.webp" alt="" width="88" height="88" />
+      <div class="plain-header-text">
+        <h1>Marius Mihail Ion</h1>
+        <p class="i18n-en">Senior Angular / Frontend Engineer — this portfolio is a small operating system. Open an app on the right, or press <kbd>Ctrl</kbd>/<kbd>⌘</kbd>+<kbd>K</kbd>.</p>
+        <p class="i18n-es" hidden>Ingeniero Frontend Sénior (Angular) — este portfolio es un pequeño sistema operativo. Abre una app a la derecha, o pulsa <kbd>Ctrl</kbd>/<kbd>⌘</kbd>+<kbd>K</kbd>.</p>
+      </div>
+    </div>
+
+    <div class="wallpaper-mark" aria-hidden="true">
+      <span class="i18n-en">Enterprise frontend for e-commerce, banking and education.</span>
+      <span class="i18n-es" hidden>Frontend corporativo para comercio electrónico, banca y educación.</span>
+    </div>
+
+    <!-- ===================== ABOUT ===================== -->
+    <section id="win-about" class="window" data-app="about" data-w="600" data-h="560" data-x="6" data-y="8">
+      <div class="win-titlebar">
+        <span class="win-title i18n-en">About.app</span><span class="win-title i18n-es" hidden>Perfil.app</span>
+        <div class="win-controls">
+          <button class="win-btn win-max" type="button" aria-label="Maximize"><svg class="icon"><use href="#i-max"></use></svg></button>
+          <button class="win-btn win-close" type="button" aria-label="Close"><svg class="icon"><use href="#i-close"></use></svg></button>
+        </div>
+      </div>
+      <div class="win-body">
+        <div class="about-head">
+          <img src="assets/me.webp" alt="Portrait of Marius Mihail Ion" width="84" height="84" class="about-photo" />
+          <div>
+            <h2 class="i18n-en">Senior Angular / Frontend Engineer</h2>
+            <h2 class="i18n-es" hidden>Ingeniero Frontend Sénior (Angular)</h2>
+            <p class="about-location i18n-en">Zaragoza, Spain · EU citizen · Remote or hybrid from Zaragoza · Available for occasional travel · No relocation</p>
+            <p class="about-location i18n-es" hidden>Zaragoza, España · Ciudadano de la UE · Remoto o híbrido desde Zaragoza · Disponibilidad para viajes puntuales · Sin reubicación</p>
+          </div>
+        </div>
+
+        <div class="i18n-en">
+          <p>Senior frontend individual contributor working on enterprise Angular products with TypeScript, RxJS, NgRx and server-side rendering.</p>
+          <p>The strongest work sits where product frontend meets platform concerns: authentication migrations, API contracts, controlled rollouts, accessibility, performance and SSR.</p>
+          <p>Full-stack .NET/C# work from 2018 to 2020 gives useful backend context without changing the direction of the career — frontend product engineering is the focus. Software developer since 2018, specialized in Angular since 2021, across global e-commerce (Zara Home / Inditex), banking (Santander) and online education (UNIR).</p>
+          <p>Engineering controls — automated review, context management, documentation search — get built when they solve a delivery problem, but they stay part of the frontend system rather than a separate identity.</p>
+        </div>
+        <div class="i18n-es" hidden>
+          <p>Profesional sénior de frontend que trabaja en productos corporativos de Angular con TypeScript, RxJS, NgRx y renderizado en servidor.</p>
+          <p>Donde más aporta es allí donde el frontend de producto se cruza con la plataforma: migraciones de autenticación, contratos de API, despliegues controlados, accesibilidad, rendimiento y SSR.</p>
+          <p>El trabajo previo full stack en .NET/C# entre 2018 y 2020 aporta contexto útil de servidor sin cambiar la dirección de la carrera: el foco es la ingeniería de producto en frontend. Desarrollador de software desde 2018, especializado en Angular desde 2021, en comercio electrónico global (Zara Home / Inditex), banca (Santander) y educación en línea (UNIR).</p>
+          <p>También construye controles de ingeniería (revisión automatizada, gestión de contexto, búsqueda en documentación) cuando resuelven un problema real de entrega, pero siguen siendo parte del sistema de frontend, no una identidad aparte.</p>
+        </div>
+
+        <h3 class="i18n-en">Verified results</h3>
+        <h3 class="i18n-es" hidden>Resultados verificados</h3>
+        <dl class="stat-grid">
+          <div class="stat"><dt>96%</dt><dd class="i18n-en">LLM context payload cut, 570 KB → 22 KB per execution</dd><dd class="i18n-es" hidden>Reducción del payload de contexto del LLM, de 570 KB a 22 KB por ejecución</dd></div>
+          <div class="stat"><dt><span class="i18n-en">Top 1.42%</span><span class="i18n-es" hidden>Top 1,42%</span></dt><dd class="i18n-en">SkillValue Angular assessment, 95% score (Sept. 2022)</dd><dd class="i18n-es" hidden>Evaluación de Angular de SkillValue, 95% (sept. 2022)</dd></div>
+          <div class="stat"><dt>34 / 23</dt><dd class="i18n-en">WCAG 2.1 AA findings closed via merged pull requests</dd><dd class="i18n-es" hidden>Hallazgos WCAG 2.1 AA cerrados mediante pull requests fusionadas</dd></div>
+          <div class="stat"><dt>21/53</dt><dd class="i18n-en">Noisy automated-review rules retired after measuring real usage</dd><dd class="i18n-es" hidden>Reglas de revisión automatizada retiradas tras medir su uso real</dd></div>
+        </dl>
+
+        <h3 class="i18n-en">Languages</h3>
+        <h3 class="i18n-es" hidden>Idiomas</h3>
+        <ul class="plain-list">
+          <li><span class="i18n-en">Spanish — native</span><span class="i18n-es" hidden>Español — nativo</span></li>
+          <li><span class="i18n-en">Romanian — native</span><span class="i18n-es" hidden>Rumano — nativo</span></li>
+          <li><span class="i18n-en">English — professional working proficiency</span><span class="i18n-es" hidden>Inglés — competencia profesional</span></li>
+        </ul>
+
+        <h3 class="i18n-en">Also</h3>
+        <h3 class="i18n-es" hidden>Además</h3>
+        <ul class="plain-list">
+          <li><span class="i18n-en">Green Software for Practitioners — Linux Foundation &amp; Green Software Foundation, 2025</span><span class="i18n-es" hidden>Green Software for Practitioners — Linux Foundation y Green Software Foundation, 2025</span></li>
+          <li><span class="i18n-en">Higher Technician in Multi-platform Applications Development — Joyfe College, Madrid (2017–2018)</span><span class="i18n-es" hidden>Técnico Superior en Desarrollo de Aplicaciones Multiplataforma — Joyfe College, Madrid (2017–2018)</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== CASES ===================== -->
+    <section id="win-cases" class="window" data-app="cases" data-w="760" data-h="560" data-x="640" data-y="8">
+      <div class="win-titlebar">
+        <span class="win-title i18n-en">Cases.app</span><span class="win-title i18n-es" hidden>Casos.app</span>
+        <div class="win-controls">
+          <button class="win-btn win-max" type="button" aria-label="Maximize"><svg class="icon"><use href="#i-max"></use></svg></button>
+          <button class="win-btn win-close" type="button" aria-label="Close"><svg class="icon"><use href="#i-close"></use></svg></button>
+        </div>
+      </div>
+      <div class="win-body win-body-split">
+        <nav class="doc-list" aria-label="Case studies">
+          <button class="doc-item is-active" data-doc="0" type="button">
+            <span class="i18n-en">Real-time Shopping Assistant</span><span class="i18n-es" hidden>Asistente de compra en tiempo real</span>
+          </button>
+          <button class="doc-item" data-doc="1" type="button">
+            <span class="i18n-en">Help Center Rollout</span><span class="i18n-es" hidden>Despliegue del Centro de Ayuda</span>
+          </button>
+          <button class="doc-item" data-doc="2" type="button">
+            <span class="i18n-en">Passwordless Account Migration</span><span class="i18n-es" hidden>Migración de cuenta sin contraseña</span>
+          </button>
+          <button class="doc-item" data-doc="3" type="button">
+            <span class="i18n-en">Engineering Controls for Frontend Delivery</span><span class="i18n-es" hidden>Controles de ingeniería para la entrega frontend</span>
+          </button>
+        </nav>
+        <div class="doc-reader" id="doc-reader">
+          <!-- doc 0 -->
+          <article class="doc" data-doc="0">
+            <p class="doc-tags">Angular · TypeScript · WebRTC · OpenAI Realtime API · SSR · Accessibility</p>
+            <div class="i18n-en">
+              <h2>Real-time Shopping Assistant</h2>
+              <p class="doc-summary">A controlled whitelist pilot: a 96% smaller LLM context payload, SSR-compatible, and never opened to the public.</p>
+              <h3>Context</h3><p>A global, multi-market e-commerce frontend needed a conversational shopping experience with voice, text and product context.</p>
+              <h3>My role</h3><p>Senior individual contributor on the Angular integration; the wider product was a team effort with a co-lead alongside me.</p>
+              <h3>The frontend problem</h3><p>Manage the WebRTC lifecycle, initialize only on request, stay safe during server rendering, keep the model context bounded, and avoid tracking before the customer opened the assistant.</p>
+              <h3>Engineering decisions</h3><p>Lazy initialization, platform guards, a controlled feature flag, and a routing-and-context-stripping design.</p>
+              <h3>Outcome</h3><p>Reached production as a controlled whitelist pilot; never opened to the public. LLM context payload fell from 570 KB to 22 KB per execution — a 96% reduction.</p>
+              <h3>What this demonstrates</h3><p>Angular integration, asynchronous lifecycle management, SSR safety, accessibility, controlled rollout, and measurable context design.</p>
+              <p class="doc-note">Sanitized case study: no client source code, credentials, internal URLs or private implementation details.</p>
+            </div>
+            <div class="i18n-es" hidden>
+              <h2>Asistente de compra en tiempo real</h2>
+              <p class="doc-summary">Un piloto controlado con lista de acceso: un 96% menos de payload de contexto para el LLM, compatible con SSR y nunca abierto al público.</p>
+              <h3>Contexto</h3><p>Un frontend de comercio electrónico global y multi-mercado necesitaba una experiencia de compra conversacional con voz, texto y contexto de producto.</p>
+              <h3>Mi rol</h3><p>Contribuidor individual sénior en la integración de Angular; el producto en conjunto fue un esfuerzo de equipo, con un co-responsable junto a mí.</p>
+              <h3>El problema de frontend</h3><p>Gestionar el ciclo de vida de WebRTC, inicializar solo cuando se solicitaba, mantenerse seguro durante el renderizado en servidor, acotar el contexto del modelo y evitar el tracking antes de que el cliente abriera el asistente.</p>
+              <h3>Decisiones de ingeniería</h3><p>Inicialización perezosa, guardas de plataforma, un feature flag controlado y un diseño de enrutado y reducción de contexto.</p>
+              <h3>Resultado</h3><p>Llegó a producción como un piloto controlado con lista de acceso; nunca se abrió al público. El payload de contexto del LLM bajó de 570 KB a 22 KB por ejecución, una reducción del 96%.</p>
+              <h3>Qué demuestra</h3><p>Integración con Angular, gestión de ciclos de vida asíncronos, seguridad en SSR, accesibilidad, despliegue controlado y diseño de contexto medible.</p>
+              <p class="doc-note">Caso sanitizado: sin código fuente del cliente, credenciales, URLs internas ni detalles privados de implementación.</p>
+            </div>
+          </article>
+          <!-- doc 1 -->
+          <article class="doc" data-doc="1" hidden>
+            <p class="doc-tags">Angular · SSR · Feature Flags · Observability · Accessibility</p>
+            <div class="i18n-en">
+              <h2>Help Center Rollout</h2>
+              <p class="doc-summary">A country-by-country Help Center rollout with SSR-safe Angular integration, stable routes and accessible localized experiences.</p>
+              <h3>Context</h3><p>A new conversational Help Center rolled out market by market alongside the existing entry points.</p>
+              <h3>Delivery</h3><p>I integrated the conversational experience into the existing Angular routes and localized entry points across markets.</p>
+              <h3>Rollout</h3><p>The release expanded market by market, with SSR behavior, accessibility and route stability verified before each step.</p>
+              <h3>Risk control</h3><p>The integration preserved existing entry points and user-facing behavior while the new experience expanded.</p>
+              <h3>Outcome</h3><p>Delivered market by market with stable routes, localized titles, accessibility and SSR support.</p>
+              <h3>What this demonstrates</h3><p>Angular delivery, SSR, accessibility, staged rollout and risk control across localized markets.</p>
+            </div>
+            <div class="i18n-es" hidden>
+              <h2>Despliegue del Centro de Ayuda</h2>
+              <p class="doc-summary">Un despliegue del Centro de Ayuda país por país, con integración de Angular compatible con SSR, rutas estables y experiencias localizadas accesibles.</p>
+              <h3>Contexto</h3><p>Un nuevo Centro de Ayuda conversacional se desplegó mercado a mercado junto a los puntos de entrada existentes.</p>
+              <h3>Entrega</h3><p>Integré la experiencia conversacional en las rutas de Angular y los puntos de entrada localizados existentes en cada mercado.</p>
+              <h3>Despliegue</h3><p>El lanzamiento se fue ampliando mercado a mercado, verificando el comportamiento en SSR, la accesibilidad y la estabilidad de rutas antes de cada paso.</p>
+              <h3>Control de riesgo</h3><p>La integración preservó los puntos de entrada existentes y el comportamiento de cara al usuario mientras la nueva experiencia se ampliaba.</p>
+              <h3>Resultado</h3><p>Se entregó mercado a mercado con rutas estables, títulos localizados, accesibilidad y soporte SSR.</p>
+              <h3>Qué demuestra</h3><p>Entrega en Angular, SSR, accesibilidad, despliegue por etapas y control de riesgo en mercados localizados.</p>
+            </div>
+          </article>
+          <!-- doc 2 -->
+          <article class="doc" data-doc="2" hidden>
+            <p class="doc-tags">Angular · Authentication · API Contracts · OTP · NgRx · Integration Testing</p>
+            <div class="i18n-en">
+              <h2>Passwordless Account Migration</h2>
+              <p class="doc-summary">A contract-first passwordless migration with separate password and OTP paths, delivered through incremental scope and end-to-end validation.</p>
+              <h3>Context</h3><p>The account area had to support both existing-password and passwordless users without disrupting established flows.</p>
+              <h3>Contract analysis</h3><p>I mapped the UI dependencies and authentication states before changing the flows, then scoped the implementation around the verified contract.</p>
+              <h3>Decision</h3><p>I kept the migration incremental, separating password-state handling (<code>hasPassword</code>) from the rest of the account experience.</p>
+              <h3>Implementation</h3><p>The UI followed separate password and OTP paths, including email change and password creation, with dependent actions gated by authentication state.</p>
+              <h3>Validation</h3><p>The resulting flows were validated in a pre-integration environment across four documented scenarios: existing-password behaviour, passwordless forms, OTP email change and password creation.</p>
+              <h3>Outcome</h3><p>The passwordless flows were delivered incrementally without disrupting existing account behavior.</p>
+              <h3>What this demonstrates</h3><p>Contract-first frontend integration, authentication state, scope control, backward compatibility and risk-based decision-making.</p>
+            </div>
+            <div class="i18n-es" hidden>
+              <h2>Migración de cuenta sin contraseña</h2>
+              <p class="doc-summary">Una migración a autenticación sin contraseña centrada en el contrato, con rutas separadas para contraseña y OTP, entregada con alcance incremental y validación de extremo a extremo.</p>
+              <h3>Contexto</h3><p>El área de cuenta debía dar soporte tanto a usuarios con contraseña existente como sin contraseña, sin romper los flujos ya establecidos.</p>
+              <h3>Análisis del contrato</h3><p>Mapeé las dependencias de la UI y los estados de autenticación antes de tocar los flujos, y acoté la implementación al contrato verificado.</p>
+              <h3>Decisión</h3><p>Mantuve la migración incremental, separando la gestión del estado de contraseña (<code>hasPassword</code>) del resto de la experiencia de cuenta.</p>
+              <h3>Implementación</h3><p>La UI siguió rutas separadas para contraseña y OTP, incluyendo cambio de correo y creación de contraseña, con acciones dependientes condicionadas al estado de autenticación.</p>
+              <h3>Validación</h3><p>Los flujos resultantes se validaron en un entorno de pre-integración en cuatro escenarios documentados: comportamiento con contraseña existente, formularios sin contraseña, cambio de correo por OTP y creación de contraseña.</p>
+              <h3>Resultado</h3><p>Los flujos sin contraseña se entregaron de forma incremental sin alterar el comportamiento existente de la cuenta.</p>
+              <h3>Qué demuestra</h3><p>Integración de frontend centrada en el contrato, gestión de estado de autenticación, control de alcance, compatibilidad hacia atrás y toma de decisiones basada en riesgo.</p>
+            </div>
+          </article>
+          <!-- doc 3 -->
+          <article class="doc" data-doc="3" hidden>
+            <p class="doc-tags">GitHub · Automated Review · Prompt &amp; Context Engineering · MCP · Developer Tooling</p>
+            <div class="i18n-en">
+              <h2>Engineering Controls for Frontend Delivery</h2>
+              <p class="doc-summary">An automated review system that measured its own noise, retired 21 of its 53 rules, and got adopted outside its origin team.</p>
+              <h3>Problem</h3><p>Automated review can create the appearance of coverage while producing noise, duplicate feedback and rules the team doesn't trust.</p>
+              <h3>The system</h3><p>A GitHub-connected review system with domain-specific checks, flagging injection, authorization and secrets-management defects before merge.</p>
+              <h3>Control loop</h3><p>The first version generated credibility problems. I measured its output and removed rules the team consistently ignored, retiring 21 of its 53 rules.</p>
+              <h3>Adoption</h3><p>A Teams CLI was merged into a shared Inditex engineering repository, and a documentation MCP was adopted by the Android team.</p>
+              <h3>What this demonstrates</h3><p>The useful signal isn't that an LLM was present. It's that the automation had boundaries, measurement, rejection criteria and adoption outside its original team.</p>
+            </div>
+            <div class="i18n-es" hidden>
+              <h2>Controles de ingeniería para la entrega frontend</h2>
+              <p class="doc-summary">Un sistema de revisión automatizada que midió su propio ruido, retiró 21 de sus 53 reglas y fue adoptado fuera de su equipo de origen.</p>
+              <h3>Problema</h3><p>La revisión automatizada puede dar apariencia de cobertura mientras genera ruido, feedback duplicado y reglas en las que el equipo no confía.</p>
+              <h3>El sistema</h3><p>Un sistema de revisión conectado a GitHub con comprobaciones específicas de dominio, que señalaba defectos de inyección, autorización y gestión de secretos antes de fusionar.</p>
+              <h3>Bucle de control</h3><p>La primera versión generó problemas de credibilidad. Medí su resultado y eliminé las reglas que el equipo ignoraba de forma constante, retirando 21 de sus 53 reglas.</p>
+              <h3>Adopción</h3><p>Una CLI de Teams se fusionó en un repositorio de ingeniería compartido de Inditex, y un MCP de documentación fue adoptado por el equipo de Android.</p>
+              <h3>Qué demuestra</h3><p>La señal útil no es que hubiera un LLM presente. Es que la automatización tenía límites, medición, criterios de rechazo y adopción fuera de su equipo original.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== TIMELINE ===================== -->
+    <section id="win-timeline" class="window" data-app="timeline" data-w="680" data-h="600" data-x="6" data-y="600">
+      <div class="win-titlebar">
+        <span class="win-title i18n-en">Timeline.app</span><span class="win-title i18n-es" hidden>Trayectoria.app</span>
+        <div class="win-controls">
+          <button class="win-btn win-max" type="button" aria-label="Maximize"><svg class="icon"><use href="#i-max"></use></svg></button>
+          <button class="win-btn win-close" type="button" aria-label="Close"><svg class="icon"><use href="#i-close"></use></svg></button>
+        </div>
+      </div>
+      <div class="win-body">
+        <ol class="timeline">
+          <li>
+            <div class="tl-period">May 2025 – Jul 2026</div>
+            <div class="tl-body">
+              <p class="tl-role i18n-en">Senior Front-End Analyst (Angular) — Decskill Spain <span class="tl-client">· client: Zara Home (Inditex)</span></p>
+              <p class="tl-role i18n-es" hidden>Analista Front-End Sénior (Angular) — Decskill España <span class="tl-client">· cliente: Zara Home (Inditex)</span></p>
+              <p class="tl-loc i18n-en">Zaragoza, Spain · remote</p>
+              <p class="tl-loc i18n-es" hidden>Zaragoza, España · remoto</p>
+              <ul class="i18n-en">
+                <li>Built the Angular frontend of an AI shopping assistant: real-time voice and text over WebRTC, released to production behind a feature flag as a controlled, whitelisted pilot — never opened to the public.</li>
+                <li>Reduced the assistant's LLM context payload from 570 KB to 22 KB per execution (96%) through routing and context stripping.</li>
+                <li>Delivered a conversational Help Center market by market, with SSR-safe Angular integration, localized routes and accessibility preserved throughout.</li>
+                <li>Audited a 19 MB JavaScript bundle, found ~3.4 MB of removable weight, and shipped two PRs: dynamic imports for hls.js and html2canvas, lodash-es removal, Luxon → native Date.</li>
+                <li>Delivered the account-area passwordless (OTP) migration: dual-path UX driven by <code>hasPassword</code>, validated across four documented scenarios.</li>
+                <li>Closed 34 WCAG 2.1 AA audit findings through 23 merged pull requests: headings, keyboard navigation, ARIA and focus.</li>
+              </ul>
+              <ul class="i18n-es" hidden>
+                <li>Construyó el frontend en Angular de un asistente de compra con IA: voz y texto en tiempo real sobre WebRTC, publicado en producción tras un feature flag como piloto controlado con lista de acceso, nunca abierto al público.</li>
+                <li>Redujo el payload de contexto del LLM de 570 KB a 22 KB por ejecución (96%) mediante enrutado y reducción de contexto.</li>
+                <li>Entregó un Centro de Ayuda conversacional mercado a mercado, con integración de Angular compatible con SSR, rutas localizadas y accesibilidad preservada en todo momento.</li>
+                <li>Auditó un bundle de JavaScript de 19 MB, identificó ~3,4 MB de peso eliminable, y publicó dos PRs: imports dinámicos para hls.js y html2canvas, eliminación de lodash-es, migración de Luxon a Date nativo.</li>
+                <li>Entregó la migración del área de cuenta a autenticación sin contraseña (OTP): UX de doble vía según <code>hasPassword</code>, validada en cuatro escenarios documentados.</li>
+                <li>Cerró 34 hallazgos de una auditoría WCAG 2.1 AA mediante 23 pull requests fusionadas: encabezados, navegación por teclado, ARIA y foco.</li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <div class="tl-period">Mar 2024 – May 2025</div>
+            <div class="tl-body">
+              <p class="tl-role i18n-en">Senior Front-End Analyst (Angular) — Avanade <span class="tl-client">· client: UNIR</span></p>
+              <p class="tl-role i18n-es" hidden>Analista Front-End Sénior (Angular) — Avanade <span class="tl-client">· cliente: UNIR</span></p>
+              <p class="tl-loc i18n-en">Remote, Spain</p>
+              <p class="tl-loc i18n-es" hidden>Remoto, España</p>
+              <ul class="i18n-en">
+                <li>Acted as the hands-on frontend technical reference: Angular architecture, component design and code-quality decisions across the team.</li>
+                <li>Defined the core architecture: authentication flows, admin UI, centralized permissions and navigation.</li>
+                <li>Worked in an Nx monorepo and refactored the Admissions module, removing circular dependencies and centralizing permissions logic.</li>
+                <li>Introduced linting, formatting and unit testing to a back-office that had none, plus review protocols and quality gates.</li>
+                <li>Mentored the team on Angular practices, ran SonarQube sessions, and received an Inspire Greatness award (August 2024).</li>
+              </ul>
+              <ul class="i18n-es" hidden>
+                <li>Actuó como referencia técnica de frontend del equipo: arquitectura de Angular, diseño de componentes y decisiones de calidad de código.</li>
+                <li>Definió la arquitectura principal: flujos de autenticación, UI de administración, permisos centralizados y navegación.</li>
+                <li>Trabajó en un monorepo Nx y refactorizó el módulo de Admisiones, eliminando dependencias circulares y centralizando la lógica de permisos.</li>
+                <li>Introdujo linting, formateo y pruebas unitarias en un back-office que no tenía ninguno, además de protocolos de revisión y quality gates.</li>
+                <li>Mentorizó al equipo en prácticas de Angular, dirigió sesiones de análisis con SonarQube, y recibió un premio Inspire Greatness (agosto de 2024).</li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <div class="tl-period">Dec 2022 – Mar 2024</div>
+            <div class="tl-body">
+              <p class="tl-role i18n-en">Senior Front-End Developer (Angular) — Vermont Solutions (Viewnext / IBM) <span class="tl-client">· client: Santander</span></p>
+              <p class="tl-role i18n-es" hidden>Desarrollador Front-End Sénior (Angular) — Vermont Solutions (Viewnext / IBM) <span class="tl-client">· cliente: Santander</span></p>
+              <p class="tl-loc i18n-en">Madrid, Spain</p>
+              <p class="tl-loc i18n-es" hidden>Madrid, España</p>
+              <ul class="i18n-en">
+                <li>Senior Angular reference across three concurrent banking applications, leading day-to-day delivery with backend, design and Scrum teams.</li>
+                <li>Led a team of 5 on an internal mobile banking app; senior technical reference for a team of 4 on Santander's internal real-estate portal.</li>
+                <li>Built a transaction-monitoring dashboard with Chart.js and gesture interactions with HammerJS; owned around 80% of the front-end on one project.</li>
+                <li>Implemented Figma designs as Angular components on Santander's Flame design system, NgDarwin, Storybook and Nexus.</li>
+                <li>Kept quality high with systematic unit testing (Karma, Jasmine) and static analysis (SonarQube, ESLint, Fortify).</li>
+              </ul>
+              <ul class="i18n-es" hidden>
+                <li>Referencia sénior de Angular en tres aplicaciones bancarias simultáneas, liderando la entrega diaria con los equipos de backend, diseño y Scrum.</li>
+                <li>Lideró un equipo de 5 personas en una app bancaria interna para empleados; referencia técnica sénior de un equipo de 4 en el portal inmobiliario interno de Santander.</li>
+                <li>Construyó un dashboard de monitorización de transacciones con Chart.js e interacciones gestuales con HammerJS; asumió cerca del 80% del frontend en un proyecto.</li>
+                <li>Implementó diseños de Figma como componentes de Angular sobre el sistema de diseño Flame de Santander, NgDarwin, Storybook y Nexus.</li>
+                <li>Mantuvo la calidad con pruebas unitarias sistemáticas (Karma, Jasmine) y análisis estático (SonarQube, ESLint, Fortify).</li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <div class="tl-period">Oct – Dec 2022</div>
+            <div class="tl-body">
+              <p class="tl-role i18n-en">Mid-Level Front-End Developer (Angular, React) — CloudAPPi <span class="tl-client">· client: Regional Government of Madrid</span></p>
+              <p class="tl-role i18n-es" hidden>Desarrollador Front-End Semi-Sénior (Angular, React) — CloudAPPi <span class="tl-client">· cliente: Comunidad de Madrid</span></p>
+              <p class="tl-loc i18n-en">Madrid, Spain</p>
+              <p class="tl-loc i18n-es" hidden>Madrid, España</p>
+              <ul class="i18n-en">
+                <li>Built authentication flows and incremental improvements on a legacy Angular 8 monolith (Angular Material, RxJS).</li>
+                <li>Also contributed to a React project (React 17, Redux Toolkit, Material UI).</li>
+              </ul>
+              <ul class="i18n-es" hidden>
+                <li>Construyó flujos de autenticación y mejoras incrementales sobre un monolito heredado en Angular 8 (Angular Material, RxJS).</li>
+                <li>También colaboró en un proyecto en React (React 17, Redux Toolkit, Material UI).</li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <div class="tl-period">Sep 2021 – Oct 2022</div>
+            <div class="tl-body">
+              <p class="tl-role i18n-en">Mid-Level Front-End Developer (Angular) — ENZO (Rent &amp; Buy S.A.)</p>
+              <p class="tl-role i18n-es" hidden>Desarrollador Front-End Semi-Sénior (Angular) — ENZO (Rent &amp; Buy S.A.)</p>
+              <p class="tl-loc i18n-en">Madrid, Spain</p>
+              <p class="tl-loc i18n-es" hidden>Madrid, España</p>
+              <ul class="i18n-en">
+                <li>Moved from .NET into Angular frontend development on an existing AWS serverless architecture (Lambda, API Gateway, S3, CloudFront, SQS/SNS), building reusable components and Cognito authentication flows.</li>
+                <li>Onboarded new team members on architecture and Angular practices, and joined English-language client meetings and requirement gathering.</li>
+              </ul>
+              <ul class="i18n-es" hidden>
+                <li>Dio el salto de .NET al desarrollo frontend en Angular sobre una arquitectura serverless de AWS ya existente (Lambda, API Gateway, S3, CloudFront, SQS/SNS), construyendo componentes reutilizables y flujos de autenticación con Cognito.</li>
+                <li>Incorporó a nuevos miembros del equipo en arquitectura y prácticas de Angular, y participó en reuniones con cliente y toma de requisitos en inglés.</li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <div class="tl-period">Jun 2020 – Sep 2021</div>
+            <div class="tl-body">
+              <p class="tl-role i18n-en">Independent projects &amp; upskilling</p>
+              <p class="tl-role i18n-es" hidden>Proyectos independientes y formación</p>
+              <p class="i18n-en">Career break with personal projects and training: WordPress development (themes, plugins, SEO), office automation tooling, structured frontend upskilling.</p>
+              <p class="i18n-es" hidden>Pausa profesional con proyectos personales y formación: desarrollo en WordPress (temas, plugins, SEO), herramientas de automatización de oficina, formación estructurada en frontend.</p>
+            </div>
+          </li>
+          <li>
+            <div class="tl-period">Mar – Jun 2020</div>
+            <div class="tl-body">
+              <p class="tl-role i18n-en">Mid-Level Full Stack Developer (.NET) — Altran (Capgemini)</p>
+              <p class="tl-role i18n-es" hidden>Desarrollador Full Stack Semi-Sénior (.NET) — Altran (Capgemini)</p>
+            </div>
+          </li>
+          <li>
+            <div class="tl-period">Nov 2018 – Sep 2019</div>
+            <div class="tl-body">
+              <p class="tl-role i18n-en">Mid-Level Full Stack Developer (.NET) — IO Digital (Query Software)</p>
+              <p class="tl-role i18n-es" hidden>Desarrollador Full Stack Semi-Sénior (.NET) — IO Digital (Query Software)</p>
+            </div>
+          </li>
+          <li>
+            <div class="tl-period">Jul – Nov 2018</div>
+            <div class="tl-body">
+              <p class="tl-role i18n-en">Junior Full Stack Developer (.NET) — STRATESYS</p>
+              <p class="tl-role i18n-es" hidden>Desarrollador Full Stack Junior (.NET) — STRATESYS</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===================== MESSAGES ===================== -->
+    <section id="win-messages" class="window" data-app="messages" data-w="520" data-h="600" data-x="700" data-y="600">
+      <div class="win-titlebar">
+        <span class="win-title i18n-en">Messages.app</span><span class="win-title i18n-es" hidden>Mensajes.app</span>
+        <div class="win-controls">
+          <button class="win-btn win-max" type="button" aria-label="Maximize"><svg class="icon"><use href="#i-max"></use></svg></button>
+          <button class="win-btn win-close" type="button" aria-label="Close"><svg class="icon"><use href="#i-close"></use></svg></button>
+        </div>
+      </div>
+      <div class="win-body">
+        <p class="msg-note i18n-en">Recommendations published on LinkedIn, translated where noted.</p>
+        <p class="msg-note i18n-es" hidden>Recomendaciones publicadas en LinkedIn, traducidas donde se indica.</p>
+        <ul class="thread">
+          <li class="bubble">
+            <p class="i18n-en">"His knowledge of Angular is excellent, but what I really highlight from working with him is his willingness to help and share his experience. He not only applies good practices, he promotes their adoption within the team, aligning everyone around building quality, maintainable and scalable software."</p>
+            <p class="i18n-es" hidden>"Su conocimiento de Angular es excelente, pero lo que más destaco de trabajar con él es su disposición a ayudar y compartir su experiencia. No solo aplica buenas prácticas, también promueve su adopción en el equipo, alineando a todos en torno a construir software de calidad, mantenible y escalable."</p>
+            <p class="bubble-author">José Luis Murcia Gámez <span class="i18n-en">— Frontend Developer, UNIR project (Avanade)</span><span class="i18n-es" hidden>— Desarrollador Frontend, proyecto UNIR (Avanade)</span></p>
+          </li>
+          <li class="bubble">
+            <p class="i18n-en">"Working with Marius has been a real pleasure. I especially highlight his initiative with AI tools applied to development, from which I learned a great deal working side by side with him. Any team would be more than fortunate to count on someone with his technical level and attitude."</p>
+            <p class="i18n-es" hidden>"Trabajar con Marius ha sido un verdadero placer. Destaco especialmente su iniciativa con herramientas de IA aplicadas al desarrollo, de las que aprendí mucho trabajando codo a codo con él. Cualquier equipo tendría mucha suerte de contar con alguien con su nivel técnico y actitud."</p>
+            <p class="bubble-author">Juan Pablo Romero Pereira <span class="i18n-en">— Frontend Developer, Zara Home (Inditex)</span><span class="i18n-es" hidden>— Desarrollador Frontend, Zara Home (Inditex)</span></p>
+          </li>
+          <li class="bubble">
+            <p class="i18n-en">"Marius proved to be a highly adaptable and resourceful programmer on both occasions we worked together, at Stratesys and at Avanade, where he worked as an external consultant. His ability to learn quickly and his contribution to the projects were fundamental."</p>
+            <p class="i18n-es" hidden>"Marius demostró ser un programador muy adaptable y con recursos en las dos ocasiones en las que trabajamos juntos, en Stratesys y en Avanade, donde trabajó como consultor externo. Su capacidad de aprender rápido y su contribución a los proyectos fueron fundamentales."</p>
+            <p class="bubble-author">José Luis Rodríguez-Campra Camberos <span class="i18n-en">— BAU Coordinator / Scrum Master</span><span class="i18n-es" hidden>— Coordinador BAU / Scrum Master</span></p>
+          </li>
+          <li class="bubble">
+            <p>"Great partner, he has done a great job in his last project demonstrating that he can design and build business applications successfully."</p>
+            <p class="bubble-author">Antonio Bermúdez Rodríguez <span class="i18n-en">— Developer</span><span class="i18n-es" hidden>— Desarrollador</span></p>
+          </li>
+          <li class="bubble">
+            <p class="i18n-en">"Marius was a great professional to work with. We worked together at ENZO, and his work ethic is immaculate; he is very easy to work with and goes out of his way to help when you ask for guidance."</p>
+            <p class="i18n-es" hidden>"Marius fue un gran profesional con el que trabajar. Trabajamos juntos en ENZO, y su ética de trabajo es impecable; es muy fácil trabajar con él y siempre se esfuerza por ayudar cuando se le pide orientación."</p>
+            <p class="bubble-author">Gonzalo Rodríguez Muñoz <span class="i18n-en">— Full Stack Software Developer, ENZO</span><span class="i18n-es" hidden>— Desarrollador Full Stack, ENZO</span></p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== MAIL ===================== -->
+    <section id="win-mail" class="window" data-app="mail" data-w="520" data-h="480" data-x="1240" data-y="8">
+      <div class="win-titlebar">
+        <span class="win-title i18n-en">Mail.app</span><span class="win-title i18n-es" hidden>Correo.app</span>
+        <div class="win-controls">
+          <button class="win-btn win-max" type="button" aria-label="Maximize"><svg class="icon"><use href="#i-max"></use></svg></button>
+          <button class="win-btn win-close" type="button" aria-label="Close"><svg class="icon"><use href="#i-close"></use></svg></button>
+        </div>
+      </div>
+      <div class="win-body">
+        <h2 class="i18n-en">Senior Angular / Frontend Engineer roles</h2>
+        <h2 class="i18n-es" hidden>Puestos de Ingeniero Frontend Sénior (Angular)</h2>
+        <p class="i18n-en">Remote or hybrid from Zaragoza. Permanent or B2B. Available for occasional travel. EU citizen, authorized to work across the EU/EEA without sponsorship. No relocation.</p>
+        <p class="i18n-es" hidden>Remoto o híbrido desde Zaragoza. Indefinido o B2B. Disponibilidad para viajes puntuales. Ciudadano de la UE, autorizado para trabajar en toda la UE/EEE sin patrocinio. Sin reubicación.</p>
+        <dl class="mail-fields">
+          <div><dt class="i18n-en">To</dt><dt class="i18n-es" hidden>Para</dt><dd><a href="mailto:mihailmariusion@gmail.com">mihailmariusion@gmail.com</a></dd></div>
+          <div><dt>LinkedIn</dt><dd><a href="https://linkedin.com/in/mariusdev" rel="me noopener" target="_blank">linkedin.com/in/mariusdev</a></dd></div>
+          <div><dt>GitHub</dt><dd><a href="https://github.com/mihailmariusiondev" rel="me noopener" target="_blank">github.com/mihailmariusiondev</a></dd></div>
+        </dl>
+        <a class="btn-primary" href="mailto:mihailmariusion@gmail.com?subject=Hello%20Marius">
+          <svg class="icon" aria-hidden="true"><use href="#i-mail"></use></svg>
+          <span class="i18n-en">Compose email</span><span class="i18n-es" hidden>Redactar correo</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ===================== FILES / CV ===================== -->
+    <section id="win-files" class="window" data-app="files" data-w="460" data-h="360" data-x="1240" data-y="520">
+      <div class="win-titlebar">
+        <span class="win-title i18n-en">Files.app</span><span class="win-title i18n-es" hidden>Archivos.app</span>
+        <div class="win-controls">
+          <button class="win-btn win-max" type="button" aria-label="Maximize"><svg class="icon"><use href="#i-max"></use></svg></button>
+          <button class="win-btn win-close" type="button" aria-label="Close"><svg class="icon"><use href="#i-close"></use></svg></button>
+        </div>
+      </div>
+      <div class="win-body">
+        <p class="i18n-en">Two files, same résumé.</p>
+        <p class="i18n-es" hidden>Dos archivos, el mismo currículum.</p>
+        <ul class="file-list">
+          <li>
+            <svg class="icon" aria-hidden="true"><use href="#i-cases"></use></svg>
+            <div class="file-meta">
+              <span class="file-name">marius-mihail-ion-cv.pdf</span>
+              <span class="file-sub i18n-en">English · PDF</span><span class="file-sub i18n-es" hidden>Inglés · PDF</span>
+            </div>
+            <a class="btn-icon" href="assets/marius-mihail-ion-cv.pdf" download aria-label="Download English CV"><svg class="icon"><use href="#i-download"></use></svg></a>
+          </li>
+          <li>
+            <svg class="icon" aria-hidden="true"><use href="#i-cases"></use></svg>
+            <div class="file-meta">
+              <span class="file-name">marius-mihail-ion-cv-es.pdf</span>
+              <span class="file-sub i18n-en">Spanish · PDF</span><span class="file-sub i18n-es" hidden>Español · PDF</span>
+            </div>
+            <a class="btn-icon" href="assets/marius-mihail-ion-cv-es.pdf" download aria-label="Download Spanish CV"><svg class="icon"><use href="#i-download"></use></svg></a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="mobile-profile" aria-labelledby="mobile-profile-title">
+      <p class="mobile-profile-system" aria-hidden="true">STRATA / PROFILE</p>
+      <h1 id="mobile-profile-title">Marius Mihail Ion</h1>
+      <p class="i18n-en">Senior Angular / Frontend Engineer</p>
+      <p class="i18n-es" hidden>Ingeniero Frontend Sénior (Angular)</p>
+      <dl class="mobile-proof">
+        <div><dt>96%</dt><dd class="i18n-en">smaller LLM context payload</dd><dd class="i18n-es" hidden>menos de payload de contexto LLM</dd></div>
+        <div><dt>34</dt><dd class="i18n-en">WCAG 2.1 AA findings closed</dd><dd class="i18n-es" hidden>hallazgos WCAG 2.1 AA cerrados</dd></div>
+        <div><dt>Top 1.42%</dt><dd class="i18n-en">Angular assessment</dd><dd class="i18n-es" hidden>evaluación de Angular</dd></div>
+      </dl>
+      <div class="mobile-profile-actions">
+        <a href="assets/marius-mihail-ion-cv.pdf" download class="mobile-action i18n-en">Download CV</a>
+        <a href="assets/marius-mihail-ion-cv-es.pdf" download class="mobile-action i18n-es" hidden>Descargar CV</a>
+        <a href="mailto:mihailmariusion@gmail.com" class="mobile-action mobile-action-primary i18n-en">Contact Marius</a>
+        <a href="mailto:mihailmariusion@gmail.com" class="mobile-action mobile-action-primary i18n-es" hidden>Contactar</a>
+      </div>
+    </section>
+    <div class="springboard" id="springboard" aria-label="Applications"></div>
+    <div id="window-status" class="visually-hidden" aria-live="polite" aria-atomic="true"></div>
+  </main>
+
+  <nav class="dock" aria-label="Applications">
+    <button class="dock-item" data-open="about" type="button">
+      <svg class="icon" aria-hidden="true"><use href="#i-about"></use></svg>
+      <span class="i18n-en">About</span><span class="i18n-es" hidden>Perfil</span>
+    </button>
+    <button class="dock-item" data-open="cases" type="button">
+      <svg class="icon" aria-hidden="true"><use href="#i-cases"></use></svg>
+      <span class="i18n-en">Cases</span><span class="i18n-es" hidden>Casos</span>
+    </button>
+    <button class="dock-item" data-open="timeline" type="button">
+      <svg class="icon" aria-hidden="true"><use href="#i-timeline"></use></svg>
+      <span class="i18n-en">Timeline</span><span class="i18n-es" hidden>Trayectoria</span>
+    </button>
+    <button class="dock-item" data-open="messages" type="button">
+      <svg class="icon" aria-hidden="true"><use href="#i-messages"></use></svg>
+      <span class="i18n-en">Messages</span><span class="i18n-es" hidden>Mensajes</span>
+    </button>
+    <button class="dock-item" data-open="mail" type="button">
+      <svg class="icon" aria-hidden="true"><use href="#i-mail"></use></svg>
+      <span>Mail</span>
+    </button>
+    <button class="dock-item" data-open="files" type="button">
+      <svg class="icon" aria-hidden="true"><use href="#i-files"></use></svg>
+      <span class="i18n-en">Files</span><span class="i18n-es" hidden>Archivos</span>
+    </button>
+    <button class="dock-item dock-home" id="dock-home" type="button" hidden>
+      <span class="dock-home-dot" aria-hidden="true"></span>
+      <span class="i18n-en">Home</span><span class="i18n-es" hidden>Inicio</span>
+    </button>
+  </nav>
+
+  <div id="palette" class="palette" hidden>
+    <div class="palette-box" role="dialog" aria-modal="true" aria-label="Command palette">
+      <div class="palette-input-row">
+        <svg class="icon" aria-hidden="true"><use href="#i-search"></use></svg>
+        <input id="palette-input" type="text" autocomplete="off" spellcheck="false" placeholder="Open About, download CV, copy email…" />
+      </div>
+      <ul id="palette-list" role="listbox"></ul>
+    </div>
+  </div>
+</div>
+
+<footer class="plain-footer">
+  <p class="i18n-en">Marius Mihail Ion · Zaragoza, Spain · <a href="mailto:mihailmariusion@gmail.com">mihailmariusion@gmail.com</a> · <a href="https://linkedin.com/in/mariusdev">LinkedIn</a> · <a href="https://github.com/mihailmariusiondev">GitHub</a> · <a href="assets/marius-mihail-ion-cv.pdf">CV (EN)</a> · <a href="assets/marius-mihail-ion-cv-es.pdf">CV (ES)</a></p>
+  <p class="i18n-es" hidden>Marius Mihail Ion · Zaragoza, España · <a href="mailto:mihailmariusion@gmail.com">mihailmariusion@gmail.com</a> · <a href="https://linkedin.com/in/mariusdev">LinkedIn</a> · <a href="https://github.com/mihailmariusiondev">GitHub</a> · <a href="assets/marius-mihail-ion-cv.pdf">CV (EN)</a> · <a href="assets/marius-mihail-ion-cv-es.pdf">CV (ES)</a></p>
+</footer>
+
+<script src="app.js" type="module"></script>
+</body>
+</html>
