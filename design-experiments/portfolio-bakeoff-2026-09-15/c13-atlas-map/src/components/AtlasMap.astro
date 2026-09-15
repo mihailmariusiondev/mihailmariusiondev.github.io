@@ -1,0 +1,277 @@
+---
+/**
+ * Atlas Map: the career as a transit line. One <svg> line, drawn with a pure
+ * CSS animation (no JS — readable and complete without it), stations are
+ * focusable <a> links to /experience/. Reduced motion snaps straight to the
+ * finished, fully-drawn state via the existing global `*` animation-duration
+ * override in global.css: nothing extra to wire up here.
+ */
+import { experience } from "../data/experience";
+import { localizedPath, t, type Locale } from "../i18n";
+import { ui } from "../data/ui";
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+
+// Oldest to newest, left to right / top to bottom: reading order matches the
+// CV's reverse-chronological list read backwards, i.e. how a journey unfolds.
+const stations = [...experience].reverse();
+const experienceHref = localizedPath("/experience/", lang);
+const segments = Math.max(stations.length - 1, 1);
+const viewWidth = segments * 100 + 40;
+---
+
+<section class="atlas" aria-labelledby="atlas-heading">
+  <div class="wrap">
+    <h2 id="atlas-heading" class="atlas__heading eyebrow">
+      {t(ui.atlasHeading, lang)}
+    </h2>
+    <p class="atlas__caption">{t(ui.heroLocation, lang)}</p>
+
+    <svg
+      class="atlas__line"
+      viewBox={`0 0 ${viewWidth} 40`}
+      preserveAspectRatio="none"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <path class={`atlas__path atlas__path--seg${stations.length}`} d={`M20,20 L${viewWidth - 20},20`} />
+    </svg>
+
+    <ol class="atlas__stations">
+      {
+        stations.map((role, i) => (
+          <li class="atlas__station" style={`--i:${i}`}>
+            <a
+              class="atlas__node"
+              class:list={[{ "atlas__node--current": i === stations.length - 1 }]}
+              href={experienceHref}
+            >
+              <span class="atlas__dot" aria-hidden="true" />
+              <span class="atlas__label">
+                <span class="atlas__company">
+                  {t(role.company, lang)}
+                  {role.client ? ` · ${role.client}` : ""}
+                </span>
+                <span class="atlas__period">{t(role.period, lang)}</span>
+              </span>
+            </a>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>
+
+<style>
+  .atlas {
+    padding-block: var(--space-2) var(--space-4);
+    border-bottom: 1px solid var(--rule);
+    overflow: hidden;
+  }
+
+  .atlas__heading {
+    margin-bottom: var(--space-1);
+  }
+
+  .atlas__caption {
+    font-family: var(--font-mono);
+    font-size: var(--step-micro);
+    color: var(--slate-quiet);
+    margin-bottom: var(--space-3);
+  }
+
+  .atlas__line {
+    display: block;
+    width: 100%;
+    height: 2.5rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .atlas__path {
+    fill: none;
+    stroke: var(--steel);
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-dasharray: 2000;
+    stroke-dashoffset: 2000;
+    animation: atlas-draw 1.6s ease-out 0.15s forwards;
+  }
+
+  @keyframes atlas-draw {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  .atlas__stations {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+
+  .atlas__station {
+    min-width: 0;
+    flex: 1;
+    opacity: 0;
+    transform: translateY(6px);
+    animation: atlas-station-in 0.5s ease-out forwards;
+    animation-delay: calc(0.25s + var(--i) * 0.09s);
+  }
+
+  @keyframes atlas-station-in {
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  .atlas__node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    text-align: center;
+    text-decoration: none;
+    color: var(--ink);
+    padding: 0.35rem;
+    border-radius: 4px;
+  }
+
+  .atlas__node:hover .atlas__dot,
+  .atlas__node:focus-visible .atlas__dot {
+    transform: scale(1.25);
+  }
+
+  .atlas__node:hover .atlas__company,
+  .atlas__node:focus-visible .atlas__company {
+    color: var(--steel-dark);
+  }
+
+  .atlas__dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--paper-raised);
+    border: 2.5px solid var(--steel);
+    transition: transform 0.15s ease;
+    flex: none;
+  }
+
+  .atlas__node--current .atlas__dot {
+    background: var(--steel);
+    box-shadow: 0 0 0 4px var(--steel-wash);
+  }
+
+  .atlas__label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .atlas__company {
+    font-family: var(--font-mono);
+    font-size: var(--step-micro);
+    font-weight: 500;
+    line-height: 1.35;
+  }
+
+  .atlas__node--current .atlas__company {
+    color: var(--steel-dark);
+    font-weight: 600;
+  }
+
+  .atlas__period {
+    font-size: 0.6875rem;
+    color: var(--slate-quiet);
+    font-family: var(--font-mono);
+  }
+
+  /* The global reduced-motion rule (global.css) zeroes animation-duration but
+     not animation-delay, so a staggered entrance would otherwise sit
+     invisible until its delay elapses. Force the finished, fully-drawn state
+     immediately: this is the "static drawn map" the brief requires. */
+  @media (prefers-reduced-motion: reduce) {
+    .atlas__path,
+    .atlas__station,
+    .atlas__stations::before {
+      animation: none !important;
+    }
+    .atlas__path {
+      stroke-dashoffset: 0;
+    }
+    .atlas__station {
+      opacity: 1;
+      transform: none;
+    }
+    .atlas__stations::before {
+      transform: scaleY(1);
+    }
+  }
+
+  /* Reflow to a vertical line below tablet width: the transit-line idea
+     survives the switch to a single readable column. */
+  @media (max-width: 47.999rem) {
+    .atlas__line {
+      display: none;
+    }
+
+    .atlas__stations {
+      flex-direction: column;
+      gap: var(--space-3);
+      position: relative;
+      padding-left: 1.5rem;
+    }
+
+    .atlas__stations::before {
+      content: "";
+      position: absolute;
+      left: 6px;
+      top: 0.6rem;
+      bottom: 0.6rem;
+      width: 2.5px;
+      background: var(--steel);
+      transform-origin: top;
+      animation: atlas-draw-v 1.4s ease-out 0.15s forwards;
+      transform: scaleY(0);
+    }
+
+    @keyframes atlas-draw-v {
+      to {
+        transform: scaleY(1);
+      }
+    }
+
+    .atlas__station {
+      transform: translateX(-6px);
+    }
+
+    @keyframes atlas-station-in {
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    .atlas__node {
+      flex-direction: row;
+      text-align: left;
+      justify-content: flex-start;
+    }
+
+    .atlas__dot {
+      position: absolute;
+      left: -1.5rem;
+    }
+
+    .atlas__label {
+      margin-left: 0.5rem;
+    }
+  }
+</style>

@@ -1,0 +1,329 @@
+---
+/**
+ * Site navigation, in the doc-site register the whole concept borrows: a
+ * sticky top bar with the primary nav inline, the way a component-library
+ * docs site (Storybook, a design-system reference) presents its section list.
+ *
+ * Desktop (>= 48rem): the sticky top bar shows every nav link inline.
+ *
+ * Mobile (< 48rem): the same links move into a native `<details>` disclosure
+ * ("Menu") in the header — the doc-site pattern collapsing to its own native
+ * primitive rather than borrowing a mobile-app tab bar. No JS: `<details>` is
+ * keyboard-operable and works with CSS alone, and every link stays in the DOM
+ * whether or not the disclosure is open.
+ *
+ * Language switcher: lives in the header row outside the disclosure, so it
+ * stays reachable in one click at every width. It always points at the SAME
+ * page in the other language, never at the home page.
+ */
+import { localeFromPath, localizedPath, pathInLocale, t } from "../i18n";
+import { NAV_ITEMS, ui } from "../data/ui";
+import type { NavItem } from "../data/ui";
+
+interface Props {
+  showLanguageSwitcher?: boolean;
+}
+
+const { showLanguageSwitcher = true } = Astro.props;
+
+const path = Astro.url.pathname;
+const lang = localeFromPath(path);
+const other = lang === "en" ? "es" : "en";
+
+/** Path with the /es prefix removed, so the match rules stay language-agnostic. */
+const basePath = path.replace(/^\/es(?=\/|$)/, "") || "/";
+
+const otherLangHref = pathInLocale(path, other);
+
+function isCurrent(item: NavItem): boolean {
+  if (item.match === "/") return basePath === "/";
+  return basePath.startsWith(item.match);
+}
+---
+
+<header class="site-header">
+  <div class="wrap site-header__row">
+    <a href={localizedPath("/", lang)} class="site-header__name">
+      Marius Mihail Ion
+      <span class="site-header__role">{t(ui.siteRole, lang)}</span>
+    </a>
+
+    <div class="site-header__end">
+      <!-- Desktop doc-site nav: every link inline in the sticky top bar. -->
+      <nav class="topnav" aria-label={t(ui.navPrimary, lang)}>
+        <ul class="topnav__list">
+          {
+            NAV_ITEMS.filter((item) => item.href !== "/").map((item) => (
+              <li>
+                <a
+                  href={localizedPath(item.href, lang)}
+                  class="topnav__link"
+                  aria-current={isCurrent(item) ? "page" : undefined}
+                >
+                  {t(item.label, lang)}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+
+      {
+        showLanguageSwitcher && (
+          <a
+            class="langswitch"
+            href={otherLangHref}
+            hreflang={other}
+            lang={other}
+            aria-label={t(ui.languageSwitchTo, lang)}
+          >
+            <span class="langswitch__code">{t(ui.languageSwitchText, lang)}</span>
+          </a>
+        )
+      }
+
+      <!--
+        Mobile doc-site nav: a native disclosure, not a script. Every link stays
+        in the DOM whether the panel is open or closed; `<details>` is keyboard-
+        operable (Enter/Space on the summary) with zero JS.
+      -->
+      <details class="navmenu">
+        <summary class="navmenu__summary">
+          {t(ui.navMenuLabel, lang)}
+        </summary>
+        <nav class="navmenu__panel" aria-label={t(ui.navPrimaryBottom, lang)}>
+          <ul class="navmenu__list">
+            {
+              NAV_ITEMS.map((item) => (
+                <li>
+                  <a
+                    href={localizedPath(item.href, lang)}
+                    class="navmenu__link"
+                    aria-current={isCurrent(item) ? "page" : undefined}
+                  >
+                    {t(item.label, lang)}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </nav>
+      </details>
+    </div>
+  </div>
+</header>
+
+<style>
+  /* ---------------- Desktop: sticky top bar ---------------- */
+
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    border-bottom: 1px solid var(--rule);
+    background: color-mix(in srgb, var(--paper) 88%, transparent);
+    backdrop-filter: saturate(140%) blur(8px);
+  }
+
+  .site-header__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+    padding-block: var(--space-2);
+    min-height: 4rem;
+  }
+
+  .site-header__end {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+  }
+
+  .site-header__name {
+    display: grid;
+    gap: 0.15rem;
+    font-family: var(--font-display);
+    font-size: 1.125rem;
+    font-weight: 500;
+    line-height: 1.2;
+    color: var(--ink);
+    text-decoration: none;
+    min-width: 0;
+  }
+
+  .site-header__role {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--slate);
+  }
+
+  .topnav__list {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+  }
+
+  .topnav__link {
+    position: relative;
+    display: block;
+    padding-block: 0.35rem;
+    color: var(--slate);
+    text-decoration: none;
+  }
+
+  .topnav__link:hover {
+    color: var(--ink);
+  }
+
+  /* Active page: a rule under the label, not a color change alone. */
+  .topnav__link[aria-current="page"] {
+    color: var(--ink);
+  }
+
+  .topnav__link[aria-current="page"]::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -0.85rem;
+    height: 2px;
+    background: var(--steel);
+  }
+
+  /* ---------------- Language switcher ---------------- */
+
+  .langswitch {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    /* 44px touch target: this is the one control a Spanish recruiter needs. */
+    min-width: 2.75rem;
+    min-height: 2.25rem;
+    padding-inline: 0.6rem;
+    border: 1px solid var(--rule-strong);
+    border-radius: 999px;
+    background: var(--paper-raised);
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: var(--slate);
+    text-decoration: none;
+    flex: none;
+  }
+
+  .langswitch:hover {
+    border-color: var(--steel);
+    color: var(--steel-dark);
+    background: var(--steel-wash);
+  }
+
+  /* ---------------- Mobile: native <details> disclosure ---------------- */
+
+  .navmenu {
+    display: none;
+  }
+
+  @media (max-width: 47.999rem) {
+    /* The top bar keeps the name and the language switcher, drops the inline
+       links: the disclosure owns them. */
+    .topnav {
+      display: none;
+    }
+
+    .site-header {
+      position: sticky;
+      backdrop-filter: saturate(140%) blur(8px);
+    }
+
+    .site-header__row {
+      min-height: 3.5rem;
+      gap: var(--space-2);
+    }
+
+    .navmenu {
+      display: block;
+      position: relative;
+    }
+
+    .navmenu__summary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      list-style: none;
+      /* 44px touch target. */
+      min-height: 2.75rem;
+      padding-inline: 0.85rem;
+      border: 1px solid var(--rule-strong);
+      border-radius: var(--radius-pill);
+      background: var(--paper-raised);
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--ink);
+      cursor: pointer;
+    }
+
+    .navmenu__summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .navmenu[open] .navmenu__summary {
+      border-color: var(--steel);
+    }
+
+    .navmenu__panel {
+      position: absolute;
+      right: 0;
+      top: calc(100% + 0.5rem);
+      z-index: 60;
+      min-width: 13rem;
+      background: var(--paper-raised);
+      border: 1px solid var(--rule);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-raised);
+      padding: 0.4rem;
+    }
+
+    .navmenu__list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+    }
+
+    .navmenu__link {
+      display: block;
+      /* 44px touch target. */
+      min-height: 2.75rem;
+      display: flex;
+      align-items: center;
+      padding-inline: 0.75rem;
+      border-radius: var(--radius-sharp);
+      font-family: var(--font-mono);
+      font-size: 0.9375rem;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .navmenu__link:hover {
+      background: var(--steel-wash);
+      color: var(--steel-dark);
+    }
+
+    .navmenu__link[aria-current="page"] {
+      color: var(--steel-dark);
+      background: var(--steel-wash);
+      font-weight: 500;
+    }
+  }
+</style>

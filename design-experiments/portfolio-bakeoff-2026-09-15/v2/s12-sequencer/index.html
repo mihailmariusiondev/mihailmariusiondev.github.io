@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Marius Mihail Ion · Senior Angular / Frontend Engineer</title>
+<meta name="description" content="Senior Angular / Frontend Engineer for enterprise e-commerce, banking and education, presented as a hardware step sequencer." />
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+<meta property="og:title" content="Marius Mihail Ion · Angular Frontend Case Studies" />
+<meta property="og:description" content="Enterprise Angular work across authentication, SSR, accessibility, performance and controlled product rollouts." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="assets/me.webp" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<a class="skip-link" href="#main" data-i18n="skip">Skip to main content</a>
+
+<header class="rack-header" role="banner">
+  <div class="rack-header__inner">
+    <a class="brand" href="#top">
+      <img class="brand__photo" src="assets/me.webp" alt="" width="36" height="36" loading="eager" decoding="async" />
+      <span class="brand__text">
+        <span class="brand__name">MARIUS MIHAIL ION</span>
+        <span class="brand__role" data-i18n="role">Senior Angular / Frontend Engineer</span>
+      </span>
+    </a>
+
+    <nav class="rack-nav" aria-label="Primary">
+      <a href="#tracks" data-i18n="tracksHeading">TRACKS</a>
+      <a href="#patches" data-i18n="patchesHeading">PATCH BAY</a>
+      <a href="#params" data-i18n="paramsHeading">PARAMETERS</a>
+      <a href="#scope" data-i18n="scopeHeading">SCOPE</a>
+      <a href="#output" data-i18n="outputHeading">OUTPUT</a>
+    </nav>
+
+    <div class="rack-controls">
+      <button id="powerToggle" class="power-toggle" type="button" aria-pressed="false">
+        <span class="power-toggle__led" aria-hidden="true"></span>
+        <span class="power-toggle__label"><span data-i18n="power">SOUND</span> <span id="powerState" data-i18n="powerOff">OFF</span></span>
+      </button>
+      <button id="langToggle" class="lang-toggle" type="button" aria-label="Ver esta página en español">ES</button>
+    </div>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+
+  <section class="panel hero" id="top" aria-labelledby="hero-heading">
+    <div class="panel__screws" aria-hidden="true"></div>
+    <div class="hero__lcd">
+      <p class="lcd-eyebrow">UNIT 01 · FRONTEND SEQUENCER</p>
+      <h1 id="hero-heading" data-i18n="tagline">Enterprise frontend for e-commerce, banking and education.</h1>
+      <p class="hero__lede" data-i18n="lede">Software developer since 2018, specialized in Angular since 2021...</p>
+      <p class="hero__location" data-i18n="location">Based in Zaragoza, Spain...</p>
+      <div class="hero__cta">
+        <a class="btn btn--primary" href="#patches" data-i18n="patchesHeading">PATCH BAY</a>
+        <a class="btn" id="cvLink" href="assets/marius-mihail-ion-cv.pdf" download data-i18n="downloadCv">Download CV (PDF)</a>
+      </div>
+      <p class="hero__hint" data-i18n="playHint">Keyboard: digits 1–9 select a track...</p>
+    </div>
+    <canvas id="scopeCanvasHero" class="hero__scope" width="600" height="160" aria-hidden="true"></canvas>
+  </section>
+
+  <section class="panel" id="tracks" aria-labelledby="tracks-heading">
+    <div class="panel__screws" aria-hidden="true"></div>
+    <h2 id="tracks-heading" class="panel__title"><span class="jack-dot"></span><span data-i18n="tracksHeading">TRACKS — Career Sequence</span></h2>
+    <p class="panel__hint" data-i18n="tracksHint">Each track is a role...</p>
+    <ol class="tracklist" id="tracklist" aria-label="Career timeline"></ol>
+  </section>
+
+  <section class="panel" id="patches" aria-labelledby="patches-heading">
+    <div class="panel__screws" aria-hidden="true"></div>
+    <h2 id="patches-heading" class="panel__title"><span class="jack-dot jack-dot--accent"></span><span data-i18n="patchesHeading">PATCH BAY — Case Studies</span></h2>
+    <p class="panel__hint" data-i18n="patchesHint">Load a patch to read the full case study...</p>
+    <div class="patchgrid" id="patchgrid"></div>
+  </section>
+
+  <section class="panel" id="params" aria-labelledby="params-heading">
+    <div class="panel__screws" aria-hidden="true"></div>
+    <h2 id="params-heading" class="panel__title"><span class="jack-dot"></span><span data-i18n="paramsHeading">PARAMETERS — Verified Results</span></h2>
+    <div class="knobgrid" id="knobgrid"></div>
+  </section>
+
+  <section class="panel" id="scope" aria-labelledby="scope-heading">
+    <div class="panel__screws" aria-hidden="true"></div>
+    <h2 id="scope-heading" class="panel__title"><span class="jack-dot jack-dot--accent"></span><span data-i18n="scopeHeading">SCOPE — Profile</span></h2>
+    <div class="scope-layout">
+      <canvas id="scopeCanvasMain" class="scope-canvas" width="640" height="220" aria-hidden="true"></canvas>
+      <div class="scope-text" id="aboutText"></div>
+    </div>
+    <h3 class="panel__subtitle" data-i18n="recsHeading">PATCH NOTES — Recommendations</h3>
+    <ul class="recs" id="recs"></ul>
+  </section>
+
+  <section class="panel panel--output" id="output" aria-labelledby="output-heading">
+    <div class="panel__screws" aria-hidden="true"></div>
+    <h2 id="output-heading" class="panel__title"><span class="jack-dot"></span><span data-i18n="outputHeading">OUTPUT — Contact</span></h2>
+    <ul class="jacks" id="jacks"></ul>
+    <p class="a11y-note" data-i18n="a11y">This site targets WCAG 2.1 AA...</p>
+    <p class="built-note" data-i18n="built">Built by hand — no framework, no build step.</p>
+  </section>
+
+</main>
+
+<div class="patch-display" id="patchDisplay" role="dialog" aria-modal="true" aria-labelledby="patchDisplayTitle" hidden>
+  <div class="patch-display__panel">
+    <button class="patch-display__close" id="patchClose" type="button" data-i18n="close">Close</button>
+    <div id="patchDisplayBody"></div>
+  </div>
+</div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

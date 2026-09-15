@@ -1,0 +1,617 @@
+---
+/**
+ * The home page, rendered once per language.
+ *
+ * The markup lives here, not in the route files, so `/` and `/es/` cannot drift
+ * structurally: there is exactly one template and two thin route wrappers. A
+ * section that exists in Spanish but not in English is impossible by
+ * construction, and every string comes from a `Localized<T>` object that fails
+ * `astro check` if a language is missing.
+ */
+import Layout from "../../layouts/Layout.astro";
+import CaseStudyCard from "../CaseStudyCard.astro";
+import { caseStudies } from "../../data/caseStudies";
+import { stats } from "../../data/experience";
+import { contactLinks, ui } from "../../data/ui";
+import { localizedPath, t, type Locale } from "../../i18n";
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+const cvHref =
+  lang === "es"
+    ? "/marius-mihail-ion-cv-es.pdf"
+    : "/marius-mihail-ion-cv.pdf";
+---
+
+<Layout
+  title={t(ui.homeTitle, lang)}
+  description={t(ui.homeDescription, lang)}
+  ogTitle={t(ui.homeOgTitle, lang)}
+  ogDescription={t(ui.homeOgDescription, lang)}
+  includePersonSchema
+>
+  <section class="specimen-hero">
+    <div class="wrap">
+      <div class="specimen">
+        <div class="specimen__meta">
+          <p class="specimen__label">{t(ui.heroComponentLabel, lang)}</p>
+          <p class="specimen__index" aria-hidden="true">
+            <span class="specimen__index-n"></span> / 03
+          </p>
+        </div>
+
+        <fieldset class="segctrl">
+          <legend class="visually-hidden">{t(ui.heroStateLegend, lang)}</legend>
+
+          <input
+            type="radio"
+            name="profile-state"
+            id="state-overview"
+            class="segctrl__input"
+            checked
+          />
+          <label for="state-overview" class="segctrl__label">
+            {t(ui.heroStateOverview, lang)}
+          </label>
+
+          <input
+            type="radio"
+            name="profile-state"
+            id="state-outcomes"
+            class="segctrl__input"
+          />
+          <label for="state-outcomes" class="segctrl__label">
+            {t(ui.heroStateOutcomes, lang)}
+          </label>
+
+          <input
+            type="radio"
+            name="profile-state"
+            id="state-contact"
+            class="segctrl__input"
+          />
+          <label for="state-contact" class="segctrl__label">
+            {t(ui.heroStateContact, lang)}
+          </label>
+        </fieldset>
+
+        <div class="specimen__body">
+          <figure class="specimen__figure">
+            <img
+              class="specimen__photo"
+              src="/me.webp"
+              alt={t(ui.heroPhotoAlt, lang)}
+              width="640"
+              height="640"
+              loading="eager"
+              fetchpriority="high"
+              decoding="async"
+            />
+          </figure>
+
+          <div class="specimen__panels">
+            <section
+              class="panel"
+              data-panel="overview"
+              aria-label={t(ui.heroStateOverview, lang)}
+            >
+              <p class="eyebrow">{t(ui.siteRole, lang)}</p>
+              <h1 class="panel__title">{t(ui.heroTitle, lang)}</h1>
+              <p class="panel__lede">{t(ui.heroLede, lang)}</p>
+              <p class="panel__note">{t(ui.heroLocation, lang)}</p>
+              <div class="panel__actions">
+                <a
+                  class="btn btn-primary"
+                  href={localizedPath("/case-studies/", lang)}
+                >
+                  {t(ui.heroCtaCases, lang)}
+                </a>
+                <a class="btn" href={cvHref} download>{t(ui.heroCtaCv, lang)}</a>
+                <a class="btn" href="https://linkedin.com/in/mariusdev">LinkedIn</a>
+                <a class="btn" href="https://github.com/mihailmariusiondev">GitHub</a>
+              </div>
+            </section>
+
+            <section
+              class="panel"
+              data-panel="outcomes"
+              aria-label={t(ui.heroStateOutcomes, lang)}
+            >
+              <p class="eyebrow">{t(ui.statsHeading, lang)}</p>
+              <ul class="panel__outcomes">
+                {
+                  stats.slice(0, 3).map((stat) => (
+                    <li class="panel__outcome">
+                      <span class="panel__outcome-value">{t(stat.value, lang)}</span>
+                      <span class="panel__outcome-label">{t(stat.label, lang)}</span>
+                    </li>
+                  ))
+                }
+              </ul>
+              <p class="panel__note">{t(ui.heroOutcomesLede, lang)}</p>
+              <div class="panel__actions">
+                <a class="btn btn-primary" href="#stats">
+                  {t(ui.heroOutcomesCta, lang)}
+                </a>
+              </div>
+            </section>
+
+            <section
+              class="panel"
+              data-panel="contact"
+              aria-label={t(ui.heroStateContact, lang)}
+            >
+              <p class="eyebrow">{t(ui.contactEyebrow, lang)}</p>
+              <p class="panel__lede">{t(ui.heroContactLede, lang)}</p>
+              <ul class="panel__contact">
+                {
+                  contactLinks.map((link) => (
+                    <li>
+                      <span class="panel__contact-label">{t(link.label, lang)}</span>
+                      <a class="panel__contact-value" href={link.href}>
+                        {link.value}
+                      </a>
+                    </li>
+                  ))
+                }
+              </ul>
+              <div class="panel__actions">
+                <a class="btn btn-primary" href={cvHref} download>
+                  {t(ui.heroCtaCv, lang)}
+                </a>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="stats" class="stats" aria-labelledby="stats-heading">
+    <div class="wrap">
+      <h2 id="stats-heading" class="stats__heading eyebrow">
+        {t(ui.statsHeading, lang)}
+      </h2>
+      <ul class="stats__list">
+        {
+          stats.map((stat, i) => (
+            <li class="redline">
+              <p class="redline__tag">{t(ui.statsSpecimenLabel, lang)} / {String(i + 1).padStart(2, "0")}</p>
+              <div class="redline__measure" aria-hidden="true">
+                <span class="redline__tick" />
+                <span class="redline__rule" />
+                <span class="redline__tick" />
+              </div>
+              <p class="redline__value">{t(stat.value, lang)}</p>
+              <p class="redline__label">{t(stat.label, lang)}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section id="work" class="work">
+    <div class="wrap">
+      <div class="work__head">
+        <h2 class="work__title">{t(ui.workTitle, lang)}</h2>
+        <p class="work__lede prose">{t(ui.workLede, lang)}</p>
+      </div>
+      <div class="work__grid">
+        {caseStudies.map((study) => <CaseStudyCard study={study} />)}
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* ---------------- Hero: profile-card component specimen ---------------- */
+
+  .specimen-hero {
+    padding-block: var(--space-4) var(--space-5);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .specimen {
+    border: 1px solid var(--rule-strong);
+    border-radius: var(--radius);
+    background: var(--paper-raised);
+    padding: var(--space-3);
+  }
+
+  .specimen__meta {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-2);
+    padding-bottom: var(--space-2);
+    margin-bottom: var(--space-3);
+    border-bottom: 1px dashed var(--rule-strong);
+  }
+
+  .specimen__label,
+  .specimen__index {
+    font-family: var(--font-mono);
+    font-size: var(--step-micro);
+    letter-spacing: 0.06em;
+    color: var(--slate);
+  }
+
+  .specimen__index {
+    color: var(--slate-quiet);
+    flex: none;
+  }
+
+  /* The state count is live, not decorative: it reads 01/02/03 off the same
+     :checked radio that drives the panel swap, no script involved. */
+  .specimen__index-n::before {
+    content: "01";
+  }
+
+  .specimen:has(#state-outcomes:checked) .specimen__index-n::before {
+    content: "02";
+  }
+
+  .specimen:has(#state-contact:checked) .specimen__index-n::before {
+    content: "03";
+  }
+
+  /* ---- Segmented control: native radios, styled as doc-site tabs ---- */
+
+  .segctrl {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    border: 0;
+    margin: 0 0 var(--space-3);
+    padding: 0.25rem;
+    background: var(--paper-sunk);
+    border-radius: var(--radius-pill);
+  }
+
+  .segctrl__input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+  }
+
+  .segctrl__label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.75rem;
+    padding-inline: 1rem;
+    border-radius: var(--radius-pill);
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    letter-spacing: 0.02em;
+    color: var(--slate);
+    cursor: pointer;
+    transition: background-color 0.15s ease, color 0.15s ease;
+  }
+
+  .segctrl__input:checked + .segctrl__label {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  .segctrl__input:focus-visible + .segctrl__label {
+    outline: 3px solid var(--steel);
+    outline-offset: 2px;
+  }
+
+  @media (hover: hover) {
+    .segctrl__input:not(:checked) + .segctrl__label:hover {
+      background: var(--paper-raised);
+      color: var(--ink);
+    }
+  }
+
+  /* ---- Body: photo stays fixed, panels cross-fade in a stacked grid ---- */
+
+  .specimen__body {
+    display: grid;
+    gap: var(--space-3);
+  }
+
+  @media (min-width: 56rem) {
+    .specimen__body {
+      grid-template-columns: 14rem minmax(0, 1fr);
+      gap: var(--space-4);
+      align-items: start;
+    }
+  }
+
+  .specimen__figure {
+    margin: 0;
+    justify-self: center;
+    width: min(11rem, 45vw);
+  }
+
+  @media (min-width: 56rem) {
+    .specimen__figure {
+      justify-self: start;
+      width: 100%;
+    }
+  }
+
+  .specimen__photo {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: 50% 22%;
+    border-radius: var(--radius);
+    border: 1px solid var(--rule);
+    background: var(--paper-sunk);
+    box-shadow: var(--shadow-raised);
+  }
+
+  .specimen__panels {
+    display: grid;
+    min-width: 0;
+  }
+
+  /* All three panels share one grid cell: the one whose radio is checked is
+     opaque and interactive, the others fade out and leave the tab order. This
+     is the CSS-only state morph (no View Transitions dependency, no JS): it
+     works identically with scripting disabled. */
+  .panel {
+    grid-area: 1 / 1;
+    min-width: 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(6px);
+    transition: opacity 220ms cubic-bezier(0.16, 1, 0.3, 1),
+      transform 220ms cubic-bezier(0.16, 1, 0.3, 1), visibility 0s 220ms;
+  }
+
+  .specimen:has(#state-overview:checked) .panel[data-panel="overview"],
+  .specimen:has(#state-outcomes:checked) .panel[data-panel="outcomes"],
+  .specimen:has(#state-contact:checked) .panel[data-panel="contact"] {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition: opacity 220ms cubic-bezier(0.16, 1, 0.3, 1),
+      transform 220ms cubic-bezier(0.16, 1, 0.3, 1), visibility 0s;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .panel {
+      transform: none;
+      transition: opacity 1ms linear, visibility 0s 1ms;
+    }
+  }
+
+  .panel__title {
+    font-size: var(--step-display);
+    max-width: 20ch;
+    margin-block: var(--space-2) var(--space-3);
+  }
+
+  .panel__lede {
+    max-width: 54ch;
+    font-size: var(--step-lede);
+    color: var(--slate);
+    margin-bottom: var(--space-3);
+  }
+
+  .panel__note {
+    font-family: var(--font-mono);
+    font-size: var(--step-micro);
+    line-height: 1.6;
+    color: var(--slate-quiet);
+    max-width: 48ch;
+    margin-bottom: var(--space-3);
+  }
+
+  .panel__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .panel__outcomes {
+    list-style: none;
+    margin: 0 0 var(--space-2);
+    padding: 0;
+    display: grid;
+    gap: var(--space-2);
+  }
+
+  .panel__outcome {
+    display: grid;
+    grid-template-columns: 6.5rem 1fr;
+    gap: var(--space-2);
+    align-items: baseline;
+    border-top: 1px solid var(--rule);
+    padding-top: var(--space-1);
+  }
+
+  .panel__outcome:first-child {
+    border-top: none;
+    padding-top: 0;
+  }
+
+  .panel__outcome-value {
+    font-family: var(--font-mono);
+    font-weight: 500;
+    color: var(--amber);
+  }
+
+  .panel__outcome-label {
+    color: var(--slate);
+    font-size: var(--step-small);
+    line-height: 1.5;
+  }
+
+  .panel__contact {
+    list-style: none;
+    margin: 0 0 var(--space-3);
+    padding: 0;
+    display: grid;
+    gap: var(--space-1);
+  }
+
+  .panel__contact-label {
+    font-family: var(--font-mono);
+    font-size: var(--step-micro);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--slate);
+    margin-right: 0.5em;
+  }
+
+  .panel__contact-value {
+    font-family: var(--font-mono);
+    font-size: var(--step-small);
+    overflow-wrap: anywhere;
+  }
+
+  /* ---------------- Verified results: redline specimens ---------------- */
+
+  .stats {
+    padding-block: var(--space-4);
+    background: var(--paper-sunk);
+    border-bottom: 1px solid var(--rule);
+    scroll-margin-top: 5.5rem;
+  }
+
+  .stats__heading {
+    margin-bottom: var(--space-3);
+  }
+
+  .stats__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-4);
+  }
+
+  @media (min-width: 40rem) {
+    .stats__list {
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-4);
+    }
+  }
+
+  @media (min-width: 72rem) {
+    .stats__list {
+      /* The five figures read as one measured ledger, not five loose cards. */
+      grid-template-columns: repeat(5, 1fr);
+    }
+  }
+
+  /* Each result reads as a redline measurement, not a stat card: a dimension
+     line with tick marks, keyed with a specimen tag like a spec-sheet page. */
+  .redline {
+    min-width: 0;
+  }
+
+  .redline__tag {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.04em;
+    color: var(--amber);
+    margin-bottom: 0.5rem;
+  }
+
+  .redline__measure {
+    display: flex;
+    align-items: center;
+    height: 0.75rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .redline__tick {
+    width: 1px;
+    height: 0.75rem;
+    background: var(--rule-strong);
+    flex: none;
+  }
+
+  .redline__rule {
+    flex: 1 1 auto;
+    height: 1px;
+    background: var(--rule-strong);
+    transform-origin: left center;
+    animation: redline-draw 500ms cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 30%;
+  }
+
+  @supports not (animation-timeline: view()) {
+    .redline__rule {
+      animation: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .redline__rule {
+      animation: none;
+    }
+  }
+
+  @keyframes redline-draw {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
+
+  .redline__value {
+    font-family: var(--font-mono);
+    font-size: 1.625rem;
+    font-weight: 500;
+    line-height: 1.2;
+    color: var(--steel-dark);
+    margin-bottom: 0.4rem;
+    overflow-wrap: break-word;
+  }
+
+  .redline__label {
+    font-size: var(--step-small);
+    line-height: 1.5;
+    color: var(--slate);
+    max-width: 40ch;
+  }
+
+  /* ---------------- Case studies ---------------- */
+
+  .work {
+    padding-block: var(--space-5);
+  }
+
+  .work__head {
+    margin-bottom: var(--space-4);
+  }
+
+  .work__title {
+    font-size: var(--step-h2);
+    margin-bottom: var(--space-1);
+  }
+
+  .work__lede {
+    color: var(--slate);
+  }
+
+  .work__grid {
+    display: grid;
+    gap: var(--space-3);
+  }
+
+  @media (min-width: 56rem) {
+    .work__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

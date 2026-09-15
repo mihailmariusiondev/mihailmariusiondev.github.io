@@ -1,0 +1,499 @@
+/* Self-hosted, text-subset (Latin + Spanish diacritics) woff2s. Replaces the
+   Google Fonts @import, which was a render-blocking cross-origin round trip.
+   Only the weights actually used ship: Big Shoulders 500/600, Archivo 400/500/600,
+   JetBrains Mono 400/500/600. font-display: swap keeps text visible immediately in
+   the fallback face; the hero face is preloaded from Layout.astro. */
+@font-face {
+  font-family: "Big Shoulders";
+  font-style: normal;
+  font-weight: 500 600;
+  font-display: swap;
+  src: url("/fonts/big-shoulders-var.woff2") format("woff2");
+  unicode-range: U+20-7E, U+A1, U+B7, U+BF, U+C1, U+C9, U+CD, U+D1, U+D3, U+DA,
+    U+E1, U+E9, U+ED, U+F1, U+F3, U+FA, U+2011, U+2013-2014, U+2192;
+}
+@font-face {
+  font-family: "Archivo";
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("/fonts/archivo-400.woff2") format("woff2");
+  unicode-range: U+20-7E, U+A1, U+B7, U+BF, U+C1, U+C9, U+CD, U+D1, U+D3, U+DA,
+    U+E1, U+E9, U+ED, U+F1, U+F3, U+FA, U+2011, U+2013-2014, U+2192;
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("/fonts/jetbrains-mono-var.woff2") format("woff2");
+  unicode-range: U+20-7E, U+A1, U+B7, U+BF, U+C1, U+C9, U+CD, U+D1, U+D3, U+DA,
+    U+E1, U+E9, U+ED, U+F1, U+F3, U+FA, U+2011, U+2013-2014, U+2192;
+}
+
+:root {
+  /* Ink & paper: warm graph-paper ground, not cream, not cool gray */
+  --ink: #0d1613;
+  --paper: #f4f2ea;
+  --paper-raised: #ffffff;
+  --paper-sunk: #eae6d8;
+  --grid-line: #ded8c4;
+
+  /* Signal accent: oscilloscope phosphor teal */
+  --steel: #0d7a68;
+  --steel-dark: #0a5f51;
+  --steel-wash: #e2f0ea;
+
+  /* Text tiers. Both clear AA (>= 4.5:1) on --paper AND on --paper-sunk, which
+     is the darker of the two surfaces they are used on. */
+  --slate: #4a564d;
+  --slate-quiet: #586a5f;
+
+  --amber: #8a5c0a;
+  --amber-bg: #f3e8ce;
+
+  /* Structure */
+  --rule: #ded6c0;
+  --rule-strong: #b9b09a;
+
+  /* Node states: hero/case-study/experience scroll-lit dots */
+  --node-idle: #c9c2ab;
+  --node-lit: var(--steel);
+  --node-lit-ring: color-mix(in srgb, var(--steel) 35%, transparent);
+
+  --font-display: "Big Shoulders", "Arial Narrow", sans-serif;
+  --font-body: "Archivo", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "Courier New", monospace;
+
+  /* Type scale (fluid, one source of truth) */
+  --step-display: clamp(2.25rem, 1.4rem + 3.6vw, 3.5rem);
+  --step-h1: clamp(1.875rem, 1.35rem + 2.2vw, 2.75rem);
+  --step-h2: clamp(1.5rem, 1.25rem + 1vw, 1.875rem);
+  --step-h3: clamp(1.1875rem, 1.1rem + 0.4vw, 1.375rem);
+  --step-lede: clamp(1.0625rem, 1rem + 0.45vw, 1.25rem);
+  --step-body: 1.0625rem;
+  --step-small: 0.9375rem;
+  --step-micro: 0.8125rem;
+
+  --measure: 68ch;
+
+  /* Spacing scale */
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.75rem;
+  --space-4: 3rem;
+  --space-5: 5rem;
+  --space-6: 7rem;
+
+  /* Gutters: never let text touch the edge, on any viewport */
+  --gutter: clamp(1.25rem, 5vw, 3rem);
+
+  /* Space kept free under the floating mobile bottom nav (see SiteNav). */
+  --nav-clearance: 0rem;
+
+  --radius: 6px;
+  --shadow-raised: 0 1px 2px rgb(11 13 16 / 0.04),
+    0 8px 24px -12px rgb(11 13 16 / 0.12);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #eef1ec;
+    --paper: #070b09;
+    --paper-raised: #0e1512;
+    --paper-sunk: #0a100d;
+    --grid-line: #152019;
+
+    --steel: #3fd6b8;
+    --steel-dark: #79ecd4;
+    --steel-wash: #10231d;
+
+    --slate: #aab8ad;
+    --slate-quiet: #8ea092;
+
+    --amber: #ddc06a;
+    --amber-bg: #26220f;
+
+    --rule: #1c2721;
+    --rule-strong: #304036;
+
+    --node-idle: #2a362e;
+
+    --shadow-raised: 0 1px 2px rgb(0 0 0 / 0.4),
+      0 8px 24px -12px rgb(0 0 0 / 0.7), 0 0 32px -18px var(--steel);
+  }
+}
+
+/* The floating bottom nav exists below 48rem: reserve room so nothing ends
+   underneath it. Lives here, not in SiteNav, because it retargets :root. */
+@media (max-width: 47.999rem) {
+  :root {
+    --nav-clearance: 5.25rem;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* An anchor jump must not land under the sticky desktop header. */
+  scroll-padding-top: 6rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  margin: 0;
+  background-color: var(--paper);
+  /* Graph-paper ground: a faint 24px pitch, the technical-drawing surface the
+     whole site sits on. Decorative only, never load-bearing for contrast. */
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 24px 24px;
+  background-attachment: fixed;
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--step-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  /* Sticky footer: short pages still push the footer to the bottom. */
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.05;
+  margin: 0;
+  letter-spacing: -0.006em;
+  text-wrap: balance;
+}
+
+p {
+  margin: 0;
+  text-wrap: pretty;
+}
+
+img {
+  max-width: 100%;
+  /* Width/height attributes reserve space against CLS, but they also freeze the
+     used height and defeat aspect-ratio. Let the height follow the width. */
+  height: auto;
+}
+
+a {
+  color: var(--steel-dark);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.15em;
+}
+
+a:hover {
+  color: var(--steel);
+}
+
+/* Visible, high-contrast focus: never suppressed. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid var(--steel);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Browser surfaces carry the design too. */
+::selection {
+  background: var(--steel);
+  color: var(--paper-raised);
+}
+
+* {
+  scrollbar-color: var(--rule-strong) transparent;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0.75rem 1.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  z-index: 100;
+  transition: top 0.15s ease;
+  border-radius: 0 0 4px 4px;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* ---- Layout primitives ---- */
+
+.wrap {
+  width: 100%;
+  max-width: 72rem;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.wrap--narrow {
+  max-width: 56rem;
+}
+
+.prose {
+  max-width: var(--measure);
+}
+
+/* Standard page opener: eyebrow, title, lede. Same rhythm on every page. */
+.page-head {
+  padding-block: var(--space-5) var(--space-4);
+}
+
+.page-head h1 {
+  font-size: var(--step-h1);
+  max-width: 24ch;
+}
+
+.page-head__lede {
+  margin-top: var(--space-2);
+  color: var(--slate);
+  font-size: var(--step-lede);
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--step-micro);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--slate);
+}
+
+/* Runs under a heading, never above it: a caption, not a kicker. */
+.eyebrow--under {
+  margin-top: 0.5rem;
+}
+
+.eyebrow--under::before {
+  content: "// ";
+  color: var(--rule-strong);
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: var(--step-micro);
+  color: var(--slate);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tag {
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  padding: 0.2em 0.6em;
+  background: var(--paper-raised);
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+/* Definition rows used by the case studies: a vertical signal path, one node
+   per field. The node lights up as its row scrolls into view; unsupported
+   browsers get every node already lit, a static and fully readable diagram. */
+.case__fields {
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.field {
+  position: relative;
+  border-top: 1px solid var(--rule);
+  padding-block: var(--space-3);
+  display: grid;
+  gap: var(--space-2);
+}
+
+.field:first-of-type {
+  border-top: none;
+  padding-top: 0;
+}
+
+.field::before {
+  content: "";
+  position: absolute;
+  left: -1.25rem;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--rule);
+}
+
+.field:first-of-type::before {
+  top: 0.4rem;
+}
+
+.field::after {
+  content: "";
+  position: absolute;
+  left: calc(-1.25rem - 3.5px);
+  top: 1.65rem;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--node-idle);
+  box-shadow: 0 0 0 3px var(--paper-raised);
+}
+
+.field:first-of-type::after {
+  top: 0.7rem;
+}
+
+@supports (animation-timeline: view()) {
+  .field::after {
+    animation: node-light linear both;
+    animation-timeline: view();
+    animation-range: entry 10% cover 35%;
+  }
+}
+
+@supports not (animation-timeline: view()) {
+  .field::after {
+    background: var(--node-lit);
+    box-shadow: 0 0 0 3px var(--paper-raised), 0 0 0 6px var(--node-lit-ring);
+  }
+}
+
+@keyframes node-light {
+  to {
+    background: var(--node-lit);
+    box-shadow: 0 0 0 3px var(--paper-raised), 0 0 0 6px var(--node-lit-ring);
+  }
+}
+
+@media (min-width: 56rem) {
+  .field {
+    grid-template-columns: 13rem 1fr;
+    gap: var(--space-4);
+  }
+}
+
+.field dt {
+  font-family: var(--font-mono);
+  font-size: var(--step-micro);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--steel-dark);
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.field dd {
+  margin: 0;
+  max-width: var(--measure);
+}
+
+.verified {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: var(--amber);
+  background: var(--amber-bg);
+  border: 1px solid color-mix(in srgb, var(--amber) 30%, transparent);
+  padding: 0.5em 0.75em;
+  border-radius: 3px;
+}
+
+/* ---- Buttons ---- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  /* Comfortable pointer target on touch. */
+  min-height: 2.75rem;
+  padding: 0.6em 1.1em;
+  border: 1px solid var(--rule-strong);
+  border-radius: 4px;
+  color: var(--ink);
+  background: var(--paper-raised);
+  text-decoration: none;
+  transition: background-color 0.15s ease, border-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.btn:hover {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+}
+
+.btn-primary {
+  background: var(--steel);
+  border-color: var(--steel);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--steel-dark);
+  border-color: var(--steel-dark);
+  color: #fff;
+}
+
+@media (prefers-color-scheme: dark) {
+  .btn-primary {
+    color: var(--paper);
+  }
+  .btn-primary:hover {
+    color: var(--paper);
+  }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

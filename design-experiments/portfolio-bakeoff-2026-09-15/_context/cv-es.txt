@@ -1,0 +1,106 @@
+                                        Marius Mihail Ion
+                          Ingeniero Frontend Sénior (Angular) | Frontend de producto empresarial
+   Zaragoza, España | mihailmariusion@gmail.com | +34 662 439 252 | linkedin.com/in/mariusdev | github.com/mihailmariusiondev
+                 Ciudadano de la UE: autorizado para trabajar en toda la UE/EEE sin patrocinio
+                      Indefinido o B2B | Remoto o híbrido desde Zaragoza | Disponibilidad para viajes puntuales
+
+
+
+PERFIL PROFESIONAL
+Ingeniero Frontend Sénior con experiencia en software desde 2018 y especializado en Angular y TypeScript desde
+2021. He desarrollado productos para comercio electrónico global (Zara Home), banca (Santander) y educación en
+línea (UNIR). Trabajo en arquitectura frontend, rendimiento, accesibilidad, testing e integraciones con API e IA. Mi
+base full stack en .NET/C# (2018–2020) aporta contexto al diseñar autenticación y contratos de API.
+
+COMPETENCIAS TÉCNICAS
+Angular y TypeScript Angular 8–20, Signals, Standalone Components, SSR, carga diferida, RxJS, NgRx, Angular
+Material/CDK, feature flags
+Frontend de producto JavaScript, HTML5, CSS/SCSS, React 17 (experiencia en proyecto), diseño adaptable,
+sistemas de diseño, accesibilidad WCAG 2.1 AA, i18n (Transloco), rendimiento web
+Pruebas y calidad Jest, Karma/Jasmine, SonarQube/SonarCloud, ESLint, Prettier, revisión sistemática de PR
+API y entrega REST, OpenAPI/Swagger, OAuth 2.0, JWT, interceptores HTTP, WebRTC, servicios sin servidor de
+AWS (Lambda, Cognito, API Gateway, S3), GitHub Actions, Git/GitHub, Jira, Figma, Agile/Scrum
+IA y herramientas de ingeniería OpenAI Realtime API, WebRTC, integraciones LLM, ingeniería de prompts y
+contexto, herramientas MCP
+
+EXPERIENCIA
+
+Decskill España · Cliente: Zara Home (Inditex)                                                                    Zaragoza, España
+Analista Frontend Sénior (Angular)                                                                          Mayo 2025 – Julio 2026
+ Zara Home: plataforma de comercio electrónico global y multimercado
+• Desarrollé el frontend Angular del asistente de compra con IA de Zara Home: voz y texto en tiempo real sobre
+  WebRTC. Publicado en producción mediante una feature flag como piloto controlado.
+• Reduje el payload de contexto del LLM de 570 KB a 22 KB por ejecución mediante enrutado y limpieza de
+  contexto (96% de reducción)
+• Entregué un Centro de Ayuda conversacional mercado a mercado, con integración Angular segura bajo SSR, rutas
+  localizadas y accesibilidad preservada durante el lanzamiento
+• Audité un paquete de JavaScript de 19 MB e identifiqué aproximadamente 3,4 MB de peso eliminable.
+  Entregué dos PR con importaciones dinámicas de hls.js y html2canvas, eliminación de lodash-es y migración de
+  Luxon a Date nativo
+• Entregué la migración del área de cuenta a autenticación sin contraseña (OTP): diseñé una UX de doble vía
+  gobernada por hasPassword, con flujos OTP para cambio de email y creación de contraseña, validada en cuatro
+  escenarios documentados
+• Cerré 34 hallazgos WCAG 2.1 AA de una auditoría formal de accesibilidad: jerarquía de encabezados en todo el
+  sitio, navegación por teclado, semántica ARIA y gestión del foco
+Avanade España · Cliente: UNIR                                                                                     Remoto, España
+Analista Frontend Sénior (Angular)                                                                         Marzo 2024 – Mayo 2025
+ UNIR: universidad en línea en España. Sistema administrativo para la gestión de alumnos
+• Actué como referente técnico de frontend, trabajando directamente en el código y guiando la arquitectura
+  Angular, el diseño de componentes y las decisiones de calidad en todo el equipo
+• Definí la arquitectura base: flujos de autenticación, interfaz de administración, permisos centralizados y
+  navegación
+• Trabajé dentro de un monorepo Nx y refactoricé el módulo de Admisiones, eliminando dependencias circulares y
+  centralizando la lógica de permisos
+• Introduje análisis estático, formateo y pruebas unitarias en un sistema administrativo que no tenía ninguno,
+  además de protocolos de revisión y controles de calidad
+• Formé al equipo en prácticas de Angular, dirigí sesiones de análisis con SonarQube y recibí el reconocimiento
+  Inspire Greatness (agosto 2024)
+Vermont Solutions (Viewnext / IBM) · Cliente: Santander                                                    Madrid, España
+Desarrollador Frontend Sénior (Angular)                                                       Diciembre 2022 – Marzo 2024
+ Santander: aplicaciones bancarias de monitorización de transacciones, gestión de empleados y operaciones inmobiliarias
+• Referente sénior de Angular en tres aplicaciones bancarias concurrentes, liderando la entrega diaria con los
+  equipos de backend, diseño y Scrum
+• Lideré un equipo de 5 en una aplicación bancaria móvil interna (empleados gestionando sus propias transacciones
+  y tarjetas), y fui el referente técnico sénior de un equipo de 4 en el portal inmobiliario interno de Santander
+• Construí un panel de monitorización de transacciones con Chart.js (gráficos de barras y anillos) e interacciones
+  gestuales con HammerJS. En un proyecto asumí cerca del 80% de la implementación del frontend
+• Implementé diseños de Figma como componentes Angular sobre la plataforma interna de frontend de Santander:
+  sistema de diseño Flame, librerías de seguridad y registro NgDarwin, Storybook y Nexus para paquetes internos
+• Mantuve la calidad alta con pruebas unitarias sistemáticas (Karma, Jasmine) y análisis estático (SonarQube,
+  ESLint, Fortify), reduciendo deuda técnica por el camino
+CloudAPPi                                                                                                     Madrid, España
+Desarrollador Frontend Intermedio (Angular, React)                                                  Octubre – Diciembre 2022
+ Contrato de dos meses para la Comunidad de Madrid.
+• Desarrollé flujos de autenticación y mejoras incrementales en Madrid Digital, un monolito heredado en
+  Angular 8 (Angular Material, RxJS)
+• También contribuí a un proyecto React (ReactJS 17, Redux Toolkit, Material UI)
+ENZO (Rent & Buy S.A.)                                                                                      Madrid, España
+Desarrollador Frontend Intermedio (Angular)                                                 Septiembre 2021 – Octubre 2022
+  Empresa pequeña donde pasé de .NET al desarrollo frontend con Angular sobre una arquitectura existente de AWS sin
+servidor.
+• Desarrollé componentes Angular reutilizables sobre servicios sin servidor de AWS (Lambda, API Gateway, S3,
+  CloudFront, SQS/SNS) y flujos de autenticación con AWS Cognito
+• Acompañé a los nuevos miembros del equipo en la arquitectura y las prácticas de Angular, y participé en
+  reuniones con el cliente en inglés y en la toma de requisitos
+Experiencia anterior Antes de especializarme en Angular en 2021: puestos de desarrollo full stack en .NET (2018 – 2020)
+y una pausa profesional con proyectos propios y formación.
+• Proyectos propios y formación · Desarrollo WordPress (temas, complementos, SEO), herramientas de
+  automatización de Office y formación estructurada en frontend, junio 2020 – septiembre 2021
+• Altran (Capgemini) · Desarrollador Full Stack Intermedio (.NET), marzo – junio 2020
+• IO Digital (Query Software) · Desarrollador Full Stack Intermedio (.NET), noviembre 2018 – septiembre
+  2019
+• STRATESYS · Desarrollador Full Stack Junior (.NET), julio – noviembre 2018
+
+CERTIFICACIONES Y FORMACIÓN
+Evaluación de Angular: 95% de puntuación, entre el 1,42% de los mejores candidatos · SkillValue Septiembre 2022
+Green Software for Practitioners · Linux Foundation + Green Software Foundation                            2025
+Técnico Superior en Desarrollo de Aplicaciones Multiplataforma · Centro de Estudios Joyfe, Madrid                2017 – 2018
+
+IDIOMAS
+Español: Nativo    | Rumano: Nativo        |   Inglés: Competencia profesional
+
+RECONOCIMIENTOS
+“Destaco especialmente su iniciativa con herramientas de IA aplicadas al desarrollo, de las que aprendí muchísimo trabajando
+codo con codo con él.”
+                                         Juan Pablo Romero Pereira, Desarrollador Frontend, Zara Home (Inditex)
+

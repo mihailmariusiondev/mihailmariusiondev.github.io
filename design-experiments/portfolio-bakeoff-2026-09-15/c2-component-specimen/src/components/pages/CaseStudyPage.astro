@@ -1,0 +1,234 @@
+---
+/** A single case study, rendered once per language at the same slug. */
+import Layout from "../../layouts/Layout.astro";
+import type { CaseStudy } from "../../data/caseStudies";
+import { ui } from "../../data/ui";
+import { localizedPath, t, type Locale } from "../../i18n";
+
+interface Props {
+  study: CaseStudy;
+  lang: Locale;
+}
+
+const { study, lang } = Astro.props;
+const allCases = localizedPath("/case-studies/", lang);
+---
+
+<Layout
+  title={`${t(study.title, lang)} · Marius Mihail Ion`}
+  description={t(study.summary, lang)}
+>
+  <div class="wrap wrap--narrow case">
+    <nav class="crumbs" aria-label={t(ui.breadcrumbLabel, lang)}>
+      <ol class="crumbs__list">
+        <li><a href={allCases}>{t(ui.casesEyebrow, lang)}</a></li>
+        <li aria-current="page">{t(study.title, lang)}</li>
+      </ol>
+    </nav>
+
+    <article>
+      <header class="case__head">
+        <p class="eyebrow case__doclabel">{t(ui.caseDocLabel, lang)}</p>
+        <h1 class="case__title">{t(study.title, lang)}</h1>
+        <p class="case__summary prose">{t(study.summary, lang)}</p>
+
+        <p class="case__anatomy-label eyebrow">{t(ui.caseAnatomyLabel, lang)}</p>
+        <ul class="tag-row case__tags" aria-label={t(ui.tagsLabel, lang)}>
+          {study.tags.map((tag) => <li class="tag">{t(tag, lang)}</li>)}
+        </ul>
+      </header>
+
+      <!--
+        Annotation toggle: a checkbox, not a script. Checked state reveals a
+        redline call-out number on every documented field via a CSS sibling
+        selector; every number is already in the DOM, so no-JS and AT users
+        read the exact same field list either way.
+      -->
+      <div class="annotate">
+        <input type="checkbox" id="annotate-toggle" class="annotate__input" />
+        <label for="annotate-toggle" class="annotate__label">
+          {t(ui.caseAnnotateLabel, lang)}
+        </label>
+      </div>
+
+      <dl class="case__fields">
+        {
+          study.fields.map((field, i) => (
+            <div class="field">
+              <dt>
+                <span class="field__mark" aria-hidden="true">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                {t(field.label, lang)}
+              </dt>
+              <dd>{t(field.value, lang)}</dd>
+            </div>
+          ))
+        }
+      </dl>
+
+      {
+        study.confidential && (
+          <p class="verified case__confidential">
+            {t(study.confidential, lang)}
+          </p>
+        )
+      }
+    </article>
+
+    <nav class="case__nav" aria-label={t(ui.caseNavLabel, lang)}>
+      <a href={allCases}>&larr; {t(ui.caseNavAll, lang)}</a>
+    </nav>
+  </div>
+</Layout>
+
+<style>
+  .case {
+    padding-block: var(--space-4) var(--space-5);
+  }
+
+  .crumbs__list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-mono);
+    font-size: var(--step-micro);
+    color: var(--slate);
+  }
+
+  .crumbs__list li + li::before {
+    content: "/";
+    margin-right: 0.5rem;
+    color: var(--slate-quiet);
+  }
+
+  .case__head {
+    padding-bottom: var(--space-4);
+    margin-bottom: var(--space-4);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .case__title {
+    font-size: var(--step-h1);
+    margin-block: var(--space-2) var(--space-2);
+    max-width: 20ch;
+  }
+
+  .case__summary {
+    font-size: var(--step-lede);
+    color: var(--slate);
+    margin-bottom: var(--space-3);
+  }
+
+  .case__doclabel {
+    margin-bottom: var(--space-2);
+  }
+
+  .case__anatomy-label {
+    margin-bottom: 0.5rem;
+  }
+
+  .case__tags {
+    margin: 0;
+  }
+
+  .case__fields {
+    margin: 0;
+  }
+
+  .case__confidential {
+    margin-top: var(--space-4);
+  }
+
+  /* ---------------- Annotation toggle ---------------- */
+
+  .annotate {
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--space-3);
+  }
+
+  .annotate__input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+  }
+
+  .annotate__label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    min-height: 2.75rem;
+    padding-inline: 0.9rem;
+    border: 1px solid var(--rule-strong);
+    border-radius: var(--radius-pill);
+    background: var(--paper-raised);
+    font-family: var(--font-mono);
+    font-size: var(--step-micro);
+    letter-spacing: 0.03em;
+    color: var(--slate);
+    cursor: pointer;
+  }
+
+  .annotate__label::before {
+    content: "";
+    width: 0.7em;
+    height: 0.7em;
+    flex: none;
+    border: 1px solid var(--rule-strong);
+    border-radius: var(--radius-sharp);
+  }
+
+  .annotate__input:checked + .annotate__label {
+    border-color: var(--amber);
+    color: var(--amber);
+    background: var(--amber-bg);
+  }
+
+  .annotate__input:checked + .annotate__label::before {
+    background: var(--amber);
+    border-color: var(--amber);
+  }
+
+  .annotate__input:focus-visible + .annotate__label {
+    outline: 3px solid var(--steel);
+    outline-offset: 2px;
+  }
+
+  /* Redline call-out numbers: in the DOM always, revealed by the checkbox via
+     :has() so no script is involved. */
+  .field__mark {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 1.35rem;
+    height: 1.35rem;
+    margin-right: 0.5em;
+    border: 1px solid var(--amber);
+    border-radius: 50%;
+    background: var(--amber-bg);
+    color: var(--amber);
+    font-size: 0.625rem;
+    letter-spacing: 0;
+    text-transform: none;
+    vertical-align: middle;
+  }
+
+  .case:has(.annotate__input:checked) .field__mark {
+    display: inline-flex;
+  }
+
+  .case__nav {
+    margin-top: var(--space-4);
+    padding-top: var(--space-3);
+    border-top: 1px solid var(--rule);
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+  }
+</style>

@@ -1,0 +1,86 @@
+---
+/**
+ * Case: engineering-controls. Draws the measurement loop from the case: 53
+ * rules generated findings, findings were measured, 21 of the 53 were
+ * retired, and the surviving system was adopted outside its origin team.
+ */
+import DiagramFrame from "./DiagramFrame.astro";
+import { t, type Locale } from "../../i18n";
+
+interface Props {
+  lang: Locale;
+  compact?: boolean;
+  titleId: string;
+}
+
+const { lang, compact = false, titleId } = Astro.props;
+
+const L = {
+  title: { en: "Review and findings loop", es: "Bucle de revisión y hallazgos" },
+  rules: { en: "53 rules", es: "53 reglas" },
+  findings: { en: "Findings", es: "Hallazgos" },
+  measure: { en: "Measured", es: "Medición" },
+  retired: { en: "21 retired", es: "21 retiradas" },
+  adopted: { en: "Adopted outside the team", es: "Adoptado fuera del equipo" },
+};
+
+const steps = [
+  t({ en: "The automated review system started with 53 rules.", es: "El sistema de revisión automatizada empezó con 53 reglas." }, lang),
+  t({ en: "Those rules produced findings on every pull request.", es: "Esas reglas generaban hallazgos en cada pull request." }, lang),
+  t({ en: "The findings were measured for signal versus noise.", es: "Los hallazgos se midieron para distinguir señal de ruido." }, lang),
+  t({ en: "21 of the 53 rules were retired based on that measurement.", es: "21 de las 53 reglas se retiraron según esa medición." }, lang),
+  t(
+    {
+      en: "The surviving system was adopted outside its origin team: a Teams CLI and a documentation MCP used by the Android team.",
+      es: "El sistema resultante se adoptó fuera de su equipo de origen: una CLI de Teams y un MCP de documentación usado por el equipo de Android.",
+    },
+    lang,
+  ),
+];
+
+// five stations around a loop, drawn clockwise starting at the top; each
+// carries its own label offset so the text clears the circle and the ring.
+const stations = [
+  { x: 160, y: 26, ly: 4, anchor: "middle", label: L.rules },
+  { x: 268, y: 76, ly: -24, anchor: "end", label: L.findings },
+  { x: 226, y: 150, ly: 34, anchor: "middle", label: L.measure },
+  { x: 94, y: 150, ly: 34, anchor: "middle", label: L.retired },
+  { x: 52, y: 76, ly: -24, anchor: "start", label: L.adopted },
+];
+---
+
+<DiagramFrame lang={lang} steps={steps} compact={compact}>
+  <svg viewBox="0 0 320 176" role="img" aria-labelledby={titleId} focusable="false">
+    <title id={titleId}>{t(L.title, lang)}</title>
+    <desc>{steps.join(" ")}</desc>
+
+    <path
+      d="M160,26 A88,88 0 1 1 159,26"
+      fill="none"
+      stroke="var(--steel)"
+      stroke-width="2"
+      stroke-linecap="round"
+      data-draw
+    />
+
+    {
+      stations.map((s) => (
+        <g data-reveal>
+          <circle cx={s.x} cy={s.y} r="16" fill="var(--paper-raised)" stroke="var(--steel)" stroke-width="2" />
+          {!compact && (
+            <text x={s.x} y={s.y + s.ly} text-anchor={s.anchor} class="dg-label">
+              {t(s.label, lang)}
+            </text>
+          )}
+        </g>
+      ))
+    }
+  </svg>
+</DiagramFrame>
+
+<style>
+  svg :global(.dg-label) {
+    font: 500 10px var(--font-mono, monospace);
+    fill: var(--ink);
+  }
+</style>

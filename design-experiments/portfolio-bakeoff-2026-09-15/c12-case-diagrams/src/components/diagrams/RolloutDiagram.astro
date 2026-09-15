@@ -1,0 +1,94 @@
+---
+/**
+ * Case: help-center-rollout. Draws the market-by-market expansion described
+ * in the case: SSR behaviour, accessibility and route stability verified
+ * before each step. Market numbers are placeholders for "market by market",
+ * not named clients or countries (none are in the data).
+ */
+import DiagramFrame from "./DiagramFrame.astro";
+import { t, type Locale } from "../../i18n";
+
+interface Props {
+  lang: Locale;
+  compact?: boolean;
+  titleId: string;
+}
+
+const { lang, compact = false, titleId } = Astro.props;
+
+const L = {
+  title: { en: "Market-by-market rollout", es: "Despliegue mercado a mercado" },
+  market: { en: "Market", es: "Mercado" },
+  check: { en: "SSR · A11y · Routes", es: "SSR · A11y · Rutas" },
+};
+
+const steps = [
+  t({ en: "The Help Center opens in one market first.", es: "El Centro de Ayuda se abre primero en un mercado." }, lang),
+  t(
+    {
+      en: "Before each next market, SSR behavior, accessibility and route stability are verified.",
+      es: "Antes de cada siguiente mercado, se verifica el comportamiento bajo SSR, la accesibilidad y la estabilidad de las rutas.",
+    },
+    lang,
+  ),
+  t(
+    { en: "Existing entry points stay unchanged while the rollout expands.", es: "Los puntos de entrada existentes no cambian mientras se amplía el despliegue." },
+    lang,
+  ),
+  t({ en: "The rollout reaches every market, country by country.", es: "El despliegue llega a todos los mercados, país por país." }, lang),
+];
+
+const positions = [40, 120, 200, 280];
+---
+
+<DiagramFrame lang={lang} steps={steps} compact={compact}>
+  <svg viewBox="0 0 320 150" role="img" aria-labelledby={titleId} focusable="false">
+    <title id={titleId}>{t(L.title, lang)}</title>
+    <desc>{steps.join(" ")}</desc>
+
+    <path
+      d={`M${positions[0]},70 L${positions[3]},70`}
+      fill="none"
+      stroke="var(--steel)"
+      stroke-width="2"
+      stroke-linecap="round"
+      data-draw
+    />
+
+    {
+      positions.map((x, i) => (
+        <g data-reveal>
+          <circle cx={x} cy="70" r="12" fill="var(--paper-raised)" stroke="var(--steel)" stroke-width="2" />
+          <text x={x} y="74" text-anchor="middle" class="dg-num">
+            {i + 1}
+          </text>
+          {!compact && (
+            <>
+              <text x={x} y="100" text-anchor="middle" class="dg-label">
+                {t(L.market, lang)} {i + 1}
+              </text>
+              <text x={x} y="122" text-anchor="middle" class="dg-check">
+                {t(L.check, lang)}
+              </text>
+            </>
+          )}
+        </g>
+      ))
+    }
+  </svg>
+</DiagramFrame>
+
+<style>
+  svg :global(.dg-num) {
+    font: 700 11px var(--font-mono, monospace);
+    fill: var(--steel-dark);
+  }
+  svg :global(.dg-label) {
+    font: 500 11px var(--font-mono, monospace);
+    fill: var(--ink);
+  }
+  svg :global(.dg-check) {
+    font: 400 9px var(--font-mono, monospace);
+    fill: var(--slate-quiet);
+  }
+</style>

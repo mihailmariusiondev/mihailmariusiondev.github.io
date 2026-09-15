@@ -1,0 +1,197 @@
+---
+/**
+ * The hero's visual thesis: 570 dim "raw payload" points routed and stripped
+ * down to 22 bright "surviving" points, illustrating the 96% LLM context
+ * reduction the copy states in words a few pixels away.
+ *
+ * This component always renders a static, motionless SVG field server-side —
+ * the no-WebGL / no-JS / reduced-motion / save-data fallback, and also the
+ * very first paint everyone gets, including WebGL visitors, before the
+ * enhancement script has had a chance to run. It never blocks LCP: no
+ * network request, no image, just ~90 SVG circles (a few hundred bytes of
+ * markup) drawn from a fixed, deterministic layout computed at build time.
+ *
+ * The canvas that WebGL later takes over is declared here too, empty and
+ * transparent, so the enhancement script only has to reach for it — it never
+ * creates DOM, so there is no layout shift when it activates.
+ */
+
+// Deterministic pseudo-random layout (mulberry32), not Math.random(): the
+// static markup must be stable across builds, not just across requests.
+function mulberry32(seed: number) {
+  return function () {
+    seed |= 0;
+    seed = (seed + 0x6d2b79f5) | 0;
+    let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+const rand = mulberry32(570220096); // 570 / 22 / 96 — the figures this draws
+
+// Illustrative counts, scaled down for a legible static SVG (the live WebGL
+// field renders the real 570:22 point counts). The ratio stays exact.
+const DIM_COUNT = 78; // stands in for the 570 KB raw payload
+const BRIGHT_COUNT = 3; // stands in for the 22 KB routed core (78 * 22/570 ≈ 3)
+
+const CLUSTER_X = 82; // percent, right-biased: beside the portrait / name
+const CLUSTER_Y = 46;
+
+const dimPoints = Array.from({ length: DIM_COUNT }, () => ({
+  x: rand() * 100,
+  y: rand() * 100,
+  r: 1 + rand() * 1.6,
+  o: 0.14 + rand() * 0.22,
+}));
+
+const brightPoints = Array.from({ length: BRIGHT_COUNT }, (_, i) => {
+  const angle = (i / BRIGHT_COUNT) * Math.PI * 2;
+  const spread = 2.5 + rand() * 3.5;
+  return {
+    x: CLUSTER_X + Math.cos(angle) * spread,
+    y: CLUSTER_Y + Math.sin(angle) * spread * 0.7,
+    r: 1.6 + rand() * 1.2,
+  };
+});
+---
+
+<div class="context-field" aria-hidden="true" data-context-field-root>
+  <svg
+    class="context-field__fallback"
+    viewBox="0 0 100 100"
+    preserveAspectRatio="xMidYMid slice"
+    data-context-field-fallback
+  >
+    {dimPoints.map((p) => (
+      <circle cx={p.x} cy={p.y} r={p.r} fill="var(--slate-quiet)" opacity={p.o} />
+    ))}
+    {brightPoints.map((p) => (
+      <circle cx={p.x} cy={p.y} r={p.r} fill="var(--steel)" opacity="0.9" />
+    ))}
+  </svg>
+  <canvas class="context-field__canvas" data-context-field-canvas></canvas>
+</div>
+
+<script>
+  /**
+   * Progressive enhancement gate. Everything above this script already
+   * rendered the story as static SVG + real text; this only decides whether
+   * to also spend a WebGL budget on it.
+   *
+   * Gates, all of which keep the fallback as final state when they fail:
+   * - prefers-reduced-motion: reduce  -> never load WebGL
+   * - navigator.connection.saveData   -> never load WebGL
+   * - narrow viewport (<= 768px)      -> never load WebGL (static field only)
+   * - no WebGL2/WebGL context         -> never load WebGL
+   * - document.hidden                 -> wait for visibility
+   * - hero not intersecting viewport  -> wait for intersection
+   * - requestIdleCallback             -> wait for main-thread idle (never
+   *   competes with first paint / LCP, which is the static SVG + text)
+   */
+  const root = document.querySelector<HTMLElement>("[data-context-field-root]");
+  const canvas = document.querySelector<HTMLCanvasElement>(
+    "[data-context-field-canvas]",
+  );
+  if (!root || !canvas) {
+    // no-op
+  } else {
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    const saveData = (navigator as any).connection?.saveData === true;
+    // Mobile/narrow viewports get the static SVG only: no GPU budget spent,
+    // and three.js is never imported (checked before the dynamic import, and
+    // re-checked below so a resize across the breakpoint can't start it late).
+    const isNarrow = window.matchMedia("(max-width: 768px)").matches;
+
+    let webglOk = false;
+    try {
+      const probe = document.createElement("canvas");
+      webglOk = !!(
+        probe.getContext("webgl2") || probe.getContext("webgl")
+      );
+    } catch {
+      webglOk = false;
+    }
+
+    if (!reducedMotion && !saveData && !isNarrow && webglOk) {
+      const hero = root.closest("section") ?? root;
+      const idle = (cb: () => void) =>
+        "requestIdleCallback" in window
+          ? (window as any).requestIdleCallback(cb, { timeout: 2000 })
+          : setTimeout(cb, 200);
+
+      let started = false;
+      const start = () => {
+        if (started) return;
+        started = true;
+        idle(() => {
+          // Separate chunk: the initial page load ships zero WebGL / three.js
+          // bytes. This import only fires once the hero is visible and the
+          // main thread is idle, after first paint.
+          import("../scripts/context-field-webgl")
+            .then((mod) => mod.mountContextField(canvas, root))
+            .catch(() => {
+              // Leave the static SVG fallback as the final state.
+            });
+        });
+      };
+
+      const io = new IntersectionObserver(
+        (entries) => {
+          if (entries.some((e) => e.isIntersecting)) {
+            start();
+            io.disconnect();
+          }
+        },
+        { rootMargin: "200px" },
+      );
+      io.observe(hero);
+    }
+  }
+</script>
+
+<style>
+  .context-field {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .context-field__fallback,
+  .context-field__canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .context-field__canvas {
+    opacity: 0;
+    /* Set by the WebGL module once its first frame is ready, never before —
+       an empty canvas fading in over the SVG is preferable to a flash of an
+       uninitialized black rectangle. */
+    transition: opacity 0.8s ease;
+  }
+
+  .context-field__canvas.is-active {
+    opacity: 1;
+  }
+
+  /* A soft vignette toward the reading column keeps body text at full
+     contrast regardless of what the field is doing underneath it. */
+  .context-field::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      100deg,
+      var(--paper) 0%,
+      color-mix(in srgb, var(--paper) 55%, transparent) 38%,
+      transparent 70%
+    );
+  }
+</style>

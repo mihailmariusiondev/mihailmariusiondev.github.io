@@ -1,0 +1,160 @@
+---
+import Layout from "../layouts/Layout.astro";
+import {
+  masthead, toc, stats, features, timeline, letters, about, contact,
+} from "../data/content";
+
+export interface Props { lang: "en" | "es" }
+const { lang } = Astro.props;
+const path = lang === "en" ? "/" : "/es/";
+const altPath = lang === "en" ? "/es/" : "/";
+
+const M = masthead[lang];
+const TOC = toc[lang];
+const S = stats[lang];
+const F = features[lang];
+const T = timeline[lang];
+const L = letters[lang];
+const A = about[lang];
+const C = contact[lang];
+---
+<Layout lang={lang} path={path} altPath={altPath}>
+  <section class="cover">
+    <div class="cover__row">
+      <span>{M.kicker}</span>
+      <span>{M.issue}</span>
+    </div>
+    <div>
+      <h1 class="cover__title" data-kinetic data-wght-base="320" data-wght-range="220" data-opsz="144">{M.name}</h1>
+      <p class="cover__role">{M.role}</p>
+      <p class="cover__dek">{M.dek}</p>
+    </div>
+    <div class="cover__row">
+      <span class="cover__cue"><span class="cover__cue-line"></span>{M.scrollCue}</span>
+      <span>{M.date}</span>
+    </div>
+  </section>
+
+  <nav class="toc wrap" aria-label={TOC.heading}>
+    <h2 class="toc__heading">{TOC.heading}</h2>
+    <ol class="toc__list">
+      {TOC.items.map((item) => (
+        <li class="toc__item">
+          <a class="toc__link" href={item.href}>
+            <span class="toc__n">{item.n}</span>
+            <span>{item.label}</span>
+          </a>
+        </li>
+      ))}
+    </ol>
+  </nav>
+
+  <section id="numbers" class="section section--rule-top wrap">
+    <p class="eyebrow">{TOC.items[0].label}</p>
+    <h2 class="section-heading reveal">{S.heading}</h2>
+    <p class="section-lede reveal">{S.lede}</p>
+    <div class="stats-grid">
+      {S.items.map((s) => (
+        <div class="stat reveal">
+          <span class="stat__big">{s.big}</span>
+          <span class="stat__value">{s.value}</span>
+          <span class="stat__label">{s.label}</span>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section id="features" aria-label={TOC.items[1].label}>
+    {F.map((f) => (
+      <article class="feature wrap">
+        <div class="feature__grid">
+          <div class="feature__col feature__col--meta">
+            <p class="feature__folio">{f.folio}</p>
+            <p class="feature__eyebrow">{f.eyebrow}</p>
+            <blockquote class="feature__pull">&ldquo;{f.pullquote}&rdquo;</blockquote>
+            <ul class="feature__tags">
+              {f.tags.map((t) => <li>{t}</li>)}
+            </ul>
+            <p class="feature__outcome">{f.outcome}</p>
+          </div>
+          <div class="feature__col feature__col--body">
+            <h3 class="feature__title">{f.title}</h3>
+            <p class="section-lede" style="margin-bottom:1.25rem;">{f.standfirst}</p>
+            <div class="feature__body">
+              {f.body.map((p) => <p>{p}</p>)}
+            </div>
+          </div>
+        </div>
+      </article>
+    ))}
+  </section>
+
+  <section id="chronology" class="section chronology wrap">
+    <p class="eyebrow">{TOC.items[2].label}</p>
+    <h2 class="section-heading reveal">{lang === "en" ? "Since 2018." : "Desde 2018."}</h2>
+    <div>
+      {T.map((row) => (
+        <div class="chrono-row reveal">
+          <span class="chrono-row__period">{row.period}</span>
+          <span class="chrono-row__role">{row.role}</span>
+          <span class="chrono-row__company">{row.company}{row.client ? ` · ${row.client}` : ""}</span>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section id="letters" class="section section--rule-top wrap">
+    <p class="eyebrow">{TOC.items[3].label}</p>
+    <h2 class="section-heading reveal">{lang === "en" ? "What colleagues wrote." : "Lo que escribieron los compañeros."}</h2>
+    <div class="letters-grid">
+      {L.map((letter) => (
+        <figure class="letter reveal">
+          <blockquote class="letter__quote">&ldquo;{letter.quote}&rdquo;</blockquote>
+          <figcaption>
+            <div class="letter__author">{letter.author}</div>
+            <div class="letter__role">{letter.role}</div>
+            {letter.note && <div class="letter__note">{letter.note}</div>}
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+  </section>
+
+  <section id="about" class="section section--rule-top wrap">
+    <p class="eyebrow">{A.eyebrow}</p>
+    <h2 class="section-heading reveal">{A.heading}</h2>
+    <div class="about-grid">
+      <div>
+        <img class="about__portrait reveal" src="/me.webp" alt={lang === "en" ? "Portrait of Marius Mihail Ion" : "Retrato de Marius Mihail Ion"} width="480" height="600" loading="lazy" />
+        <ul class="about__facts reveal">
+          {A.facts.map((f) => <li>{f}</li>)}
+        </ul>
+      </div>
+      <div class="about__body reveal">
+        {A.paragraphs.map((p) => <p>{p}</p>)}
+      </div>
+    </div>
+  </section>
+
+  <section id="colophon" class="section colophon">
+    <div class="wrap">
+      <p class="eyebrow">{C.eyebrow}</p>
+      <h2 class="section-heading">{C.heading}</h2>
+      <p class="section-lede" style="color:inherit;opacity:.85;">{C.lede}</p>
+      <div class="cv-links">
+        <a href="/cv-en.pdf" download>{C.cvLabel} — {C.cvEn}</a>
+        <a href="/cv-es.pdf" download>{C.cvLabel} — {C.cvEs}</a>
+      </div>
+      <ul class="contact-links">
+        {C.links.map((l) => (
+          <li><a href={l.href}>{l.label} · {l.value}</a></li>
+        ))}
+      </ul>
+      <p class="a11y-note">{C.a11y}</p>
+      <div class="colophon-foot">
+        <span>{C.colophon}</span>
+        <span>© {new Date().getFullYear()} Marius Mihail Ion</span>
+      </div>
+    </div>
+  </section>
+</Layout>

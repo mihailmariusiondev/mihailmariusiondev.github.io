@@ -1,0 +1,56 @@
+---
+/**
+ * A single star chip: used as case-study card motifs, timeline markers and
+ * stat-row corners. Same generator as TileLattice, one shape at a readable
+ * size, so a visitor can see the unit the background pattern is built from.
+ */
+import { spikesForIndex, starSvgPoints, toneForIndex } from "../lib/mudejar";
+
+interface Props {
+  index?: number;
+  size?: number;
+  class?: string;
+}
+
+const { index = 0, size = 28, class: className } = Astro.props;
+const spikes = spikesForIndex(index);
+const tone = toneForIndex(index);
+const points = starSvgPoints(size * 0.86, { spikes, rotation: index * 11 });
+const offset = (size - size * 0.86) / 2;
+---
+
+<svg
+  class:list={["tile-chip", `tile-chip--${tone}`, className]}
+  width={size}
+  height={size}
+  viewBox={`0 0 ${size} ${size}`}
+  aria-hidden="true"
+  focusable="false"
+>
+  <polygon points={points} transform={`translate(${offset} ${offset})`} />
+</svg>
+
+<style>
+  .tile-chip {
+    flex: none;
+    display: block;
+  }
+
+  .tile-chip polygon {
+    fill: color-mix(in srgb, currentColor 16%, transparent);
+    stroke: currentColor;
+    stroke-width: 1.5;
+  }
+
+  .tile-chip--cobalt {
+    color: var(--cobalt-dark);
+  }
+
+  .tile-chip--green {
+    color: var(--green-dark);
+  }
+
+  .tile-chip--ochre {
+    color: var(--ochre-dark);
+  }
+</style>

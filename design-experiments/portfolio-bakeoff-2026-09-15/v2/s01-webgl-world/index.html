@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Marius Mihail Ion — Senior Angular / Frontend Engineer</title>
+    <meta
+      name="description"
+      content="Marius Mihail Ion, Senior Angular / Frontend Engineer based in Zaragoza, Spain. An immersive flight through real case studies from Zara Home, Santander and UNIR."
+    />
+    <link rel="canonical" href="https://mihailmariusiondev.github.io/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Marius Mihail Ion — Senior Angular / Frontend Engineer" />
+    <meta
+      property="og:description"
+      content="An immersive flight through real case studies from Zara Home, Santander and UNIR."
+    />
+    <meta property="og:image" content="./assets/me.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#05060a" />
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./src/style.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Marius Mihail Ion",
+        "jobTitle": "Senior Angular / Frontend Engineer",
+        "url": "https://mihailmariusiondev.github.io/",
+        "email": "mailto:mihailmariusion@gmail.com",
+        "address": { "@type": "PostalAddress", "addressLocality": "Zaragoza", "addressCountry": "ES" },
+        "sameAs": ["https://linkedin.com/in/mariusdev", "https://github.com/mihailmariusiondev"]
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" id="skip-link" href="#main">Skip to main content</a>
+
+    <canvas id="scene" aria-hidden="true"></canvas>
+    <div id="fallback-bg" aria-hidden="true"></div>
+
+    <header class="chrome">
+      <a class="brand" href="#hero" aria-label="Marius Mihail Ion — home">MMI</a>
+      <nav class="chapter-nav" id="chapter-nav" aria-label="Sections"></nav>
+      <div class="chrome-actions">
+        <a class="cv-link" id="cv-link" href="./assets/marius-mihail-ion-cv.pdf" download>Download CV</a>
+        <button class="lang-toggle" id="lang-toggle" type="button" aria-label="Language">ES</button>
+      </div>
+    </header>
+
+    <p class="scroll-hint" id="scroll-hint" aria-hidden="true">Scroll to fly through ↓</p>
+    <p class="notice" id="notice" hidden></p>
+
+    <main id="main">
+      <section class="panel hero" id="hero" data-chapter="0">
+        <div class="panel-inner">
+          <p class="kicker" id="hero-kicker"></p>
+          <h1 id="hero-title"></h1>
+          <p class="lede" id="hero-lede"></p>
+          <p class="location" id="hero-location"></p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" id="hero-cta1" href="#work"></a>
+            <a class="btn btn-ghost" id="hero-cta2" href="#about"></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel work" id="work" data-chapter="1">
+        <div class="panel-inner wide">
+          <h2 class="section-title">Case studies</h2>
+          <div class="card-grid" id="case-studies"></div>
+        </div>
+      </section>
+
+      <section class="panel timeline" id="timeline" data-chapter="2">
+        <div class="panel-inner wide">
+          <h2 class="section-title">Timeline</h2>
+          <ol class="role-list" id="role-list"></ol>
+        </div>
+      </section>
+
+      <section class="panel signals" id="signals" data-chapter="3">
+        <div class="panel-inner wide">
+          <h2 class="section-title">Signals</h2>
+          <div class="stat-grid" id="stat-grid"></div>
+        </div>
+      </section>
+
+      <section class="panel about" id="about" data-chapter="4">
+        <div class="panel-inner">
+          <h2 class="section-title" id="about-heading"></h2>
+          <img class="portrait" src="./assets/me.webp" alt="Marius Mihail Ion" width="120" height="120" loading="lazy" />
+          <div id="about-body"></div>
+          <div class="quotes" id="quotes"></div>
+        </div>
+      </section>
+
+      <section class="panel contact" id="contact" data-chapter="5">
+        <div class="panel-inner">
+          <h2 class="section-title" id="contact-heading"></h2>
+          <p id="contact-body"></p>
+          <div class="contact-links" id="contact-links"></div>
+        </div>
+      </section>
+
+      <footer class="site-footer">
+        <p id="footer-note">Built by Marius Mihail Ion. Every claim on this page is sourced and dated.</p>
+      </footer>
+    </main>
+
+    <script type="module" src="./src/main.ts"></script>
+  </body>
+</html>

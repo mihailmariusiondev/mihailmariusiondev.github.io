@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Marius Mihail Ion — Senior Angular / Frontend Engineer</title>
+<meta name="description" content="A generative poster built from real numbers: 570→22 KB, top 1.42%, 34/23, 21/53. Senior Angular / Frontend Engineer, Zaragoza." />
+<meta property="og:title" content="Marius Mihail Ion — Senior Angular / Frontend Engineer" />
+<meta property="og:description" content="A generative poster built from real numbers: 570→22 KB, top 1.42%, 34/23, 21/53." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="assets/me.webp" />
+<meta name="theme-color" content="#f4f1ea" />
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="topbar">
+  <a class="topbar__mark" href="#top">MMI</a>
+  <nav class="topbar__nav" aria-label="Primary">
+    <a href="#signal" data-nav="0">Signal</a>
+    <a href="#results" data-nav="1">Results</a>
+    <a href="#work" data-nav="2">Work</a>
+    <a href="#timeline" data-nav="3">Timeline</a>
+    <a href="#contact" data-nav="4">Contact</a>
+  </nav>
+  <button class="lang-toggle" id="langToggle" type="button" aria-pressed="false" aria-label="Ver esta página en español">ES</button>
+</header>
+
+<main id="main">
+
+<section id="signal" class="plate hero" aria-labelledby="hero-h">
+  <canvas id="heroCanvas" class="hero__canvas" aria-hidden="true"></canvas>
+  <div class="hero__grid">
+    <p class="eyebrow" id="hero-eyebrow">Plate 00 — Signal</p>
+    <h1 id="hero-h" class="hero__name">Marius<br />Mihail Ion</h1>
+    <p class="hero__role" id="hero-role">Senior Angular / Frontend Engineer</p>
+    <p class="hero__lede" id="hero-lede"></p>
+    <p class="hero__location" id="hero-location"></p>
+    <div class="hero__cta">
+      <a class="btn btn--primary" href="#work" id="hero-cta-cases">View case studies</a>
+      <a class="btn btn--ghost" id="hero-cta-cv" href="assets/marius-mihail-ion-cv.pdf" download>Download CV</a>
+    </div>
+    <p class="hero__caption" id="hero-caption"></p>
+  </div>
+</section>
+
+<section id="results" class="plate stats" aria-labelledby="stats-h">
+  <p class="eyebrow" id="stats-eyebrow">Plate 01 — Verified results</p>
+  <h2 id="stats-h"></h2>
+  <p class="plate__lede" id="stats-lede"></p>
+  <div class="stats__grid" id="statsGrid"></div>
+</section>
+
+<section id="work" class="plate work" aria-labelledby="work-h">
+  <p class="eyebrow" id="work-eyebrow">Plate 02 — Case studies</p>
+  <h2 id="work-h"></h2>
+  <p class="plate__lede" id="work-lede"></p>
+  <div class="work__list" id="workList"></div>
+</section>
+
+<section id="timeline" class="plate timeline" aria-labelledby="timeline-h">
+  <p class="eyebrow" id="timeline-eyebrow">Plate 03 — Timeline</p>
+  <h2 id="timeline-h"></h2>
+  <p class="plate__lede" id="timeline-lede"></p>
+  <canvas id="timelineCanvas" class="timeline__canvas" aria-hidden="true"></canvas>
+  <ol class="timeline__list" id="timelineList"></ol>
+  <h3 id="recs-h"></h3>
+  <div class="recs" id="recsList"></div>
+</section>
+
+<section id="contact" class="plate contact" aria-labelledby="contact-h">
+  <p class="eyebrow" id="contact-eyebrow">Plate 04 — Contact</p>
+  <h2 id="contact-h"></h2>
+  <p class="plate__lede" id="contact-lede"></p>
+  <p class="contact__travel" id="contact-travel"></p>
+  <ul class="contact__links" id="contactLinks"></ul>
+  <div class="contact__cv">
+    <a class="btn btn--primary" id="contact-cv-en" href="assets/marius-mihail-ion-cv.pdf" download>Download CV (EN)</a>
+    <a class="btn btn--ghost" id="contact-cv-es" href="assets/marius-mihail-ion-cv-es.pdf" download>Descargar CV (ES)</a>
+  </div>
+  <p class="contact__closing" id="contact-closing"></p>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <p id="footer-a11y"></p>
+  <p id="footer-built"></p>
+</footer>
+
+<script src="data.js"></script>
+<script src="main.js"></script>
+</body>
+</html>

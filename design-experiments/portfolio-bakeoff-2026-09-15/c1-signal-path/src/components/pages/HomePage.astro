@@ -1,0 +1,474 @@
+---
+/**
+ * The home page, rendered once per language.
+ *
+ * The markup lives here, not in the route files, so `/` and `/es/` cannot drift
+ * structurally: there is exactly one template and two thin route wrappers. A
+ * section that exists in Spanish but not in English is impossible by
+ * construction, and every string comes from a `Localized<T>` object that fails
+ * `astro check` if a language is missing.
+ */
+import Layout from "../../layouts/Layout.astro";
+import CaseStudyCard from "../CaseStudyCard.astro";
+import { caseStudies } from "../../data/caseStudies";
+import { stats } from "../../data/experience";
+import { ui } from "../../data/ui";
+import { localizedPath, t, type Locale } from "../../i18n";
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+const cvHref =
+  lang === "es"
+    ? "/marius-mihail-ion-cv-es.pdf"
+    : "/marius-mihail-ion-cv.pdf";
+---
+
+<Layout
+  title={t(ui.homeTitle, lang)}
+  description={t(ui.homeDescription, lang)}
+  ogTitle={t(ui.homeOgTitle, lang)}
+  ogDescription={t(ui.homeOgDescription, lang)}
+  includePersonSchema
+>
+  <section class="hero">
+    <div class="wrap">
+      <div class="signal" aria-hidden="true">
+        <div class="signal__diagram">
+          <svg
+            class="signal__svg"
+            viewBox="0 0 880 220"
+            preserveAspectRatio="none"
+            focusable="false"
+          >
+            <!-- Lane 1: LLM context payload narrows 570 KB -> 22 KB -->
+            <path class="signal__line" d="M24,36 H660" />
+            <circle class="signal__gate" cx="342" cy="36" r="6" />
+            <circle class="signal__marble signal__marble--1" r="5" />
+
+            <!-- Lane 2: 34 WCAG findings close -->
+            <path class="signal__line" d="M24,110 H660" />
+            <circle class="signal__gate" cx="342" cy="110" r="6" />
+            <circle class="signal__marble signal__marble--2" r="5" />
+
+            <!-- Lane 3: e-commerce / banking / education sources resolve into identity -->
+            <path class="signal__line" d="M24,184 H660" />
+            <circle class="signal__gate" cx="342" cy="184" r="6" />
+            <circle class="signal__source" cx="24" cy="184" r="3.5" />
+            <circle class="signal__source" cx="44" cy="184" r="3.5" />
+            <circle class="signal__source" cx="64" cy="184" r="3.5" />
+            <circle class="signal__marble signal__marble--3" r="5" />
+          </svg>
+
+          <div class="signal__row signal__row--1">
+            <span class="signal__label signal__label--start">{t(ui.signalPayloadStart, lang)}</span>
+            <span class="signal__label signal__label--end">{t(ui.signalPayloadEnd, lang)}</span>
+          </div>
+          <div class="signal__row signal__row--2">
+            <span class="signal__label signal__label--start">{t(ui.signalFindingsStart, lang)}</span>
+            <span class="signal__label signal__label--end">{t(ui.signalFindingsEnd, lang)}</span>
+          </div>
+          <div class="signal__row signal__row--3">
+            <span class="signal__label signal__label--end signal__label--identity">
+              Marius Mihail Ion &middot; {t(ui.siteRole, lang)}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrap hero__grid">
+      <figure class="hero__figure">
+        <img
+          class="hero__photo"
+          src="/me.webp"
+          alt={t(ui.heroPhotoAlt, lang)}
+          width="640"
+          height="640"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        />
+      </figure>
+
+      <div class="hero__body">
+        <h1 class="hero__title">{t(ui.heroTitle, lang)}</h1>
+        <p class="eyebrow eyebrow--under">{t(ui.siteRole, lang)}</p>
+        <p class="hero__lede">{t(ui.heroLede, lang)}</p>
+        <div class="hero__actions">
+          <a class="btn btn-primary" href={localizedPath("/case-studies/", lang)}>
+            {t(ui.heroCtaCases, lang)}
+          </a>
+          <a class="btn" href={cvHref} download>
+            {t(ui.heroCtaCv, lang)}
+          </a>
+          <a class="btn" href="https://linkedin.com/in/mariusdev">LinkedIn</a>
+          <a class="btn" href="https://github.com/mihailmariusiondev">GitHub</a>
+        </div>
+        <p class="hero__location">{t(ui.heroLocation, lang)}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats" aria-labelledby="stats-heading">
+    <div class="wrap">
+      <h2 id="stats-heading" class="stats__heading eyebrow">
+        {t(ui.statsHeading, lang)}
+      </h2>
+      <ul class="stats__list">
+        {
+          stats.map((stat) => (
+            <li class="stat">
+              <p class="stat__value">{t(stat.value, lang)}</p>
+              <p class="stat__label">{t(stat.label, lang)}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section id="work" class="work">
+    <div class="wrap">
+      <div class="work__head">
+        <h2 class="work__title">{t(ui.workTitle, lang)}</h2>
+        <p class="work__lede prose">{t(ui.workLede, lang)}</p>
+      </div>
+      <div class="work__grid">
+        {caseStudies.map((study) => <CaseStudyCard study={study} />)}
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* ---------------- Signal diagram ---------------- */
+
+  /* Decorative, aria-hidden: every fact it shows already exists as real text
+     in the header (name/role) and the Verified Results ledger below (the
+     payload and findings figures), so nothing here is AT-only content. */
+  .signal {
+    padding-top: var(--space-4);
+  }
+
+  /* The SVG owns geometry only (lines, gates, marbles); the labels are real
+     HTML overlaid on top so their size never shrinks with the viewBox on
+     narrow screens. */
+  .signal__diagram {
+    position: relative;
+    aspect-ratio: 880 / 220;
+  }
+
+  .signal__svg {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .signal__line {
+    fill: none;
+    stroke: var(--rule-strong);
+    stroke-width: 1.5;
+    stroke-dasharray: 1 7;
+    stroke-linecap: round;
+  }
+
+  .signal__gate {
+    fill: var(--paper);
+    stroke: var(--rule-strong);
+    stroke-width: 1.5;
+  }
+
+  .signal__source {
+    fill: var(--rule-strong);
+  }
+
+  .signal__row {
+    position: absolute;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+    transform: translateY(-50%);
+  }
+
+  .signal__row--1 {
+    top: 16.4%;
+  }
+
+  .signal__row--2 {
+    top: 50%;
+  }
+
+  .signal__row--3 {
+    top: 83.6%;
+    justify-content: flex-end;
+  }
+
+  .signal__label {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: clamp(0.5625rem, 0.42rem + 0.6vw, 0.8125rem);
+    letter-spacing: 0.01em;
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+
+  .signal__label--start {
+    color: var(--slate-quiet);
+  }
+
+  .signal__label--end {
+    color: var(--steel-dark);
+    font-weight: 600;
+  }
+
+  .signal__label--identity {
+    max-width: 100%;
+    white-space: normal;
+    text-align: right;
+  }
+
+  .signal__marble {
+    fill: var(--steel);
+    filter: drop-shadow(0 0 4px var(--node-lit-ring));
+    offset-rotate: 0deg;
+    animation: travel 3.6s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+  }
+
+  .signal__marble--1 {
+    offset-path: path("M24,36 H660");
+    animation-delay: 0s;
+  }
+
+  .signal__marble--2 {
+    offset-path: path("M24,110 H660");
+    animation-delay: 0.5s;
+  }
+
+  .signal__marble--3 {
+    offset-path: path("M24,184 H660");
+    animation-delay: 1s;
+  }
+
+  @keyframes travel {
+    0% {
+      offset-distance: 0%;
+      opacity: 0;
+    }
+    6% {
+      opacity: 1;
+    }
+    55%,
+    100% {
+      offset-distance: 100%;
+    }
+    94% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  /* No offset-path support: keep the marbles parked at the resolved end, a
+     legible static diagram rather than a broken animation. */
+  @supports not (offset-path: path("M0,0 L1,1")) {
+    .signal__marble {
+      animation: none;
+      cx: 856;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .signal__marble {
+      animation: none;
+      offset-distance: 100%;
+      opacity: 1;
+    }
+  }
+
+  /* ---------------- Hero ---------------- */
+
+  .hero {
+    padding-bottom: var(--space-5);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .hero__grid {
+    display: grid;
+    gap: var(--space-4);
+    align-items: start;
+    margin-top: var(--space-4);
+  }
+
+  @media (min-width: 56rem) {
+    .hero__grid {
+      /* Text first in the source order and in the visual order on desktop. */
+      grid-template-columns: minmax(0, 1fr) 14rem;
+      gap: var(--space-5);
+    }
+    .hero__figure {
+      order: 2;
+    }
+    .hero__body {
+      order: 1;
+    }
+  }
+
+  .hero__figure {
+    margin: 0;
+    /* On mobile the portrait is centred above the text, not floated beside it. */
+    justify-self: center;
+    width: min(11rem, 45vw);
+  }
+
+  @media (min-width: 56rem) {
+    .hero__figure {
+      justify-self: end;
+      width: 100%;
+      max-width: 14rem;
+    }
+  }
+
+  .hero__photo {
+    display: block;
+    width: 100%;
+    /* height:auto is load-bearing. The img carries width/height attributes (for
+       CLS), and aspect-ratio is ignored unless the other axis is auto: without
+       this the picture renders 176x640. */
+    height: auto;
+    /* Square frame. The source is a standing shot: a circle crops to the
+       forearms and a 4:5 frame towers over the text column. */
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    /* The head sits in the upper third of the 640x640 source. Raise the crop
+       to it, but not so far that the top of the head is cut. */
+    object-position: 50% 22%;
+    border-radius: var(--radius);
+    border: 1px solid var(--rule);
+    background: var(--paper-raised);
+    box-shadow: var(--shadow-raised);
+  }
+
+  .hero__title {
+    font-size: var(--step-display);
+    max-width: 20ch;
+    margin-block: var(--space-2) var(--space-3);
+  }
+
+  .hero__lede {
+    max-width: 54ch;
+    font-size: var(--step-lede);
+    color: var(--slate);
+    margin-bottom: var(--space-3);
+  }
+
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: var(--space-3);
+  }
+
+  .hero__location {
+    font-family: var(--font-mono);
+    font-size: var(--step-micro);
+    line-height: 1.6;
+    color: var(--slate-quiet);
+    max-width: 48ch;
+  }
+
+  /* ---------------- Verified results ---------------- */
+
+  .stats {
+    padding-block: var(--space-4);
+    background: var(--paper-sunk);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .stats__heading {
+    margin-bottom: var(--space-3);
+  }
+
+  .stats__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-3);
+  }
+
+  @media (min-width: 40rem) {
+    .stats__list {
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-3) var(--space-4);
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .stats__list {
+      /* The five figures read as one measured ledger, not five loose cards. */
+      grid-template-columns: repeat(5, 1fr);
+    }
+  }
+
+  .stat {
+    /* The rule is the signature: each figure is an audited entry, not a badge. */
+    border-left: 2px solid var(--steel);
+    padding-left: var(--space-2);
+    min-width: 0;
+  }
+
+  .stat__value {
+    font-family: var(--font-mono);
+    font-size: 1.625rem;
+    font-weight: 500;
+    line-height: 1.2;
+    color: var(--steel-dark);
+    margin-bottom: 0.4rem;
+    overflow-wrap: break-word;
+  }
+
+  .stat__label {
+    font-size: var(--step-small);
+    line-height: 1.5;
+    color: var(--slate);
+    max-width: 40ch;
+  }
+
+  /* ---------------- Case studies ---------------- */
+
+  .work {
+    padding-block: var(--space-5);
+  }
+
+  .work__head {
+    margin-bottom: var(--space-4);
+  }
+
+  .work__title {
+    font-size: var(--step-h2);
+    margin-bottom: var(--space-1);
+  }
+
+  .work__lede {
+    color: var(--slate);
+  }
+
+  .work__grid {
+    display: grid;
+    gap: var(--space-3);
+  }
+
+  @media (min-width: 56rem) {
+    .work__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

@@ -1,0 +1,432 @@
+---
+/**
+ * The home page, rendered once per language.
+ *
+ * The markup lives here, not in the route files, so `/` and `/es/` cannot drift
+ * structurally: there is exactly one template and two thin route wrappers. A
+ * section that exists in Spanish but not in English is impossible by
+ * construction, and every string comes from a `Localized<T>` object that fails
+ * `astro check` if a language is missing.
+ */
+import Layout from "../../layouts/Layout.astro";
+import CaseStudyCard from "../CaseStudyCard.astro";
+import { caseStudies } from "../../data/caseStudies";
+import { stats } from "../../data/experience";
+import { ui } from "../../data/ui";
+import { localizedPath, t, type Locale } from "../../i18n";
+import PayloadFunnelDiagram from "../diagrams/PayloadFunnelDiagram.astro";
+import RolloutDiagram from "../diagrams/RolloutDiagram.astro";
+import AuthPathsDiagram from "../diagrams/AuthPathsDiagram.astro";
+import ReviewLoopDiagram from "../diagrams/ReviewLoopDiagram.astro";
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+const cvHref =
+  lang === "es"
+    ? "/marius-mihail-ion-cv-es.pdf"
+    : "/marius-mihail-ion-cv.pdf";
+
+const DIAGRAM_BY_SLUG = {
+  "realtime-shopping-assistant": PayloadFunnelDiagram,
+  "help-center-rollout": RolloutDiagram,
+  "passwordless-account-migration": AuthPathsDiagram,
+  "engineering-controls": ReviewLoopDiagram,
+} as const;
+---
+
+<Layout
+  title={t(ui.homeTitle, lang)}
+  description={t(ui.homeDescription, lang)}
+  ogTitle={t(ui.homeOgTitle, lang)}
+  ogDescription={t(ui.homeOgDescription, lang)}
+  includePersonSchema
+>
+  <section class="hero">
+    <div class="wrap hero__grid">
+      <div class="hero__top">
+        <div class="hero__identity">
+          <img
+            class="hero__avatar"
+            src="/me.webp"
+            alt={t(ui.heroPhotoAlt, lang)}
+            width="96"
+            height="96"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+          />
+          <p class="eyebrow">{t(ui.siteRole, lang)}</p>
+        </div>
+        <h1 class="hero__title">{t(ui.heroTitle, lang)}</h1>
+      </div>
+
+      <div class="hero__diagram">
+        <PayloadFunnelDiagram lang={lang} titleId="hero-payload-funnel" />
+      </div>
+
+      <div class="hero__bottom">
+        <p class="hero__lede">{t(ui.heroLede, lang)}</p>
+        <ul class="hero__outcomes">
+          {
+            stats.slice(0, 3).map((stat) => (
+              <li class="hero__outcome">
+                <p class="hero__outcome-value">{t(stat.value, lang)}</p>
+                <p class="hero__outcome-label">{t(stat.label, lang)}</p>
+              </li>
+            ))
+          }
+        </ul>
+        <div class="hero__actions">
+          <a class="btn btn-primary" href={localizedPath("/case-studies/", lang)}>
+            {t(ui.heroCtaCases, lang)}
+          </a>
+          <a class="btn" href={cvHref} download>
+            {t(ui.heroCtaCv, lang)}
+          </a>
+          <a class="btn" href="https://linkedin.com/in/mariusdev">LinkedIn</a>
+          <a class="btn" href="https://github.com/mihailmariusiondev">GitHub</a>
+        </div>
+        <p class="hero__location">{t(ui.heroLocation, lang)}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="diagrams" aria-labelledby="diagrams-heading">
+    <div class="wrap">
+      <h2 id="diagrams-heading" class="diagrams__heading">
+        {t(ui.homeDiagramsHeading, lang)}
+      </h2>
+      <p class="diagrams__lede prose">{t(ui.homeDiagramsLede, lang)}</p>
+      <div class="diagrams__grid">
+        {
+          caseStudies.map((study) => {
+            const Diagram = DIAGRAM_BY_SLUG[study.slug as keyof typeof DIAGRAM_BY_SLUG];
+            return (
+              <a class="diagrams__item" href={localizedPath(`/case-studies/${study.slug}/`, lang)}>
+                <Diagram lang={lang} compact titleId={`home-diagram-${study.slug}`} />
+                <span class="diagrams__item-title">{t(study.title, lang)}</span>
+              </a>
+            );
+          })
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="stats" aria-labelledby="stats-heading">
+    <div class="wrap">
+      <h2 id="stats-heading" class="stats__heading eyebrow">
+        {t(ui.statsHeading, lang)}
+      </h2>
+      <ul class="stats__list">
+        {
+          stats.map((stat) => (
+            <li class="stat">
+              <p class="stat__value">{t(stat.value, lang)}</p>
+              <p class="stat__label">{t(stat.label, lang)}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section id="work" class="work">
+    <div class="wrap">
+      <div class="work__head">
+        <h2 class="work__title">{t(ui.workTitle, lang)}</h2>
+        <p class="work__lede prose">{t(ui.workLede, lang)}</p>
+      </div>
+      <div class="work__grid">
+        {caseStudies.map((study) => <CaseStudyCard study={study} />)}
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* ---------------- Hero ---------------- */
+
+  .hero {
+    padding-block: var(--space-3) var(--space-4);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .hero__grid {
+    display: grid;
+    gap: var(--space-3);
+    align-items: start;
+    grid-template-areas: "top" "diagram" "bottom";
+  }
+
+  .hero__top {
+    grid-area: top;
+  }
+
+  .hero__diagram {
+    grid-area: diagram;
+  }
+
+  .hero__bottom {
+    grid-area: bottom;
+  }
+
+  @media (min-width: 56rem) {
+    .hero__grid {
+      /* The funnel diagram, not the photo, is the visual anchor: it takes the
+         whole right column, spanning both text rows. */
+      grid-template-columns: minmax(0, 1fr) minmax(17rem, 23rem);
+      grid-template-areas: "top diagram" "bottom diagram";
+      gap: var(--space-2) var(--space-5);
+      align-items: start;
+    }
+
+    .hero__diagram {
+      align-self: center;
+    }
+  }
+
+  .hero__identity {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: var(--space-1);
+  }
+
+  .hero__avatar {
+    display: block;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: 50% 22%;
+    border: 1px solid var(--rule);
+    box-shadow: var(--shadow-raised);
+    flex: none;
+  }
+
+  .hero__title {
+    font-size: var(--step-display);
+    max-width: 20ch;
+    margin-block: var(--space-1) var(--space-2);
+  }
+
+  .hero__lede {
+    max-width: 54ch;
+    font-size: var(--step-lede);
+    color: var(--slate);
+    margin-bottom: var(--space-3);
+  }
+
+  /* ---------------- Hero diagram (the funnel drawing IS the hero visual) --- */
+
+  .hero__diagram {
+    /* The diagram carries its own "illustrative" tag + alt-text toggle via
+       DiagramFrame, so it reads as trustworthy at hero scale, not decorative. */
+    max-width: 26rem;
+    margin-inline: auto;
+  }
+
+  @media (min-width: 56rem) {
+    .hero__diagram {
+      max-width: none;
+      margin-inline: 0;
+    }
+  }
+
+  /* ---------------- Outcomes (2-3 strongest results, above the fold) ------ */
+
+  .hero__outcomes {
+    list-style: none;
+    margin: 0 0 var(--space-3);
+    padding: var(--space-2) 0 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-2);
+    border-top: 1px solid var(--rule);
+  }
+
+  .hero__outcome-value {
+    font-family: var(--font-mono);
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--steel-dark);
+    margin-bottom: 0.2rem;
+    overflow-wrap: break-word;
+  }
+
+  .hero__outcome-label {
+    font-size: 0.75rem;
+    line-height: 1.4;
+    color: var(--slate);
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: var(--space-3);
+  }
+
+  .hero__location {
+    font-family: var(--font-mono);
+    font-size: var(--step-micro);
+    line-height: 1.6;
+    color: var(--slate-quiet);
+    max-width: 48ch;
+  }
+
+  /* ---------------- Diagram previews ---------------- */
+
+  .diagrams {
+    padding-block: var(--space-4);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .diagrams__heading {
+    font-size: var(--step-h2);
+    margin-bottom: var(--space-1);
+  }
+
+  .diagrams__lede {
+    color: var(--slate);
+    margin-bottom: var(--space-3);
+  }
+
+  .diagrams__grid {
+    display: grid;
+    gap: var(--space-3);
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 56rem) {
+    .diagrams__grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .diagrams__item {
+    display: block;
+    text-decoration: none;
+    color: var(--ink);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+    padding: var(--space-2);
+    background: var(--paper-raised);
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+
+  .diagrams__item:hover {
+    border-color: var(--steel);
+    transform: translateY(-2px);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .diagrams__item:hover {
+      transform: none;
+    }
+  }
+
+  .diagrams__item-title {
+    display: block;
+    margin-top: var(--space-1);
+    font-size: var(--step-micro);
+    font-family: var(--font-mono);
+    color: var(--slate);
+  }
+
+  /* ---------------- Verified results ---------------- */
+
+  .stats {
+    padding-block: var(--space-4);
+    background: var(--paper-sunk);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .stats__heading {
+    margin-bottom: var(--space-3);
+  }
+
+  .stats__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-3);
+  }
+
+  @media (min-width: 40rem) {
+    .stats__list {
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-3) var(--space-4);
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .stats__list {
+      /* The five figures read as one measured ledger, not five loose cards. */
+      grid-template-columns: repeat(5, 1fr);
+    }
+  }
+
+  .stat {
+    /* The rule is the signature: each figure is an audited entry, not a badge. */
+    border-left: 2px solid var(--steel);
+    padding-left: var(--space-2);
+    min-width: 0;
+  }
+
+  .stat__value {
+    font-family: var(--font-mono);
+    font-size: 1.625rem;
+    font-weight: 500;
+    line-height: 1.2;
+    color: var(--steel-dark);
+    margin-bottom: 0.4rem;
+    overflow-wrap: break-word;
+  }
+
+  .stat__label {
+    font-size: var(--step-small);
+    line-height: 1.5;
+    color: var(--slate);
+    max-width: 40ch;
+  }
+
+  /* ---------------- Case studies ---------------- */
+
+  .work {
+    padding-block: var(--space-5);
+  }
+
+  .work__head {
+    margin-bottom: var(--space-4);
+  }
+
+  .work__title {
+    font-size: var(--step-h2);
+    margin-bottom: var(--space-1);
+  }
+
+  .work__lede {
+    color: var(--slate);
+  }
+
+  .work__grid {
+    display: grid;
+    gap: var(--space-3);
+  }
+
+  @media (min-width: 56rem) {
+    .work__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

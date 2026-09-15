@@ -1,0 +1,98 @@
+---
+/**
+ * Case: realtime-shopping-assistant. Draws the funnel from the case's own
+ * number: the LLM context payload fell from 570 KB to 22 KB per execution
+ * (96%). Numbers and the "per execution" framing come straight from
+ * `src/data/caseStudies.ts`; nothing here is invented.
+ */
+import DiagramFrame from "./DiagramFrame.astro";
+import { t, type Locale } from "../../i18n";
+
+interface Props {
+  lang: Locale;
+  compact?: boolean;
+  titleId: string;
+}
+
+const { lang, compact = false, titleId } = Astro.props;
+
+const L = {
+  title: { en: "Context payload funnel", es: "Embudo del payload de contexto" },
+  before: { en: "570 KB / execution", es: "570 KB / ejecución" },
+  after: { en: "22 KB / execution", es: "22 KB / ejecución" },
+  cut: { en: "−96%", es: "−96%" },
+};
+
+const steps = [
+  t(
+    { en: "Before: 570 KB of context sent per execution.", es: "Antes: 570 KB de contexto por ejecución." },
+    lang,
+  ),
+  t(
+    {
+      en: "Lazy initialization and a routing / context-stripping design narrow what is sent.",
+      es: "La inicialización diferida y un diseño de enrutado con limpieza de contexto reducen lo que se envía.",
+    },
+    lang,
+  ),
+  t({ en: "After: 22 KB of context sent per execution.", es: "Después: 22 KB de contexto por ejecución." }, lang),
+  t({ en: "A 96% reduction, measured, not estimated.", es: "Una reducción del 96%, medida, no estimada." }, lang),
+];
+---
+
+<DiagramFrame lang={lang} steps={steps} compact={compact}>
+  <svg
+    viewBox="0 0 320 190"
+    role="img"
+    aria-labelledby={titleId}
+    focusable="false"
+  >
+    <title id={titleId}>{t(L.title, lang)}</title>
+    <desc>{steps.join(" ")}</desc>
+
+    <!-- funnel sides: wide payload narrowing to the trimmed one -->
+    <path
+      d="M32,46 L288,46 L181,108 L139,108 Z"
+      fill="var(--steel-wash)"
+      stroke="var(--steel)"
+      stroke-width="2"
+      stroke-linejoin="round"
+      data-draw
+    />
+    <!-- trimmed output channel -->
+    <path
+      d="M139,108 L139,140 L181,140 L181,108"
+      fill="none"
+      stroke="var(--steel)"
+      stroke-width="2"
+      stroke-linejoin="round"
+      data-draw
+    />
+    <rect x="145" y="140" width="30" height="12" rx="2.5" fill="#2f5680" data-reveal />
+
+    {!compact && (
+      <>
+        <text x="160" y="34" text-anchor="middle" class="dg-label" data-reveal>
+          {t(L.before, lang)}
+        </text>
+        <text x="160" y="176" text-anchor="middle" class="dg-label" data-reveal>
+          {t(L.after, lang)}
+        </text>
+        <text x="230" y="90" text-anchor="middle" class="dg-cut" data-reveal>
+          {t(L.cut, lang)}
+        </text>
+      </>
+    )}
+  </svg>
+</DiagramFrame>
+
+<style>
+  svg :global(.dg-label) {
+    font: 500 11px var(--font-mono, monospace);
+    fill: var(--slate);
+  }
+  svg :global(.dg-cut) {
+    font: 700 14px var(--font-mono, monospace);
+    fill: var(--steel-dark);
+  }
+</style>

@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Marius Mihail Ion · Senior Angular / Frontend Engineer</title>
+<meta name="description" content="Senior Angular / Frontend Engineer for enterprise e-commerce, banking and education frontends. Explore the work as a stories app." />
+<meta name="color-scheme" content="dark" />
+<meta name="theme-color" content="#0b0c10" />
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+<link rel="canonical" href="https://mihailmariusiondev.github.io/" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Marius Mihail Ion · Senior Angular / Frontend Engineer" />
+<meta property="og:description" content="Enterprise Angular work across e-commerce, banking and education, told as a tap-through stories app." />
+<meta property="og:image" content="assets/me.webp" />
+<meta name="twitter:card" content="summary" />
+<link rel="stylesheet" href="css/style.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Marius Mihail Ion",
+  "jobTitle": "Senior Angular / Frontend Engineer",
+  "email": "mailto:mihailmariusion@gmail.com",
+  "url": "https://mihailmariusiondev.github.io",
+  "sameAs": ["https://linkedin.com/in/mariusdev", "https://github.com/mihailmariusiondev"],
+  "address": { "@type": "PostalAddress", "addressLocality": "Zaragoza", "addressCountry": "ES" }
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main" data-i18n="skipLink">Skip to main content</a>
+
+<div class="scene" aria-hidden="true">
+  <div class="scene__blob scene__blob--a"></div>
+  <div class="scene__blob scene__blob--b"></div>
+  <div class="scene__blob scene__blob--c"></div>
+</div>
+
+<div class="app-frame">
+  <div class="app" id="app">
+
+    <header class="app__header">
+      <div class="brand">
+        <span class="brand__dot" aria-hidden="true"></span>
+        <div class="brand__text">
+          <strong>Marius Mihail Ion</strong>
+          <span data-i18n="identity.title">Senior Angular / Frontend Engineer</span>
+        </div>
+      </div>
+      <button class="lang-toggle" id="langToggle" type="button" aria-label="Language">
+        <span data-i18n="ui.langSwitch">ES</span>
+      </button>
+    </header>
+
+    <main id="main" class="app__main">
+
+      <!-- STORIES SCREEN -->
+      <section class="screen" id="screen-stories" data-screen="stories" aria-labelledby="storiesHeading">
+        <h1 id="storiesHeading" class="screen__title" data-i18n="hero.title">Enterprise frontend for e-commerce, banking and education.</h1>
+        <p class="screen__lede" data-i18n="hero.body">Software developer since 2018, specialized in Angular since 2021.</p>
+        <ul class="ring-rail" id="ringRail" role="list" aria-label="Stories"></ul>
+
+        <h2 class="subheading" data-i18n="ui.recap.heading">Verified results, in brief</h2>
+        <ul class="stat-strip" id="statStrip"></ul>
+
+        <div class="cv-row cv-row--home">
+          <a class="btn btn--primary" href="assets/cv-en.pdf" download><span data-i18n="ui.cvEnLabel">CV (English)</span></a>
+          <a class="btn" href="assets/cv-es.pdf" download><span data-i18n="ui.cvEsLabel">CV (Spanish)</span></a>
+        </div>
+      </section>
+
+      <!-- ROLES SCREEN -->
+      <section class="screen" id="screen-roles" data-screen="roles" hidden aria-labelledby="rolesHeading">
+        <h1 id="rolesHeading" class="screen__title" data-i18n="rolesHeading">Career timeline</h1>
+        <p class="screen__lede" data-i18n="ui.dragHint">Drag or use ← →</p>
+        <div class="deck" id="deck">
+          <div class="deck__stack" id="deckStack"></div>
+        </div>
+        <div class="deck__dots" id="deckDots" role="tablist" aria-label="Roles"></div>
+      </section>
+
+      <!-- CONNECT SCREEN -->
+      <section class="screen" id="screen-connect" data-screen="connect" hidden aria-labelledby="connectHeading">
+        <h1 id="connectHeading" class="screen__title" data-i18n="ui.connectHeading">Let's talk</h1>
+        <p class="screen__lede" data-i18n="ui.connectLede">Remote or hybrid from Zaragoza.</p>
+
+        <div class="connect-card">
+          <img class="connect-photo" src="assets/me.webp" width="72" height="72" alt="Marius Mihail Ion" loading="lazy" />
+          <div class="connect-links" id="connectLinks"></div>
+        </div>
+
+        <div class="cv-row">
+          <a class="btn btn--primary" id="cvEnBtn" href="assets/cv-en.pdf" download>
+            <span data-i18n="ui.cvEnLabel">CV (English)</span>
+          </a>
+          <a class="btn" id="cvEsBtn" href="assets/cv-es.pdf" download>
+            <span data-i18n="ui.cvEsLabel">CV (Spanish)</span>
+          </a>
+        </div>
+
+        <h2 class="subheading" data-i18n="ui.recsHeading">What people say</h2>
+        <div class="recs" id="recs"></div>
+
+        <p class="a11y-note" data-i18n="ui.a11yNote">Targets WCAG 2.1 AA.</p>
+      </section>
+
+    </main>
+
+    <nav class="tabbar" aria-label="Primary">
+      <button class="tab" data-tab="stories" aria-current="page">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 9h18"/></svg>
+        <span data-i18n="ui.tabStories">Stories</span>
+      </button>
+      <button class="tab" data-tab="roles">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="6" width="16" height="12" rx="2"/><path d="M8 6V4h8v2"/></svg>
+        <span data-i18n="ui.tabRoles">Roles</span>
+      </button>
+      <button class="tab" data-tab="connect">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v12H8l-4 4z"/></svg>
+        <span data-i18n="ui.tabConnect">Connect</span>
+      </button>
+    </nav>
+  </div>
+
+  <aside class="side-panel" aria-labelledby="desktopProofHeading">
+    <h2 id="desktopProofHeading" data-i18n="sidePanel.heading">At a glance</h2>
+    <ul class="side-stats" id="sideStats"></ul>
+    <div class="side-actions" aria-label="Contact and CV">
+      <a class="side-action side-action--primary" href="mailto:mihailmariusion@gmail.com" data-i18n="sidePanel.contact">Start a conversation</a>
+      <div class="side-cvs">
+        <a class="side-action" href="assets/cv-en.pdf" download data-i18n="ui.cvEnLabel">CV (English)</a>
+        <a class="side-action" href="assets/cv-es.pdf" download data-i18n="ui.cvEsLabel">CV (Spanish)</a>
+      </div>
+    </div>
+    <p class="side-panel__hint" data-i18n="sidePanel.hint">This is a phone-shaped app, presented in a desktop scene — try Roles and Connect too.</p>
+  </aside>
+</div>
+
+<!-- STORY VIEWER OVERLAY -->
+<div class="viewer" id="viewer" hidden role="dialog" aria-modal="true" aria-label="Story">
+  <div class="viewer__bars" id="viewerBars"></div>
+  <div class="viewer__head">
+    <span class="viewer__ring" id="viewerRingLabel"></span>
+    <button class="viewer__close" id="viewerClose" type="button" aria-label="Close story">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <div class="viewer__slide" id="viewerSlide" aria-live="polite"></div>
+  <button class="viewer__zone viewer__zone--prev" id="zonePrev" aria-label="Previous" tabindex="-1"></button>
+  <button class="viewer__zone viewer__zone--next" id="zoneNext" aria-label="Next" tabindex="-1"></button>
+  <div class="viewer__hint" id="viewerHint" data-i18n="ui.holdHint">Tap a side or use the controls below</div>
+  <div class="viewer__manual" id="viewerManual" hidden>
+    <button type="button" id="manualPrev" data-i18n="ui.prev">Previous</button>
+    <button type="button" id="manualNext" data-i18n="ui.next">Next</button>
+  </div>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="Page not found · Marius Mihail Ion"
+  description="The requested page does not exist. Return to the English or Spanish portfolio."
+  noIndex
+>
+  <div class="wrap wrap--narrow page">
+    <h1 class="notfound__title">
+      <span class="notfound__code">404</span>
+      <span class="notfound__text">Page not found · Página no encontrada</span>
+    </h1>
+    <p class="prose">
+      The page you are looking for does not exist. La página que buscas no existe.
+    </p>
+    <div class="actions">
+      <a class="btn btn-primary" href="/">English portfolio</a>
+      <a class="btn" href="/es/" lang="es">Portfolio en español</a>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .page {
+    padding-block: var(--space-5);
+  }
+
+  .notfound__title {
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  .notfound__code {
+    font-size: clamp(4rem, 2rem + 12vw, 9rem);
+    line-height: 0.9;
+    color: var(--signal);
+  }
+
+  .notfound__text {
+    font-size: var(--step-h2);
+  }
+
+  .page .prose {
+    margin-top: var(--space-3);
+    color: var(--slate);
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: var(--space-3);
+  }
+</style>

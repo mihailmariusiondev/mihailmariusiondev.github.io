@@ -1,0 +1,48 @@
+---
+/** The case-studies index, rendered once per language. */
+import Layout from "../../layouts/Layout.astro";
+import CaseStudyCard from "../CaseStudyCard.astro";
+import { caseStudies } from "../../data/caseStudies";
+import { ui } from "../../data/ui";
+import { t, type Locale } from "../../i18n";
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+---
+
+<Layout
+  title={t(ui.casesTitle, lang)}
+  description={t(ui.casesDescription, lang)}
+>
+  <div class="wrap page">
+    <header class="page-head">
+      <p class="eyebrow">{t(ui.casesEyebrow, lang)}</p>
+      <h1>{t(ui.casesHeading, lang)}</h1>
+      <p class="page-head__lede prose">{t(ui.casesLede, lang)}</p>
+    </header>
+
+    <section class="grid" aria-label={t(ui.casesAriaLabel, lang)}>
+      {caseStudies.map((study) => <CaseStudyCard study={study} />)}
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .page {
+    padding-bottom: var(--space-5);
+  }
+
+  .grid {
+    display: grid;
+    gap: var(--space-3);
+  }
+
+  @media (min-width: 56rem) {
+    .grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

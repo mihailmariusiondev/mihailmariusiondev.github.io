@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Bake-off del portfolio · v2 desde cero</title>
+<style>
+  :root { color-scheme: light dark; --bg:#f3f4f7; --fg:#15171c; --mut:#4a5060; --line:#c9cdd6; --acc:#1f4fd1; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#12141a; --fg:#eef0f5; --mut:#aab1c0; --line:#2c313c; --acc:#8fb0ff; } }
+  body { margin:0; font:16px/1.5 system-ui, sans-serif; background:var(--bg); color:var(--fg); }
+  main { max-width:64rem; margin:auto; padding:1.5rem 1rem 3rem; }
+  h1 { font-size:clamp(1.5rem,4vw,2.25rem); margin:0 0 .25rem; }
+  summary { margin:2.5rem 0 .75rem; font-weight:700; cursor:pointer; min-height:44px; }
+  p { color:var(--mut); margin:0 0 1.5rem; }
+  ol { list-style:none; padding:0; margin:0; display:grid; gap:.75rem; grid-template-columns:repeat(auto-fill,minmax(15rem,1fr)); }
+  a.c { display:grid; gap:.25rem; min-height:44px; padding:1rem; border:1px solid var(--line); border-radius:.5rem; color:inherit; text-decoration:none; }
+  a.c:hover { border-color:var(--acc); } a.c:focus-visible { outline:3px solid var(--acc); outline-offset:2px; }
+  .n { font-weight:700; } .u { color:var(--acc); font-size:.85rem; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Bake-off del portfolio · v2</h1>
+  <p>16 webs creadas desde cero con el contexto completo del CV. Las que aún no tienen build no responden todavía. Nada integrado ni publicado.</p>
+  <ol id="v2"></ol>
+  <details>
+    <summary>Archivo: v1 (descartada, reskins de la web actual)</summary>
+    <ol id="v1"></ol>
+  </details>
+</main>
+<script>
+  const h = "100.89.140.14"; // Tailscale (desktop-fk10vps)
+  const card = (p, name) => `<li><a class="c" href="http://${h}:${p}/"><span class="n">${name}</span><span class="u">${h}:${p}</span></a></li>`;
+  document.getElementById("v2").innerHTML = ["Mundo WebGL 3D","Sistema operativo","Cine de scroll","Carrera jugable","Póster generativo","Revista cinética","Conversación","Física","Lienzo infinito","Observatorio de datos","Exposición","Secuenciador","Expediente","App de stories","Terminal de arranque","Libro pop-up"].map((n, i) => card(4421 + i, `s${String(i+1).padStart(2,"0")} · ${n}`)).join("");
+  document.getElementById("v1").innerHTML = ["Signal Path","Component Specimen","Kinetic Type","Controlled Rollout","Context Field","Focus Order","Mudéjar Grid","Spatial Deck","Wire to Hi-fi","Night Instrument","Plain Fast","Case Diagrams","Atlas Map","Paper Layers","Liquid Glass","Scroll Film"]
+    .map((n, i) => card(4401 + i, `c${i+1} · ${n}`)).join("");
+</script>
+<noscript><p>v2: http://100.89.140.14:4421/ … http://100.89.140.14:4436/ · archivo v1: 4401 … 4416</p></noscript>
+</body>
+</html>

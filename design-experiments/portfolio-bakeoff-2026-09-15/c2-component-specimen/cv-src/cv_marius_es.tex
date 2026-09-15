@@ -1,0 +1,207 @@
+%!TEX program = xelatex
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[a4paper,left=1.5cm,right=1.5cm,top=1.2cm,bottom=1.2cm]{geometry}
+
+\usepackage{fontspec}
+\setmainfont{Georgia}[
+  Path           = /usr/share/fonts/truetype/msttcorefonts/,
+  Extension      = .ttf,
+  UprightFont    = Georgia,
+  BoldFont       = Georgia_Bold,
+  ItalicFont     = Georgia_Italic,
+  BoldItalicFont = Georgia_Bold_Italic,
+]
+% Map Lato weight variants to Georgia equivalents
+\newfontfamily\latolight{Georgia}[Path=/usr/share/fonts/truetype/msttcorefonts/,Extension=.ttf,ItalicFont=Georgia_Italic]
+\newfontfamily\latomedium{Georgia}[Path=/usr/share/fonts/truetype/msttcorefonts/,Extension=.ttf]
+\newfontfamily\latosemibold{Georgia_Bold}[Path=/usr/share/fonts/truetype/msttcorefonts/,Extension=.ttf]
+
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+
+\definecolor{dark}{HTML}{2C2C2C}
+\definecolor{mid}{HTML}{555555}
+\definecolor{light}{HTML}{888888}
+\definecolor{rulecolor}{HTML}{CCCCCC}
+
+\hypersetup{colorlinks=true,urlcolor=dark,linkcolor=dark,
+  pdfauthor={Marius Mihail Ion},pdftitle={CV --- Marius Mihail Ion},
+  pdfsubject={Desarrollador Angular Sénior},pdflang={es-ES},
+  pdfkeywords={Angular, Frontend, TypeScript, RxJS, NgRx, Arquitectura}}
+
+\pagestyle{empty}
+\raggedright
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+
+% Section: bold uppercase, letter-spaced, thin rule
+\newfontfamily\sectionfont{Georgia_Bold}[Path=/usr/share/fonts/truetype/msttcorefonts/,Extension=.ttf,LetterSpace=6]
+\titleformat{\section}
+  {\raggedright\normalsize\sectionfont\color{dark}}
+  {}{0em}{\MakeUppercase}[\vspace{2pt}{\color{rulecolor}\hrule height 0.3pt}]
+\titlespacing*{\section}{0pt}{9pt}{4pt}
+
+% Experience header
+\newcommand{\job}[4]{%
+  \vspace{5pt}%
+  {\latosemibold\color{dark}#1\hfill{\latolight\small\color{light}#2}}\par
+  {\itshape\small\color{mid}#3\hfill{\latolight\small\color{light}#4}}\par\vspace{2pt}%
+}
+
+% Context line
+\newcommand{\context}[1]{%
+  {\latolight\itshape\small\color{mid}\hspace{0.8em}#1}\vspace{2pt}%
+}
+
+% Bullet list
+\newenvironment{items}{%
+  \begin{itemize}[leftmargin=1.2em, itemsep=0pt, topsep=2pt, parsep=0pt, label={\color{light}\textbullet}]
+    \normalsize\color{dark}
+}{%
+  \end{itemize}%
+}
+
+% Skill line
+\newcommand{\skill}[2]{%
+  {\normalsize\latosemibold #1\normalfont\enspace\color{mid}#2}\\[3pt]
+}
+
+% Entry line
+\newcommand{\entry}[2]{%
+  {\small #1} \hfill {\latolight\small\color{light} #2}\\[1.5pt]
+}
+
+% Recognition quote
+\newcommand{\recognition}[2]{%
+  \vspace{3pt}{\small\latolight\itshape\color{mid}\textquotedblleft #1\textquotedblright}\\
+  \hfill{\small\latosemibold\color{dark}#2}\vspace{1pt}%
+}
+
+%══════════════════════════════════════════════════════════════
+\begin{document}
+
+% ── HEADER ──
+\begin{center}
+  {\fontsize{20}{24}\selectfont\latosemibold\addfontfeature{LetterSpace=3}\color{dark} Marius Mihail Ion}\\[4pt]
+  {\latomedium\color{mid}\small Ingeniero Frontend Sénior (Angular)\enspace\textbar\enspace Frontend de producto empresarial}\\[4pt]
+  {\latolight\footnotesize\color{light}
+    Zaragoza, España\enspace\textbar\enspace
+    \href{mailto:mihailmariusion@gmail.com}{mihailmariusion@gmail.com}\enspace\textbar\enspace
+    +34\,662\,439\,252\enspace\textbar\enspace
+    \href{https://linkedin.com/in/mariusdev}{linkedin.com/in/mariusdev}\enspace\textbar\enspace
+    \href{https://github.com/mihailmariusiondev}{github.com/mihailmariusiondev}
+  }\\[3pt]
+  {\small\latosemibold\color{dark} Ciudadano de la UE: autorizado para trabajar en toda la UE/EEE sin patrocinio}\\[1pt]
+  {\latolight\footnotesize\color{light} Indefinido o B2B\enspace\textbar\enspace Remoto o híbrido desde Zaragoza\enspace\textbar\enspace Disponibilidad para viajes puntuales}
+\end{center}
+\vspace{2pt}
+
+% ── SUMMARY ──
+\section{Perfil profesional}
+{\normalsize\color{dark}
+Ingeniero Frontend Sénior con experiencia en software desde 2018 y especializado en Angular y TypeScript desde 2021. He desarrollado productos para comercio electrónico global (Zara Home), banca (Santander) y educación en línea (UNIR). Trabajo en arquitectura frontend, rendimiento, accesibilidad, testing e integraciones con API e IA. Mi base full stack en .NET/C\# (2018--2020) aporta contexto al diseñar autenticación y contratos de API.
+}
+
+% ── SKILLS ──
+\section{Competencias técnicas}
+
+\skill{Angular y TypeScript}{Angular 8--20, Signals, Standalone Components, SSR, carga diferida, RxJS, NgRx, Angular Material/CDK, feature flags}
+
+\skill{Frontend de producto}{JavaScript, HTML5, CSS/SCSS, React 17 (experiencia en proyecto), diseño adaptable, sistemas de diseño, accesibilidad WCAG 2.1 AA, i18n (Transloco), rendimiento web}
+
+\skill{Pruebas y calidad}{Jest, Karma/Jasmine, SonarQube/SonarCloud, ESLint, Prettier, revisión sistemática de PR}
+
+\skill{API y entrega}{REST, OpenAPI/Swagger, OAuth 2.0, JWT, interceptores HTTP, WebRTC, servicios sin servidor de AWS (Lambda, Cognito, API Gateway, S3), GitHub Actions, Git/GitHub, Jira, Figma, Agile/Scrum}
+
+\skill{IA y herramientas de ingeniería}{OpenAI Realtime API, WebRTC, integraciones LLM, ingeniería de prompts y contexto, herramientas MCP}
+
+% ── EXPERIENCE ──
+\section{Experiencia}
+
+\job{Decskill España \,\textperiodcentered\, Cliente: Zara Home (Inditex)}{Zaragoza, España}{Analista Frontend Sénior (Angular)}{Mayo 2025 \textendash{} Julio 2026}
+\context{Zara Home: plataforma de comercio electrónico global y multimercado}
+\begin{items}
+  \item Desarrollé el frontend Angular del asistente de compra con IA de Zara Home: voz y texto en tiempo real sobre WebRTC, conectado a un catálogo de herramientas del backend. Publicado en producción mediante una feature flag como piloto controlado.
+  \item Reduje el payload de contexto del LLM de 570\,KB a 22\,KB por ejecución mediante enrutado y limpieza de contexto (\textbf{96\% de reducción})
+  \item Entregué un Centro de Ayuda conversacional que sustituyó en producción a las antiguas guías de compra, desplegado mercado a mercado con integración Angular compatible con SSR, rutas localizadas y accesibilidad preservada durante el lanzamiento
+  \item Audité un paquete de JavaScript de 19\,MB e \textbf{identifiqué aproximadamente 3,4\,MB} de peso eliminable. Entregué dos PR con importaciones dinámicas de hls.js y html2canvas, eliminación de lodash-es y migración de Luxon a Date nativo
+  \item Entregué la migración del área de cuenta a autenticación sin contraseña (OTP): diseñé una UX de doble vía gobernada por \texttt{hasPassword}, con flujos OTP para cambio de email y creación de contraseña, validada en cuatro escenarios documentados
+  \item Cerré 34 hallazgos WCAG 2.1 AA de una auditoría formal de accesibilidad: jerarquía de encabezados en todo el sitio, navegación por teclado, semántica ARIA y gestión del foco
+\end{items}
+
+% ── AVANADE ──
+\job{Avanade España \,\textperiodcentered\, Cliente: UNIR}{Remoto, España}{Analista Frontend Sénior (Angular)}{Marzo 2024 \textendash{} Mayo 2025}
+\context{UNIR: universidad en línea en España. \textquotedblleft Mateo\textquotedblright: sistema administrativo para la gestión de alumnos}
+\begin{items}
+  \item Actué como referente técnico de frontend, trabajando directamente en el código y guiando la arquitectura Angular, el diseño de componentes y las decisiones de calidad en todo el equipo
+  \item Definí la arquitectura base: flujos de autenticación, interfaz de administración, permisos centralizados y navegación
+  \item Trabajé dentro de un monorepo Nx y refactoricé el módulo de Admisiones, eliminando dependencias circulares y centralizando la lógica de permisos
+  \item Introduje análisis estático, formateo y pruebas unitarias en un sistema administrativo que no tenía ninguno, además de protocolos de revisión y controles de calidad
+  \item Formé al equipo en prácticas de Angular, dirigí sesiones de análisis con SonarQube y recibí el reconocimiento \textbf{Inspire Greatness} (agosto 2024)
+\end{items}
+
+% ── VERMONT ──
+\newpage
+\job{Vermont Solutions (Viewnext / IBM) \,\textperiodcentered\, Cliente: Santander}{Madrid, España}{Desarrollador Frontend Sénior (Angular)}{Diciembre 2022 \textendash{} Marzo 2024}
+\context{Santander: aplicaciones bancarias de monitorización de transacciones, gestión de empleados y operaciones inmobiliarias}
+\begin{items}
+  \item Referente sénior de Angular en tres aplicaciones bancarias concurrentes, liderando la entrega diaria con los equipos de backend, diseño y Scrum
+  \item Lideré un equipo de 5 en una aplicación bancaria móvil interna (empleados gestionando sus propias transacciones y tarjetas), y fui el referente técnico sénior de un equipo de 4 en el portal inmobiliario interno de Santander
+  \item Construí un panel de monitorización de transacciones con Chart.js (gráficos de barras y anillos) e interacciones gestuales con HammerJS. En un proyecto asumí cerca del 80\% de la implementación del frontend
+  \item Implementé diseños de Figma como componentes Angular sobre la plataforma interna de frontend de Santander: sistema de diseño Flame, librerías de seguridad y registro NgDarwin, Storybook y Nexus para paquetes internos
+  \item Mantuve la calidad alta con pruebas unitarias sistemáticas (Karma, Jasmine) y análisis estático (SonarQube, ESLint, Fortify), reduciendo deuda técnica por el camino
+\end{items}
+
+% ── CLOUDAPPI ──
+\job{CloudAPPi}{Madrid, España}{Desarrollador Frontend Intermedio (Angular, React)}{Octubre \textendash{} Diciembre 2022}
+\context{Contrato de dos meses para la Comunidad de Madrid.}
+\begin{items}
+  \item Desarrollé flujos de autenticación y mejoras incrementales en \textbf{Madrid Digital}, un monolito heredado en Angular 8 (Angular Material, RxJS)
+  \item También contribuí a un proyecto React (ReactJS 17, Redux Toolkit, Material UI)
+\end{items}
+
+% ── ENZO ──
+\job{ENZO (Rent \& Buy S.A.)}{Madrid, España}{Desarrollador Frontend Intermedio (Angular)}{Septiembre 2021 \textendash{} Octubre 2022}
+\context{Empresa pequeña para un cliente agrícola internacional, sobre servicios sin servidor de AWS. Allí pasé de .NET a Angular y al desarrollo en la nube.}
+\begin{items}
+  \item Desarrollé componentes Angular reutilizables sobre servicios sin servidor de AWS (Lambda, API Gateway, S3, CloudFront, SQS/SNS) y flujos de autenticación con AWS Cognito
+  \item Acompañé a los nuevos miembros del equipo en la arquitectura y las prácticas de Angular, y participé en reuniones con el cliente en inglés y en la toma de requisitos
+\end{items}
+
+% ── PREVIOUS ──
+\vspace{4pt}
+{\latosemibold\small\color{dark} Experiencia anterior}\vspace{1pt}
+\context{Antes de especializarme en Angular en 2021: puestos de desarrollo full stack en .NET (2018 \textendash{} 2020) y una pausa profesional con proyectos propios y formación.}
+\begin{items}
+  \item \textbf{Proyectos propios y formación} \,\textperiodcentered\, Desarrollo WordPress (temas, complementos, SEO), herramientas de automatización de Office y formación estructurada en frontend, junio 2020 \textendash{} septiembre 2021
+  \item \textbf{Altran (Capgemini)} \,\textperiodcentered\, Desarrollador Full Stack Intermedio (.NET), marzo \textendash{} junio 2020
+  \item \textbf{IO Digital (Query Software)} \,\textperiodcentered\, Desarrollador Full Stack Intermedio (.NET), noviembre 2018 \textendash{} septiembre 2019
+  \item \textbf{STRATESYS} \,\textperiodcentered\, Desarrollador Full Stack Junior (.NET), julio \textendash{} noviembre 2018
+\end{items}
+
+% ── CERTIFICATIONS ──
+\section{Certificaciones y formación}
+
+\entry{\textbf{Evaluación de Angular: 95\% de puntuación, entre el 1,42\% de los mejores candidatos} \,\textperiodcentered\, SkillValue}{Septiembre 2022}
+\entry{Green Software for Practitioners \,\textperiodcentered\, Linux Foundation + Green Software Foundation}{2025}
+\entry{Técnico Superior en Desarrollo de Aplicaciones Multiplataforma \,\textperiodcentered\, Centro de Estudios Joyfe, Madrid}{2017 \textendash{} 2018}
+
+% ── LANGUAGES ──
+\section{Idiomas}
+
+{\small
+\textbf{Español:} Nativo \quad\textbar\quad
+\textbf{Rumano:} Nativo \quad\textbar\quad
+\textbf{Inglés:} Competencia profesional
+}
+
+% ── RECOGNITION ──
+\section{Reconocimientos}
+
+\recognition{Trabajar con Marius ha sido un verdadero placer. Destaco su iniciativa con herramientas de IA aplicadas al desarrollo, de las que aprendí trabajando codo con codo con él. Cualquier equipo sería afortunado de contar con su nivel técnico y su actitud.}{Juan Pablo Romero Pereira, Desarrollador Frontend, Zara Home (Inditex)}
+
+\end{document}

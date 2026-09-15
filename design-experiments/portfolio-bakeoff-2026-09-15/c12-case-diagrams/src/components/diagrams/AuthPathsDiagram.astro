@@ -1,0 +1,85 @@
+---
+/**
+ * Case: passwordless-account-migration. Draws the two authentication state
+ * paths from the case: existing-password users keep their flow, passwordless
+ * users verify by OTP (including email change and password creation), and
+ * both were validated end-to-end before release.
+ */
+import DiagramFrame from "./DiagramFrame.astro";
+import { t, type Locale } from "../../i18n";
+
+interface Props {
+  lang: Locale;
+  compact?: boolean;
+  titleId: string;
+}
+
+const { lang, compact = false, titleId } = Astro.props;
+
+const L = {
+  title: { en: "Passwordless auth state paths", es: "Rutas de estado de autenticación sin contraseña" },
+  account: { en: "Account", es: "Cuenta" },
+  password: { en: "Password path", es: "Ruta con contraseña" },
+  otp: { en: "OTP path", es: "Ruta OTP" },
+  validated: { en: "Validated", es: "Validado" },
+};
+
+const steps = [
+  t(
+    { en: "An account can hold an existing password or migrate to passwordless.", es: "Una cuenta puede tener contraseña existente o migrar a acceso sin contraseña." },
+    lang,
+  ),
+  t({ en: "Existing-password users keep their current sign-in path.", es: "Los usuarios con contraseña existente conservan su ruta de acceso actual." }, lang),
+  t(
+    { en: "Passwordless users verify by OTP, including email change and password creation.", es: "Los usuarios sin contraseña verifican por OTP, incluido el cambio de email y la creación de contraseña." },
+    lang,
+  ),
+  t(
+    { en: "Both paths were validated end-to-end in a pre-integration environment.", es: "Ambas rutas se validaron de extremo a extremo en un entorno de preintegración." },
+    lang,
+  ),
+];
+---
+
+<DiagramFrame lang={lang} steps={steps} compact={compact}>
+  <svg viewBox="0 0 320 170" role="img" aria-labelledby={titleId} focusable="false">
+    <title id={titleId}>{t(L.title, lang)}</title>
+    <desc>{steps.join(" ")}</desc>
+
+    <path d="M160,32 L80,80" fill="none" stroke="var(--steel)" stroke-width="2" stroke-linecap="round" data-draw />
+    <path d="M160,32 L240,80" fill="none" stroke="var(--steel)" stroke-width="2" stroke-linecap="round" data-draw />
+    <path d="M80,96 L150,140" fill="none" stroke="var(--steel)" stroke-width="2" stroke-linecap="round" data-draw />
+    <path d="M240,96 L170,140" fill="none" stroke="var(--steel)" stroke-width="2" stroke-linecap="round" data-draw />
+
+    <g data-reveal>
+      <rect x="120" y="14" width="80" height="26" rx="5" fill="var(--paper-raised)" stroke="var(--steel)" stroke-width="2" />
+      <text x="160" y="31" text-anchor="middle" class="dg-node">{t(L.account, lang)}</text>
+    </g>
+
+    <g data-reveal>
+      <rect x="34" y="80" width="92" height="26" rx="5" fill="var(--steel-wash)" stroke="var(--steel)" stroke-width="2" />
+      <text x="80" y="97" text-anchor="middle" class="dg-node">{t(L.password, lang)}</text>
+    </g>
+
+    <g data-reveal>
+      <rect x="194" y="80" width="92" height="26" rx="5" fill="var(--steel-wash)" stroke="var(--steel)" stroke-width="2" />
+      <text x="240" y="97" text-anchor="middle" class="dg-node">{t(L.otp, lang)}</text>
+    </g>
+
+    <g data-reveal>
+      <rect x="120" y="140" width="80" height="26" rx="5" fill="#2f5680" />
+      <text x="160" y="157" text-anchor="middle" class="dg-node-inv">{t(L.validated, lang)}</text>
+    </g>
+  </svg>
+</DiagramFrame>
+
+<style>
+  svg :global(.dg-node) {
+    font: 500 11px var(--font-mono, monospace);
+    fill: var(--ink);
+  }
+  svg :global(.dg-node-inv) {
+    font: 600 11px var(--font-mono, monospace);
+    fill: #fff;
+  }
+</style>

@@ -1,0 +1,61 @@
+---
+import "../styles/global.css";
+import { meta, nav } from "../data/content";
+
+export interface Props {
+  lang: "en" | "es";
+  path: string; // canonical path for this lang, e.g. "/" or "/es/"
+  altPath: string; // path for the other lang
+}
+const { lang, path, altPath } = Astro.props;
+const m = meta[lang];
+const n = nav[lang];
+const site = "https://mihailmariusiondev.github.io";
+---
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{m.title}</title>
+    <meta name="description" content={m.description} />
+    <link rel="canonical" href={`${site}${path}`} />
+    <link rel="alternate" hreflang="en" href={`${site}/`} />
+    <link rel="alternate" hreflang="es" href={`${site}/es/`} />
+    <link rel="alternate" hreflang="x-default" href={`${site}/`} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content={m.title} />
+    <meta property="og:description" content={m.description} />
+    <meta property="og:image" content={`${site}/me.webp`} />
+    <meta property="og:url" content={`${site}${path}`} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      name: "Marius Mihail Ion",
+      jobTitle: "Senior Angular / Frontend Engineer",
+      url: site,
+      email: "mailto:mihailmariusion@gmail.com",
+      sameAs: [
+        "https://linkedin.com/in/mariusdev",
+        "https://github.com/mihailmariusiondev",
+      ],
+      address: { "@type": "PostalAddress", addressLocality: "Zaragoza", addressCountry: "ES" },
+    })} />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">{n.skip}</a>
+    <div class="progress" aria-hidden="true"></div>
+    <header class="topbar">
+      <span class="topbar__brand">M.M.I.</span>
+      <div class="topbar__right">
+        <a class="lang-switch" href={altPath} aria-label={n.switchLabel}>{n.switchTo}</a>
+      </div>
+    </header>
+    <main id="main">
+      <slot />
+    </main>
+    <script src="../scripts/kinetic.js"></script>
+  </body>
+</html>

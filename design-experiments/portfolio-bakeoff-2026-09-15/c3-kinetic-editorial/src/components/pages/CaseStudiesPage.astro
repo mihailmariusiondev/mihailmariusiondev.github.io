@@ -1,0 +1,132 @@
+---
+/**
+ * The case-studies index, rendered once per language.
+ *
+ * This is the concept's second kinetic moment: each case is a full-width row
+ * with a poster-scale title. On a browser that supports scroll-driven
+ * animation the title scales/gains weight as it crosses the viewport
+ * (`.kinetic-title`, defined once in global.css and reused here); everywhere
+ * else it renders fully resolved and static. The summary and tags are always
+ * body-scale and always legible: the kinetic effect never touches them.
+ */
+import Layout from "../../layouts/Layout.astro";
+import { caseStudies } from "../../data/caseStudies";
+import { NAV_ITEMS, ui } from "../../data/ui";
+import { localizedPath, t, type Locale } from "../../i18n";
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+---
+
+<Layout
+  title={t(ui.casesTitle, lang)}
+  description={t(ui.casesDescription, lang)}
+>
+  <div class="wrap page">
+    <nav class="crumbs" aria-label={t(ui.breadcrumbLabel, lang)}>
+      <ol class="crumbs__list">
+        <li><a href={localizedPath("/", lang)}>{t(NAV_ITEMS[0].label, lang)}</a></li>
+        <li aria-current="page">{t(ui.casesEyebrow, lang)}</li>
+      </ol>
+    </nav>
+
+    <header class="page-head">
+      <h1>{t(ui.casesHeading, lang)}</h1>
+      <p class="page-head__lede prose">{t(ui.casesLede, lang)}</p>
+    </header>
+
+    <section aria-label={t(ui.casesAriaLabel, lang)}>
+      <ul class="kinetic-list">
+        {
+          caseStudies.map((study) => {
+            const href = localizedPath(`/case-studies/${study.slug}/`, lang);
+            return (
+              <li class="kinetic-row">
+                <a class="kinetic-row__link" href={href}>
+                  <h2 class="kinetic-row__title kinetic-title">
+                    {t(study.title, lang)}
+                  </h2>
+                  <p class="kinetic-row__summary prose">{t(study.summary, lang)}</p>
+                  <ul
+                    class="tag-row kinetic-row__tags"
+                    aria-label={t(ui.tagsLabel, lang)}
+                  >
+                    {study.tags.map((tag) => (
+                      <li class="tag">{t(tag, lang)}</li>
+                    ))}
+                  </ul>
+                  <span class="kinetic-row__cue" aria-hidden="true">
+                    {t(ui.cardCue, lang)} &rarr;
+                  </span>
+                </a>
+              </li>
+            );
+          })
+        }
+      </ul>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .page {
+    padding-bottom: var(--space-5);
+  }
+
+  .kinetic-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .kinetic-row {
+    border-top: 1px solid var(--rule);
+  }
+
+  .kinetic-row:last-child {
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .kinetic-row__link {
+    display: block;
+    padding-block: var(--space-4);
+    text-decoration: none;
+    color: var(--ink);
+  }
+
+  .kinetic-row__title {
+    font-size: clamp(2.25rem, 1.4rem + 5.2vw, 5.5rem);
+    line-height: 0.98;
+    max-width: 18ch;
+    margin-bottom: var(--space-2);
+    /* The kinetic scale/weight animation transforms this element; the origin
+       stays left so it never drifts into the gutter. */
+    transform-origin: 0% 50%;
+    will-change: transform;
+  }
+
+  .kinetic-row__link:hover .kinetic-row__title,
+  .kinetic-row__link:focus-visible .kinetic-row__title {
+    color: var(--signal);
+  }
+
+  .kinetic-row__summary {
+    color: var(--slate);
+    font-size: var(--step-lede);
+    margin-bottom: var(--space-2);
+  }
+
+  .kinetic-row__tags {
+    margin-bottom: var(--space-2);
+  }
+
+  .kinetic-row__cue {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: var(--step-micro);
+    color: var(--signal);
+  }
+</style>

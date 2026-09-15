@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Marius Mihail Ion · Senior Angular / Frontend Engineer — Terminal</title>
+<meta name="description" content="Senior Angular / Frontend Engineer for enterprise e-commerce, banking and education. A working boot terminal: type help to start." />
+<meta property="og:title" content="Marius Mihail Ion · Angular Frontend Engineer" />
+<meta property="og:description" content="Enterprise Angular work across authentication, SSR, accessibility, performance and controlled product rollouts, presented as a working CRT terminal." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="assets/me.webp" />
+<meta name="theme-color" content="#050806" />
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<a class="skip-link" href="#terminal-input">Skip to command input</a>
+
+<div id="crt-shell" class="crt" data-motion="full">
+  <canvas id="glcanvas" aria-hidden="true"></canvas>
+
+  <main id="terminal" class="terminal" role="application" aria-label="Marius Mihail Ion interactive portfolio terminal">
+    <div id="boot-screen" class="boot-screen" aria-hidden="true">
+      <pre id="boot-log" class="boot-log"></pre>
+      <p class="boot-skip">press any key / tap to skip</p>
+    </div>
+
+    <div id="terminal-body" class="terminal-body" hidden>
+      <header class="term-topbar">
+        <span class="term-dot" aria-hidden="true"></span>
+        <span class="term-title">marius@portfolio: ~</span>
+        <button id="lang-toggle" class="lang-toggle" type="button" aria-label="Switch language">ES</button>
+      </header>
+
+      <div id="output" class="output" role="log" aria-live="polite"></div>
+
+      <form id="cmd-form" class="cmd-form" autocomplete="off">
+        <span class="prompt-glyph" aria-hidden="true">&gt;</span>
+        <input id="terminal-input" name="cmd" class="cmd-input" type="text" spellcheck="false"
+          autocapitalize="off" autocomplete="off" aria-label="Terminal command input"
+          placeholder="type a command, or try 'help'" />
+      </form>
+
+      <nav class="palette" aria-label="Command shortcuts">
+        <button type="button" data-cmd="help">help</button>
+        <button type="button" data-cmd="whoami">whoami</button>
+        <button type="button" data-cmd="cases">cases</button>
+        <button type="button" data-cmd="experience">experience</button>
+        <button type="button" data-cmd="recommendations">recommendations</button>
+        <button type="button" data-cmd="cv">cv</button>
+        <button type="button" data-cmd="contact">contact</button>
+        <button type="button" data-cmd="clear">clear</button>
+      </nav>
+    </div>
+  </main>
+</div>
+
+<script src="data.js"></script>
+<script src="shader.js"></script>
+<script src="main.js"></script>
+</body>
+</html>

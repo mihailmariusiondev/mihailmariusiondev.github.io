@@ -1,0 +1,17 @@
+site	http	bad	cv_ok	js_kb	console	lighthouse
+s01-webgl-world	200	1	yes	507	console: clean 	perf=49 a11y=100 bp=100 seo=100 LCP=2.5 s CLS=0.315 TBT=4,090 ms
+s02-desktop-os	200	1	yes	16	console: clean 	perf=82 a11y=100 bp=100 seo=100 LCP=3.5 s CLS=0.002 TBT=40 ms
+s03-scroll-cinema	200	0	yes	163	console: clean 	perf=57 a11y=98 bp=100 seo=100 LCP=3.9 s CLS=0 TBT=1,060 ms
+s04-playable-career	200	0	yes	46	console: clean 	perf=92 a11y=100 bp=100 seo=91 LCP=2.2 s CLS=0.118 TBT=30 ms
+s05-generative-poster	200	1	yes	44	console: clean 	perf=31 a11y=96 bp=100 seo=100 LCP=9.4 s CLS=0 TBT=1,330 ms
+s06-kinetic-magazine	200	1	yes	113	console: clean 	perf=63 a11y=95 bp=100 seo=100 LCP=5.6 s CLS=0 TBT=30 ms
+s07-conversation	200	1	yes	36	console: clean 	perf=66 a11y=98 bp=100 seo=100 LCP=2.9 s CLS=0.071 TBT=1,710 ms
+s08-physics-playground	200	1	yes	90	console: clean 	perf=59 a11y=100 bp=100 seo=100 LCP=7.4 s CLS=0 TBT=0 ms
+s09-infinite-canvas	200	0	yes	58	console: clean 	perf=69 a11y=100 bp=100 seo=100 LCP=2.5 s CLS=0 TBT=1,990 ms
+s10-data-observatory	200	0	yes	48	console: clean 	perf=55 a11y=100 bp=100 seo=100 LCP=7.6 s CLS=0.001 TBT=190 ms
+s11-exhibition	200	0	yes	1	console: clean 	perf=77 a11y=100 bp=100 seo=100 LCP=4.0 s CLS=0 TBT=40 ms
+s12-sequencer	200	0	yes	38	console: clean 	perf=30 a11y=100 bp=100 seo=100 LCP=8.1 s CLS=0 TBT=1,860 ms
+s13-case-file	200	0	yes	34	console: clean 	perf=89 a11y=100 bp=100 seo=100 LCP=2.8 s CLS=0 TBT=0 ms
+s14-stories-app	200	0	yes	42	console: clean 	perf=86 a11y=100 bp=100 seo=100 LCP=3.2 s CLS=0.028 TBT=10 ms
+s15-boot-terminal	200	1	yes	35	console: clean 	perf=65 a11y=98 bp=100 seo=100 LCP=2.9 s CLS=0.001 TBT=1,080 ms
+s16-popup-book	200	0	yes	28	console: clean 	perf=29 a11y=96 bp=100 seo=100 LCP=7.5 s CLS=0 TBT=7,250 ms

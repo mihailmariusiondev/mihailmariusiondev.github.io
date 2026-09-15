@@ -1,0 +1,14 @@
+{
+  "name": "physics-playground",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "^0.24.0"
+  },
+  "dependencies": {
+    "matter-js": "^0.20.0"
+  }
+}

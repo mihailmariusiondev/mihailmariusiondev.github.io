@@ -1,0 +1,374 @@
+{
+  "meta": {
+    "compiledFor": "16 design agents building portfolio concepts from scratch",
+    "sourceKey": {
+      "S1": "context files: cv-en.txt, cv-es.txt, experience.ts, caseStudies.ts, ui.ts, PRODUCT.md (authoritative, audited, cleared for public use)",
+      "S2": "public GitHub API (gh api users/mihailmariusiondev + repos), read-only, checked 2026-09-14",
+      "S3": "/home/mihai-usl/repos/marius/data/knowledge/*.md professional-facts SSOT (background/texture, not automatically cleared for public copy)",
+      "S4": "mihailmariusiondev.github.io/src/data/*.ts + README.md (identical content to S1)"
+    },
+    "retractionsFromMarius": {
+      "date": "2026-09-14",
+      "note": "Overrides every other source including the audited CV text, even though these phrases still appear verbatim in the current live site data as of compile time.",
+      "retracted": [
+        "wired to a catalog of backend tools",
+        "Help Center that replaced legacy shopping guides in production",
+        "internal project name \"Mateo\" for the UNIR back-office",
+        "\"international agricultural client\" as ENZO's client description"
+      ],
+      "stillBackedAndFine": [
+        "OTP / hasPassword passwordless migration bullets and case study",
+        "Juan Pablo Romero Pereira recommendation quote"
+      ]
+    }
+  },
+  "identity": {
+    "fullName": "Marius Mihail Ion",
+    "title": { "en": "Senior Angular / Frontend Engineer", "es": "Ingeniero Frontend Sénior (Angular)" },
+    "location": "Zaragoza, Spain",
+    "source": "S1"
+  },
+  "contact": {
+    "email": "mihailmariusion@gmail.com",
+    "phone": "+34 662 439 252",
+    "linkedin": "linkedin.com/in/mariusdev",
+    "github": "github.com/mihailmariusiondev",
+    "portfolio": "https://mihailmariusiondev.github.io",
+    "source": "S1"
+  },
+  "workMode": {
+    "audited": [
+      "Remote or hybrid from Zaragoza",
+      "Available for occasional travel",
+      "EU citizen: authorized to work across the EU/EEA without sponsorship",
+      "Permanent or B2B",
+      "No relocation claims"
+    ],
+    "source": "S1 (PRODUCT.md hard rules)"
+  },
+  "professionalSummary": {
+    "en": "Senior Frontend Engineer with software experience since 2018, specialized in Angular and TypeScript since 2021. I have built products for global e-commerce (Zara Home), banking (Santander) and online education (UNIR). My work covers frontend architecture, performance, accessibility, testing, APIs and AI integrations. My full-stack .NET/C# background (2018–2020) helps when designing authentication and API contracts.",
+    "es": "Ingeniero Frontend Sénior con experiencia en software desde 2018 y especializado en Angular y TypeScript desde 2021. He desarrollado productos para comercio electrónico global (Zara Home), banca (Santander) y educación en línea (UNIR). Trabajo en arquitectura frontend, rendimiento, accesibilidad, testing e integraciones con API e IA. Mi base full stack en .NET/C# (2018–2020) aporta contexto al diseñar autenticación y contratos de API.",
+    "source": "S1 cv-en.txt / cv-es.txt"
+  },
+  "heroCopy": {
+    "heroTitle": { "en": "Enterprise frontend for e-commerce, banking and education.", "es": "Frontend corporativo para comercio electrónico, banca y educación." },
+    "heroLede": { "en": "Software developer since 2018, specialized in Angular since 2021. I work on authentication, SSR, accessibility, performance and API integration: the points where frontend decisions carry product risk.", "es": "Desarrollador de software desde 2018, especializado en Angular desde 2021. Trabajo en autenticación, SSR, accesibilidad, rendimiento e integración de APIs: los puntos donde las decisiones de frontend arrastran riesgo de producto." },
+    "heroLocation": { "en": "Based in Zaragoza, Spain · EU citizen · Remote or hybrid from Zaragoza · Available for occasional travel", "es": "Con base en Zaragoza, España · Ciudadano de la UE · Remoto o híbrido desde Zaragoza · Disponibilidad para viajes puntuales" },
+    "source": "S1 ui.ts"
+  },
+  "roles": [
+    {
+      "period": "May 2025 – July 2026",
+      "company": "Decskill Spain",
+      "client": "Zara Home (Inditex)",
+      "role": "Senior Front-End Analyst (Angular)",
+      "location": "Zaragoza, Spain (100% remote per contract per S3)",
+      "context": "Global, multi-market e-commerce frontend.",
+      "bullets": [
+        "Built the Angular frontend of Zara Home's AI shopping assistant: real-time voice and text over WebRTC. Released to production behind a feature flag as a controlled pilot. [RETRACTED PHRASE REMOVED: 'wired to a catalog of backend tools']",
+        "Reduced LLM context payload from 570 KB to 22 KB per execution through routing and context stripping (96% reduction).",
+        "Delivered a conversational Help Center, rolled out market by market with SSR-safe Angular integration, localized routes and accessibility preserved throughout the release. [RETRACTED PHRASE REMOVED: 'that replaced legacy shopping guides in production']",
+        "Audited a 19 MB JavaScript bundle and identified approximately 3.4 MB of removable weight. Shipped two PRs with dynamic imports for hls.js and html2canvas, lodash-es removal and a Luxon-to-native-Date migration.",
+        "Delivered the account-area migration to passwordless (OTP) authentication: designed dual-path UX driven by hasPassword, with OTP flows for email change and password creation, validated end-to-end on the pre-integration environment across four documented scenarios.",
+        "Closed 34 WCAG 2.1 AA findings from a formal accessibility audit: heading hierarchy site-wide, keyboard navigation, ARIA semantics and focus management."
+      ],
+      "source": "S1"
+    },
+    {
+      "period": "March 2024 – May 2025",
+      "company": "Avanade",
+      "client": "UNIR",
+      "role": "Senior Front-End Analyst (Angular)",
+      "location": "Remote, Spain",
+      "context": "UNIR: online university in Spain; administrative back-office for student management. [RETRACTED: never name the internal project code 'Mateo']",
+      "bullets": [
+        "Acted as the hands-on frontend technical reference, guiding Angular architecture, component design and code-quality decisions across the team.",
+        "Defined the core architecture: authentication flows, admin UI, centralized permissions and navigation.",
+        "Worked within an Nx monorepo and refactored the Admissions module, removing circular dependencies and centralizing permissions logic.",
+        "Introduced linting, formatting and unit testing to a back-office that had none, plus review protocols and quality gates.",
+        "Mentored the team on Angular practices, ran SonarQube analysis sessions and received an Inspire Greatness award (August 2024)."
+      ],
+      "source": "S1"
+    },
+    {
+      "period": "December 2022 – March 2024",
+      "company": "Vermont Solutions (Viewnext / IBM)",
+      "client": "Santander",
+      "role": "Senior Front-End Developer (Angular)",
+      "location": "Madrid, Spain",
+      "context": "Santander: banking applications for transaction monitoring, employee management and real estate operations.",
+      "bullets": [
+        "Senior Angular reference across three concurrent banking applications, leading day-to-day delivery with the backend, design and Scrum teams.",
+        "Led a team of 5 on an internal mobile banking app (employees managing their own transactions and cards), and was the senior technical reference for a team of 4 on Santander's internal real-estate portal.",
+        "Built a transaction-monitoring dashboard with Chart.js (bar and donut charts) and gesture interactions with HammerJS. On one project, owned around 80% of the front-end implementation.",
+        "Implemented Figma designs as Angular components on Santander's internal frontend platform: Flame design system, NgDarwin security/logging libraries, Storybook and Nexus for internal packages.",
+        "Kept quality high with systematic unit testing (Karma, Jasmine) and static analysis (SonarQube, ESLint, Fortify), paying down technical debt along the way."
+      ],
+      "source": "S1"
+    },
+    {
+      "period": "October – December 2022",
+      "company": "CloudAPPi",
+      "client": "Regional Government of Madrid",
+      "role": "Mid-Level Front-End Developer (Angular, React)",
+      "location": "Madrid, Spain",
+      "context": "Two-month contract for the Regional Government of Madrid.",
+      "bullets": [
+        "Built authentication flows and incremental improvements on Madrid Digital, a legacy Angular 8 monolith (Angular Material, RxJS).",
+        "Also contributed to a React project (ReactJS 17, Redux Toolkit, Material UI)."
+      ],
+      "source": "S1"
+    },
+    {
+      "period": "September 2021 – October 2022",
+      "company": "ENZO (Rent & Buy S.A.)",
+      "client": null,
+      "role": "Mid-Level Front-End Developer (Angular)",
+      "location": "Madrid, Spain",
+      "context": "Small company on an AWS serverless stack; the role where Marius moved from .NET into Angular and cloud development. [RETRACTED: never describe the client as an 'international agricultural client'; leave the client unspecified]",
+      "bullets": [
+        "Built reusable Angular components against a serverless AWS backend (Lambda, API Gateway, S3, CloudFront, SQS/SNS) and authentication flows with AWS Cognito.",
+        "Onboarded new team members on architecture and Angular practices, and joined English-language client meetings and requirement gathering."
+      ],
+      "source": "S1"
+    },
+    {
+      "period": "June 2020 – September 2021",
+      "company": "Independent Projects & Upskilling",
+      "client": null,
+      "role": null,
+      "context": "Career break with personal projects and training: WordPress development (themes, plugins, SEO), Office automation tooling, structured frontend upskilling.",
+      "source": "S1"
+    },
+    {
+      "period": "March – June 2020",
+      "company": "Altran (Capgemini)",
+      "client": null,
+      "role": "Mid-Level Full Stack Developer (.NET)",
+      "source": "S1"
+    },
+    {
+      "period": "November 2018 – September 2019",
+      "company": "IO Digital (Query Software)",
+      "client": null,
+      "role": "Mid-Level Full Stack Developer (.NET)",
+      "source": "S1"
+    },
+    {
+      "period": "July – November 2018",
+      "company": "STRATESYS",
+      "client": null,
+      "role": "Junior Full Stack Developer (.NET)",
+      "source": "S1"
+    }
+  ],
+  "caseStudies": [
+    {
+      "slug": "realtime-shopping-assistant",
+      "title": "Real-time Shopping Assistant",
+      "tags": ["Angular", "TypeScript", "WebRTC", "OpenAI Realtime API", "SSR", "Accessibility"],
+      "summary": "A controlled whitelist pilot: a 96% smaller LLM context payload, SSR-compatible and never opened to the public.",
+      "fields": {
+        "context": "A global, multi-market e-commerce frontend needed a conversational shopping experience with voice, text and product context.",
+        "myRole": "I implemented the Angular integration as a senior individual contributor. The wider product was a team effort, with a co-lead alongside me.",
+        "frontendProblem": "The integration had to manage the WebRTC lifecycle, initialize only when requested, remain safe during server rendering, keep the model context bounded and avoid tracking before the customer opened the assistant.",
+        "engineeringDecisions": "Lazy initialization, platform guards, a controlled feature flag and a routing and context-stripping design.",
+        "outcome": "The code reached production as a controlled whitelist pilot and was never opened to the public. The LLM context payload fell from 570 KB to 22 KB per execution, a 96% reduction.",
+        "whatThisDemonstrates": "Angular integration work, asynchronous lifecycle management, SSR safety, accessibility, controlled rollout and measurable context design."
+      },
+      "confidential": "Sanitized case study: no client source code, credentials, internal URLs or private implementation details.",
+      "source": "S1"
+    },
+    {
+      "slug": "help-center-rollout",
+      "title": "Help Center Rollout",
+      "tags": ["Angular", "SSR", "Feature Flags", "Observability", "Accessibility"],
+      "summary": "A country-by-country Help Center rollout with SSR-safe Angular integration, stable routes and accessible localized experiences.",
+      "fields": {
+        "context": "A new conversational Help Center rolled out country by country without changing the existing entry points. [RETRACTED: do not say it 'had to replace legacy shopping guides']",
+        "delivery": "I integrated the conversational experience into the existing Angular routes and localized entry points across markets.",
+        "rollout": "The release expanded market by market, with SSR behavior, accessibility and route stability verified before each step.",
+        "riskControl": "The integration preserved existing entry points and user-facing behavior while the new experience expanded.",
+        "outcome": "The Help Center rolled out country by country with stable routes, localized titles, accessibility and SSR support.",
+        "whatThisDemonstrates": "Angular delivery, SSR, accessibility, staged rollout and risk control across localized markets."
+      },
+      "source": "S1"
+    },
+    {
+      "slug": "passwordless-account-migration",
+      "title": "Passwordless Account Migration",
+      "tags": ["Angular", "Authentication", "API Contracts", "OTP", "NgRx", "Integration Testing"],
+      "summary": "A contract-first passwordless migration with separate password and OTP paths, delivered through incremental scope and end-to-end validation.",
+      "fields": {
+        "context": "The account area had to support both existing-password and passwordless users without disrupting established flows.",
+        "contractAnalysis": "I mapped the UI dependencies and authentication states before changing the flows, then scoped the implementation around the verified contract.",
+        "decision": "I kept the migration incremental, separating password-state handling from the rest of the account experience.",
+        "implementation": "The UI followed separate password and OTP paths, including email change and password creation, with dependent actions gated by authentication state.",
+        "validation": "The resulting flows were validated in a pre-integration environment, including existing-password behaviour, passwordless forms, OTP email change and password creation.",
+        "outcome": "The passwordless flows were delivered incrementally without disrupting existing account behavior.",
+        "whatThisDemonstrates": "Contract-first frontend integration, authentication state, scope control, backward compatibility and risk-based decision-making."
+      },
+      "source": "S1 — confirmed still fully backed after 2026-09-14 retraction review"
+    },
+    {
+      "slug": "engineering-controls",
+      "title": "Engineering Controls for Frontend Delivery",
+      "tags": ["GitHub", "Automated Review", "Prompt and Context Engineering", "MCP", "Developer Tooling"],
+      "summary": "An automated review system that measured its own noise, retired 21 of its 53 rules, and got adopted outside its origin team.",
+      "fields": {
+        "problem": "Automated review can create the appearance of coverage while producing noise, duplicate feedback and rules that the team does not trust.",
+        "system": "I built a GitHub-connected review system with domain-specific checks. The system flagged injection, authorization and secrets-management defects before merge.",
+        "controlLoop": "The first version generated credibility problems. I measured its output and removed rules the team consistently ignored, retiring 21 of its 53 rules.",
+        "adoption": "A Teams CLI was merged into a shared Inditex engineering repository, and a documentation MCP was adopted by the Android team.",
+        "whatThisDemonstrates": "The useful signal is not that an LLM was present. It is that the automation had boundaries, measurement, rejection criteria and adoption outside its original team."
+      },
+      "source": "S1"
+    }
+  ],
+  "outcomesMetrics": [
+    { "value": "96%", "label": "Reduction in the AI shopping assistant's LLM context payload (570 KB to 22 KB per execution), achieved with a routing and context-stripping design.", "source": "S1" },
+    { "value": "Top 1.42%", "label": "Ranking among all candidates on an independent Angular assessment by SkillValue, with a 95% score.", "source": "S1" },
+    { "value": "34", "label": "Accessibility findings from a formal WCAG 2.1 AA audit closed through 23 merged pull requests: headings, keyboard, ARIA and focus.", "source": "S1" },
+    { "value": "21 of 53", "label": "Rules retired from his own automated review system after measuring its real output against what the team actually used.", "source": "S1" },
+    { "value": "Adopted", "label": "Internal documentation tooling (an MCP server) adopted by the Android team, outside its origin platform.", "source": "S1" }
+  ],
+  "numbersClearedForPublicDisplay": [
+    "96%", "570 KB", "22 KB", "95%", "top 1.42%", "34", "23", "21 of 53", "~3.4 MB", "19 MB",
+    "2 (dynamic-import PRs)", "4 (documented OTP validation scenarios)", "5 (team led, Santander)",
+    "4 (team senior-referenced, Santander)", "~80% (frontend ownership, one Santander project)",
+    "2018 (career start)", "2021 (Angular specialization start)", "August 2024 (Inspire Greatness award)",
+    "September 2022 (SkillValue assessment date)", "2025 (Green Software certificate)",
+    "2017–2018 (Joyfe College dates)", "all role date ranges in roles[]"
+  ],
+  "numbersNotClearedForPublic": [
+    "19,507 lines of code", "97 days a PR stayed open", "126 files touched", "87/126 PRs merged",
+    "460 PRs reviewed by pipeline", "99 human reviews", "any token/request counts",
+    "any figure not present in outcomesMetrics or numbersClearedForPublicDisplay"
+  ],
+  "skills": {
+    "angularAndTypeScript": ["Angular 8–20", "Signals", "Standalone Components", "SSR", "lazy loading", "RxJS", "NgRx", "Angular Material/CDK", "feature flags"],
+    "productFrontend": ["JavaScript", "HTML5", "CSS/SCSS", "React 17 (project experience)", "responsive design", "design systems", "WCAG 2.1 AA accessibility", "i18n (Transloco)", "web performance"],
+    "testingAndQuality": ["Jest", "Karma/Jasmine", "SonarQube/SonarCloud", "ESLint", "Prettier", "systematic PR review"],
+    "apisAndDelivery": ["REST", "OpenAPI/Swagger", "OAuth 2.0", "JWT", "HTTP interceptors", "WebRTC", "AWS serverless (Lambda, Cognito, API Gateway, S3)", "GitHub Actions", "Git/GitHub", "Jira", "Figma", "Agile/Scrum"],
+    "aiAndEngineeringTools": ["OpenAI Realtime API", "WebRTC", "LLM integrations", "prompt & context engineering", "MCP tooling"],
+    "source": "S1 cv-en.txt"
+  },
+  "education": [
+    { "credential": "Higher Technician in Multi-platform Applications Development", "institution": "Joyfe College, Madrid", "dates": "2017–2018", "source": "S1" },
+    { "credential": "Grado Medio, Microcomputer Systems and Networks", "institution": "San Gabriel College", "dates": "2015–2016", "source": "S3 only — not on public CV, supplementary background", "publicUse": false }
+  ],
+  "certifications": [
+    { "name": "Angular assessment: 95% score, top 1.42% of all candidates", "issuer": "SkillValue", "date": "September 2022", "note": "Formally titled 'Angular 12 quiz medium level' per S3 — describe as an assessment, never a certification.", "source": "S1" },
+    { "name": "Green Software for Practitioners", "issuer": "Linux Foundation + Green Software Foundation", "date": "2025", "source": "S1" },
+    { "name": "Various skill badges (HackerRank Angular/JS, Ninja Talent, API Owner, Angular Certified Developer)", "issuer": "various", "note": "S3 only, lower signal than the SkillValue assessment, not on public CV; Angular Certified Developer credential expired December 2025 and is not currently published.", "source": "S3", "publicUse": false }
+  ],
+  "languages": [
+    { "language": "Spanish", "level": "Native", "source": "S1" },
+    { "language": "Romanian", "level": "Native", "source": "S1" },
+    { "language": "English", "level": "Professional working proficiency", "note": "Do NOT claim native or C2 — a 2025 goFLUENT C2 self-evaluation exists per S3 but its certificate was never archived; public claim must stay at 'professional working proficiency'.", "source": "S1" }
+  ],
+  "recommendations": [
+    {
+      "quote": "His knowledge of Angular is excellent, but what I really highlight from working with him is his willingness to help and share his experience. Another aspect I value a lot about Marius is his focus on good practices. He not only applies them in his daily work, but also promotes their adoption within the team, organizing meetings when necessary and aligning everyone around building quality, maintainable and scalable software.",
+      "author": "José Luis Murcia Gámez",
+      "role": "Frontend Developer, UNIR project (Avanade)",
+      "note": "Translated from a recommendation published on LinkedIn",
+      "source": "S1"
+    },
+    {
+      "quote": "Working with Marius has been a real pleasure. I especially highlight his initiative with AI tools applied to development, from which I learned a great deal working side by side with him. Any team would be more than fortunate to count on someone with his technical level and his attitude.",
+      "author": "Juan Pablo Romero Pereira",
+      "role": "Frontend Developer, Zara Home (Inditex)",
+      "note": "Translated from a recommendation published on LinkedIn",
+      "confirmedStillBacked": true,
+      "source": "S1"
+    },
+    {
+      "quote": "Marius proved to be a highly adaptable and resourceful programmer on both occasions we worked together, at Stratesys and at Avanade (consultancy/service provider for Proeduca), where he worked as an external consultant. His ability to learn quickly and his contribution to the projects were fundamental. I highly recommend him for his professionalism and technical skills.",
+      "author": "José Luis Rodríguez-Campra Camberos",
+      "role": "BAU Coordinator / Scrum Master",
+      "note": "Translated from a recommendation published on LinkedIn",
+      "source": "S1"
+    },
+    {
+      "quote": "Great partner, he has done a great job in his last project demonstrating that he can design and build business applications successfully.",
+      "author": "Antonio Bermúdez Rodríguez",
+      "role": "Developer",
+      "note": "Published on LinkedIn (written in English by its author)",
+      "source": "S1"
+    },
+    {
+      "quote": "Marius was a great professional to work with. We worked together at ENZO, and his work ethic is immaculate; he is very easy to work with and goes out of his way to help when you ask for guidance.",
+      "author": "Gonzalo Rodríguez Muñoz",
+      "role": "Full Stack Software Developer, ENZO",
+      "note": "Translated from a recommendation published on LinkedIn",
+      "source": "S1"
+    }
+  ],
+  "projects": {
+    "publicGitHub": {
+      "repoCount": 1,
+      "repos": [
+        { "name": "mihailmariusiondev.github.io", "description": "Bilingual portfolio and case studies for Senior Angular / Frontend roles.", "language": "Astro", "stars": 0, "fork": false }
+      ],
+      "note": "As of 2026-09-14, this is the ONLY public repository on the account. S3 (internal knowledge) lists other personal projects (Telegram bots, 'configs', etc.) as 'verified live' but they are not visible via the public GitHub API — treat as private/unverifiable and do not present as public portfolio projects unless re-verified.",
+      "source": "S2"
+    },
+    "githubProfile": {
+      "bio": "Senior Front-End Dev | Angular Specialist | Clean Code Advocate | Performance Optimizer | Team Player & Mentor | AI Tools Enthusiast",
+      "location": "Zaragoza, Spain",
+      "createdAt": "2021-09-07",
+      "followers": 2,
+      "following": 1,
+      "source": "S2"
+    }
+  },
+  "talksWriting": {
+    "note": "No public talks, articles, or writing were found in any source. Do not invent any."
+  },
+  "personalLocationWorkMode": {
+    "base": "Zaragoza, Spain",
+    "workMode": "Remote or hybrid from Zaragoza",
+    "travel": "Available for occasional travel",
+    "citizenship": "EU citizen, authorized to work across the EU/EEA without sponsorship",
+    "relocation": "No relocation claims",
+    "source": "S1"
+  },
+  "doNotClaim": [
+    "No 'Tech Lead' title anywhere (Avanade role was 'hands-on frontend technical reference', not a formal Tech Lead title)",
+    "RETRACTED 2026-09-14: 'wired to a catalog of backend tools' — do not use",
+    "RETRACTED 2026-09-14: 'Help Center that replaced legacy shopping guides in production' / any phrasing claiming the Help Center replaced legacy guides — do not use",
+    "RETRACTED 2026-09-14: the internal project name 'Mateo' for the UNIR back-office — never name it",
+    "RETRACTED 2026-09-14: 'international agricultural client' as ENZO's client description — leave the client unnamed",
+    "No 'sole owner' / 'sole frontend owner' / 'built from scratch' — the AI shopping assistant and all major deliverables were team efforts (co-lead on the assistant)",
+    "No years-of-experience counts (e.g. '8 years') — always phrase as 'since 2018' / 'since 2021'",
+    "No global WCAG compliance claim — only 'closed 34 findings from a formal WCAG 2.1 AA audit (23 merged PRs)'",
+    "No invented metrics, clients, or logos — only Zara Home (Inditex), Santander, UNIR are named clients",
+    "The AI shopping assistant was a controlled pilot, never public — never say 'launched', 'live for customers', or give a market count for it",
+    "The LLM context payload reduction is 570 KB → 22 KB per execution (96%) — never 'tool payloads', never a cost/dollar saving",
+    "Never 'in production in 130 markets' for the assistant, and never 'never reached production' — both are false",
+    "No NX as a personal Inditex achievement — Marius did not build or use the NX monorepo at Inditex (fine to mention Nx generically under the UNIR role)",
+    "No 'certification' language for the SkillValue Angular assessment — it's an assessment/exam score, not a credential",
+    "No English 'native' or 'C2' claim — keep at 'professional working proficiency'",
+    "No availability/departure-date claims, no employer dispute narrative, no litigation content of any kind",
+    "No GitHub projects beyond the one public repo unless independently reverified public",
+    "No raw activity-volume counts presented as impact (PR counts, review counts, lines of code, token counts)"
+  ],
+  "storyMaterial": [
+    "The 96% compression story: an LLM's working context payload went from 570 KB to 22 KB per execution through routing and context-stripping — restraint as the engineering accomplishment, not raw feature count.",
+    "The controlled pilot that never went public: the AI assistant shipped to real production infrastructure but stayed behind a feature flag, visible only to a whitelist — a 'shipped ≠ launched' story about judgment under a live system.",
+    "A market-by-market Help Center rollout that had to be SSR-safe and accessible from day one, verified step by step before each country went live — staged rollout discipline, never regressing existing entry points.",
+    "Contract-first authentication migration: mapped every UI dependency on authentication state before touching the passwordless/OTP migration, then scoped implementation to what the verified contract actually supported — a deliberately incremental, non-disruptive migration.",
+    "Auditing his own tool and cutting it down: built an automated PR-review system, then measured what the team actually used versus what it proposed, and retired 21 of 53 noisy rules. A documentation MCP tool he built was separately adopted by the Android team, outside its origin platform — concrete usefulness signal without an inflated number.",
+    "From .NET to Angular, cleanly explained: software developer since 2018 (full-stack .NET/C# at STRATESYS, IO Digital, Altran), a deliberate 15-month break for independent projects and upskilling, then Angular specialization from ENZO onward (September 2021) through enterprise e-commerce, banking and education platforms.",
+    "Domain range as credibility, not padding: three very different regulated/large-scale domains — global e-commerce (Zara Home/Inditex), banking (Santander), online education (UNIR) — each with its own constraints.",
+    "The UNIR 'back office had nothing' story: introduced linting, formatting and unit testing into an administrative back-office that previously had none, plus review protocols and quality gates, while acting as the hands-on architecture reference — a 'raising the floor' story rather than a green-field build."
+  ],
+  "conflictsBetweenSources": [
+    "Bundle-reduction bullet: S1 says 'identified approximately 3.4 MB of removable weight. Shipped two PRs...' (correct, use as-is). S3 clarifies only ~500 KB gzip of that 3.4 MB was actually shipped across the two PRs — do not imply the full 3.4 MB was removed.",
+    "Personal GitHub projects: S3 (internal, dated as recently as August 2026) lists several personal repos as 'verified live' beyond the portfolio; the live public GitHub API check on 2026-09-14 shows exactly one public repo. Treat the S3 list as stale/unverifiable for public display.",
+    "Education: S1/CV lists only Joyfe College (2017–2018). S3 additionally lists a mid-level vocational qualification (San Gabriel College, 2015–2016) never published on the CV — omission, not a contradiction; safe to leave out.",
+    "English proficiency: S3 records an unarchived 2025 goFLUENT C2 self-evaluation; S1's CV stays at 'professional working proficiency'. No real conflict — S1 is the conservative, authoritative claim to use."
+  ]
+}

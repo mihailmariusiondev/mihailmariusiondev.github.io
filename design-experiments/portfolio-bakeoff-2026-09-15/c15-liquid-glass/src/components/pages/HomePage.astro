@@ -1,0 +1,452 @@
+---
+/**
+ * The home page, rendered once per language.
+ *
+ * The markup lives here, not in the route files, so `/` and `/es/` cannot drift
+ * structurally: there is exactly one template and two thin route wrappers. A
+ * section that exists in Spanish but not in English is impossible by
+ * construction, and every string comes from a `Localized<T>` object that fails
+ * `astro check` if a language is missing.
+ */
+import Layout from "../../layouts/Layout.astro";
+import CaseStudyCard from "../CaseStudyCard.astro";
+import { caseStudies } from "../../data/caseStudies";
+import { stats } from "../../data/experience";
+import { ui } from "../../data/ui";
+import { localizedPath, t, type Locale } from "../../i18n";
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+const cvHref =
+  lang === "es"
+    ? "/marius-mihail-ion-cv-es.pdf"
+    : "/marius-mihail-ion-cv.pdf";
+---
+
+<Layout
+  title={t(ui.homeTitle, lang)}
+  description={t(ui.homeDescription, lang)}
+  ogTitle={t(ui.homeOgTitle, lang)}
+  ogDescription={t(ui.homeOgDescription, lang)}
+  includePersonSchema
+>
+  <section class="hero">
+    <canvas class="hero__canvas" id="liquid-canvas" aria-hidden="true"></canvas>
+    <div class="wrap hero__grid">
+      <figure class="hero__figure">
+        <img
+          class="hero__photo"
+          src="/me.webp"
+          alt={t(ui.heroPhotoAlt, lang)}
+          width="640"
+          height="640"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        />
+      </figure>
+
+      <div class="hero__body glass-panel">
+        <p class="eyebrow">{t(ui.siteRole, lang)}</p>
+        <h1 class="hero__title">{t(ui.heroTitle, lang)}</h1>
+        <p class="hero__lede">{t(ui.heroLede, lang)}</p>
+        <div class="hero__actions">
+          <a class="btn btn-primary" href={localizedPath("/case-studies/", lang)}>
+            {t(ui.heroCtaCases, lang)}
+          </a>
+          <a class="btn" href={cvHref} download>
+            {t(ui.heroCtaCv, lang)}
+          </a>
+          <a class="btn" href="https://linkedin.com/in/mariusdev">LinkedIn</a>
+          <a class="btn" href="https://github.com/mihailmariusiondev">GitHub</a>
+        </div>
+        <p class="hero__location">{t(ui.heroLocation, lang)}</p>
+      </div>
+    </div>
+  </section>
+
+  <script is:inline>
+    // Liquid Glass: raw WebGL refraction field behind the hero. No library,
+    // lazily started after first paint, paused offscreen/hidden tab, and
+    // entirely skipped under reduced-motion or when WebGL is unavailable — the
+    // CSS gradient in global.css is the finished look in every one of those
+    // cases.
+    (function () {
+      const reduceMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches;
+      const canvas = /** @type {HTMLCanvasElement | null} */ (
+        document.getElementById("liquid-canvas")
+      );
+      if (reduceMotion || !canvas) return;
+
+      const gl = canvas.getContext("webgl", { antialias: false, alpha: true });
+      if (!gl) return; // static gradient fallback stands as-is
+
+      const vsSrc = "attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}";
+      const fsSrc = `
+        precision mediump float;
+        uniform vec2 u;
+        uniform float t;
+        vec2 hash(vec2 p){p=vec2(dot(p,vec2(127.1,311.7)),dot(p,vec2(269.5,183.3)));return -1.0+2.0*fract(sin(p)*43758.5453123);}
+        float noise(vec2 p){
+          vec2 i=floor(p),f=fract(p);
+          vec2 u2=f*f*(3.0-2.0*f);
+          return mix(mix(dot(hash(i),f),dot(hash(i+vec2(1,0)),f-vec2(1,0)),u2.x),
+                     mix(dot(hash(i+vec2(0,1)),f-vec2(0,1)),dot(hash(i+vec2(1,1)),f-vec2(1,1)),u2.x),u2.y);
+        }
+        float fbm(vec2 p){
+          float v=0.0,a=0.5;
+          for(int i=0;i<3;i++){v+=a*noise(p);p*=2.02;a*=0.55;}
+          return v;
+        }
+        void main(){
+          vec2 uv=(gl_FragCoord.xy-0.5*u)/min(u.x,u.y);
+          float slow=t*0.045;
+          vec2 q=uv*1.6;
+          float n1=fbm(q+vec2(slow*1.3,-slow));
+          float n2=fbm(q*1.3-vec2(-slow*0.7,slow*0.9)+n1*0.6);
+          float field=fbm(q+n2*0.8+vec2(slow*0.4));
+          vec3 deep=vec3(0.03,0.05,0.09);
+          vec3 teal=vec3(0.37,0.82,0.84);
+          vec3 amber=vec3(0.94,0.80,0.52);
+          vec3 col=mix(deep,teal,smoothstep(0.05,0.55,field));
+          col=mix(col,amber,smoothstep(0.55,0.85,n2)*0.35);
+          float vig=1.0-smoothstep(0.35,1.1,length(uv));
+          float alpha=(0.22+0.30*smoothstep(0.0,0.6,field))*vig;
+          gl_FragColor=vec4(col,alpha);
+        }
+      `;
+
+      function compile(/** @type {number} */ type, /** @type {string} */ src) {
+        const s = gl.createShader(type);
+        gl.shaderSource(s, src);
+        gl.compileShader(s);
+        return s;
+      }
+      const prog = gl.createProgram();
+      gl.attachShader(prog, compile(gl.VERTEX_SHADER, vsSrc));
+      gl.attachShader(prog, compile(gl.FRAGMENT_SHADER, fsSrc));
+      gl.linkProgram(prog);
+      if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) return; // fallback
+
+      gl.useProgram(prog);
+      const buf = gl.createBuffer();
+      gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+      gl.bufferData(
+        gl.ARRAY_BUFFER,
+        new Float32Array([-1, -1, 3, -1, -1, 3]),
+        gl.STATIC_DRAW
+      );
+      const pLoc = gl.getAttribLocation(prog, "p");
+      gl.enableVertexAttribArray(pLoc);
+      gl.vertexAttribPointer(pLoc, 2, gl.FLOAT, false, 0, 0);
+      const uLoc = gl.getUniformLocation(prog, "u");
+      const tLoc = gl.getUniformLocation(prog, "t");
+      gl.enable(gl.BLEND);
+      gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+
+      let running = false;
+      let raf = 0;
+      let start = performance.now();
+
+      function resize() {
+        // Render at a fraction of device pixels: the liquid field is a soft,
+        // low-frequency backdrop, not a sharp asset, so upscaling costs
+        // nothing visually and a lot less GPU/CPU per frame.
+        const dpr = Math.min(window.devicePixelRatio || 1, 1) * 0.6;
+        const w = Math.floor(canvas.clientWidth * dpr);
+        const h = Math.floor(canvas.clientHeight * dpr);
+        if (canvas.width !== w || canvas.height !== h) {
+          canvas.width = w;
+          canvas.height = h;
+          gl.viewport(0, 0, w, h);
+        }
+      }
+
+      function frame(now) {
+        if (!running) return;
+        resize();
+        gl.uniform2f(uLoc, canvas.width, canvas.height);
+        gl.uniform1f(tLoc, (now - start) / 1000);
+        gl.clear(gl.COLOR_BUFFER_BIT);
+        gl.drawArrays(gl.TRIANGLES, 0, 3);
+        raf = requestAnimationFrame(frame);
+      }
+
+      function play() {
+        if (running) return;
+        running = true;
+        raf = requestAnimationFrame(frame);
+      }
+      function pause() {
+        running = false;
+        cancelAnimationFrame(raf);
+      }
+
+      document.addEventListener("visibilitychange", () => {
+        if (document.hidden) pause();
+        else play();
+      });
+
+      let visible = false;
+      const io = new IntersectionObserver(
+        (entries) => {
+          for (const e of entries) visible = e.isIntersecting;
+          if (visible && !document.hidden) play();
+          else pause();
+        },
+        { threshold: 0.01 }
+      );
+
+      // Lazy init: wait for the load event (first paint + hero image already
+      // rendered) and one idle tick, so the shader never competes with LCP.
+      function start_() {
+        resize();
+        io.observe(canvas);
+      }
+      function afterLoad() {
+        if ("requestIdleCallback" in window) requestIdleCallback(start_);
+        else setTimeout(start_, 200);
+      }
+      if (document.readyState === "complete") afterLoad();
+      else window.addEventListener("load", afterLoad, { once: true });
+    })();
+  </script>
+
+  <section class="stats" aria-labelledby="stats-heading">
+    <div class="wrap">
+      <h2 id="stats-heading" class="stats__heading eyebrow">
+        {t(ui.statsHeading, lang)}
+      </h2>
+      <ul class="stats__list">
+        {
+          stats.map((stat) => (
+            <li class="stat">
+              <p class="stat__value">{t(stat.value, lang)}</p>
+              <p class="stat__label">{t(stat.label, lang)}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section id="work" class="work">
+    <div class="wrap">
+      <div class="work__head">
+        <h2 class="work__title">{t(ui.workTitle, lang)}</h2>
+        <p class="work__lede prose">{t(ui.workLede, lang)}</p>
+      </div>
+      <div class="work__grid">
+        {caseStudies.map((study) => <CaseStudyCard study={study} />)}
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* ---------------- Hero ---------------- */
+
+  .hero {
+    position: relative;
+    padding-block: var(--space-4) var(--space-5);
+    border-bottom: 1px solid var(--rule);
+    overflow: hidden;
+  }
+
+  .hero__canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .hero__grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    gap: var(--space-4);
+    align-items: start;
+  }
+
+  .hero__body {
+    padding: var(--space-3);
+  }
+
+  @media (min-width: 56rem) {
+    .hero__body {
+      padding: var(--space-4);
+    }
+  }
+
+  @media (min-width: 56rem) {
+    .hero__grid {
+      /* Text first in the source order and in the visual order on desktop. */
+      grid-template-columns: minmax(0, 1fr) 14rem;
+      gap: var(--space-5);
+    }
+    .hero__figure {
+      order: 2;
+    }
+    .hero__body {
+      order: 1;
+    }
+  }
+
+  .hero__figure {
+    margin: 0;
+    /* On mobile the portrait is centred above the text, not floated beside it. */
+    justify-self: center;
+    width: min(11rem, 45vw);
+  }
+
+  @media (min-width: 56rem) {
+    .hero__figure {
+      justify-self: end;
+      width: 100%;
+      max-width: 14rem;
+    }
+  }
+
+  .hero__photo {
+    display: block;
+    width: 100%;
+    /* height:auto is load-bearing. The img carries width/height attributes (for
+       CLS), and aspect-ratio is ignored unless the other axis is auto: without
+       this the picture renders 176x640. */
+    height: auto;
+    /* Square frame. The source is a standing shot: a circle crops to the
+       forearms and a 4:5 frame towers over the text column. */
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    /* The head sits in the upper third of the 640x640 source. Raise the crop
+       to it, but not so far that the top of the head is cut. */
+    object-position: 50% 22%;
+    border-radius: var(--radius);
+    border: 1px solid var(--rule);
+    background: var(--paper-raised);
+    box-shadow: var(--shadow-raised);
+  }
+
+  .hero__title {
+    font-size: var(--step-display);
+    max-width: 20ch;
+    margin-block: var(--space-2) var(--space-3);
+  }
+
+  .hero__lede {
+    max-width: 54ch;
+    font-size: var(--step-lede);
+    color: var(--slate);
+    margin-bottom: var(--space-3);
+  }
+
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: var(--space-3);
+  }
+
+  .hero__location {
+    font-family: var(--font-mono);
+    font-size: var(--step-micro);
+    line-height: 1.6;
+    color: var(--slate-quiet);
+    max-width: 48ch;
+  }
+
+  /* ---------------- Verified results ---------------- */
+
+  .stats {
+    padding-block: var(--space-4);
+    background: var(--paper-sunk);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .stats__heading {
+    margin-bottom: var(--space-3);
+  }
+
+  .stats__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-3);
+  }
+
+  @media (min-width: 40rem) {
+    .stats__list {
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-3) var(--space-4);
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .stats__list {
+      /* The five figures read as one measured ledger, not five loose cards. */
+      grid-template-columns: repeat(5, 1fr);
+    }
+  }
+
+  .stat {
+    /* The rule is the signature: each figure is an audited entry, not a badge. */
+    border-left: 2px solid var(--steel);
+    padding-left: var(--space-2);
+    min-width: 0;
+  }
+
+  .stat__value {
+    font-family: var(--font-mono);
+    font-size: 1.625rem;
+    font-weight: 500;
+    line-height: 1.2;
+    color: var(--steel-dark);
+    margin-bottom: 0.4rem;
+    overflow-wrap: break-word;
+  }
+
+  .stat__label {
+    font-size: var(--step-small);
+    line-height: 1.5;
+    color: var(--slate);
+    max-width: 40ch;
+  }
+
+  /* ---------------- Case studies ---------------- */
+
+  .work {
+    padding-block: var(--space-5);
+  }
+
+  .work__head {
+    margin-bottom: var(--space-4);
+  }
+
+  .work__title {
+    font-size: var(--step-h2);
+    margin-bottom: var(--space-1);
+  }
+
+  .work__lede {
+    color: var(--slate);
+  }
+
+  .work__grid {
+    display: grid;
+    gap: var(--space-3);
+  }
+
+  @media (min-width: 56rem) {
+    .work__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

@@ -1,0 +1,84 @@
+---
+/**
+ * The concept's one striking idea: an honest, live readout of how fast THIS
+ * page actually loaded in the visitor's own browser, read from the
+ * Performance API after load. No invented number, no synthetic benchmark
+ * claim: if the API is unsupported the fallback string shows instead of a
+ * number. This is the whole JS budget of the page (~20 lines, no framework).
+ */
+import { t, type Locale } from "../i18n";
+import { ui } from "../data/ui";
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+---
+
+<p class="perf-readout" data-perf-readout>
+  <span data-perf-fallback>{t(ui.perfReadoutFallback, lang)}</span>
+  <span data-perf-result hidden>
+    {t(ui.perfReadoutPrefix, lang)}
+    <strong data-perf-time>&mdash;</strong>
+    {t(ui.perfReadoutWeight, lang)}
+    <strong data-perf-weight>&mdash;</strong>
+    {t(ui.perfReadoutSuffix, lang)}
+  </span>
+</p>
+
+<script>
+  // Runs once, after everything else has finished loading, so the numbers
+  // it reads are final rather than a mid-load guess.
+  function reportPerf() {
+    const root = document.querySelector("[data-perf-readout]");
+    if (!root) return;
+    const nav = performance.getEntriesByType(
+      "navigation",
+    )[0] as PerformanceNavigationTiming | undefined;
+    if (!nav) return;
+
+    const resources = performance.getEntriesByType(
+      "resource",
+    ) as PerformanceResourceTiming[];
+    const bytes =
+      nav.transferSize +
+      resources.reduce((sum, r) => sum + (r.transferSize || 0), 0);
+
+    const ms = Math.round(nav.loadEventEnd);
+    if (!(ms > 0)) return;
+
+    const timeEl = root.querySelector("[data-perf-time]");
+    const weightEl = root.querySelector("[data-perf-weight]");
+    if (timeEl) timeEl.textContent = `${ms} ms`;
+    if (weightEl) {
+      weightEl.textContent =
+        bytes > 0 ? `${(bytes / 1024).toFixed(1)} KB` : "< 0.1 KB";
+    }
+
+    root.querySelector("[data-perf-fallback]")?.setAttribute("hidden", "");
+    root.querySelector("[data-perf-result]")?.removeAttribute("hidden");
+  }
+
+  if (document.readyState === "complete") {
+    reportPerf();
+  } else {
+    window.addEventListener("load", () => setTimeout(reportPerf, 0));
+  }
+</script>
+
+<style>
+  .perf-readout {
+    font-family: var(--font-mono);
+    font-size: var(--step-small);
+    color: var(--slate);
+    border-top: 1px solid var(--rule);
+    padding-top: var(--space-2);
+    margin-top: var(--space-3);
+  }
+
+  .perf-readout strong {
+    color: var(--steel-dark);
+    font-weight: 500;
+  }
+</style>

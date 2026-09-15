@@ -1,0 +1,203 @@
+---
+/**
+ * A single case study, rendered once per language at the same slug.
+ *
+ * Long-form layout: a fixed scroll-progress bar (native `animation-timeline:
+ * scroll()`, CSS-only, gated by `@supports` — see `.readbar` in global.css)
+ * and a sticky outline rail on wide screens that jumps to each field. Both
+ * are enhancements over a perfectly readable single-column article.
+ */
+import Layout from "../../layouts/Layout.astro";
+import type { CaseStudy } from "../../data/caseStudies";
+import { NAV_ITEMS, ui } from "../../data/ui";
+import { localizedPath, t, type Locale } from "../../i18n";
+
+interface Props {
+  study: CaseStudy;
+  lang: Locale;
+}
+
+const { study, lang } = Astro.props;
+const allCases = localizedPath("/case-studies/", lang);
+
+function fieldId(index: number): string {
+  return `field-${index}`;
+}
+---
+
+<Layout
+  title={`${t(study.title, lang)} · Marius Mihail Ion`}
+  description={t(study.summary, lang)}
+>
+  <div class="readbar" aria-hidden="true"></div>
+
+  <div class="wrap case">
+    <nav class="crumbs" aria-label={t(ui.breadcrumbLabel, lang)}>
+      <ol class="crumbs__list">
+        <li><a href={localizedPath("/", lang)}>{t(NAV_ITEMS[0].label, lang)}</a></li>
+        <li><a href={allCases}>{t(ui.casesEyebrow, lang)}</a></li>
+        <li aria-current="page">{t(study.title, lang)}</li>
+      </ol>
+    </nav>
+
+    <header class="case__head">
+      <h1 class="case__title">{t(study.title, lang)}</h1>
+      <p class="case__summary prose">{t(study.summary, lang)}</p>
+      <ul class="tag-row case__tags" aria-label={t(ui.tagsLabel, lang)}>
+        {study.tags.map((tag) => <li class="tag">{t(tag, lang)}</li>)}
+      </ul>
+    </header>
+
+    <div class="case__body">
+      <nav class="case__outline" aria-label={t(ui.caseNavLabel, lang)}>
+        <ol class="case__outline-list">
+          {
+            study.fields.map((field, i) => (
+              <li>
+                <a href={`#${fieldId(i)}`}>{t(field.label, lang)}</a>
+              </li>
+            ))
+          }
+        </ol>
+        <a class="case__outline-back" href={allCases}>&larr; {t(ui.caseNavAll, lang)}</a>
+      </nav>
+
+      <article>
+        <dl class="case__fields">
+          {
+            study.fields.map((field, i) => (
+              <div class="field" id={fieldId(i)}>
+                <dt>{t(field.label, lang)}</dt>
+                <dd>{t(field.value, lang)}</dd>
+              </div>
+            ))
+          }
+        </dl>
+
+        {
+          study.confidential && (
+            <p class="verified case__confidential">{t(study.confidential, lang)}</p>
+          )
+        }
+
+        <p class="case__nav">
+          <a href={allCases}>&larr; {t(ui.caseNavAll, lang)}</a>
+        </p>
+      </article>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .case {
+    padding-block: var(--space-3) var(--space-5);
+  }
+
+  .case__head {
+    padding-bottom: var(--space-4);
+    margin-bottom: var(--space-4);
+    border-bottom: 1px solid var(--rule);
+    max-width: 56rem;
+  }
+
+  .case__title {
+    font-size: clamp(2rem, 1.5rem + 2.6vw, 3.75rem);
+    line-height: 1.02;
+    margin-block: var(--space-2) var(--space-2);
+    max-width: 18ch;
+  }
+
+  .case__summary {
+    font-size: var(--step-lede);
+    color: var(--slate);
+    margin-bottom: var(--space-3);
+  }
+
+  .case__tags {
+    margin: 0;
+  }
+
+  .case__body {
+    display: grid;
+    gap: var(--space-4);
+  }
+
+  @media (min-width: 64rem) {
+    .case__body {
+      grid-template-columns: 14rem minmax(0, 1fr);
+      gap: var(--space-5);
+      align-items: start;
+    }
+  }
+
+  .case__outline {
+    display: none;
+  }
+
+  @media (min-width: 64rem) {
+    .case__outline {
+      display: block;
+      position: sticky;
+      top: 6rem;
+    }
+  }
+
+  .case__outline-list {
+    list-style: none;
+    margin: 0 0 var(--space-3);
+    padding: 0;
+    border-left: 2px solid var(--rule);
+    display: grid;
+    gap: 0.1rem;
+  }
+
+  .case__outline-list a {
+    display: block;
+    padding: 0.4rem 0 0.4rem 0.9rem;
+    margin-left: -2px;
+    border-left: 2px solid transparent;
+    font-family: var(--font-mono);
+    font-size: var(--step-micro);
+    letter-spacing: 0.03em;
+    color: var(--slate);
+    text-decoration: none;
+  }
+
+  .case__outline-list a:hover,
+  .case__outline-list a:focus-visible {
+    color: var(--signal);
+    border-left-color: var(--signal);
+  }
+
+  .case__outline-back {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: var(--step-micro);
+    color: var(--slate);
+  }
+
+  .case__fields {
+    margin: 0;
+    max-width: 56rem;
+  }
+
+  .case__confidential {
+    margin-top: var(--space-4);
+    max-width: 56rem;
+  }
+
+  .case__nav {
+    margin-top: var(--space-4);
+    padding-top: var(--space-3);
+    border-top: 1px solid var(--rule);
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    max-width: 56rem;
+  }
+
+  @media (min-width: 64rem) {
+    .case__nav {
+      display: none;
+    }
+  }
+</style>

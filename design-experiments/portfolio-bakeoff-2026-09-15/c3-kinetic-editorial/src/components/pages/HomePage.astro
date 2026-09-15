@@ -1,0 +1,413 @@
+---
+/**
+ * The home page, rendered once per language.
+ *
+ * The markup lives here, not in the route files, so `/` and `/es/` cannot drift
+ * structurally: there is exactly one template and two thin route wrappers. A
+ * section that exists in Spanish but not in English is impossible by
+ * construction, and every string comes from a `Localized<T>` object that fails
+ * `astro check` if a language is missing.
+ */
+import Layout from "../../layouts/Layout.astro";
+import CaseStudyCard from "../CaseStudyCard.astro";
+import { caseStudies } from "../../data/caseStudies";
+import { stats } from "../../data/experience";
+import { ui } from "../../data/ui";
+import { localizedPath, t, type Locale } from "../../i18n";
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+const cvHref =
+  lang === "es"
+    ? "/marius-mihail-ion-cv-es.pdf"
+    : "/marius-mihail-ion-cv.pdf";
+// The three strongest verified figures, reused inline in the hero so they
+// resolve into place inside the same first-viewport moment as the name and
+// role. The full ledger of five still follows below with its complete label.
+const heroStats = stats.slice(0, 3);
+---
+
+<Layout
+  title={t(ui.homeTitle, lang)}
+  description={t(ui.homeDescription, lang)}
+  ogTitle={t(ui.homeOgTitle, lang)}
+  ogDescription={t(ui.homeOgDescription, lang)}
+  includePersonSchema
+>
+  <section class="hero">
+    <div class="wrap hero__grid">
+      <figure class="hero__figure">
+        <img
+          class="hero__photo"
+          src="/me.webp"
+          alt={t(ui.heroPhotoAlt, lang)}
+          width="640"
+          height="640"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        />
+      </figure>
+
+      <div class="hero__body">
+        {/*
+          The role line lives INSIDE the h1, not as a kicker floated above it:
+          one heading, two voices of the same kinetic face, no eyebrow.
+        */}
+        <h1 class="hero__title">
+          <span class="hero__role kinetic-in kinetic-in--1">{t(ui.siteRole, lang)}</span>
+          <span class="hero__headline kinetic-in kinetic-in--2">{t(ui.heroTitle, lang)}</span>
+        </h1>
+        <p class="hero__lede kinetic-in kinetic-in--3">{t(ui.heroLede, lang)}</p>
+        <div class="hero__actions kinetic-in kinetic-in--3">
+          <a class="btn btn-primary" href={localizedPath("/case-studies/", lang)}>
+            {t(ui.heroCtaCases, lang)}
+          </a>
+          <a class="btn" href={cvHref} download>
+            {t(ui.heroCtaCv, lang)}
+          </a>
+          <a class="btn" href="https://linkedin.com/in/mariusdev">LinkedIn</a>
+          <a class="btn" href="https://github.com/mihailmariusiondev">GitHub</a>
+        </div>
+
+        <ul class="hero__signals" aria-label={t(ui.statsHeading, lang)}>
+          {
+            heroStats.map((stat, i) => (
+              <li class={`hero__signal kinetic-in kinetic-in--${4 + i}`}>
+                <span class="hero__signal-value">{t(stat.value, lang)}</span>
+                <span class="hero__signal-label">{t(stat.label, lang)}</span>
+              </li>
+            ))
+          }
+        </ul>
+
+        <p class="hero__location kinetic-in kinetic-in--6">{t(ui.heroLocation, lang)}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats" aria-labelledby="stats-heading">
+    <div class="wrap">
+      <h2 id="stats-heading" class="stats__heading">
+        {t(ui.statsHeading, lang)}
+      </h2>
+      <ul class="stats__list">
+        {
+          stats.map((stat) => (
+            <li class="stat">
+              <p class="stat__value">{t(stat.value, lang)}</p>
+              <p class="stat__label">{t(stat.label, lang)}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section id="work" class="work">
+    <div class="wrap">
+      <div class="work__head">
+        <h2 class="work__title">{t(ui.workTitle, lang)}</h2>
+        <p class="work__lede prose">{t(ui.workLede, lang)}</p>
+      </div>
+      <div class="work__grid">
+        {caseStudies.map((study) => <CaseStudyCard study={study} />)}
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* ---------------- Hero ---------------- */
+
+  .hero {
+    padding-block: var(--space-4) var(--space-5);
+    border-bottom: 1px solid var(--rule);
+    overflow: clip;
+  }
+
+  .hero__grid {
+    display: grid;
+    gap: var(--space-4);
+    align-items: start;
+  }
+
+  @media (min-width: 56rem) {
+    .hero__grid {
+      grid-template-columns: minmax(0, 1fr) 14rem;
+      gap: var(--space-5);
+    }
+    .hero__figure {
+      order: 2;
+    }
+    .hero__body {
+      order: 1;
+    }
+  }
+
+  .hero__figure {
+    margin: 0;
+    justify-self: center;
+    width: min(11rem, 45vw);
+  }
+
+  @media (min-width: 56rem) {
+    .hero__figure {
+      justify-self: end;
+      width: 100%;
+      max-width: 14rem;
+    }
+  }
+
+  .hero__photo {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: 50% 22%;
+    border-radius: var(--radius);
+    border: 1px solid var(--rule);
+    background: var(--paper-raised);
+    box-shadow: var(--shadow-raised);
+  }
+
+  .hero__title {
+    display: grid;
+    gap: 0.35rem;
+    max-width: 22ch;
+    margin-block: 0 var(--space-3);
+  }
+
+  .hero__role {
+    font-family: var(--font-display);
+    font-variation-settings: "wght" 620, "wdth" 100;
+    font-size: clamp(1.375rem, 1.05rem + 1.6vw, 2.125rem);
+    color: var(--signal);
+    line-height: 1.1;
+  }
+
+  .hero__headline {
+    font-size: var(--step-poster);
+    line-height: 0.98;
+  }
+
+  .hero__lede {
+    max-width: 54ch;
+    font-size: var(--step-lede);
+    color: var(--slate);
+    margin-bottom: var(--space-3);
+  }
+
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: var(--space-4);
+  }
+
+  .hero__signals {
+    list-style: none;
+    margin: 0 0 var(--space-3);
+    padding: var(--space-2) 0 0;
+    border-top: 1px solid var(--rule);
+    display: grid;
+    gap: var(--space-2);
+  }
+
+  @media (min-width: 40rem) {
+    .hero__signals {
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-3);
+    }
+  }
+
+  .hero__signal {
+    min-width: 0;
+    display: grid;
+    gap: 0.25rem;
+  }
+
+  .hero__signal-value {
+    font-family: var(--font-mono);
+    font-size: 1.375rem;
+    font-weight: 600;
+    color: var(--signal);
+    line-height: 1.15;
+  }
+
+  .hero__signal-label {
+    font-size: var(--step-micro);
+    line-height: 1.45;
+    color: var(--slate);
+  }
+
+  .hero__location {
+    font-family: var(--font-mono);
+    font-size: var(--step-micro);
+    line-height: 1.6;
+    color: var(--slate-quiet);
+    max-width: 48ch;
+  }
+
+  /* ---------------- Orchestrated hero entrance ---------------- */
+  /* One authored moment: the role resolves from an extreme kinetic axis
+     state, then the headline, then the supporting content in a short
+     cascade. Time-based (page load), not scroll-driven — this is the "first
+     3 seconds" beat, separate from the scroll-driven case index below. */
+
+  .kinetic-in {
+    animation: kinetic-resolve 0.85s var(--ease-out-expo) both;
+  }
+
+  .kinetic-in--1 {
+    animation-delay: 0s;
+  }
+  .kinetic-in--2 {
+    animation-delay: 0.12s;
+  }
+  .kinetic-in--3 {
+    animation-delay: 0.32s;
+  }
+  .kinetic-in--4 {
+    animation-delay: 0.46s;
+  }
+  .kinetic-in--5 {
+    animation-delay: 0.54s;
+  }
+  .kinetic-in--6 {
+    animation-delay: 0.62s;
+  }
+
+  @keyframes kinetic-resolve {
+    from {
+      font-variation-settings: "wght" 150, "wdth" 60;
+      opacity: 0;
+      transform: translateY(0.6em);
+    }
+    to {
+      font-variation-settings: "wght" 620, "wdth" 100;
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Only the display-face elements should have their variation axes carried
+     by the animation; body-font elements (lede, location, signal values)
+     still fade/slide but keep their own font-variation-settings at rest. */
+  p.kinetic-in,
+  ul.kinetic-in,
+  div.kinetic-in,
+  li.kinetic-in {
+    animation-name: kinetic-resolve-body;
+  }
+
+  @keyframes kinetic-resolve-body {
+    from {
+      opacity: 0;
+      transform: translateY(0.6em);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* ---------------- Verified results ---------------- */
+
+  .stats {
+    padding-block: var(--space-4);
+    background: var(--paper-sunk);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .stats__heading {
+    font-family: var(--font-mono);
+    font-size: var(--step-micro);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--slate);
+    margin-bottom: var(--space-3);
+  }
+
+  .stats__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-3);
+  }
+
+  @media (min-width: 40rem) {
+    .stats__list {
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-3) var(--space-4);
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .stats__list {
+      grid-template-columns: repeat(5, 1fr);
+    }
+  }
+
+  .stat {
+    border-left: 2px solid var(--signal);
+    padding-left: var(--space-2);
+    min-width: 0;
+  }
+
+  .stat__value {
+    font-family: var(--font-mono);
+    font-size: 1.625rem;
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--ink);
+    margin-bottom: 0.4rem;
+    overflow-wrap: break-word;
+  }
+
+  .stat__label {
+    font-size: var(--step-small);
+    line-height: 1.5;
+    color: var(--slate);
+    max-width: 40ch;
+  }
+
+  /* ---------------- Case studies ---------------- */
+
+  .work {
+    padding-block: var(--space-5);
+  }
+
+  .work__head {
+    margin-bottom: var(--space-4);
+  }
+
+  .work__title {
+    font-size: var(--step-h2);
+    margin-bottom: var(--space-1);
+  }
+
+  .work__lede {
+    color: var(--slate);
+  }
+
+  .work__grid {
+    display: grid;
+    gap: var(--space-2);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .kinetic-in {
+      animation: none;
+      opacity: 1;
+      transform: none;
+      font-variation-settings: "wght" 620, "wdth" 100;
+    }
+  }
+</style>

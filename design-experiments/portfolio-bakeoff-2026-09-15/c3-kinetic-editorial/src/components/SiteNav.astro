@@ -1,0 +1,381 @@
+---
+/**
+ * Site navigation: "type IS the interface" applied to wayfinding.
+ *
+ * Desktop (>= 64rem): the full index sits inline in the header, set large in
+ * the kinetic display face — always visible, nothing to open. Icons are
+ * dropped entirely (no icon library is installed; the brief's adapted
+ * pre-flight rule prefers text labels, and it fits the concept: the nav IS
+ * typography, not typography plus a glyph).
+ *
+ * Mobile (< 64rem): a text "Menu" button opens a native `popover` panel
+ * (Popover API, zero JavaScript) with the same items stacked at poster scale.
+ * `popover="auto"` gives ESC-to-close and light-dismiss for free, and the
+ * browser manages focus/inert semantics.
+ *
+ * Language switcher: always in the header row at every width, so it is
+ * reachable in one tap from every page, including from inside the mobile
+ * popover's own header. It always points at the SAME page in the other
+ * language, never at the home page.
+ */
+import { localeFromPath, localizedPath, pathInLocale, t } from "../i18n";
+import { NAV_ITEMS, ui } from "../data/ui";
+import type { NavItem } from "../data/ui";
+
+interface Props {
+  showLanguageSwitcher?: boolean;
+}
+
+const { showLanguageSwitcher = true } = Astro.props;
+
+const path = Astro.url.pathname;
+const lang = localeFromPath(path);
+const other = lang === "en" ? "es" : "en";
+
+const basePath = path.replace(/^\/es(?=\/|$)/, "") || "/";
+const otherLangHref = pathInLocale(path, other);
+
+function isCurrent(item: NavItem): boolean {
+  if (item.match === "/") return basePath === "/";
+  return basePath.startsWith(item.match);
+}
+
+const menuLabel = { en: "Menu", es: "Menú" };
+const closeLabel = { en: "Close menu", es: "Cerrar menú" };
+---
+
+<header class="site-header">
+  <div class="wrap site-header__row">
+    <a href={localizedPath("/", lang)} class="wordmark">
+      Marius Mihail Ion
+      <span class="wordmark__role">{t(ui.siteRole, lang)}</span>
+    </a>
+
+    <nav class="topnav" aria-label={t(ui.navPrimary, lang)}>
+      <ul class="topnav__list">
+        {
+          NAV_ITEMS.map((item) => (
+            <li>
+              <a
+                href={localizedPath(item.href, lang)}
+                class="topnav__link kinetic-link"
+                aria-current={isCurrent(item) ? "page" : undefined}
+              >
+                {t(item.label, lang)}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <div class="site-header__end">
+      {
+        showLanguageSwitcher && (
+          <a
+            class="langswitch"
+            href={otherLangHref}
+            hreflang={other}
+            lang={other}
+            aria-label={t(ui.languageSwitchTo, lang)}
+          >
+            <span>{t(ui.languageSwitchText, lang)}</span>
+          </a>
+        )
+      }
+
+      <button
+        type="button"
+        class="menu-btn"
+        popovertarget="mobile-nav"
+        aria-haspopup="dialog"
+      >
+        {t(menuLabel, lang)}
+      </button>
+    </div>
+  </div>
+</header>
+
+<div id="mobile-nav" popover="auto" class="mobile-nav">
+  <div class="mobile-nav__head">
+    <p class="running-head">Marius Mihail Ion</p>
+    <button
+      type="button"
+      class="mobile-nav__close"
+      popovertarget="mobile-nav"
+      popovertargetaction="hide"
+    >
+      {t(closeLabel, lang)}
+    </button>
+  </div>
+  <nav aria-label={t(ui.navPrimary, lang)}>
+    <ul class="mobile-nav__list">
+      {
+        NAV_ITEMS.map((item) => (
+          <li>
+            <a
+              href={localizedPath(item.href, lang)}
+              class="mobile-nav__link"
+              aria-current={isCurrent(item) ? "page" : undefined}
+            >
+              {t(item.label, lang)}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</div>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    border-bottom: 1px solid var(--rule);
+    background: color-mix(in srgb, var(--paper) 86%, transparent);
+    backdrop-filter: saturate(140%) blur(10px);
+  }
+
+  .site-header__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+    padding-block: var(--space-2);
+    min-height: 4.25rem;
+  }
+
+  .wordmark {
+    display: grid;
+    gap: 0.15rem;
+    font-family: var(--font-display);
+    font-variation-settings: "wght" 560, "wdth" 100;
+    font-size: 1.0625rem;
+    line-height: 1.15;
+    color: var(--ink);
+    text-decoration: none;
+    min-width: 0;
+    flex: none;
+  }
+
+  .wordmark__role {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--slate);
+  }
+
+  /* ---------------- Desktop: inline full index ---------------- */
+
+  .topnav {
+    display: none;
+    min-width: 0;
+    flex: 1 1 auto;
+    justify-content: center;
+  }
+
+  .topnav__list {
+    list-style: none;
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.35em 1.5rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .topnav__link {
+    position: relative;
+    display: inline-block;
+    padding-block: 0.35rem;
+    font-family: var(--font-display);
+    font-variation-settings: "wght" 520, "wdth" 100;
+    font-size: clamp(1.375rem, 1rem + 1.1vw, 2rem);
+    color: var(--slate);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .topnav__link[aria-current="page"] {
+    color: var(--ink);
+    --wght: 700;
+  }
+
+  .topnav__link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -0.2rem;
+    height: 2px;
+    width: 100%;
+    background: var(--signal);
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+    transition: transform 0.22s var(--ease-out-expo);
+  }
+
+  .topnav__link:hover::after,
+  .topnav__link:focus-visible::after,
+  .topnav__link[aria-current="page"]::after {
+    transform: scaleX(1);
+  }
+
+  @media (min-width: 64rem) {
+    .topnav {
+      display: flex;
+    }
+  }
+
+  /* ---------------- Language switch + mobile menu button ---------------- */
+
+  .site-header__end {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex: none;
+  }
+
+  .langswitch {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2.75rem;
+    min-height: 2.75rem;
+    padding-inline: 0.6rem;
+    border: 1px solid var(--rule-strong);
+    border-radius: 999px;
+    background: var(--paper-raised);
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: var(--slate);
+    text-decoration: none;
+  }
+
+  .langswitch:hover {
+    border-color: var(--signal);
+    color: var(--signal);
+    background: var(--signal-wash);
+  }
+
+  .menu-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.75rem;
+    padding-inline: 0.9rem;
+    border: 1px solid var(--rule-strong);
+    border-radius: 999px;
+    background: var(--paper-raised);
+    color: var(--ink);
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+  }
+
+  .menu-btn:hover {
+    border-color: var(--signal);
+    color: var(--signal);
+  }
+
+  @media (min-width: 64rem) {
+    .menu-btn {
+      display: none;
+    }
+  }
+
+  /* ---------------- Mobile: native popover, full-index takeover ---------------- */
+
+  .mobile-nav {
+    border: none;
+    padding: 0;
+    margin: 0;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+    background: var(--paper);
+    color: var(--ink);
+  }
+
+  .mobile-nav:popover-open {
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media (min-width: 64rem) {
+    .mobile-nav {
+      display: none !important;
+    }
+  }
+
+  .mobile-nav::backdrop {
+    background: rgb(0 0 0 / 0.2);
+  }
+
+  .mobile-nav__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--gutter);
+    border-bottom: 1px solid var(--rule);
+    min-height: 4.25rem;
+  }
+
+  .mobile-nav__close {
+    min-height: 2.75rem;
+    min-width: 2.75rem;
+    padding-inline: 0.9rem;
+    border: 1px solid var(--rule-strong);
+    border-radius: 999px;
+    background: var(--paper-raised);
+    color: var(--ink);
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    cursor: pointer;
+  }
+
+  .mobile-nav__close:hover {
+    border-color: var(--signal);
+    color: var(--signal);
+  }
+
+  .mobile-nav__list {
+    list-style: none;
+    margin: 0;
+    padding: var(--space-3) var(--gutter);
+    display: grid;
+    gap: 0.25em;
+    overflow-y: auto;
+  }
+
+  .mobile-nav__link {
+    display: block;
+    padding-block: 0.3em;
+    font-family: var(--font-display);
+    font-variation-settings: "wght" 520, "wdth" 100;
+    font-size: clamp(2.25rem, 1.6rem + 6vw, 3.5rem);
+    line-height: 1.08;
+    color: var(--ink);
+    text-decoration: none;
+    /* Comfortable pointer target even though the line itself is huge. */
+    min-height: 2.75rem;
+  }
+
+  .mobile-nav__link[aria-current="page"] {
+    color: var(--signal);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .topnav__link::after {
+      transition: none;
+    }
+  }
+</style>

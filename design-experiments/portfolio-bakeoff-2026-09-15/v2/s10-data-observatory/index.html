@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marius Mihail Ion · Data Observatory — Senior Angular / Frontend Engineer</title>
+<meta name="description" content="An interactive data observatory of Marius Mihail Ion's career: timeline, engineering signals and case studies, every number sourced.">
+<link rel="canonical" href="https://mihailmariusiondev.github.io/">
+<meta property="og:title" content="Marius Mihail Ion · Data Observatory">
+<meta property="og:description" content="Career timeline, sourced engineering signals and four case studies — an Angular/Frontend engineer's work, read as data.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/me.webp">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Marius Mihail Ion","jobTitle":"Senior Angular / Frontend Engineer","email":"mailto:mihailmariusion@gmail.com","url":"https://mihailmariusiondev.github.io","sameAs":["https://linkedin.com/in/mariusdev","https://github.com/mihailmariusiondev"],"address":{"@type":"PostalAddress","addressLocality":"Zaragoza","addressCountry":"ES"}}
+</script>
+</head>
+<body>
+<div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
+<a class="skip-link" href="#main" data-i18n="skip">Skip to main content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="#top">Marius Mihail Ion · <strong>Observatory</strong></a>
+    <nav class="main-nav" aria-label="Primary">
+      <ul>
+        <li><a href="#timeline" data-i18n="navTimeline">Timeline</a></li>
+        <li><a href="#signals" data-i18n="navSignals">Signals</a></li>
+        <li><a href="#cases" data-i18n="navCases">Case studies</a></li>
+        <li><a href="#about" data-i18n="navAbout">About</a></li>
+        <li><a href="#contact" data-i18n="navContact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <a class="cv-btn" id="cv-en-link" href="assets/marius-mihail-ion-cv.pdf" download>Download CV (English)</a>
+      <button class="lang-btn" id="lang-toggle" data-i18n-aria-label="langSwitchLabel" aria-label="View in Spanish">ES</button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" id="top">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <p class="kicker" data-i18n="kicker">A DATA OBSERVATORY</p>
+          <h1 data-i18n="heroTitle">A frontend career since 2018, read as a dataset.</h1>
+          <p class="hero-lede" data-i18n="heroLede">…</p>
+          <p class="hero-location" data-i18n="heroLocation">…</p>
+          <div class="hero-ctas">
+            <a class="btn btn-primary" href="#signals" data-i18n="scrollHint">Scroll to explore the data ↓</a>
+            <a class="btn btn-outline" id="cv-es-link" href="assets/marius-mihail-ion-cv-es.pdf" download data-i18n="ctaCvEs">Download CV (Spanish)</a>
+            <a class="btn btn-outline" href="#contact" data-i18n="ctaContact">Contact</a>
+          </div>
+        </div>
+        <div class="hero-photo-card">
+          <img src="assets/me.webp" alt="Marius Mihail Ion" width="480" height="600">
+          <p class="hero-photo-caption" data-i18n="siteRole">Senior Angular / Frontend Engineer</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="timeline">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow" data-i18n="navTimeline">Timeline</p>
+        <h2 data-i18n="timelineTitle">The career, as a timeline</h2>
+        <p data-i18n="timelineIntro">…</p>
+      </div>
+      <div class="chart-svg-wrap reveal">
+        <svg id="timeline-svg" class="timeline-chart"></svg>
+        <div class="legend" id="timeline-legend"></div>
+        <p class="chart-source" data-i18n="timelineSource">Source: CV role history</p>
+        <button class="data-table-toggle" aria-controls="timeline-table-wrap" aria-expanded="false" data-i18n="viewTable">View data table</button>
+        <div id="timeline-table-wrap" hidden>
+          <table class="data-table">
+            <caption data-i18n="timelineTableCaption">Role history table</caption>
+            <thead><tr>
+              <th data-i18n="thPeriod">Period</th><th data-i18n="thCompany">Company</th><th data-i18n="thClient">Client / context</th><th data-i18n="thRole">Role</th>
+            </tr></thead>
+            <tbody id="timeline-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="signals">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow" data-i18n="navSignals">Signals</p>
+        <h2 data-i18n="signalsTitle">Six signals from the work</h2>
+        <p data-i18n="signalsIntro">…</p>
+      </div>
+      <div class="chart-grid">
+
+        <article class="chart-card reveal">
+          <h3 data-i18n="c1Title">LLM context payload</h3>
+          <p class="chart-big" data-i18n="c1Big">96% smaller</p>
+          <div class="chart-svg-wrap"><svg id="chart-payload"></svg></div>
+          <p class="desc" data-i18n="c1Desc">…</p>
+          <p class="chart-note" data-i18n="c1Note">…</p>
+          <p class="chart-source" data-i18n="c1Source">Source</p>
+        </article>
+
+        <article class="chart-card reveal">
+          <h3 data-i18n="c2Title">JavaScript bundle audit</h3>
+          <p class="chart-big" data-i18n="c2Big">~3.4 MB identified</p>
+          <div class="chart-svg-wrap"><svg id="chart-bundle"></svg></div>
+          <p class="desc" data-i18n="c2Desc">…</p>
+          <p class="chart-source" data-i18n="c2Source">Source</p>
+        </article>
+
+        <article class="chart-card reveal">
+          <h3 data-i18n="c3Title">Accessibility audit close-out</h3>
+          <p class="chart-big" data-i18n="c3Big">34 findings closed</p>
+          <div class="chart-svg-wrap"><svg id="chart-wcag"></svg></div>
+          <p class="desc" data-i18n="c3Desc">…</p>
+          <p class="chart-source" data-i18n="c3Source">Source</p>
+        </article>
+
+        <article class="chart-card reveal">
+          <h3 data-i18n="c4Title">Angular assessment, SkillValue</h3>
+          <p class="chart-big" data-i18n="c4Big">Top 1.42%</p>
+          <div class="chart-svg-wrap"><svg id="chart-gauge" style="max-width:200px"></svg></div>
+          <p class="desc" data-i18n="c4Desc">…</p>
+          <p class="chart-source" data-i18n="c4Source">Source</p>
+        </article>
+
+        <article class="chart-card reveal">
+          <h3 data-i18n="c5Title">Automated review system, self-audited</h3>
+          <p class="chart-big" data-i18n="c5Big">21 of 53 rules retired</p>
+          <div class="chart-svg-wrap"><svg id="chart-review"></svg></div>
+          <p class="desc" data-i18n="c5Desc">…</p>
+          <p class="chart-note" data-i18n="c5Note">…</p>
+          <p class="chart-source" data-i18n="c5Source">Source</p>
+        </article>
+
+        <article class="chart-card reveal">
+          <h3 data-i18n="c6Title">Team scale, Santander banking apps</h3>
+          <div class="chart-svg-wrap"><svg id="chart-team"></svg></div>
+          <p class="desc" data-i18n="c6Desc">…</p>
+          <p class="chart-source" data-i18n="c6Source">Source</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="cases">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow" data-i18n="navCases">Case studies</p>
+        <h2 data-i18n="casesTitle">Four case studies, fully readable</h2>
+        <p data-i18n="casesIntro">…</p>
+      </div>
+      <div class="case-list" id="case-list"></div>
+    </div>
+  </section>
+
+  <section id="recs">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2 data-i18n="recsTitle">What colleagues say</h2>
+      </div>
+      <div class="rec-grid" id="rec-grid"></div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow" data-i18n="navAbout">About</p>
+        <h2 data-i18n="aboutTitle">About</h2>
+      </div>
+      <div class="about-grid">
+        <div class="reveal">
+          <p data-i18n="about1">…</p>
+          <p data-i18n="about2">…</p>
+          <p data-i18n="about3">…</p>
+          <p data-i18n="about4">…</p>
+        </div>
+        <div class="reveal">
+          <p class="eyebrow" data-i18n="skillsTitle">Skills, by category</p>
+          <div id="skills-container"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact-section">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow" data-i18n="navContact">Contact</p>
+        <h2 data-i18n="contactTitle">Contact</h2>
+        <p data-i18n="contactLede">…</p>
+      </div>
+      <div class="contact-links reveal">
+        <a href="mailto:mihailmariusion@gmail.com">mihailmariusion@gmail.com</a>
+        <a href="https://linkedin.com/in/mariusdev" target="_blank" rel="noopener">LinkedIn — /in/mariusdev</a>
+        <a href="https://github.com/mihailmariusiondev" target="_blank" rel="noopener">GitHub — @mihailmariusiondev</a>
+        <a href="assets/marius-mihail-ion-cv.pdf" download data-i18n="ctaCvEn">Download CV (English)</a>
+        <a href="assets/marius-mihail-ion-cv-es.pdf" download data-i18n="ctaCvEs">Download CV (Spanish)</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p data-i18n="footerA11y">…</p>
+    <p data-i18n="footerBuilt">Built from scratch.</p>
+    <p>© 2026 Marius Mihail Ion.</p>
+  </div>
+</footer>
+
+<script src="js/i18n.js"></script>
+<script src="js/data.js"></script>
+<script src="js/charts.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

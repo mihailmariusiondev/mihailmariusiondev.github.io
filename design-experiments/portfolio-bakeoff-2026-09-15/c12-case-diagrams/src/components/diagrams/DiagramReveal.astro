@@ -1,0 +1,70 @@
+---
+/**
+ * One shared script for every `[data-diagram]` figure on the site (home
+ * previews and case-study full diagrams alike). It is safe to include on
+ * every page: it simply finds nothing on pages without a diagram.
+ *
+ * Default state (no JS, or `prefers-reduced-motion: reduce`): every path and
+ * label is already fully visible and fully drawn, because the SVGs ship with
+ * no stroke-dasharray in markup. This script only ADDS a draw-in effect for
+ * capable, motion-consenting browsers; it never hides content to create one.
+ */
+---
+
+<script>
+  const REDUCE = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function drawIn(figure: Element) {
+    const svg = figure.querySelector("svg");
+    if (!svg) return;
+
+    svg.querySelectorAll<SVGGeometryElement>("[data-draw]").forEach((path, i) => {
+      const len = path.getTotalLength();
+      path.style.strokeDasharray = String(len);
+      path.style.strokeDashoffset = String(len);
+      path.style.transition = `stroke-dashoffset 900ms cubic-bezier(0.16,1,0.3,1) ${i * 140}ms`;
+      requestAnimationFrame(() => {
+        path.style.strokeDashoffset = "0";
+      });
+    });
+
+    svg.querySelectorAll<SVGElement>("[data-reveal]").forEach((node, i) => {
+      const delay = 260 + i * 130;
+      node.style.opacity = "0";
+      node.style.transform = "translateY(4px)";
+      node.style.transition = `opacity 420ms ease ${delay}ms, transform 420ms ease ${delay}ms`;
+      requestAnimationFrame(() => {
+        node.style.opacity = "1";
+        node.style.transform = "translateY(0)";
+      });
+    });
+  }
+
+  function init() {
+    const figures = document.querySelectorAll("[data-diagram]");
+    if (!figures.length) return;
+
+    if (REDUCE || !("IntersectionObserver" in window)) {
+      // Static end state: content is already visible by default, nothing to do.
+      return;
+    }
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
+          drawIn(entry.target);
+          io.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.3 },
+    );
+    figures.forEach((f) => io.observe(f));
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+</script>

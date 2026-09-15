@@ -1,0 +1,112 @@
+---
+/**
+ * Shared chrome around every bespoke case-study SVG: the "Illustrative"
+ * label the brief requires, and a text alternative that carries the same
+ * information as the drawing for screen-reader and no-CSS readers. The SVG
+ * itself is passed in via the default slot with `role="img"` and its own
+ * `<title>`/`<desc>`, so the graphic and the text list are two views of one
+ * fact set, not two competing sources of truth.
+ */
+import { ui } from "../../data/ui";
+import { t, type Locale } from "../../i18n";
+
+interface Props {
+  lang: Locale;
+  steps: string[];
+  compact?: boolean;
+}
+
+const { lang, steps, compact = false } = Astro.props;
+---
+
+<figure class:list={["diagram", { "diagram--compact": compact }]} data-diagram>
+  <div class="diagram__art">
+    <slot />
+  </div>
+  <figcaption class="diagram__caption">
+    <span class="diagram__tag">{t(ui.diagramIllustrative, lang)}</span>
+    {
+      !compact && (
+        <details class="diagram__alt">
+          <summary>{t(ui.diagramAltToggle, lang)}</summary>
+          <ol>
+            {steps.map((step) => (
+              <li>{step}</li>
+            ))}
+          </ol>
+        </details>
+      )
+    }
+  </figcaption>
+</figure>
+
+<style>
+  .diagram {
+    margin: 0;
+    padding: var(--space-3);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+    background: var(--paper-raised);
+  }
+
+  .diagram--compact {
+    padding: var(--space-2);
+    border: none;
+    background: transparent;
+  }
+
+  .diagram__art {
+    width: 100%;
+  }
+
+  .diagram__art :global(svg) {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .diagram__caption {
+    margin-top: var(--space-2);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  .diagram--compact .diagram__caption {
+    margin-top: var(--space-1);
+  }
+
+  .diagram__tag {
+    font-family: var(--font-mono);
+    font-size: var(--step-micro);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--slate-quiet);
+  }
+
+  .diagram__alt {
+    font-family: var(--font-mono);
+    font-size: var(--step-micro);
+    color: var(--slate);
+  }
+
+  .diagram__alt summary {
+    cursor: pointer;
+    color: var(--steel-dark);
+    min-height: 1.5rem;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .diagram__alt ol {
+    margin: var(--space-1) 0 0;
+    padding-left: 1.25em;
+    max-width: var(--measure);
+    line-height: 1.6;
+  }
+
+  .diagram__alt li + li {
+    margin-top: 0.35em;
+  }
+</style>

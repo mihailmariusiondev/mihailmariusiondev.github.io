@@ -1,0 +1,546 @@
+/* Self-hosted, text-subset (Latin + Spanish diacritics) woff2s, replacing the
+   Google Fonts @import (a render-blocking cross-origin round trip). Anybody
+   ships as a genuine variable font (wght 100-800, wdth 50%-125%) because the
+   kinetic entrance animates both axes live via font-variation-settings; a
+   static swap would break the effect. Inter only needs 400/600, also kept
+   variable since Google served one file either way. font-display: swap keeps
+   text visible immediately; the hero face is preloaded from Layout.astro. */
+@font-face {
+  font-family: "Anybody";
+  font-style: normal;
+  font-weight: 100 800;
+  font-stretch: 50% 125%;
+  font-display: swap;
+  src: url("/fonts/anybody-var.woff2") format("woff2");
+  unicode-range: U+20-7E, U+A1, U+B7, U+BF, U+C1, U+C9, U+CD, U+D1, U+D3, U+DA,
+    U+E1, U+E9, U+ED, U+F1, U+F3, U+FA, U+2011, U+2013-2014, U+2192;
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("/fonts/inter-var.woff2") format("woff2");
+  unicode-range: U+20-7E, U+A1, U+B7, U+BF, U+C1, U+C9, U+CD, U+D1, U+D3, U+DA,
+    U+E1, U+E9, U+ED, U+F1, U+F3, U+FA, U+2011, U+2013-2014, U+2192;
+}
+
+/*
+ * Kinetic Editorial token system.
+ *
+ * One characterful variable display face (Anybody: wght + wdth) carries every
+ * headline, the nav and the hero. Inter stays quiet for long-form reading.
+ * The palette is deliberately restrained (near-white / near-black + one
+ * signal accent) so the boldness lives entirely in scale and motion, never in
+ * a second or third hue. See DESIGN.md.
+ */
+
+@property --wght {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 500;
+}
+
+@property --wdth {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 100;
+}
+
+:root {
+  color-scheme: light dark;
+
+  /* Ink & paper */
+  --ink: #111113;
+  --paper: #fafaf9;
+  --paper-raised: #ffffff;
+  --paper-sunk: #efeee9;
+
+  /* The one signal accent: every kinetic cue (progress, focus, active state,
+     primary CTA) and nothing else. */
+  --signal: #1e3af0;
+  --signal-ink: #ffffff;
+  --signal-wash: #e9ecfd;
+
+  /* Text tiers, both >= 4.5:1 on --paper and --paper-sunk. */
+  --slate: #53565c;
+  --slate-quiet: #5f6266;
+
+  --amber: #6f5709;
+  --amber-bg: #f3ecd6;
+
+  --rule: #dbd9d3;
+  --rule-strong: #bcb9b1;
+
+  --font-display: "Anybody", "Arial Narrow", sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, "Courier New", monospace;
+
+  /* Type scale. --step-poster is the brief's named exception to a general
+     display ceiling: the hero name/role and the kinetic case-index titles are
+     the interface, and are allowed past 6rem on wide screens. */
+  --step-poster: clamp(3rem, 1.4rem + 7vw, 7.5rem);
+  --step-display: clamp(2.25rem, 1.4rem + 3.6vw, 4.25rem);
+  --step-h1: clamp(1.875rem, 1.35rem + 2.2vw, 2.75rem);
+  --step-h2: clamp(1.5rem, 1.25rem + 1vw, 1.875rem);
+  --step-h3: clamp(1.1875rem, 1.1rem + 0.4vw, 1.375rem);
+  --step-lede: clamp(1.0625rem, 1rem + 0.45vw, 1.25rem);
+  --step-body: 1.0625rem;
+  --step-small: 0.9375rem;
+  --step-micro: 0.8125rem;
+
+  --measure: 68ch;
+
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.75rem;
+  --space-4: 3rem;
+  --space-5: 5rem;
+  --space-6: 7rem;
+
+  --gutter: clamp(1.25rem, 5vw, 3rem);
+  --nav-clearance: 0rem;
+
+  --radius: 6px;
+  --shadow-raised: 0 1px 2px rgb(17 17 19 / 0.05), 0 8px 24px -12px rgb(17 17 19 / 0.14);
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #f3f2ee;
+    --paper: #0a0a0c;
+    --paper-raised: #131316;
+    --paper-sunk: #0e0e10;
+
+    --signal: #7c93ff;
+    --signal-ink: #0a0a0c;
+    --signal-wash: #1a2040;
+
+    --slate: #b7b8bc;
+    --slate-quiet: #9a9ca1;
+
+    --amber: #ddc06a;
+    --amber-bg: #26220f;
+
+    --rule: #2b2b2f;
+    --rule-strong: #3d3d42;
+
+    --shadow-raised: 0 1px 2px rgb(0 0 0 / 0.35), 0 8px 24px -12px rgb(0 0 0 / 0.65);
+  }
+}
+
+@media (max-width: 63.999rem) {
+  :root {
+    /* Mobile carries a persistent header only (no floating bottom bar in this
+       concept), so no clearance is reserved. Kept as a hook for parity with
+       the base site's nav-clearance pattern. */
+    --nav-clearance: 0rem;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    animation-timeline: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--step-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-variation-settings: "wght" 560, "wdth" 100;
+  font-weight: 560;
+  line-height: 1.05;
+  margin: 0;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+p {
+  margin: 0;
+  text-wrap: pretty;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--signal);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.15em;
+}
+
+a:hover {
+  color: var(--ink);
+}
+
+/* Browser surfaces carry the design too. */
+::selection {
+  background: var(--signal);
+  color: var(--signal-ink);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid var(--signal);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0.75rem 1.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  z-index: 100;
+  transition: top 0.15s var(--ease-out-expo);
+  border-radius: 0 0 4px 4px;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* ---- Layout primitives ---- */
+
+.wrap {
+  width: 100%;
+  max-width: 76rem;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.wrap--narrow {
+  max-width: 56rem;
+}
+
+.prose {
+  max-width: var(--measure);
+}
+
+.page-head {
+  padding-block: var(--space-5) var(--space-4);
+}
+
+.page-head h1 {
+  font-size: var(--step-display);
+  margin-top: var(--space-2);
+  max-width: 16ch;
+}
+
+.page-head__lede {
+  margin-top: var(--space-2);
+  color: var(--slate);
+  font-size: var(--step-lede);
+}
+
+/* A running head: mono, uppercase, used inline next to a heading or inside a
+   breadcrumb rail. Never floated above a heading as a kicker (impeccable
+   craft-floor bans that pattern outright). */
+.running-head {
+  font-family: var(--font-mono);
+  font-size: var(--step-micro);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--slate);
+}
+
+/* Breadcrumbs: real wayfinding, not a decorative kicker repeating the
+   heading. Shared by every inner page above its page-head. */
+.crumbs {
+  padding-top: var(--space-4);
+}
+
+.crumbs__list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-mono);
+  font-size: var(--step-micro);
+  color: var(--slate);
+}
+
+.crumbs__list li + li::before {
+  content: "/";
+  margin-right: 0.5rem;
+  color: var(--slate-quiet);
+}
+
+.crumbs__list a {
+  color: var(--slate);
+}
+
+.crumbs__list a:hover {
+  color: var(--signal);
+}
+
+.crumbs__list [aria-current="page"] {
+  color: var(--ink);
+}
+
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: var(--step-micro);
+  color: var(--slate);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tag {
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  padding: 0.2em 0.6em;
+  background: var(--paper-raised);
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.field {
+  border-top: 1px solid var(--rule);
+  padding-block: var(--space-3);
+  display: grid;
+  gap: var(--space-2);
+  scroll-margin-top: 6rem;
+}
+
+.field:first-of-type {
+  border-top: none;
+  padding-top: 0;
+}
+
+@media (min-width: 56rem) {
+  .field {
+    grid-template-columns: 13rem 1fr;
+    gap: var(--space-4);
+  }
+}
+
+.field dt {
+  font-family: var(--font-mono);
+  font-size: var(--step-micro);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ink);
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.field dd {
+  margin: 0;
+  max-width: var(--measure);
+  color: var(--slate);
+}
+
+.verified {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: var(--amber);
+  background: var(--amber-bg);
+  border: 1px solid color-mix(in srgb, var(--amber) 30%, transparent);
+  padding: 0.5em 0.75em;
+  border-radius: 3px;
+}
+
+/* ---- Buttons ---- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  min-height: 2.75rem;
+  padding: 0.6em 1.1em;
+  border: 1px solid var(--rule-strong);
+  border-radius: 4px;
+  color: var(--ink);
+  background: var(--paper-raised);
+  text-decoration: none;
+  transition: background-color 0.15s var(--ease-out-expo), border-color 0.15s var(--ease-out-expo),
+    color 0.15s var(--ease-out-expo), transform 0.15s var(--ease-out-expo);
+}
+
+.btn:hover {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+  transform: translateY(-1px);
+}
+
+.btn-primary {
+  background: var(--signal);
+  border-color: var(--signal);
+  color: var(--signal-ink);
+}
+
+.btn-primary:hover {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn:hover {
+    transform: none;
+  }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---- Kinetic primitives, reused across nav/hero/case-index/case-page ---- */
+
+/* Hover/focus weight-and-width swing: the microinteraction every interactive
+   piece of type gets. Time-based, cheap, gated by reduced-motion globally. */
+.kinetic-link {
+  --wght: 500;
+  --wdth: 100;
+  font-variation-settings: "wght" var(--wght), "wdth" var(--wdth);
+  transition: --wght 0.22s var(--ease-out-expo), --wdth 0.22s var(--ease-out-expo),
+    color 0.15s ease;
+}
+
+.kinetic-link:hover,
+.kinetic-link:focus-visible {
+  --wght: 760;
+  --wdth: 112;
+}
+
+/* Scroll-driven progress bar for case-study pages. Hidden by default; only
+   drawn when the browser can actually drive it from scroll, so there is never
+   a static bar sitting at 0%. */
+.readbar {
+  display: none;
+}
+
+@supports (animation-timeline: scroll()) {
+  .readbar {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 100%;
+    background: var(--signal);
+    transform-origin: 0 50%;
+    transform: scaleX(0);
+    z-index: 70;
+    animation: readbar-progress linear both;
+    animation-timeline: scroll(root block);
+  }
+
+  @keyframes readbar-progress {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .readbar {
+    display: none;
+  }
+}
+
+/* Kinetic case-index title: scales and gains weight as it crosses the
+   viewport. Fallback (no @supports match, or reduced motion): fully resolved,
+   static, always legible — never half-appeared. */
+.kinetic-title {
+  font-variation-settings: "wght" 640, "wdth" 100;
+  transform: scale(1);
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .kinetic-title {
+      animation: kinetic-title-in linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 45%;
+    }
+
+    @keyframes kinetic-title-in {
+      from {
+        font-variation-settings: "wght" 260, "wdth" 82;
+        transform: scale(0.86);
+        opacity: 0.55;
+      }
+      to {
+        font-variation-settings: "wght" 640, "wdth" 100;
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+  }
+}

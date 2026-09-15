@@ -1,0 +1,564 @@
+---
+/**
+ * The home page, rendered once per language.
+ *
+ * The markup lives here, not in the route files, so `/` and `/es/` cannot drift
+ * structurally: there is exactly one template and two thin route wrappers. A
+ * section that exists in Spanish but not in English is impossible by
+ * construction, and every string comes from a `Localized<T>` object that fails
+ * `astro check` if a language is missing.
+ */
+import Layout from "../../layouts/Layout.astro";
+import CaseStudyCard from "../CaseStudyCard.astro";
+import { caseStudies } from "../../data/caseStudies";
+import { stats, experience } from "../../data/experience";
+import { contactLinks, ui } from "../../data/ui";
+import { localizedPath, t, type Locale } from "../../i18n";
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+const cvHref =
+  lang === "es"
+    ? "/marius-mihail-ion-cv-es.pdf"
+    : "/marius-mihail-ion-cv.pdf";
+---
+
+<Layout
+  title={t(ui.homeTitle, lang)}
+  description={t(ui.homeDescription, lang)}
+  ogTitle={t(ui.homeOgTitle, lang)}
+  ogDescription={t(ui.homeOgDescription, lang)}
+  includePersonSchema
+>
+  <p class="reel-counter" aria-hidden="true" data-reel>{t(ui.chapterOpening, lang)}</p>
+
+  <section class="hero film-chapter" data-chapter data-chapter-label={t(ui.chapterOpening, lang)}>
+    <div class="wrap hero__grid">
+      <figure class="hero__figure film-rise">
+        <img
+          class="hero__photo"
+          src="/me.webp"
+          alt={t(ui.heroPhotoAlt, lang)}
+          width="640"
+          height="640"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        />
+      </figure>
+
+      <div class="hero__body film-rise">
+        <p class="eyebrow">{t(ui.siteRole, lang)}</p>
+        <h1 class="hero__title">{t(ui.heroTitle, lang)}</h1>
+        <p class="hero__lede">{t(ui.heroLede, lang)}</p>
+        <div class="hero__actions">
+          <a class="btn btn-primary" href={localizedPath("/case-studies/", lang)}>
+            {t(ui.heroCtaCases, lang)}
+          </a>
+          <a class="btn" href={cvHref} download>
+            {t(ui.heroCtaCv, lang)}
+          </a>
+          <a class="btn" href="https://linkedin.com/in/mariusdev">LinkedIn</a>
+          <a class="btn" href="https://github.com/mihailmariusiondev">GitHub</a>
+        </div>
+        <p class="hero__location">{t(ui.heroLocation, lang)}</p>
+      </div>
+    </div>
+  </section>
+
+  <section
+    class="stats film-chapter"
+    aria-labelledby="stats-heading"
+    data-chapter
+    data-chapter-label={t(ui.chapterOpening, lang)}
+  >
+    <div class="wrap">
+      <h2 id="stats-heading" class="stats__heading eyebrow">
+        {t(ui.statsHeading, lang)}
+      </h2>
+      <ul class="stats__list">
+        {
+          stats.map((stat) => (
+            <li class="stat film-rise">
+              <p class="stat__value">{t(stat.value, lang)}</p>
+              <p class="stat__label">{t(stat.label, lang)}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section
+    class="problem film-chapter"
+    aria-labelledby="problem-heading"
+    data-chapter
+    data-chapter-label={t(ui.chapterProblem, lang)}
+  >
+    <div class="wrap">
+      <p class="eyebrow film-rise">{t(ui.chapterProblem, lang)}</p>
+      <h2 id="problem-heading" class="problem__heading film-rise">
+        {t(ui.problemHeading, lang)}
+      </h2>
+      <p class="problem__lede prose film-rise">{t(ui.problemLede, lang)}</p>
+    </div>
+  </section>
+
+  <section
+    id="work"
+    class="work film-chapter"
+    data-chapter
+    data-chapter-label={t(ui.chapterCases, lang)}
+  >
+    <div class="wrap">
+      <div class="work__head film-rise">
+        <h2 class="work__title">{t(ui.workTitle, lang)}</h2>
+        <p class="work__lede prose">{t(ui.workLede, lang)}</p>
+      </div>
+      <div class="work__grid">
+        {
+          caseStudies.map((study) => (
+            <div class="scene film-rise">
+              <CaseStudyCard study={study} />
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section
+    class="home-experience film-chapter"
+    aria-labelledby="home-experience-heading"
+    data-chapter
+    data-chapter-label={t(ui.chapterExperience, lang)}
+  >
+    <div class="wrap">
+      <h2 id="home-experience-heading" class="film-rise">
+        {t(ui.homeExperienceHeading, lang)}
+      </h2>
+      <ol class="reel-list" aria-label={t(ui.timelineLabel, lang)}>
+        {
+          experience.slice(0, 4).map((entry) => (
+            <li class="reel-row film-rise">
+              <span class="reel-row__period">{t(entry.period, lang)}</span>
+              <span class="reel-row__role">
+                {t(entry.role, lang)} · {t(entry.company, lang)}
+                {entry.client && <span class="reel-row__client"> ({entry.client})</span>}
+              </span>
+            </li>
+          ))
+        }
+      </ol>
+      <a class="btn film-rise" href={localizedPath("/experience/", lang)}>
+        {t(ui.homeExperienceCta, lang)}
+      </a>
+    </div>
+  </section>
+
+  <section
+    class="credits film-chapter"
+    aria-labelledby="credits-heading"
+    data-chapter
+    data-chapter-label={t(ui.chapterContact, lang)}
+  >
+    <div class="wrap">
+      <p class="eyebrow film-rise">{t(ui.chapterContact, lang)}</p>
+      <h2 id="credits-heading" class="film-rise">{t(ui.homeContactHeading, lang)}</h2>
+      <ul class="credits__list">
+        {
+          contactLinks.map((link) => (
+            <li class="credits__row film-rise">
+              <span class="credits__label">{t(link.label, lang)}</span>
+              <a class="credits__value" href={link.href}>
+                {link.value}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+      <a class="btn btn-primary film-rise" href={cvHref} download>
+        {t(ui.heroCtaCv, lang)}
+      </a>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  // GSAP loads only here (home page), only after first paint, and only when
+  // the visitor has not asked for reduced motion. Without this script every
+  // .film-chapter/.film-rise element is plain, fully visible content — see
+  // the CSS default below. This is progressive enhancement, not a requirement.
+  const prefersReducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  ).matches;
+
+  if (!prefersReducedMotion) {
+    const start = () => {
+      import("gsap").then(async ({ default: gsap }) => {
+        const { ScrollTrigger } = await import("gsap/ScrollTrigger");
+        gsap.registerPlugin(ScrollTrigger);
+
+        document.body.classList.add("js-film");
+
+        const reel = document.querySelector<HTMLElement>("[data-reel]");
+        const chapters = Array.from(
+          document.querySelectorAll<HTMLElement>("[data-chapter]"),
+        );
+
+        chapters.forEach((chapter) => {
+          const label = chapter.dataset.chapterLabel ?? "";
+          const rows = chapter.querySelectorAll(".film-rise");
+
+          gsap.set(rows, { autoAlpha: 0, y: 28 });
+          gsap.to(rows, {
+            autoAlpha: 1,
+            y: 0,
+            duration: 0.6,
+            ease: "power2.out",
+            stagger: 0.08,
+            scrollTrigger: {
+              trigger: chapter,
+              start: "top 75%",
+              // No pin: pinning was rejected here because it can trap
+              // keyboard/short-viewport users. Reveal-on-enter keeps every
+              // chapter a normal, always-scrollable section.
+              toggleActions: "play none none reverse",
+              onEnter: () => reel && (reel.textContent = label),
+              onEnterBack: () => reel && (reel.textContent = label),
+            },
+          });
+        });
+      });
+    };
+
+    const idle = (window as any).requestIdleCallback;
+    if (typeof idle === "function") {
+      idle(start, { timeout: 2000 });
+    } else {
+      setTimeout(start, 200);
+    }
+  }
+</script>
+
+<style>
+  /* ---------------- Hero ---------------- */
+
+  .hero {
+    padding-block: var(--space-4) var(--space-5);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .hero__grid {
+    display: grid;
+    gap: var(--space-4);
+    align-items: start;
+  }
+
+  @media (min-width: 56rem) {
+    .hero__grid {
+      /* Text first in the source order and in the visual order on desktop. */
+      grid-template-columns: minmax(0, 1fr) 14rem;
+      gap: var(--space-5);
+    }
+    .hero__figure {
+      order: 2;
+    }
+    .hero__body {
+      order: 1;
+    }
+  }
+
+  .hero__figure {
+    margin: 0;
+    /* On mobile the portrait is centred above the text, not floated beside it. */
+    justify-self: center;
+    width: min(11rem, 45vw);
+  }
+
+  @media (min-width: 56rem) {
+    .hero__figure {
+      justify-self: end;
+      width: 100%;
+      max-width: 14rem;
+    }
+  }
+
+  .hero__photo {
+    display: block;
+    width: 100%;
+    /* height:auto is load-bearing. The img carries width/height attributes (for
+       CLS), and aspect-ratio is ignored unless the other axis is auto: without
+       this the picture renders 176x640. */
+    height: auto;
+    /* Square frame. The source is a standing shot: a circle crops to the
+       forearms and a 4:5 frame towers over the text column. */
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    /* The head sits in the upper third of the 640x640 source. Raise the crop
+       to it, but not so far that the top of the head is cut. */
+    object-position: 50% 22%;
+    border-radius: var(--radius);
+    border: 1px solid var(--rule);
+    background: var(--paper-raised);
+    box-shadow: var(--shadow-raised);
+  }
+
+  .hero__title {
+    font-size: var(--step-display);
+    max-width: 20ch;
+    margin-block: var(--space-2) var(--space-3);
+  }
+
+  .hero__lede {
+    max-width: 54ch;
+    font-size: var(--step-lede);
+    color: var(--slate);
+    margin-bottom: var(--space-3);
+  }
+
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: var(--space-3);
+  }
+
+  .hero__location {
+    font-family: var(--font-mono);
+    font-size: var(--step-micro);
+    line-height: 1.6;
+    color: var(--slate-quiet);
+    max-width: 48ch;
+  }
+
+  /* ---------------- Verified results ---------------- */
+
+  .stats {
+    padding-block: var(--space-4);
+    background: var(--paper-sunk);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .stats__heading {
+    margin-bottom: var(--space-3);
+  }
+
+  .stats__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-3);
+  }
+
+  @media (min-width: 40rem) {
+    .stats__list {
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-3) var(--space-4);
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .stats__list {
+      /* The five figures read as one measured ledger, not five loose cards. */
+      grid-template-columns: repeat(5, 1fr);
+    }
+  }
+
+  .stat {
+    /* The rule is the signature: each figure is an audited entry, not a badge. */
+    border-left: 2px solid var(--steel);
+    padding-left: var(--space-2);
+    min-width: 0;
+  }
+
+  .stat__value {
+    font-family: var(--font-mono);
+    font-size: 1.625rem;
+    font-weight: 500;
+    line-height: 1.2;
+    color: var(--steel-dark);
+    margin-bottom: 0.4rem;
+    overflow-wrap: break-word;
+  }
+
+  .stat__label {
+    font-size: var(--step-small);
+    line-height: 1.5;
+    color: var(--slate);
+    max-width: 40ch;
+  }
+
+  /* ---------------- Case studies ---------------- */
+
+  .work {
+    padding-block: var(--space-5);
+  }
+
+  .work__head {
+    margin-bottom: var(--space-4);
+  }
+
+  .work__title {
+    font-size: var(--step-h2);
+    margin-bottom: var(--space-1);
+  }
+
+  .work__lede {
+    color: var(--slate);
+  }
+
+  .work__grid {
+    display: grid;
+    gap: var(--space-3);
+  }
+
+  @media (min-width: 56rem) {
+    .work__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .scene {
+    min-width: 0;
+  }
+
+  /* ---------------- Scroll Film chrome ---------------- */
+
+  /* Sticky reel counter: pure narration chrome, never the only way to reach
+     content (every chapter also has a real h2 in the flow). Hidden until JS
+     proves GSAP is driving it, so it never sits blank without motion. */
+  .reel-counter {
+    display: none;
+    position: sticky;
+    top: 0.75rem;
+    z-index: 5;
+    margin: 0;
+    margin-left: var(--gutter);
+    width: fit-content;
+    font-family: var(--font-mono);
+    font-size: var(--step-micro);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--paper);
+    background: var(--ink);
+    padding: 0.35em 0.75em;
+    border-radius: 3px;
+  }
+
+  :global(.js-film) .reel-counter {
+    display: block;
+  }
+
+  /* ---------------- The problem ---------------- */
+
+  .problem {
+    padding-block: var(--space-4);
+  }
+
+  .problem__heading {
+    font-size: var(--step-h2);
+    margin-top: var(--space-2);
+    max-width: 32ch;
+  }
+
+  .problem__lede {
+    color: var(--slate);
+    margin-top: var(--space-2);
+  }
+
+  /* ---------------- Experience (home teaser) ---------------- */
+
+  .home-experience {
+    padding-block: var(--space-5);
+    background: var(--paper-sunk);
+    border-block: 1px solid var(--rule);
+  }
+
+  .home-experience h2 {
+    font-size: var(--step-h2);
+    margin-bottom: var(--space-3);
+  }
+
+  .reel-list {
+    list-style: none;
+    margin: 0 0 var(--space-3);
+    padding: 0;
+  }
+
+  .reel-row {
+    display: grid;
+    gap: 0.25rem;
+    padding-block: var(--space-2);
+    border-top: 1px solid var(--rule);
+  }
+
+  @media (min-width: 40rem) {
+    .reel-row {
+      grid-template-columns: 14rem 1fr;
+      gap: var(--space-2);
+    }
+  }
+
+  .reel-row__period {
+    font-family: var(--font-mono);
+    font-size: var(--step-micro);
+    color: var(--slate-quiet);
+  }
+
+  .reel-row__client {
+    color: var(--slate);
+  }
+
+  /* ---------------- Closing credits (contact) ---------------- */
+
+  .credits {
+    padding-block: var(--space-5) var(--space-6);
+  }
+
+  .credits h2 {
+    font-size: var(--step-h2);
+    margin-top: var(--space-2);
+    margin-bottom: var(--space-3);
+  }
+
+  .credits__list {
+    list-style: none;
+    margin: 0 0 var(--space-3);
+    padding: 0;
+    display: grid;
+  }
+
+  .credits__row {
+    display: grid;
+    gap: 0.25rem;
+    padding-block: var(--space-2);
+    border-top: 1px solid var(--rule);
+  }
+
+  @media (min-width: 40rem) {
+    .credits__row {
+      grid-template-columns: 8rem 1fr;
+      align-items: baseline;
+      gap: var(--space-2);
+    }
+  }
+
+  .credits__label {
+    font-family: var(--font-mono);
+    font-size: var(--step-micro);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--slate);
+  }
+
+  .credits__value {
+    font-family: var(--font-mono);
+    font-size: var(--step-small);
+    overflow-wrap: anywhere;
+  }
+</style>
