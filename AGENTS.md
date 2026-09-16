@@ -1,0 +1,1 @@
+../instructions/rules/core.md
