@@ -1,0 +1,207 @@
+%!TEX program = xelatex
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[a4paper,left=1.5cm,right=1.5cm,top=1.2cm,bottom=1.2cm]{geometry}
+
+\usepackage{fontspec}
+\setmainfont{Georgia}[
+  Path           = /usr/share/fonts/truetype/msttcorefonts/,
+  Extension      = .ttf,
+  UprightFont    = Georgia,
+  BoldFont       = Georgia_Bold,
+  ItalicFont     = Georgia_Italic,
+  BoldItalicFont = Georgia_Bold_Italic,
+]
+% Map Lato weight variants to Georgia equivalents
+\newfontfamily\latolight{Georgia}[Path=/usr/share/fonts/truetype/msttcorefonts/,Extension=.ttf,ItalicFont=Georgia_Italic]
+\newfontfamily\latomedium{Georgia}[Path=/usr/share/fonts/truetype/msttcorefonts/,Extension=.ttf]
+\newfontfamily\latosemibold{Georgia_Bold}[Path=/usr/share/fonts/truetype/msttcorefonts/,Extension=.ttf]
+
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+
+\definecolor{dark}{HTML}{2C2C2C}
+\definecolor{mid}{HTML}{555555}
+\definecolor{light}{HTML}{888888}
+\definecolor{rulecolor}{HTML}{CCCCCC}
+
+\hypersetup{colorlinks=true,urlcolor=dark,linkcolor=dark,
+  pdfauthor={Marius Mihail Ion},pdftitle={CV --- Marius Mihail Ion},
+  pdfsubject={Senior Angular Developer},pdflang={en-US},
+  pdfkeywords={Angular, Frontend, TypeScript, RxJS, NgRx, Architecture}}
+
+\pagestyle{empty}
+\raggedright
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+
+% Section: bold uppercase, letter-spaced, thin rule
+\newfontfamily\sectionfont{Georgia_Bold}[Path=/usr/share/fonts/truetype/msttcorefonts/,Extension=.ttf,LetterSpace=6]
+\titleformat{\section}
+  {\raggedright\normalsize\sectionfont\color{dark}}
+  {}{0em}{\MakeUppercase}[\vspace{2pt}{\color{rulecolor}\hrule height 0.3pt}]
+\titlespacing*{\section}{0pt}{9pt}{4pt}
+
+% Experience header
+\newcommand{\job}[4]{%
+  \vspace{5pt}%
+  {\latosemibold\color{dark}#1\hfill{\latolight\small\color{light}#2}}\par
+  {\itshape\small\color{mid}#3\hfill{\latolight\small\color{light}#4}}\par\vspace{2pt}%
+}
+
+% Context line
+\newcommand{\context}[1]{%
+  {\latolight\itshape\small\color{mid}\hspace{0.8em}#1}\vspace{2pt}%
+}
+
+% Bullet list
+\newenvironment{items}{%
+  \begin{itemize}[leftmargin=1.2em, itemsep=0pt, topsep=2pt, parsep=0pt, label={\color{light}\textbullet}]
+    \normalsize\color{dark}
+}{%
+  \end{itemize}%
+}
+
+% Skill line
+\newcommand{\skill}[2]{%
+  {\normalsize\latosemibold #1\normalfont\enspace\color{mid}#2}\\[3pt]
+}
+
+% Entry line
+\newcommand{\entry}[2]{%
+  {\small #1} \hfill {\latolight\small\color{light} #2}\\[1.5pt]
+}
+
+% Recognition quote
+\newcommand{\recognition}[2]{%
+  \vspace{3pt}{\small\latolight\itshape\color{mid}\textquotedblleft #1\textquotedblright}\\
+  \hfill{\small\latosemibold\color{dark}#2}\vspace{1pt}%
+}
+
+%══════════════════════════════════════════════════════════════
+\begin{document}
+
+% ── HEADER ──
+\begin{center}
+  {\fontsize{20}{24}\selectfont\latosemibold\addfontfeature{LetterSpace=3}\color{dark} Marius Mihail Ion}\\[4pt]
+  {\latomedium\color{mid}\small Senior Angular / Frontend Engineer\enspace\textbar\enspace Enterprise Product Frontend}\\[4pt]
+  {\latolight\footnotesize\color{light}
+    Zaragoza, Spain\enspace\textbar\enspace
+    \href{mailto:mihailmariusion@gmail.com}{mihailmariusion@gmail.com}\enspace\textbar\enspace
+    +34\,662\,439\,252\enspace\textbar\enspace
+    \href{https://linkedin.com/in/mariusdev}{linkedin.com/in/mariusdev}\enspace\textbar\enspace
+    \href{https://github.com/mihailmariusiondev}{github.com/mihailmariusiondev}
+  }\\[3pt]
+  {\small\latosemibold\color{dark} EU Citizen: authorized to work across the EU/EEA without sponsorship}\\[1pt]
+  {\latolight\footnotesize\color{light} Permanent or B2B\enspace\textbar\enspace Remote or hybrid from Zaragoza\enspace\textbar\enspace Available for occasional travel}
+\end{center}
+\vspace{2pt}
+
+% ── SUMMARY ──
+\section{Professional Summary}
+{\normalsize\color{dark}
+Senior Frontend Engineer with software experience since 2018, specialized in Angular and TypeScript since 2021. I have built products for global e-commerce (Zara Home), banking (Santander) and online education (UNIR). My work covers frontend architecture, performance, accessibility, testing, APIs and AI integrations. My full-stack .NET/C\# background (2018--2020) helps when designing authentication and API contracts.
+}
+
+% ── SKILLS ──
+\section{Technical Skills}
+
+\skill{Angular \& TypeScript}{Angular 8--20, Signals, Standalone Components, SSR, lazy loading, RxJS, NgRx, Angular Material/CDK, feature flags}
+
+\skill{Product Frontend}{JavaScript, HTML5, CSS/SCSS, React 17 (project experience), responsive design, design systems, WCAG 2.1 AA accessibility, i18n (Transloco), web performance}
+
+\skill{Testing \& Quality}{Jest, Karma/Jasmine, SonarQube/SonarCloud, ESLint, Prettier, systematic PR review}
+
+\skill{APIs \& Delivery}{REST, OpenAPI/Swagger, OAuth 2.0, JWT, HTTP interceptors, WebRTC, AWS serverless services (Lambda, Cognito, API Gateway, S3), GitHub Actions, Git/GitHub, Jira, Figma, Agile/Scrum}
+
+\skill{AI \& Engineering Tools}{OpenAI Realtime API, WebRTC, LLM integrations, prompt \& context engineering, MCP tooling}
+
+% ── EXPERIENCE ──
+\section{Experience}
+
+\job{Decskill Espa\~na \,\textperiodcentered\, Client: Zara Home (Inditex)}{Zaragoza, Spain}{Senior Front-End Analyst (Angular)}{May 2025 \textendash{} July 2026}
+\context{Zara Home: global, multi-market e-commerce platform}
+\begin{items}
+  \item Built the Angular frontend of Zara Home's AI shopping assistant: real-time voice and text over WebRTC. Released to production behind a feature flag as a controlled pilot.
+  \item Reduced LLM context payload from 570\,KB to 22\,KB per execution through routing and context stripping (\textbf{96\% reduction})
+  \item Delivered a conversational Help Center market by market, with SSR-safe Angular integration, localized routes and accessibility preserved throughout the release
+  \item Audited a 19\,MB JavaScript bundle and \textbf{identified approximately 3.4\,MB} of removable weight. Shipped two PRs with dynamic imports for hls.js and html2canvas, lodash-es removal and a Luxon-to-native-Date migration
+  \item Delivered the account-area migration to passwordless (OTP) authentication: designed dual-path UX driven by \texttt{hasPassword}, with OTP flows for email change and password creation, validated end-to-end on the pre-integration environment across four documented scenarios
+  \item Closed 34 WCAG 2.1 AA findings from a formal accessibility audit: heading hierarchy site-wide, keyboard navigation, ARIA semantics and focus management
+\end{items}
+
+% ── AVANADE ──
+\job{Avanade Spain \,\textperiodcentered\, Client: UNIR}{Remote, Spain}{Senior Front-End Analyst (Angular)}{March 2024 \textendash{} May 2025}
+\context{UNIR: online university in Spain. Administrative back-office for student management}
+\begin{items}
+  \item Acted as the hands-on frontend technical reference, guiding Angular architecture, component design and code-quality decisions across the team
+  \item Defined the core architecture: authentication flows, admin UI, centralized permissions and navigation
+  \item Worked within an Nx monorepo and refactored the Admissions module, removing circular dependencies and centralizing permissions logic
+  \item Introduced linting, formatting and unit testing to a back-office that had none, plus review protocols and quality gates
+  \item Mentored the team on Angular practices, ran SonarQube analysis sessions and received an \textbf{Inspire Greatness} award (August 2024)
+\end{items}
+
+% ── VERMONT ──
+\newpage
+\job{Vermont Solutions (Viewnext / IBM) \,\textperiodcentered\, Client: Santander}{Madrid, Spain}{Senior Front-End Developer (Angular)}{December 2022 \textendash{} March 2024}
+\context{Santander: banking applications for transaction monitoring, employee management and real estate operations}
+\begin{items}
+  \item Senior Angular reference across three concurrent banking applications, leading day-to-day delivery with the backend, design and Scrum teams
+  \item Led a team of 5 on an internal mobile banking app (employees managing their own transactions and cards), and was the senior technical reference for a team of 4 on Santander's internal real-estate portal
+  \item Built a transaction-monitoring dashboard with Chart.js (bar and donut charts) and gesture interactions with HammerJS. On one project, I owned around 80\% of the front-end implementation
+  \item Implemented Figma designs as Angular components on Santander's internal frontend platform: Flame design system, NgDarwin security/logging libraries, Storybook and Nexus for internal packages
+  \item Kept quality high with systematic unit testing (Karma, Jasmine) and static analysis (SonarQube, ESLint, Fortify), paying down technical debt along the way
+\end{items}
+
+% ── CLOUDAPPI ──
+\job{CloudAPPi}{Madrid, Spain}{Mid-Level Front-End Developer (Angular, React)}{October \textendash{} December 2022}
+\context{Two-month contract for the Regional Government of Madrid.}
+\begin{items}
+  \item Built authentication flows and incremental improvements on \textbf{Madrid Digital}, a legacy Angular 8 monolith (Angular Material, RxJS)
+  \item Also contributed to a React project (ReactJS 17, Redux Toolkit, Material UI)
+\end{items}
+
+% ── ENZO ──
+\job{ENZO (Rent \& Buy S.A.)}{Madrid, Spain}{Mid-Level Front-End Developer (Angular)}{September 2021 \textendash{} October 2022}
+\context{Small company where I moved from .NET into Angular frontend development on an existing AWS serverless architecture.}
+\begin{items}
+  \item Built reusable Angular components against a serverless AWS backend (Lambda, API Gateway, S3, CloudFront, SQS/SNS) and authentication flows with AWS Cognito
+  \item Onboarded new team members on architecture and Angular practices, and joined English-language client meetings and requirement gathering
+\end{items}
+
+% ── PREVIOUS ──
+\vspace{4pt}
+{\latosemibold\small\color{dark} Earlier Experience}\vspace{1pt}
+\context{Before specializing in Angular in 2021: full-stack .NET roles (2018 \textendash{} 2020) and a career break with personal projects and training.}
+\begin{items}
+  \item \textbf{Independent Projects \& Upskilling} \,\textperiodcentered\, WordPress development (themes, plugins, SEO), Office automation tooling and structured frontend upskilling, June 2020 \textendash{} September 2021
+  \item \textbf{Altran (Capgemini)} \,\textperiodcentered\, Mid-Level Full Stack Developer (.NET), March \textendash{} June 2020
+  \item \textbf{IO Digital (Query Software)} \,\textperiodcentered\, Mid-Level Full Stack Developer (.NET), November 2018 \textendash{} September 2019
+  \item \textbf{STRATESYS} \,\textperiodcentered\, Junior Full Stack Developer (.NET), July \textendash{} November 2018
+\end{items}
+
+% ── CERTIFICATIONS ──
+\section{Certifications \& Education}
+
+\entry{\textbf{Angular assessment: 95\% score, top 1.42\% of all candidates} \,\textperiodcentered\, SkillValue}{September 2022}
+\entry{Green Software for Practitioners \,\textperiodcentered\, Linux Foundation + Green Software Foundation}{2025}
+\entry{Higher Technician in Multi-platform Applications Development \,\textperiodcentered\, Joyfe College, Madrid}{2017 \textendash{} 2018}
+
+% ── LANGUAGES ──
+\section{Languages}
+
+{\small
+\textbf{Spanish:} Native \quad\textbar\quad
+\textbf{Romanian:} Native \quad\textbar\quad
+\textbf{English:} Professional working proficiency
+}
+
+% ── RECOGNITION ──
+\section{Recognition}
+
+\recognition{Working with Marius has been a real pleasure. I especially highlight his initiative with AI tools applied to development, from which I learned a great deal working side by side with him. Any team would be more than fortunate to count on someone with his technical level and his attitude. (Translated from Spanish.)}{Juan Pablo Romero Pereira, Frontend Developer, Zara Home (Inditex)}
+
+\end{document}
